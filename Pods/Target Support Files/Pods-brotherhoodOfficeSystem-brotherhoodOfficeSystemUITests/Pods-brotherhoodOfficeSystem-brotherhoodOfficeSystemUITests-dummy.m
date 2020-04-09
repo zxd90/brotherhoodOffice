@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_brotherhoodOfficeSystem_brotherhoodOfficeSystemUITests : NSObject
+@end
+@implementation PodsDummy_Pods_brotherhoodOfficeSystem_brotherhoodOfficeSystemUITests
+@end

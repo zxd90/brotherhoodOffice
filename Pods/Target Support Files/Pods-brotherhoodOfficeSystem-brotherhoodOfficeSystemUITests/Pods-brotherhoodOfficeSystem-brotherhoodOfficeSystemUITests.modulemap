@@ -1,0 +1,6 @@
+framework module Pods_brotherhoodOfficeSystem_brotherhoodOfficeSystemUITests {
+  umbrella header "Pods-brotherhoodOfficeSystem-brotherhoodOfficeSystemUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

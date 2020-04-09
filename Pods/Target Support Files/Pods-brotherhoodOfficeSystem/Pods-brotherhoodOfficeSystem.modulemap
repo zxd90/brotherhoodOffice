@@ -1,0 +1,6 @@
+framework module Pods_brotherhoodOfficeSystem {
+  umbrella header "Pods-brotherhoodOfficeSystem-umbrella.h"
+
+  export *
+  module * { export * }
+}

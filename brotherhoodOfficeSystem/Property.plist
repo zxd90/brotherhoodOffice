@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>考勤</string>
+		<key>image</key>
+		<string>shouyekaoqin</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>qingjia</string>
+		<key>title</key>
+		<string>请假</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>ruzhi</string>
+		<key>title</key>
+		<string>入职</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>lizhi</string>
+		<key>title</key>
+		<string>离职</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>daiban</string>
+		<key>title</key>
+		<string>待办事项</string>
+	</dict>
+</array>
+</plist>
