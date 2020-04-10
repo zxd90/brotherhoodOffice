@@ -15,6 +15,9 @@
 		F72FA1C3243DAD5A000343FC /* Property.plist in Resources */ = {isa = PBXBuildFile; fileRef = F72FA1C2243DAD5A000343FC /* Property.plist */; };
 		F74677E3244022020093D5D1 /* TextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F74677E2244022020093D5D1 /* TextViewCell.m */; };
 		F74677E6244023540093D5D1 /* PlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F74677E5244023540093D5D1 /* PlaceholderTextView.m */; };
+		F74677EA244052340093D5D1 /* ZXDmethod.m in Sources */ = {isa = PBXBuildFile; fileRef = F74677E9244052340093D5D1 /* ZXDmethod.m */; };
+		F74677ED244059FE0093D5D1 /* Homeheader.m in Sources */ = {isa = PBXBuildFile; fileRef = F74677EC244059FE0093D5D1 /* Homeheader.m */; };
+		F74677F12440683D0093D5D1 /* UIView+WLFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F74677F02440683D0093D5D1 /* UIView+WLFrame.m */; };
 		F787B5B324231D2500411DED /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F787B5AB24231D2400411DED /* AccountViewController.m */; };
 		F787B5B524231D2500411DED /* HomepageController.m in Sources */ = {isa = PBXBuildFile; fileRef = F787B5B124231D2500411DED /* HomepageController.m */; };
 		F787B5B624231D2500411DED /* MyCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F787B5B224231D2500411DED /* MyCityViewController.m */; };
@@ -77,6 +80,12 @@
 		F74677E2244022020093D5D1 /* TextViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextViewCell.m; sourceTree = "<group>"; };
 		F74677E4244023540093D5D1 /* PlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceholderTextView.h; sourceTree = "<group>"; };
 		F74677E5244023540093D5D1 /* PlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceholderTextView.m; sourceTree = "<group>"; };
+		F74677E8244052340093D5D1 /* ZXDmethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZXDmethod.h; sourceTree = "<group>"; };
+		F74677E9244052340093D5D1 /* ZXDmethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZXDmethod.m; sourceTree = "<group>"; };
+		F74677EB244059FE0093D5D1 /* Homeheader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Homeheader.h; sourceTree = "<group>"; };
+		F74677EC244059FE0093D5D1 /* Homeheader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Homeheader.m; sourceTree = "<group>"; };
+		F74677EF2440683D0093D5D1 /* UIView+WLFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WLFrame.h"; sourceTree = "<group>"; };
+		F74677F02440683D0093D5D1 /* UIView+WLFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WLFrame.m"; sourceTree = "<group>"; };
 		F787B5AB24231D2400411DED /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		F787B5AD24231D2400411DED /* HomepageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomepageController.h; sourceTree = "<group>"; };
 		F787B5AF24231D2500411DED /* MyCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCityViewController.h; sourceTree = "<group>"; };
@@ -185,6 +194,8 @@
 			children = (
 				F787B5AD24231D2400411DED /* HomepageController.h */,
 				F787B5B124231D2500411DED /* HomepageController.m */,
+				F74677EB244059FE0093D5D1 /* Homeheader.h */,
+				F74677EC244059FE0093D5D1 /* Homeheader.m */,
 				F72FA1B6243D84D1000343FC /* attendance */,
 				F7A8F45D243DEFFF0084D386 /* askForLeave */,
 				F7A8F45E243DF0320084D386 /* induction */,
@@ -213,6 +224,24 @@
 				F7A8F46E243DF1190084D386 /* AttendController.m */,
 			);
 			path = attendance;
+			sourceTree = "<group>";
+		};
+		F74677E7244051D20093D5D1 /*  NSObject */ = {
+			isa = PBXGroup;
+			children = (
+				F74677E8244052340093D5D1 /* ZXDmethod.h */,
+				F74677E9244052340093D5D1 /* ZXDmethod.m */,
+			);
+			path = " NSObject";
+			sourceTree = "<group>";
+		};
+		F74677EE2440683D0093D5D1 /* UIview+WLFrame */ = {
+			isa = PBXGroup;
+			children = (
+				F74677EF2440683D0093D5D1 /* UIView+WLFrame.h */,
+				F74677F02440683D0093D5D1 /* UIView+WLFrame.m */,
+			);
+			path = "UIview+WLFrame";
 			sourceTree = "<group>";
 		};
 		F7A8F45D243DEFFF0084D386 /* askForLeave */ = {
@@ -328,6 +357,8 @@
 				F787B5B224231D2500411DED /* MyCityViewController.m */,
 				F7F0460D2420AA7700365A65 /* ViewController.h */,
 				F7F0460E2420AA7700365A65 /* ViewController.m */,
+				F74677EE2440683D0093D5D1 /* UIview+WLFrame */,
+				F74677E7244051D20093D5D1 /*  NSObject */,
 				F7F0463D2420AD1900365A65 /* Singleton.h */,
 				F787B5B724231E7D00411DED /* PrefixHeader.pch */,
 				F72FA1C2243DAD5A000343FC /* Property.plist */,
@@ -641,6 +672,7 @@
 				F7F0460F2420AA7700365A65 /* ViewController.m in Sources */,
 				F7BB179B243C137F003A19D1 /* NNNavigationController.m in Sources */,
 				F7F046092420AA7700365A65 /* AppDelegate.m in Sources */,
+				F74677ED244059FE0093D5D1 /* Homeheader.m in Sources */,
 				F7A8F472243DFDD90084D386 /* AskTableViewCell.m in Sources */,
 				F787B5B624231D2500411DED /* MyCityViewController.m in Sources */,
 				F74677E3244022020093D5D1 /* TextViewCell.m in Sources */,
@@ -655,8 +687,10 @@
 				F7A8F469243DF0C20084D386 /* InductionController.m in Sources */,
 				F787B5B324231D2500411DED /* AccountViewController.m in Sources */,
 				F7F0461A2420AA7C00365A65 /* main.m in Sources */,
+				F74677EA244052340093D5D1 /* ZXDmethod.m in Sources */,
 				F7BB17A0243C1F77003A19D1 /* LoginViewController.m in Sources */,
 				F7C5C329242A486E00A75289 /* UIView+EXTENSION.m in Sources */,
+				F74677F12440683D0093D5D1 /* UIView+WLFrame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

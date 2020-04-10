@@ -22,13 +22,14 @@
     [super viewDidLoad];
     self.title =@"请假";
     self.tableView.hidden = NO;
-    _dataArray=@[@[@"姓名",@"部门",@"职位"],@[@"请假类型",@"开始时间",@"结束时间"],@[@"请假原因"]];
+    [self.view addSubview:self.button];
+_dataArray=@[@[@"姓名",@"部门",@"职位"],@[@"请假类型",@"开始时间",@"结束时间"],@[@"请假原因"]];
 }
 
 #pragma mark - lazy
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,ScreenW , ScreenH) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, ScreenH-SK_TabbarSafeBottomMargin-50) style:UITableViewStylePlain];
         _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.dataSource = self;
         _tableView.delegate = self;
@@ -39,7 +40,12 @@
 
 - (UIButton *)button{
     if (!_button) {
-        
+        _button= [[UIButton alloc] initWithFrame:CGRectMake(0, ScreenH-SK_TabbarSafeBottomMargin-50,ScreenW, 50)];
+           [_button setBackgroundImage:[ZXDmethod ButtonColorLayer] forState:UIControlStateNormal];
+            [_button setTitle:@"提交" forState:UIControlStateNormal];
+            [_button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+          [_button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+                 
     }
     return _button;
 }
@@ -57,14 +63,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-     if (section==0) {
-        return [_dataArray[section]count];
-       }else if(section==1) {
-        return [_dataArray[section]count];
-       }else{
-        return [_dataArray[section]count];
-    }
-
+   
+    return [_dataArray[section]count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -62,7 +62,7 @@
     [_loginBut.layer setCornerRadius:5.0];
     [_loginBut setTitle:@"登录" forState:UIControlStateNormal];
     [_loginBut setTitleColor:[UIColor whiteColor]forState:UIControlStateNormal];
-    [_loginBut setBackgroundImage:[self ButtonColorLayer] forState:UIControlStateNormal];
+    [_loginBut setBackgroundImage:[ZXDmethod ButtonColorLayer] forState:UIControlStateNormal];
 //    _loginBut.backgroundColor =RGBA(66, 153, 16, 1);
     [_loginBut addTarget:self action:@selector(login_btn) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_loginBut];
@@ -86,17 +86,5 @@
 }
 
 
--(UIImage *)ButtonColorLayer{
-    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
-    gradientLayer.frame = CGRectMake(20, 0, ScreenW-40, 50);  // 设置显示的frame
-    gradientLayer.colors = @[(id)RGBA(66, 153, 16, 1).CGColor,(id)RGBA(78, 195, 11, 1).CGColor];  // 设置渐变颜色
-    gradientLayer.locations = @[@0.0,@0.7];    // 颜色的起点位置，递增，并且数量跟颜色数量相等
-    gradientLayer.startPoint = CGPointMake(0, 0);   //
-    gradientLayer.endPoint = CGPointMake(1, 0);
-    UIGraphicsBeginImageContext(gradientLayer.frame.size);
-    [gradientLayer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *outputImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return outputImage;
-}
+
 @end

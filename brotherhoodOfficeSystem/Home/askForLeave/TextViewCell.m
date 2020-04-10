@@ -27,7 +27,7 @@
 -(void)autoLayout{
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
      make.left.mas_equalTo(self.contentView.mas_left).offset(16);
-     make.top.mas_equalTo(self.contentView.mas_centerY).offset(-10);
+     make.top.mas_equalTo(self.contentView.mas_top).offset(10);
          make.height.mas_equalTo(20);
            }];
     self.textView = [[PlaceholderTextView alloc]init];
@@ -35,7 +35,7 @@
     self.textView.backgroundColor= RGB(238, 238, 238);
     self.textView.frame = (CGRect){16,40,ScreenW-32,100};
     self.textView.font = [UIFont systemFontOfSize:15];
-    self.textView.maxLength = 500;
+    self.textView.maxLength = 100;
     self.textView.layer.cornerRadius = 5.f;
     self.textView.layer.borderColor = [[UIColor grayColor]colorWithAlphaComponent:0.3].CGColor;
      self.textView.layer.borderWidth = 0.5f;
@@ -53,18 +53,10 @@
     }
     return _titleLabel ;
 }
-- (UITableView *)tableView
-{
-    UIView *tableView = self.superview;
-    while (![tableView isKindOfClass:[UITableView class]] && tableView) {
-        tableView = tableView.superview;
-    }
-    return (UITableView *)tableView;
-}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
 }
-
 @end

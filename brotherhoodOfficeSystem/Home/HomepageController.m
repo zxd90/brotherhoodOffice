@@ -13,9 +13,11 @@
 #import "InductionController.h"
 #import "DepartureController.h"
 #import "todoController.h"
+#import "Homeheader.h"
 @interface HomepageController ()<UITableViewDelegate,UITableViewDataSource,OnTapBtnViewDelegate>
 @property(nonatomic,copy)NSMutableArray *menuArray;
 @property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic,strong) Homeheader *headerView;
 @end
 
 @implementation HomepageController
@@ -52,19 +54,15 @@
 #pragma mark -创建TableView
 
 - (void)setUpTableView {
-    UIView *view=[[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenW, 200)];
-    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
-    gradientLayer.frame = view.frame;
-     gradientLayer.colors = @[(id)RGBA(55, 145, 240, 1).CGColor,(id)RGBA(47, 109, 224, 1).CGColor];  // 设置渐变颜色
-     gradientLayer.locations = @[@0.0,@0.7];    // 颜色的起点位置，递增，并且数量跟颜色数量相等
-     gradientLayer.startPoint = CGPointMake(0.3, 0);   //
-     gradientLayer.endPoint = CGPointMake(0.5, 1);
-     [view.layer addSublayer:gradientLayer];
+    _headerView=[[Homeheader alloc]initWithFrame:CGRectMake(0, 0, ScreenW, 200)];
+    _headerView.scopeLabel.text=@"您已到达考勤范围内";
+    _headerView.locationLabel.text=@"当前位置:盛景大厦地下停车场";
+    [_headerView.locationLabel sizeToFit];
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
-    self.tableView.tableHeaderView=view;
+    self.tableView.tableHeaderView=_headerView;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
@@ -158,6 +156,7 @@ return  1;
                {
                todoController *todoVC = [[todoController alloc]init];
                [self.navigationController pushViewController:todoVC animated:YES];
+                    
                }
                    break;
                default:

@@ -45,7 +45,7 @@
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc]initWithFrame:CGRectZero];
         _titleLabel.font = [UIFont systemFontOfSize:16];
-       
+        _titleLabel.text =@"2311324324";
     }
     return _titleLabel ;
 }
