@@ -15,25 +15,29 @@
     
 }
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
+  
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
 
        [self.contentView addSubview:self.titleLabel]; //标题文字
 //       [self addSubview:self.rightImg] ; //右侧箭头
        [self.contentView addSubview:self.TextField]; //右侧扩展说明内容
+        [self autoLayout];
+        self.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"right.png"]];
+      
+        
     }
     return self;
 }
 //布局
--(void)layoutSubviews{
+-(void)autoLayout{
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
       make.left.mas_equalTo(self.contentView.mas_left).offset(16);
-       make.top.mas_equalTo(self.contentView.mas_top).offset(8);
+   make.top.mas_equalTo(self.contentView.mas_centerY).offset(-10);
        make.height.mas_equalTo(20);
          }];
      [self.TextField mas_makeConstraints:^(MASConstraintMaker *make) {
      make.top.mas_equalTo(self.contentView.mas_top).offset(16);
-make.right.mas_equalTo(self.contentView.mas_right).offset(-20);
+make.right.mas_equalTo(self.contentView.mas_right).offset(-60);
      make.height.mas_equalTo(20);
     
         }];
@@ -43,7 +47,7 @@ make.right.mas_equalTo(self.contentView.mas_right).offset(-20);
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc]initWithFrame:CGRectZero];
         _titleLabel.font = [UIFont systemFontOfSize:16];
-        _titleLabel.text =@"请假类型";
+       
     }
     return _titleLabel ;
 }
@@ -52,7 +56,7 @@ make.right.mas_equalTo(self.contentView.mas_right).offset(-20);
     if (!_TextField) {
         _TextField = [[UITextField alloc]initWithFrame:CGRectZero];
         _TextField.font = [UIFont systemFontOfSize:14];
-        _TextField.placeholder =@"请输入";
+        _TextField.text =@"请输入....";
     }
     return _TextField ;
 }

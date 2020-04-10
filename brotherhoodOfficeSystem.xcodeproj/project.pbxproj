@@ -13,6 +13,8 @@
 		F72FA1BE243DAC44000343FC /* HomeMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F72FA1BA243DAC44000343FC /* HomeMenuCell.m */; };
 		F72FA1BF243DAC44000343FC /* JZMTBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = F72FA1BD243DAC44000343FC /* JZMTBtnView.m */; };
 		F72FA1C3243DAD5A000343FC /* Property.plist in Resources */ = {isa = PBXBuildFile; fileRef = F72FA1C2243DAD5A000343FC /* Property.plist */; };
+		F74677E3244022020093D5D1 /* TextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F74677E2244022020093D5D1 /* TextViewCell.m */; };
+		F74677E6244023540093D5D1 /* PlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F74677E5244023540093D5D1 /* PlaceholderTextView.m */; };
 		F787B5B324231D2500411DED /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F787B5AB24231D2400411DED /* AccountViewController.m */; };
 		F787B5B524231D2500411DED /* HomepageController.m in Sources */ = {isa = PBXBuildFile; fileRef = F787B5B124231D2500411DED /* HomepageController.m */; };
 		F787B5B624231D2500411DED /* MyCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F787B5B224231D2500411DED /* MyCityViewController.m */; };
@@ -71,6 +73,10 @@
 		F72FA1BC243DAC44000343FC /* JZMTBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZMTBtnView.h; sourceTree = "<group>"; };
 		F72FA1BD243DAC44000343FC /* JZMTBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZMTBtnView.m; sourceTree = "<group>"; };
 		F72FA1C2243DAD5A000343FC /* Property.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Property.plist; sourceTree = "<group>"; };
+		F74677E1244022020093D5D1 /* TextViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextViewCell.h; sourceTree = "<group>"; };
+		F74677E2244022020093D5D1 /* TextViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextViewCell.m; sourceTree = "<group>"; };
+		F74677E4244023540093D5D1 /* PlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceholderTextView.h; sourceTree = "<group>"; };
+		F74677E5244023540093D5D1 /* PlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceholderTextView.m; sourceTree = "<group>"; };
 		F787B5AB24231D2400411DED /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		F787B5AD24231D2400411DED /* HomepageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomepageController.h; sourceTree = "<group>"; };
 		F787B5AF24231D2500411DED /* MyCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCityViewController.h; sourceTree = "<group>"; };
@@ -218,6 +224,10 @@
 				F7A8F471243DFDD90084D386 /* AskTableViewCell.m */,
 				F7A8F473243DFF5E0084D386 /* SelecTableViewCell.h */,
 				F7A8F474243DFF5E0084D386 /* SelecTableViewCell.m */,
+				F74677E1244022020093D5D1 /* TextViewCell.h */,
+				F74677E2244022020093D5D1 /* TextViewCell.m */,
+				F74677E4244023540093D5D1 /* PlaceholderTextView.h */,
+				F74677E5244023540093D5D1 /* PlaceholderTextView.m */,
 			);
 			path = askForLeave;
 			sourceTree = "<group>";
@@ -633,7 +643,9 @@
 				F7F046092420AA7700365A65 /* AppDelegate.m in Sources */,
 				F7A8F472243DFDD90084D386 /* AskTableViewCell.m in Sources */,
 				F787B5B624231D2500411DED /* MyCityViewController.m in Sources */,
+				F74677E3244022020093D5D1 /* TextViewCell.m in Sources */,
 				F7A8F475243DFF5E0084D386 /* SelecTableViewCell.m in Sources */,
+				F74677E6244023540093D5D1 /* PlaceholderTextView.m in Sources */,
 				F72FA1BF243DAC44000343FC /* JZMTBtnView.m in Sources */,
 				F7A8F46F243DF1190084D386 /* AttendController.m in Sources */,
 				F7BB179C243C137F003A19D1 /* NNTabBarController.m in Sources */,

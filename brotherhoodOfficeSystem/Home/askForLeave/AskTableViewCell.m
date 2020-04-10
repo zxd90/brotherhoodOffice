@@ -20,21 +20,23 @@
     if (self) {
        [self.contentView addSubview:self.titleLabel]; //标题文字
        [self.contentView addSubview:self.rightLabel]; //右侧扩展说明内容
+    
     }
     return self;
 }
 
 //布局
 -(void)layoutSubviews{
+    [super layoutSubviews];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
      make.left.mas_equalTo(self.contentView.mas_left).offset(16);
-     make.top.mas_equalTo(self.contentView.mas_top).offset(8);
+     make.top.mas_equalTo(self.contentView.mas_centerY).offset(-10);
      make.height.mas_equalTo(20);
        }];
    [self.rightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
   
    make.top.mas_equalTo(self.contentView.mas_top).offset(16);
-   make.right.mas_equalTo(self.contentView.mas_right).offset(-20);
+ make.right.mas_equalTo(self.contentView.mas_right).offset(-20);
    make.height.mas_equalTo(20);
   
       }];
@@ -43,7 +45,7 @@
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc]initWithFrame:CGRectZero];
         _titleLabel.font = [UIFont systemFontOfSize:16];
-        _titleLabel.text=@"项目";
+       
     }
     return _titleLabel ;
 }
@@ -51,7 +53,7 @@
     if (!_rightLabel) {
         _rightLabel = [[UILabel alloc]initWithFrame:CGRectZero];
         _rightLabel.font = [UIFont systemFontOfSize:14] ;
-        _rightLabel.text=@"11231224";
+      
     }
     return _rightLabel ;
 }
