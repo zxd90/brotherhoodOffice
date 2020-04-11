@@ -62,7 +62,7 @@
     [_loginBut.layer setCornerRadius:5.0];
     [_loginBut setTitle:@"登录" forState:UIControlStateNormal];
     [_loginBut setTitleColor:[UIColor whiteColor]forState:UIControlStateNormal];
-    [_loginBut setBackgroundImage:[ZXDmethod ButtonColorLayer] forState:UIControlStateNormal];
+    [_loginBut setBackgroundImage:[ZXDmethod loginColorLayer] forState:UIControlStateNormal];
 //    _loginBut.backgroundColor =RGBA(66, 153, 16, 1);
     [_loginBut addTarget:self action:@selector(login_btn) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_loginBut];

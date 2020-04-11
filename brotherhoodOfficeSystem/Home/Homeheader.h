@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)UILabel *locationLabel;
 @property(nonatomic,strong)UIImageView *locationImage;
 @property(nonatomic,strong)UIButton *workButton;
+-(instancetype)initWithFrame:(CGRect)frame str:(NSString*)str;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -1,8 +1,8 @@
 //
-//  SelecTableViewCell.h
+//  inductionCell.h
 //  brotherhoodOfficeSystem
 //
-//  Created by 费腾 on 2020/4/8.
+//  Created by XDT on 2020/4/11.
 //  Copyright © 2020 兄弟团国际. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SelecTableViewCell : UITableViewCell
+@interface inductionCell : UITableViewCell
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)UITextField *textField;
 @end

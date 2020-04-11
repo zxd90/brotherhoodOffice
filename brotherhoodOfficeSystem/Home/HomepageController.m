@@ -54,10 +54,9 @@
 #pragma mark -创建TableView
 
 - (void)setUpTableView {
-    _headerView=[[Homeheader alloc]initWithFrame:CGRectMake(0, 0, ScreenW, 200)];
+    _headerView=[[Homeheader alloc]initWithFrame:CGRectMake(0, 0, ScreenW, 220)str:@"当前位置:盛景大厦地下停车场"];
     _headerView.scopeLabel.text=@"您已到达考勤范围内";
-    _headerView.locationLabel.text=@"当前位置:盛景大厦地下停车场";
-    [_headerView.locationLabel sizeToFit];
+    
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

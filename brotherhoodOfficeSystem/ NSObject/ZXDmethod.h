@@ -11,7 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ZXDmethod : NSObject
+//计算文字宽度
++(CGFloat)calculateRowWidth:(NSString *)string Font:(CGFloat)font;
 +(UIImage *)ButtonColorLayer;
++(UIImage *)loginColorLayer;
 + (void)rotate360DegreeWithImageView:(UIImageView *)imageView;
 @end
 

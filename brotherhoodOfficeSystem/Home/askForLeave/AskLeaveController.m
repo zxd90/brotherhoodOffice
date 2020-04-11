@@ -29,7 +29,7 @@ _dataArray=@[@[@"姓名",@"部门",@"职位"],@[@"请假类型",@"开始时间",
 #pragma mark - lazy
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, ScreenH-SK_TabbarSafeBottomMargin-50) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, ScreenH-SK_TabbarSafeBottomMargin-40) style:UITableViewStylePlain];
         _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.dataSource = self;
         _tableView.delegate = self;
@@ -40,7 +40,7 @@ _dataArray=@[@[@"姓名",@"部门",@"职位"],@[@"请假类型",@"开始时间",
 
 - (UIButton *)button{
     if (!_button) {
-        _button= [[UIButton alloc] initWithFrame:CGRectMake(0, ScreenH-SK_TabbarSafeBottomMargin-50,ScreenW, 50)];
+        _button= [[UIButton alloc] initWithFrame:CGRectMake(0, ScreenH-SK_TabbarSafeBottomMargin-40,ScreenW, 40+SK_TabbarSafeBottomMargin)];
            [_button setBackgroundImage:[ZXDmethod ButtonColorLayer] forState:UIControlStateNormal];
             [_button setTitle:@"提交" forState:UIControlStateNormal];
             [_button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -75,12 +75,12 @@ _dataArray=@[@[@"姓名",@"部门",@"职位"],@[@"请假类型",@"开始时间",
              if (!cell) {
                  cell = [[AskTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
              }
-  cell.titleLabel.text=_dataArray[indexPath.section][indexPath.row];
+         cell.titleLabel.text=_dataArray[indexPath.section][indexPath.row];
          cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
          return cell;
     }else  if(indexPath.section==1){
-            static NSString *CellIdentifier = @"AskTableViewCell";
+            static NSString *CellIdentifier = @"SelecTableViewCell";
               SelecTableViewCell *cell = [[SelecTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
                 if (!cell) {
                 cell=[[SelecTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
@@ -101,7 +101,13 @@ _dataArray=@[@[@"姓名",@"部门",@"职位"],@[@"请假类型",@"开始时间",
     }
     
 }
-
+//使cell的下划线顶头
+-(void)tableView:(UITableView* )tableView willDisplayCell:(UITableViewCell* )cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+[cell setSeparatorInset:UIEdgeInsetsMake(0, 15, 0, 15)];
+    }
+}
 #pragma mark - delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
