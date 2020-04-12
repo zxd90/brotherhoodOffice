@@ -36,7 +36,7 @@
 #define SK_TabbarHeight (iPhoneX ? (49.f+34.f) : 49.f)
 
 //色值
-
+#define RGBNav  colorWithRed:155/256.0 green:89/256.0 blue:183/256.0 alpha:1
 #define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 
 #define RGB(r,g,b) RGBA(r,g,b,1.0f)
@@ -84,7 +84,7 @@
 
 */
 
-#define kAPI_URL @""
+#define kAPI_URL @"https://www.zyyhy.cn/"
 
 /**
 
@@ -93,6 +93,19 @@
 */
 
 #define YBWeakSelf __weak typeof(self) weakSelf = self;
+
+/**
+ 1、存值
+ */
+
+
+#define kSaveMyDefault(A,B) [[NSUserDefaults standardUserDefaults] setObject:B forKey:A]
+/**
+ 2、取值
+ */
+
+
+#define kFetchMyDefault(A) [[NSUserDefaults standardUserDefaults] objectForKey:A]
 
 /**
 
@@ -108,7 +121,11 @@
 #import <IQKeyboardManager.h>
 #import <AFNetworking.h>
 #import <MJExtension.h>
+#import "MBProgressHUD.h"
 //文件引用
 #import "ZXDmethod.h"
 #import "UIView+WLFrame.h"
+#import "PWAlertView.h"
+#import "ELNAlerTool.h"
+#import "ZXDNetworking.h"
 #endif /* PrefixHeader_pch */

@@ -37,6 +37,7 @@
     }];
     _accoutText = [[loginTextField  alloc]init];
     _accoutText.placeholder = @"用户名";
+    self.accoutText.text=@"本部门员工";
     _accoutText.font =PFR17Font;
     [self.view addSubview:_accoutText];
     [_accoutText mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -48,6 +49,7 @@
     _passWordText = [[loginTextField  alloc]init];
     _passWordText.font =PFR17Font;
     _passWordText.placeholder = @"密码";
+    self.passWordText.text=@"123";
     _passWordText.secureTextEntry = YES;
     [self.view addSubview:_passWordText];
     [_passWordText mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -76,13 +78,34 @@
 
 }
 -(void)login_btn{
-    ZDLog(@"%@", self.accoutText.text);
-    ZDLog(@"%@", self.passWordText.text);
+    ZDLog(@"%@",self.accoutText.text );
+    ZDLog(@"%@",self.passWordText.text );
+    if (self.accoutText.text==nil&& self.passWordText.text==nil) {
+          [ELNAlerTool showAlertMassgeWithController:self andMessage:@"请输入用户名和密码" andInterval:1.0];
+          return;
+      }else if (self.passWordText.text==nil){
+          [ELNAlerTool showAlertMassgeWithController:self andMessage:@"请输入密码" andInterval:1.0];
+          return;
+
+        ;
+      }else if (self.accoutText.text==nil){
+          [ELNAlerTool showAlertMassgeWithController:self andMessage:@"请输入用户名" andInterval:1.0];
+          return;
+      }else{
+        
+    NSString *urlStr =[NSString stringWithFormat:@"%@app/xdtapp/api/v1/login/doLogin",kAPI_URL];
+    NSDictionary *dict = @{@"userName":self.accoutText.text,@"password":self.passWordText.text};
+    [ZXDNetworking POST:urlStr parameters:dict success:^(id responseObject) {
+        kSaveMyDefault(@"",@"token");
+        NNTabBarController   *NNTab  = [[NNTabBarController alloc] init];
+         NNTab.modalTransitionStyle =UIModalTransitionStyleCrossDissolve ;
+           UIWindow *window = [UIApplication sharedApplication].delegate.window;
+           window.rootViewController = NNTab;
+    } failure:^(NSError *error) {
+        
+    } view:self.view];
     
-    NNTabBarController   *NNTab  = [[NNTabBarController alloc] init];
-    NNTab.modalTransitionStyle =UIModalTransitionStyleCrossDissolve ;
-      UIWindow *window = [UIApplication sharedApplication].delegate.window;
-      window.rootViewController = NNTab;
+  }
 }
 
 
