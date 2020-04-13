@@ -31,7 +31,7 @@
 [super layoutSubviews];
     //计算文字的宽度
 
-  CGFloat  width = [ZXDmethod calculateRowWidth:self.titleLabel.text Font:16];
+  CGFloat  width = [ZXDmethod calculateRowWidth:self.titleLabel.text Font:17.0];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.contentView.mas_left).offset(16);
       make.top.mas_equalTo(self.contentView.mas_centerY).offset(-10);
@@ -51,7 +51,7 @@
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc]initWithFrame:CGRectZero];
         _titleLabel.numberOfLines = 1;
-         _titleLabel.font = [UIFont systemFontOfSize:16];
+         _titleLabel.font = [UIFont systemFontOfSize:16.0];
     }
     return _titleLabel ;
 }

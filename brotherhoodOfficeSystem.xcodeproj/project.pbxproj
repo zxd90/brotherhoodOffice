@@ -39,6 +39,8 @@
 		F7BB179C243C137F003A19D1 /* NNTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BB179A243C137F003A19D1 /* NNTabBarController.m */; };
 		F7BB17A0243C1F77003A19D1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BB179F243C1F77003A19D1 /* LoginViewController.m */; };
 		F7BB17A3243C51C0003A19D1 /* loginTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BB17A2243C51C0003A19D1 /* loginTextField.m */; };
+		F7BC578E24449B020031DB2E /* BRTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC578A24449B020031DB2E /* BRTextField.m */; };
+		F7BC578F24449B020031DB2E /* NSDate+BRAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC578C24449B020031DB2E /* NSDate+BRAdd.m */; };
 		F7C5C328242A486E00A75289 /* UIButton+BBTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C5C324242A486E00A75289 /* UIButton+BBTButton.m */; };
 		F7C5C329242A486E00A75289 /* UIView+EXTENSION.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C5C327242A486E00A75289 /* UIView+EXTENSION.m */; };
 		F7F046092420AA7700365A65 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F046082420AA7700365A65 /* AppDelegate.m */; };
@@ -136,6 +138,10 @@
 		F7BB179F243C1F77003A19D1 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		F7BB17A1243C51C0003A19D1 /* loginTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginTextField.h; sourceTree = "<group>"; };
 		F7BB17A2243C51C0003A19D1 /* loginTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginTextField.m; sourceTree = "<group>"; };
+		F7BC578A24449B020031DB2E /* BRTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRTextField.m; sourceTree = "<group>"; };
+		F7BC578B24449B020031DB2E /* NSDate+BRAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+BRAdd.h"; sourceTree = "<group>"; };
+		F7BC578C24449B020031DB2E /* NSDate+BRAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BRAdd.m"; sourceTree = "<group>"; };
+		F7BC578D24449B020031DB2E /* BRTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRTextField.h; sourceTree = "<group>"; };
 		F7C5C324242A486E00A75289 /* UIButton+BBTButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+BBTButton.m"; sourceTree = "<group>"; };
 		F7C5C325242A486E00A75289 /* UIView+EXTENSION.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+EXTENSION.h"; sourceTree = "<group>"; };
 		F7C5C326242A486E00A75289 /* UIButton+BBTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+BBTButton.h"; sourceTree = "<group>"; };
@@ -314,6 +320,7 @@
 			children = (
 				F7A8F46A243DF0E10084D386 /* AskLeaveController.h */,
 				F7A8F46B243DF0E10084D386 /* AskLeaveController.m */,
+				F7BC578824449ADA0031DB2E /* BRText */,
 				F7A8F470243DFDD90084D386 /* AskTableViewCell.h */,
 				F7A8F471243DFDD90084D386 /* AskTableViewCell.m */,
 				F7A8F473243DFF5E0084D386 /* SelecTableViewCell.h */,
@@ -376,6 +383,17 @@
 				F7BB17A2243C51C0003A19D1 /* loginTextField.m */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		F7BC578824449ADA0031DB2E /* BRText */ = {
+			isa = PBXGroup;
+			children = (
+				F7BC578D24449B020031DB2E /* BRTextField.h */,
+				F7BC578A24449B020031DB2E /* BRTextField.m */,
+				F7BC578B24449B020031DB2E /* NSDate+BRAdd.h */,
+				F7BC578C24449B020031DB2E /* NSDate+BRAdd.m */,
+			);
+			path = BRText;
 			sourceTree = "<group>";
 		};
 		F7C5C323242A486E00A75289 /* Categoies */ = {
@@ -733,8 +751,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F78A24A024434B9B00505C4C /* timeLineCell.m in Sources */,
+				F7BC578E24449B020031DB2E /* BRTextField.m in Sources */,
 				F7A8F466243DF0AB0084D386 /* DepartureController.m in Sources */,
 				F7A8F46C243DF0E10084D386 /* AskLeaveController.m in Sources */,
+				F7BC578F24449B020031DB2E /* NSDate+BRAdd.m in Sources */,
 				F7C5C328242A486E00A75289 /* UIButton+BBTButton.m in Sources */,
 				F7BB17A3243C51C0003A19D1 /* loginTextField.m in Sources */,
 				F7F0460F2420AA7700365A65 /* ViewController.m in Sources */,
@@ -962,10 +982,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/brotherhoodOfficeSystem/PrefixHeader.pch";
 				INFOPLIST_FILE = brotherhoodOfficeSystem/Info.plist;
-
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-
-
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

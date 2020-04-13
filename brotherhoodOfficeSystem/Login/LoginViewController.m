@@ -105,11 +105,12 @@
                  kSaveMyDefault(responseObject[@"data"][@"ticket"],@"ticket");
               kSaveMyDefault(responseObject[@"data"][@"roleName"],@"roleName");
             kSaveMyDefault(responseObject[@"data"][@"roleName"],@"roleName");
-                 NNTabBarController   *NNTab  = [[NNTabBarController alloc] init];
-                  NNTab.modalTransitionStyle =UIModalTransitionStyleCrossDissolve ;
-                    UIWindow *window = [UIApplication sharedApplication].delegate.window;
-                    window.rootViewController = NNTab;
+               
         }
+        NNTabBarController   *NNTab  = [[NNTabBarController alloc] init];
+                        NNTab.modalTransitionStyle =UIModalTransitionStyleCrossDissolve ;
+                          UIWindow *window = [UIApplication sharedApplication].delegate.window;
+                          window.rootViewController = NNTab;
      
     } failure:^(NSError *error) {
         

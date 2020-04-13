@@ -27,4 +27,5 @@ pod 'MBProgressHUD'
 pod 'LYEmptyView'
 pod 'SDCycleScrollView'
 pod 'BaiduMapKit'
+pod 'BRPickerView'
 end
