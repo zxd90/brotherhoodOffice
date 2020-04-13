@@ -13,6 +13,8 @@ typedef void(^Success)(id responseObject);
 /** 请求失败的Block */
 typedef void(^Failure)(NSError *error);
 @interface ZXDNetworking : NSObject
+
++ (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
 //字典转字符串
 +(NSString*)dictionaryToJson:(NSDictionary *)dic;
 +(NSString *)encryptStringWithMD5:(NSString *)inputStr;

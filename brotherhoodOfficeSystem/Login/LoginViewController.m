@@ -13,6 +13,7 @@
 @property(nonatomic,strong) loginTextField  *accoutText;
 @property(nonatomic,strong) loginTextField *passWordText;
 @property(nonatomic,strong) UIButton  *loginBut;
+@property(nonatomic,assign)int NUM;
 @end
 
 @implementation LoginViewController
@@ -78,8 +79,9 @@
 
 }
 -(void)login_btn{
-    ZDLog(@"%@",self.accoutText.text );
-    ZDLog(@"%@",self.passWordText.text );
+    ZLog(@"%@",self.accoutText.text );
+    ZLog(@"%@",self.passWordText.text);
+       
     if (self.accoutText.text==nil&& self.passWordText.text==nil) {
           [ELNAlerTool showAlertMassgeWithController:self andMessage:@"请输入用户名和密码" andInterval:1.0];
           return;
@@ -93,14 +95,22 @@
           return;
       }else{
         
-    NSString *urlStr =[NSString stringWithFormat:@"%@app/xdtapp/api/v1/login/doLogin",kAPI_URL];
-    NSDictionary *dict = @{@"userName":self.accoutText.text,@"password":self.passWordText.text};
+    NSString *urlStr =[NSString stringWithFormat:@"%@xdtapp/api/v1/login/doLogin",kAPI_URL];
+          NSDictionary *dict     =@{@"userName":self.accoutText.text,@"password": self.passWordText.text};
+           self.NUM = 0;
     [ZXDNetworking POST:urlStr parameters:dict success:^(id responseObject) {
-        kSaveMyDefault(@"",@"token");
-        NNTabBarController   *NNTab  = [[NNTabBarController alloc] init];
-         NNTab.modalTransitionStyle =UIModalTransitionStyleCrossDissolve ;
-           UIWindow *window = [UIApplication sharedApplication].delegate.window;
-           window.rootViewController = NNTab;
+    
+        if ([responseObject[@"code"] intValue]==0) {
+      
+                 kSaveMyDefault(responseObject[@"data"][@"ticket"],@"ticket");
+              kSaveMyDefault(responseObject[@"data"][@"roleName"],@"roleName");
+            kSaveMyDefault(responseObject[@"data"][@"roleName"],@"roleName");
+                 NNTabBarController   *NNTab  = [[NNTabBarController alloc] init];
+                  NNTab.modalTransitionStyle =UIModalTransitionStyleCrossDissolve ;
+                    UIWindow *window = [UIApplication sharedApplication].delegate.window;
+                    window.rootViewController = NNTab;
+        }
+     
     } failure:^(NSError *error) {
         
     } view:self.view];

@@ -940,11 +940,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/brotherhoodOfficeSystem/PrefixHeader.pch";
 				INFOPLIST_FILE = brotherhoodOfficeSystem/Info.plist;
-<<<<<<< HEAD
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-=======
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
->>>>>>> d64fc4ee09f0539077742b1b7ed46503f16be530
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -966,11 +962,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/brotherhoodOfficeSystem/PrefixHeader.pch";
 				INFOPLIST_FILE = brotherhoodOfficeSystem/Info.plist;
-<<<<<<< HEAD
+
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-=======
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
->>>>>>> d64fc4ee09f0539077742b1b7ed46503f16be530
+
+
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

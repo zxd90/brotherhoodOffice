@@ -12,8 +12,8 @@
 
 #ifdef DEBUG // 调试状态, 打开LOG功能
 
-#define ZDLog(...) NSLog(__VA_ARGS__)
-
+#define   ZDLog(FORMAT, ...) fprintf(stderr,"\n %s:%d   %s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],__LINE__, [[[NSString alloc] initWithData:[[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] dataUsingEncoding:NSUTF8StringEncoding] encoding:NSNonLossyASCIIStringEncoding] UTF8String]);
+#define   ZLog(...) NSLog(__VA_ARGS__)
 #else // 发布状态, 关闭LOG功能
 
 #define ZDLog(...)
@@ -84,8 +84,8 @@
 
 */
 
-#define kAPI_URL @"https://www.zyyhy.cn/"
-
+//#define kAPI_URL @"https://www.zyyhy.cn/app/"
+#define kAPI_URL @"http://192.168.100.123:35791/"
 /**
 
 弱引用

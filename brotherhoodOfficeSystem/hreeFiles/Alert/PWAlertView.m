@@ -123,15 +123,15 @@
             self.sureBtn.frame = CGRectMake(CGRectGetMaxX(self.verLineView.frame), CGRectGetMaxY(self.lineView.frame), (AlertW-1)/2+1, 40);
 
             // 改颜色
-            [self.sureBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-            [self.sureBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+        
+            [self.sureBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             [self.sureBtn setBackgroundImage:[self imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
-            [self.sureBtn setBackgroundImage:[self imageWithColor:[UIColor RGBNav]] forState:UIControlStateHighlighted];
+         
             
             [self.sureBtn setTitle:sureTitle forState:UIControlStateNormal];
             self.sureBtn.tag = 2;
             [self.sureBtn addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
-            [self.sureBtn addTarget:self action:@selector(button1BackGroundHighlighted:) forControlEvents:UIControlEventTouchDown];
+           
             
             UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.sureBtn.bounds byRoundingCorners:UIRectCornerBottomRight cornerRadii:CGSizeMake(5.0, 5.0)];
             CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];

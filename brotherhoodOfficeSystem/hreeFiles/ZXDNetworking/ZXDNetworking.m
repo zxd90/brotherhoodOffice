@@ -32,7 +32,7 @@
         [MBProgressHUD hideHUDForView: view animated:NO];
         success(responseObject);
         ZDLog(@"responseObject ++++= %@",responseObject);
-   
+     
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [MBProgressHUD hideHUDForView: view animated:NO];
         [MBProgressHUD showError:@"网络错误" toView:view];
@@ -74,13 +74,14 @@
 {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     //设置请求参数的类型:HTTP (AFJSONRequestSerializer,AFHTTPRequestSerializer)
+   
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     //设置请求的超时时间
     manager.requestSerializer.timeoutInterval = 180.f;
     //设置服务器返回结果的类型:JSON (AFJSONResponseSerializer,AFHTTPResponseSerializer)
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
+   
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"text/plain", nil];
-    
     return manager;
 }
 
@@ -117,4 +118,5 @@
     
     return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
+
 @end
