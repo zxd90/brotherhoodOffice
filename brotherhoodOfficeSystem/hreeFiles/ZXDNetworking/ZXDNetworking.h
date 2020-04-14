@@ -22,6 +22,14 @@ typedef void(^Failure)(NSError *error);
 +(void)setExtraCellLineHidden: (UITableView *)tableView;
 +(NSString*)substringToIndexString:(NSString*)string;
 /**
+ 上传多张图片
+
+ @param images 图片二进制数组
+ @param success 成功回调Block
+ @param failure 失败回调Block
+ */
++ (void)uploadImageArrayWithImages:(NSArray<NSData *> *)images success:(void (^)(NSDictionary *obj))success failure:(void (^)(NSError *error))failure;
+/**
  *  封装的GET请求
  *
  *  @param URLString  请求的链接

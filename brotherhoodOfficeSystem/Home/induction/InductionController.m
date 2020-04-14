@@ -9,11 +9,18 @@
 #import "InductionController.h"
 #import "inductionCell.h"
 #import "BDImagePicker.h"
-@interface InductionController ()<UITableViewDelegate,UITableViewDataSource>
+@interface InductionController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, copy) NSArray *dataArray;
 @property (nonatomic, copy) NSArray *textArray;
 @property (nonatomic, strong)UIButton *button;
+@property (nonatomic,strong)NSString *name;
+@property (nonatomic,strong)NSString *phone;
+@property (nonatomic,strong)NSString *num;
+@property (nonatomic,strong)NSString *household;
+@property (nonatomic,strong)NSString *address;
+@property (nonatomic,strong)NSString *Nowhouse;
+@property (nonatomic,strong)NSString *emergency;
 @end
 
 @implementation InductionController
@@ -46,7 +53,7 @@
            [_button setBackgroundImage:[ZXDmethod ButtonColorLayer] forState:UIControlStateNormal];
             [_button setTitle:@"提交" forState:UIControlStateNormal];
             [_button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-          [_button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+          [_button addTarget:self action:@selector(entrySubmission) forControlEvents:UIControlEventTouchUpInside];
                  
     }
     return _button;
@@ -76,6 +83,7 @@
                 }
             cell.titleLabel.text=_dataArray[indexPath.row];
             cell.textField.placeholder =_textArray[indexPath.row];
+            cell.textField.delegate=self;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
            
             return cell;
@@ -96,7 +104,21 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
    
 }
 
-
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    inductionCell *cell = (inductionCell *)[textField superview].superview;
+       NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    switch (indexPath.row) {
+           case 0:
+               self.name = textField.text;
+               break;
+           case 1:
+               self.phone = textField.text;
+               break;
+               
+           default:
+               break;
+       }
+}
 
 
 
@@ -134,4 +156,8 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
        }
     return headerView;
 }
+-(void)entrySubmission{
+    NSLog(@"%@",self.name);
+}
+
 @end

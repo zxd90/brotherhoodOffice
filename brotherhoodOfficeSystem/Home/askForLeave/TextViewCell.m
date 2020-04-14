@@ -7,7 +7,6 @@
 //
 
 #import "TextViewCell.h"
-#import "PlaceholderTextView.h"
 @implementation TextViewCell
 
 - (void)awakeFromNib {
@@ -40,10 +39,6 @@
     self.textView.layer.borderColor = [[UIColor grayColor]colorWithAlphaComponent:0.3].CGColor;
      self.textView.layer.borderWidth = 0.5f;
     [self.contentView addSubview:self.textView];
-    [self.textView didChangeText:^(PlaceholderTextView *textView) {
-        self.string=textView.text;
-           NSLog(@"%@",textView.text);
-       }];
 }
 #pragma mark--懒加载
 -(UILabel *)titleLabel{

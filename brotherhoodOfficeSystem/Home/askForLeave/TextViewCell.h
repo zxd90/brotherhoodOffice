@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-@class PlaceholderTextView;
+#import "PlaceholderTextView.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TextViewCell : UITableViewCell
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)PlaceholderTextView *textView;
-@property(nonatomic,strong)NSString *string;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -84,7 +84,29 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"text/plain", nil];
     return manager;
 }
-
++ (void)uploadImageArrayWithImages:(NSArray<NSData *> *)images success:(void (^)(NSDictionary *obj))success failure:(void (^)(NSError *))failure
+{
+     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+       manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+       manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/html",@"image/jpeg",@"image/png",@"image/gif",@"image/tiff",@"application/octet-stream",@"text/json",nil];
+   
+    NSString *httpStr = [[kAPI_URL stringByAppendingString:@"pic/fileuploadArr"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    YBWeakSelf
+    [manager POST:httpStr parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        [images enumerateObjectsUsingBlock:^(NSData * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            //upfiles 是参数名 根据项目修改
+            [formData appendPartWithFileData:obj name:@"upfiles" fileName:[NSString stringWithFormat:@"%.0f.jpg", [[NSDate date] timeIntervalSince1970]] mimeType:@"image/jpg"];
+        }];
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (success) {
+            success(responseObject);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+       
+    }];
+}
 +(NSString *)encryptStringWithMD5:(NSString *)inputStr{
     
     NSString *input=[self substringToIndexString:inputStr];

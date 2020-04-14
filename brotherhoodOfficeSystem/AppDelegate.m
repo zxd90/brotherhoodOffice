@@ -18,8 +18,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     IQKeyboardManager *managerr = [IQKeyboardManager sharedManager];
-    managerr.enable = YES;
-    managerr.overrideKeyboardAppearance = YES;
+     managerr.enable = YES;
+  managerr.toolbarDoneBarButtonItemText = @"完成"; managerr.overrideKeyboardAppearance = YES;
     managerr.shouldResignOnTouchOutside = YES;
     managerr.enableAutoToolbar = YES;
 //     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

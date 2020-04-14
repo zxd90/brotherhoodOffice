@@ -9,7 +9,7 @@
 #import "AskLeaveController.h"
 
 #import "TextViewCell.h"
-@interface AskLeaveController ()<UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate>
+@interface AskLeaveController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, copy) NSArray *dataArray;
 @property (nonatomic, strong)UIButton *button;
@@ -25,10 +25,11 @@
 /**结束时间*/
 @property (nonatomic, strong) BRTextField *endTimeTF;
 /**天数 */
-@property (nonatomic, strong)TextViewCell *Textcell;
 @property (nonatomic, strong) BRTextField *dayNumTF;
 /**请假类型数组*/
 @property (nonatomic, copy) NSArray *typeArray;
+/***内容*/
+@property(nonatomic,strong)NSString *string;
 @end
 
 @implementation AskLeaveController
@@ -67,7 +68,7 @@ _dataArray=@[@[@"请假类型",@ "开始日期",@"开始时间",@"结束日期",
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section==2) {
+    if (indexPath.section==1) {
          return 150;
     }else{
         return 50;
@@ -136,13 +137,18 @@ _dataArray=@[@[@"请假类型",@ "开始日期",@"开始时间",@"结束日期",
     return cell;
     }else{
         static NSString *CellIdentifier = @"TextViewCell";
-                    _Textcell = [[TextViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TextViewCell"];
-                       if (!_Textcell) {
-                _Textcell=[[TextViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                    TextViewCell *cell = [[TextViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TextViewCell"];
+                       if (!cell) {
+                cell=[[TextViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
                        }
-             _Textcell.titleLabel.text=_dataArray[indexPath.section][indexPath.row];
-                    _Textcell.selectionStyle = UITableViewCellSelectionStyleNone;
-                 return _Textcell;
+                __weak typeof(self) weakSelf = self;
+               [cell.textView didChangeText:^(PlaceholderTextView *textView) {
+                      weakSelf.string=  textView.text;
+                      NSLog(@"%@",textView.text);
+                  }];
+        cell.titleLabel.text=_dataArray[indexPath.section][indexPath.row];
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
     }
     
 }
@@ -261,9 +267,9 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
 }
 
 -(void)buttonClick{
-    NSLog(@"%@",_Textcell.string);
-    if(_typeTF.text!=nil&&_startDateTF.text!=nil&&_endDateTF.text!=nil&&_starTimeTF.text!=nil&&_endTimeTF.text!=nil&&_dayNumTF&&_Textcell.string) {
-        
+   
+if(_typeTF.text!=nil&&_startDateTF.text!=nil&&_endDateTF.text!=nil&&_starTimeTF.text!=nil&&_endTimeTF.text!=nil&&_dayNumTF.text&&_string!=nil) {
+       NSLog(@"%@",_string);
     }
 }
 @end
