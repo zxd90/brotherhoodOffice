@@ -23,10 +23,10 @@
 /** 开始时间*/
 @property (nonatomic, strong) BRTextField *starTimeTF;
 /**结束时间*/
-@property (nonatomic, strong) BRTextField * endTimeTF;
+@property (nonatomic, strong) BRTextField *endTimeTF;
 /**天数 */
-
-@property (nonatomic, strong) BRTextField * dayNumTF;
+@property (nonatomic, strong)TextViewCell *Textcell;
+@property (nonatomic, strong) BRTextField *dayNumTF;
 /**请假类型数组*/
 @property (nonatomic, copy) NSArray *typeArray;
 @end
@@ -136,13 +136,13 @@ _dataArray=@[@[@"请假类型",@ "开始日期",@"开始时间",@"结束日期",
     return cell;
     }else{
         static NSString *CellIdentifier = @"TextViewCell";
-                     TextViewCell *cell = [[TextViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TextViewCell"];
-                       if (!cell) {
-                cell=[[TextViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                    _Textcell = [[TextViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TextViewCell"];
+                       if (!_Textcell) {
+                _Textcell=[[TextViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
                        }
-             cell.titleLabel.text=_dataArray[indexPath.section][indexPath.row];
-                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                 return cell;
+             _Textcell.titleLabel.text=_dataArray[indexPath.section][indexPath.row];
+                    _Textcell.selectionStyle = UITableViewCellSelectionStyleNone;
+                 return _Textcell;
     }
     
 }
@@ -257,6 +257,13 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
         _dayNumTF.returnKeyType = UIReturnKeyDone;
         _dayNumTF.keyboardType = UIKeyboardTypeDecimalPad;
         _dayNumTF.tag = 0;
+    }
+}
+
+-(void)buttonClick{
+    NSLog(@"%@",_Textcell.string);
+    if(_typeTF.text!=nil&&_startDateTF.text!=nil&&_endDateTF.text!=nil&&_starTimeTF.text!=nil&&_endTimeTF.text!=nil&&_dayNumTF&&_Textcell.string) {
+        
     }
 }
 @end
