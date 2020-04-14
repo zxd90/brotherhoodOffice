@@ -28,9 +28,21 @@
 	</dict>
 	<dict>
 		<key>image</key>
+		<string>yiban</string>
+		<key>title</key>
+		<string>已办事项</string>
+	</dict>
+	<dict>
+		<key>image</key>
 		<string>daiban</string>
 		<key>title</key>
 		<string>待办事项</string>
+	</dict>
+	<dict>
+		<key>image</key>
+		<string>qingqiu</string>
+		<key>title</key>
+		<string>我的请求</string>
 	</dict>
 </array>
 </plist>

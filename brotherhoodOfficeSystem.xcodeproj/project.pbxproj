@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B0DCBD8244548AC00870587 /* BDImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0DCBD6244548AC00870587 /* BDImagePicker.m */; };
 		3B7807BA24416F47008EEE83 /* inductionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7807B924416F47008EEE83 /* inductionCell.m */; };
+		3BFCC95F2445C0BC00D2CB41 /* HaveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFCC95E2445C0BC00D2CB41 /* HaveController.m */; };
+		3BFCC9632445C16D00D2CB41 /* requestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFCC9622445C16D00D2CB41 /* requestController.m */; };
 		4497113322D6586690514D0D /* Pods_brotherhoodOfficeSystemTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62B17824283800011D283562 /* Pods_brotherhoodOfficeSystemTests.framework */; };
 		9A9203859B40AA87A44C32BC /* Pods_brotherhoodOfficeSystem_brotherhoodOfficeSystemUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C06DEDCA3F8FCA33B77DF1 /* Pods_brotherhoodOfficeSystem_brotherhoodOfficeSystemUITests.framework */; };
 		CE66466427FAB4C0A36AD646 /* Pods_brotherhoodOfficeSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46794B329A268856D5E24EC1 /* Pods_brotherhoodOfficeSystem.framework */; };
@@ -73,8 +76,14 @@
 /* Begin PBXFileReference section */
 		00528662BBF4B82453B46181 /* Pods-brotherhoodOfficeSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-brotherhoodOfficeSystem.debug.xcconfig"; path = "Target Support Files/Pods-brotherhoodOfficeSystem/Pods-brotherhoodOfficeSystem.debug.xcconfig"; sourceTree = "<group>"; };
 		09C06DEDCA3F8FCA33B77DF1 /* Pods_brotherhoodOfficeSystem_brotherhoodOfficeSystemUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_brotherhoodOfficeSystem_brotherhoodOfficeSystemUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B0DCBD6244548AC00870587 /* BDImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDImagePicker.m; sourceTree = "<group>"; };
+		3B0DCBD7244548AC00870587 /* BDImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDImagePicker.h; sourceTree = "<group>"; };
 		3B7807B824416F47008EEE83 /* inductionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = inductionCell.h; sourceTree = "<group>"; };
 		3B7807B924416F47008EEE83 /* inductionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = inductionCell.m; sourceTree = "<group>"; };
+		3BFCC95D2445C0BC00D2CB41 /* HaveController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HaveController.h; sourceTree = "<group>"; };
+		3BFCC95E2445C0BC00D2CB41 /* HaveController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HaveController.m; sourceTree = "<group>"; };
+		3BFCC9612445C16D00D2CB41 /* requestController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = requestController.h; sourceTree = "<group>"; };
+		3BFCC9622445C16D00D2CB41 /* requestController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = requestController.m; sourceTree = "<group>"; };
 		46794B329A268856D5E24EC1 /* Pods_brotherhoodOfficeSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_brotherhoodOfficeSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		518D63AC07C96812CDAF2EBB /* Pods-brotherhoodOfficeSystemTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-brotherhoodOfficeSystemTests.release.xcconfig"; path = "Target Support Files/Pods-brotherhoodOfficeSystemTests/Pods-brotherhoodOfficeSystemTests.release.xcconfig"; sourceTree = "<group>"; };
 		584E9F064660C42A53C2561F /* Pods-brotherhoodOfficeSystem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-brotherhoodOfficeSystem.release.xcconfig"; path = "Target Support Files/Pods-brotherhoodOfficeSystem/Pods-brotherhoodOfficeSystem.release.xcconfig"; sourceTree = "<group>"; };
@@ -193,6 +202,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B0DCBD5244548AC00870587 /* BDImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				3B0DCBD7244548AC00870587 /* BDImagePicker.h */,
+				3B0DCBD6244548AC00870587 /* BDImagePicker.m */,
+			);
+			path = BDImagePicker;
+			sourceTree = "<group>";
+		};
+		3BFCC95C2445BFFA00D2CB41 /* daiban */ = {
+			isa = PBXGroup;
+			children = (
+				3BFCC95D2445C0BC00D2CB41 /* HaveController.h */,
+				3BFCC95E2445C0BC00D2CB41 /* HaveController.m */,
+			);
+			path = daiban;
+			sourceTree = "<group>";
+		};
+		3BFCC9602445C13900D2CB41 /*  request */ = {
+			isa = PBXGroup;
+			children = (
+				3BFCC9612445C16D00D2CB41 /* requestController.h */,
+				3BFCC9622445C16D00D2CB41 /* requestController.m */,
+			);
+			path = " request";
+			sourceTree = "<group>";
+		};
 		701B5490871891640AC08C8B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,12 +259,14 @@
 				F787B5B124231D2500411DED /* HomepageController.m */,
 				F74677EB244059FE0093D5D1 /* Homeheader.h */,
 				F74677EC244059FE0093D5D1 /* Homeheader.m */,
+				F72FA1AE243D832F000343FC /* Mencell */,
 				F72FA1B6243D84D1000343FC /* attendance */,
 				F7A8F45D243DEFFF0084D386 /* askForLeave */,
 				F7A8F45E243DF0320084D386 /* induction */,
 				F7A8F45F243DF0470084D386 /* departure */,
+				3BFCC95C2445BFFA00D2CB41 /* daiban */,
 				F7A8F460243DF05F0084D386 /* todo */,
-				F72FA1AE243D832F000343FC /* Mencell */,
+				3BFCC9602445C13900D2CB41 /*  request */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -296,6 +334,7 @@
 		F79A83652441F73B00D8F839 /* hreeFiles */ = {
 			isa = PBXGroup;
 			children = (
+				3B0DCBD5244548AC00870587 /* BDImagePicker */,
 				F79A83662441F76800D8F839 /* Alert */,
 				F74677E7244051D20093D5D1 /*  NSObject */,
 				F79A835E2441F57100D8F839 /* ZXDNetworking */,
@@ -755,6 +794,7 @@
 				F7A8F466243DF0AB0084D386 /* DepartureController.m in Sources */,
 				F7A8F46C243DF0E10084D386 /* AskLeaveController.m in Sources */,
 				F7BC578F24449B020031DB2E /* NSDate+BRAdd.m in Sources */,
+				3BFCC9632445C16D00D2CB41 /* requestController.m in Sources */,
 				F7C5C328242A486E00A75289 /* UIButton+BBTButton.m in Sources */,
 				F7BB17A3243C51C0003A19D1 /* loginTextField.m in Sources */,
 				F7F0460F2420AA7700365A65 /* ViewController.m in Sources */,
@@ -770,7 +810,9 @@
 				F72FA1BF243DAC44000343FC /* JZMTBtnView.m in Sources */,
 				F7A8F46F243DF1190084D386 /* AttendController.m in Sources */,
 				F79A83692441F78B00D8F839 /* PWAlertView.m in Sources */,
+				3BFCC95F2445C0BC00D2CB41 /* HaveController.m in Sources */,
 				F78A24A324435C8800505C4C /* timeLineModel.m in Sources */,
+				3B0DCBD8244548AC00870587 /* BDImagePicker.m in Sources */,
 				3B7807BA24416F47008EEE83 /* inductionCell.m in Sources */,
 				F79A83612441F57100D8F839 /* ZXDNetworking.m in Sources */,
 				F7BB179C243C137F003A19D1 /* NNTabBarController.m in Sources */,

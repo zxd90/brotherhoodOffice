@@ -47,8 +47,8 @@
     _backView2 = [[UIView alloc] initWithFrame:CGRectMake(screen_width, 0, screen_width, 160)];
     
     // UIScrollView
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 180)];
-    scrollView.contentSize = CGSizeMake(2*screen_width, 180);
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 175)];
+    scrollView.contentSize = CGSizeMake(2*screen_width, 175);
     scrollView.pagingEnabled = YES;
     scrollView.delegate = self;
     scrollView.showsHorizontalScrollIndicator = NO;
@@ -72,7 +72,7 @@
             [btnView addGestureRecognizer:tap];
             
         }else if(i<10){
-            CGRect frame = CGRectMake((i-5)*(screen_width-36)/5+18, 80, (screen_width-36)/5, 80);
+            CGRect frame = CGRectMake((i-5)*(screen_width-36)/5+18,80, (screen_width-36)/5, 80);
             NSString *title = [_menuArray[i] objectForKey:@"title"];
             NSString *imageStr = [_menuArray[i] objectForKey:@"image"];
             JZMTBtnView *btnView = [[JZMTBtnView alloc] initWithFrame:frame title:title imageStr:imageStr];

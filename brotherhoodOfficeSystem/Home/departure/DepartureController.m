@@ -7,13 +7,20 @@
 //
 
 #import "DepartureController.h"
-#import "AskTableViewCell.h"
-#import "SelecTableViewCell.h"
+
 #import "TextViewCell.h"
-@interface DepartureController ()<UITableViewDelegate,UITableViewDataSource>
+@interface DepartureController ()<UITableViewDelegate,UITableViewDataSource ,UITextFieldDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, copy) NSArray *dataArray;
 @property (nonatomic, strong)UIButton *button;
+/**离职日期*/
+@property (nonatomic, strong) BRTextField *departureTF;
+/**资产交接*/
+@property (nonatomic, strong) BRTextField *AssetTF;
+@property (nonatomic, copy) NSArray *array;
+/**工作交接*/
+@property (nonatomic, strong) BRTextField *workTF;
+
 @end
 
 @implementation DepartureController
@@ -23,12 +30,12 @@
     self.title =@"申请离职";
     self.tableView.hidden = NO;
     [self.view addSubview:self.button];
-  _dataArray=@[@[@"姓名",@"部门",@"职位"],@[@"离职日期"],@[@"离职原因"],@[@"工作交接"]];
+  _dataArray=@[@[@"离职日期",@"资产交接人",@"工作交接人"],@[@"工作内容交接"],@[@"离职原因"]];
 }
 #pragma mark - lazy
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,ScreenW , ScreenH-SK_TabbarSafeBottomMargin-40) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,ScreenW , ScreenH-SK_ButtonHeight) style:UITableViewStylePlain];
         _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.dataSource = self;
         _tableView.delegate = self;
@@ -38,7 +45,7 @@
 }
 - (UIButton *)button{
     if (!_button) {
-        _button= [[UIButton alloc] initWithFrame:CGRectMake(0, ScreenH-SK_TabbarSafeBottomMargin-40,ScreenW, 40+SK_TabbarSafeBottomMargin)];
+        _button= [[UIButton alloc] initWithFrame:CGRectMake(0, ScreenH-SK_ButtonHeight,ScreenW, SK_ButtonHeight)];
            [_button setBackgroundImage:[ZXDmethod ButtonColorLayer] forState:UIControlStateNormal];
             [_button setTitle:@"提交" forState:UIControlStateNormal];
             [_button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -48,7 +55,7 @@
     return _button;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section==2||indexPath.section==3) {
+    if (indexPath.section==1||indexPath.section==2) {
             return 150;
        }else{
            return 50;
@@ -66,29 +73,40 @@ return [_dataArray[section]count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section==0) {
-       static NSString *cellID = @"testCell";
-         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-         if (!cell) {
-             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellID];
-         }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.textLabel.text = self.dataArray[indexPath.section][indexPath.row];
-        cell.textLabel.font = [UIFont systemFontOfSize:16.0];
-       cell.detailTextLabel.text = @"这是谁";
-       cell.detailTextLabel.font = [UIFont systemFontOfSize:16.0];
-       cell.detailTextLabel.textColor=[UIColor blackColor];
-    return cell;
-    }else  if(indexPath.section==1){
-            static NSString *CellIdentifier = @"AskTableViewCell";
-              SelecTableViewCell *cell = [[SelecTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-                if (!cell) {
-                cell=[[SelecTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-                }
-       cell.titleLabel.text=_dataArray[indexPath.section][indexPath.row];
-             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    if(indexPath.section==0){
+         static NSString *cellID = @"testCell";
+                   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+                   if (!cell) {
+                       cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+                   }
+              cell.selectionStyle = UITableViewCellSelectionStyleNone;
+              cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+         
+              cell.textLabel.font = [UIFont systemFontOfSize:16.0f];
+              cell.textLabel.text =_dataArray[indexPath.section][indexPath.row];
+             
+        switch (indexPath.row) {
+                     case 0:
+                     {
+                        [self setupdepartureTF:cell];
+                     }
+                         break;
+                     case 1:
+                     {
+                         [self setupAssetTF:cell];
+                     }
+                         break;
+                     case 2:
+                     {
+                      [self setupworkTF:cell];
+                     }
+                         break;
+            
+                     default:
+                         break;
+                 }
           return cell;
+       
     }else{
         static NSString *CellIdentifier = @"TextViewCell";
                      TextViewCell *cell = [[TextViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TextViewCell"];
@@ -125,10 +143,60 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
 }
 -(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     UIView * headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, 15)];
-    if (section==1||section==0) {
+    if (section==0) {
        headerView.backgroundColor=RGB(238, 238, 238);
     }
     return headerView;
 }
+- (BRTextField *)getTextField:(UITableViewCell *)cell {
+    BRTextField *textField = [[BRTextField alloc]initWithFrame:CGRectMake(SCREEN_WIDTH - 230, 0, 200, 50)];
+    textField.backgroundColor = [UIColor clearColor];
+    textField.font = [UIFont systemFontOfSize:16.0f];
+    textField.textAlignment = NSTextAlignmentRight;
+    textField.delegate = self;
+    [cell.contentView addSubview:textField];
+    return textField;
+}
 
+#pragma mark -开始时间 textField
+- (void)setupdepartureTF:(UITableViewCell *)cell {
+    if (!_departureTF) {
+        _departureTF = [self getTextField:cell];
+        _departureTF.placeholder = @"请选择";
+        __weak typeof(self) weakSelf = self;
+              _departureTF.tapAcitonBlock = ^{
+                   [BRDatePickerView showDatePickerWithMode:BRDatePickerModeYMD title:@"开始日期" selectValue:weakSelf.departureTF.text isAutoSelect:YES resultBlock:^(NSDate * _Nullable selectDate, NSString * _Nullable selectValue) {
+                       weakSelf.departureTF.text = selectValue;
+                   }];
+               };
+    }
+}
+#pragma mark -交接资产 textField
+- (void)setupAssetTF:(UITableViewCell *)cell {
+    if (!_AssetTF) {
+        _AssetTF = [self getTextField:cell];
+        _AssetTF.placeholder = @"请选择工作交接人";
+        __weak typeof(self) weakSelf = self;
+        _AssetTF.tapAcitonBlock = ^{
+            [BRStringPickerView showPickerWithTitle:@"资产交接人" dataSourceArr:weakSelf.array selectIndex:0 isAutoSelect:YES resultBlock:^(BRResultModel * _Nullable resultModel) {
+                 weakSelf.AssetTF.text = resultModel.value;
+            }];
+    
+        };
+    }
+}
+#pragma mark -交接资产 textField
+- (void)setupworkTF:(UITableViewCell *)cell {
+    if (!_workTF) {
+        _workTF = [self getTextField:cell];
+        _workTF.placeholder = @"请选择工作交接人";
+        __weak typeof(self) weakSelf = self;
+        _workTF.tapAcitonBlock = ^{
+            [BRStringPickerView showPickerWithTitle:@"工作交接人" dataSourceArr:weakSelf.array selectIndex:0 isAutoSelect:YES resultBlock:^(BRResultModel * _Nullable resultModel) {
+                 weakSelf.workTF.text = resultModel.value;
+            }];
+    
+        };
+    }
+}
 @end

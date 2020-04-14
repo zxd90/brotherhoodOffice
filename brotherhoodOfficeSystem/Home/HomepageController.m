@@ -12,7 +12,9 @@
 #import "AskLeaveController.h"
 #import "InductionController.h"
 #import "DepartureController.h"
+#import "HaveController.h"
 #import "todoController.h"
+#import "requestController.h"
 #import "Homeheader.h"
 @interface HomepageController ()<UITableViewDelegate,UITableViewDataSource,OnTapBtnViewDelegate>
 @property(nonatomic,copy)NSMutableArray *menuArray;
@@ -80,7 +82,7 @@ return  1;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-        return 130;
+    return 175;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
@@ -153,11 +155,28 @@ return  1;
                case 14:
                    //待办事项
                {
-               todoController *todoVC = [[todoController alloc]init];
+               HaveController *todoVC = [[HaveController alloc]init];
                [self.navigationController pushViewController:todoVC animated:YES];
-                    
+                   
                }
                    break;
+              case 15:
+                             
+                    //待办事项
+               {
+                          todoController *todoVC = [[todoController alloc]init];
+                          [self.navigationController pushViewController:todoVC animated:YES];
+                               
+                }
+                    break;
+               case 16:
+                                           //待办事项
+                {
+                requestController *todoVC = [[requestController alloc]init];
+                [self.navigationController pushViewController:todoVC animated:YES];
+                                             
+                }
+                break;
                default:
                    break;
                }

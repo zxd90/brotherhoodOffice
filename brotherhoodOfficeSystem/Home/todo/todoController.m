@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSArray *dataSource;
 @property (nonatomic, strong)UIButton *button;
 
+
 @end
 
 @implementation todoController
@@ -33,7 +34,7 @@
 #pragma mark - lazy
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, ScreenH-SK_TabbarSafeBottomMargin-40) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, ScreenH-SK_ButtonHeight) style:UITableViewStylePlain];
         _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.dataSource = self;
         _tableView.delegate = self;
@@ -44,7 +45,7 @@
 
 - (UIButton *)button{
     if (!_button) {
-        _button= [[UIButton alloc] initWithFrame:CGRectMake(0, ScreenH-SK_TabbarSafeBottomMargin-40,ScreenW, 40+SK_TabbarSafeBottomMargin)];
+        _button= [[UIButton alloc] initWithFrame:CGRectMake(0, ScreenH-SK_ButtonHeight,ScreenW, SK_ButtonHeight)];
            [_button setBackgroundImage:[ZXDmethod ButtonColorLayer] forState:UIControlStateNormal];
             [_button setTitle:@"提交" forState:UIControlStateNormal];
             [_button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
