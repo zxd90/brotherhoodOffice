@@ -98,8 +98,11 @@
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (success) {
-            success(responseObject);
-        ZDLog(@"responseObject --=++ %@",responseObject);
+            NSString *response = [[NSString alloc] initWithData:(NSData *)responseObject encoding:NSUTF8StringEncoding];
+            NSData* jsonData = [response dataUsingEncoding:NSUTF8StringEncoding];
+            NSDictionary* dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSUTF8StringEncoding error:nil];
+            success(dic);
+        ZDLog(@"responseObject --=++ %@",dic);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if(failure){
