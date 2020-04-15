@@ -7,8 +7,9 @@
 //
 
 #import "DepartureController.h"
-
+#import "BRResultModel.h"
 #import "TextViewCell.h"
+#import "ChopersonController.h"
 @interface DepartureController ()<UITableViewDelegate,UITableViewDataSource ,UITextFieldDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, copy) NSArray *dataArray;
@@ -17,10 +18,15 @@
 @property (nonatomic, strong) BRTextField *departureTF;
 /**资产交接*/
 @property (nonatomic, strong) BRTextField *AssetTF;
+/**资产交接内容*/
+@property (nonatomic, strong) NSString *AssetStr;
 @property (nonatomic, copy) NSArray *array;
 /**工作交接*/
 @property (nonatomic, strong) BRTextField *workTF;
-
+/**工作交接内容*/
+@property (nonatomic, strong) NSString *workStr;
+/**离职内容*/
+@property (nonatomic, strong) NSString *reasonStr;
 @end
 
 @implementation DepartureController
@@ -30,7 +36,7 @@
     self.title =@"申请离职";
     self.tableView.hidden = NO;
     [self.view addSubview:self.button];
-  _dataArray=@[@[@"离职日期",@"资产交接人",@"工作交接人"],@[@"工作内容交接"],@[@"离职原因"]];
+  _dataArray=@[@[@"离职日期",@"资产交接人"],@[@"资产内容交接"],@[@"工作交接人"],@[@"工作内容交接"],@[@"离职原因"]];
 }
 #pragma mark - lazy
 - (UITableView *)tableView {
@@ -49,16 +55,16 @@
            [_button setBackgroundImage:[ZXDmethod ButtonColorLayer] forState:UIControlStateNormal];
             [_button setTitle:@"提交" forState:UIControlStateNormal];
             [_button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-          [_button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+          [_button addTarget:self action:@selector(LeaveAppButtonClick) forControlEvents:UIControlEventTouchUpInside];
                  
     }
     return _button;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section==1||indexPath.section==2) {
-            return 150;
+    if (indexPath.section==0||indexPath.section==2) {
+            return 50;
        }else{
-           return 50;
+          return 150;
        }
 }
 #pragma mark - UITableViewDataSource, UITableViewDelegate
@@ -67,13 +73,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-   
-
+    
 return [_dataArray[section]count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if(indexPath.section==0){
+    if(indexPath.section==0||indexPath.section==2){
          static NSString *cellID = @"testCell";
                    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
                    if (!cell) {
@@ -84,27 +89,25 @@ return [_dataArray[section]count];
          
               cell.textLabel.font = [UIFont systemFontOfSize:16.0f];
               cell.textLabel.text =_dataArray[indexPath.section][indexPath.row];
-             
-        switch (indexPath.row) {
-                     case 0:
-                     {
-                        [self setupdepartureTF:cell];
-                     }
-                         break;
-                     case 1:
-                     {
-                         [self setupAssetTF:cell];
-                     }
-                         break;
-                     case 2:
-                     {
-                      [self setupworkTF:cell];
-                     }
-                         break;
-            
-                     default:
-                         break;
-                 }
+        if (indexPath.section==0) {
+            switch (indexPath.row) {
+            case 0:
+                {
+                [self setupdepartureTF:cell];
+                }
+                break;
+            case 1:
+                {
+                [self setupAssetTF:cell];
+                }
+                break;
+                default:
+            break;
+                }
+        }else{
+              [self setupworkTF:cell];
+        }
+      
           return cell;
        
     }else{
@@ -115,6 +118,26 @@ return [_dataArray[section]count];
                        }
              cell.titleLabel.text=_dataArray[indexPath.section][indexPath.row];
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        __weak typeof(self) weakSelf = self;
+        [cell.textView didChangeText:^(PlaceholderTextView *textView) {
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+              switch (indexPath.section) {
+                     case 1:
+                    weakSelf.AssetStr= textView.text;
+                         break;
+                     case 3:
+                       weakSelf.workStr= textView.text;
+                         break;
+                      case 4:
+                    weakSelf.reasonStr= textView.text;
+                         break;
+                     default:
+                         break;
+                 }
+           
+          
+            
+        }];
                  return cell;
     }
 
@@ -131,6 +154,7 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
 //点击事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
    
+   
 }
 
 //- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -143,7 +167,7 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
 }
 -(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     UIView * headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, 15)];
-    if (section==0) {
+    if (section!=4) {
        headerView.backgroundColor=RGB(238, 238, 238);
     }
     return headerView;
@@ -176,27 +200,40 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
     if (!_AssetTF) {
         _AssetTF = [self getTextField:cell];
         _AssetTF.placeholder = @"请选择工作交接人";
-        __weak typeof(self) weakSelf = self;
-        _AssetTF.tapAcitonBlock = ^{
-            [BRStringPickerView showPickerWithTitle:@"资产交接人" dataSourceArr:weakSelf.array selectIndex:0 isAutoSelect:YES resultBlock:^(BRResultModel * _Nullable resultModel) {
-                 weakSelf.AssetTF.text = resultModel.value;
-            }];
-    
-        };
+    __weak typeof(self) weakSelf = self;
+                 _AssetTF.tapAcitonBlock = ^{
+             ChopersonController *cheopVC=[[ChopersonController alloc]init];
+                           [weakSelf.navigationController pushViewController:cheopVC animated:YES];
+                  };
     }
 }
-#pragma mark -交接资产 textField
+#pragma mark -工作交接 textField
 - (void)setupworkTF:(UITableViewCell *)cell {
     if (!_workTF) {
         _workTF = [self getTextField:cell];
         _workTF.placeholder = @"请选择工作交接人";
         __weak typeof(self) weakSelf = self;
-        _workTF.tapAcitonBlock = ^{
-            [BRStringPickerView showPickerWithTitle:@"工作交接人" dataSourceArr:weakSelf.array selectIndex:0 isAutoSelect:YES resultBlock:^(BRResultModel * _Nullable resultModel) {
-                 weakSelf.workTF.text = resultModel.value;
-            }];
-    
-        };
+                        _workTF.tapAcitonBlock = ^{
+                    ChopersonController *cheopVC=[[ChopersonController alloc]init];
+                    [weakSelf.navigationController pushViewController:cheopVC animated:YES];
+                         };
     }
 }
+-(void)LeaveAppButtonClick{
+    
+    NSString *urlStr =[NSString stringWithFormat:@"%@xdtapp/api/v1/quit/doQuit",kAPI_URL];
+    NSDictionary *dict =@{@"ticket":   kFetchMyDefault(@"ticket"),@"quitTime":_departureTF.text,@"quitReason":self.reasonStr,@"assetsUserId": _AssetTF.text,@"assetsMsg": self.AssetStr,@"workUserId":_workTF.text ,@"workMsg":self.workStr};
+         [ZXDNetworking POST:urlStr parameters:dict success:^(id responseObject) {
+         
+             if ([responseObject[@"code"] intValue]==0) {
+           
+             }
+          
+         } failure:^(NSError *error) {
+             
+         } view:self.view];
+}
+
+
+
 @end

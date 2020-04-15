@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B0A713524469943005BFFBE /* LeaveTypemodle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0A713424469943005BFFBE /* LeaveTypemodle.m */; };
+		3B0A71392446E9E8005BFFBE /* ChopersonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0A71382446E9E8005BFFBE /* ChopersonController.m */; };
+		3B0A713C2446EB1E005BFFBE /* CustomHeadFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0A713B2446EB1E005BFFBE /* CustomHeadFooterView.m */; };
+		3B0A71412446EB9D005BFFBE /* FriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0A713D2446EB9D005BFFBE /* FriendModel.m */; };
+		3B0A71422446EB9D005BFFBE /* GroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0A713E2446EB9D005BFFBE /* GroupModel.m */; };
+		3B0A71452446EBCD005BFFBE /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0A71432446EBCC005BFFBE /* FriendTableViewCell.m */; };
 		3B0DCBD8244548AC00870587 /* BDImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0DCBD6244548AC00870587 /* BDImagePicker.m */; };
 		3B7807BA24416F47008EEE83 /* inductionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7807B924416F47008EEE83 /* inductionCell.m */; };
 		3BFCC95F2445C0BC00D2CB41 /* HaveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFCC95E2445C0BC00D2CB41 /* HaveController.m */; };
@@ -76,6 +82,18 @@
 /* Begin PBXFileReference section */
 		00528662BBF4B82453B46181 /* Pods-brotherhoodOfficeSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-brotherhoodOfficeSystem.debug.xcconfig"; path = "Target Support Files/Pods-brotherhoodOfficeSystem/Pods-brotherhoodOfficeSystem.debug.xcconfig"; sourceTree = "<group>"; };
 		09C06DEDCA3F8FCA33B77DF1 /* Pods_brotherhoodOfficeSystem_brotherhoodOfficeSystemUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_brotherhoodOfficeSystem_brotherhoodOfficeSystemUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B0A713324469943005BFFBE /* LeaveTypemodle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeaveTypemodle.h; sourceTree = "<group>"; };
+		3B0A713424469943005BFFBE /* LeaveTypemodle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeaveTypemodle.m; sourceTree = "<group>"; };
+		3B0A71372446E9E8005BFFBE /* ChopersonController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChopersonController.h; sourceTree = "<group>"; };
+		3B0A71382446E9E8005BFFBE /* ChopersonController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChopersonController.m; sourceTree = "<group>"; };
+		3B0A713A2446EB1E005BFFBE /* CustomHeadFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomHeadFooterView.h; sourceTree = "<group>"; };
+		3B0A713B2446EB1E005BFFBE /* CustomHeadFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomHeadFooterView.m; sourceTree = "<group>"; };
+		3B0A713D2446EB9D005BFFBE /* FriendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendModel.m; sourceTree = "<group>"; };
+		3B0A713E2446EB9D005BFFBE /* GroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupModel.m; sourceTree = "<group>"; };
+		3B0A713F2446EB9D005BFFBE /* FriendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendModel.h; sourceTree = "<group>"; };
+		3B0A71402446EB9D005BFFBE /* GroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupModel.h; sourceTree = "<group>"; };
+		3B0A71432446EBCC005BFFBE /* FriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
+		3B0A71442446EBCC005BFFBE /* FriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell.h; sourceTree = "<group>"; };
 		3B0DCBD6244548AC00870587 /* BDImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDImagePicker.m; sourceTree = "<group>"; };
 		3B0DCBD7244548AC00870587 /* BDImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDImagePicker.h; sourceTree = "<group>"; };
 		3B7807B824416F47008EEE83 /* inductionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = inductionCell.h; sourceTree = "<group>"; };
@@ -202,6 +220,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B0A7132244698EA005BFFBE /* modle */ = {
+			isa = PBXGroup;
+			children = (
+				3B0A713324469943005BFFBE /* LeaveTypemodle.h */,
+				3B0A713424469943005BFFBE /* LeaveTypemodle.m */,
+			);
+			path = modle;
+			sourceTree = "<group>";
+		};
+		3B0A71362446E985005BFFBE /* jiaojieren */ = {
+			isa = PBXGroup;
+			children = (
+				3B0A713A2446EB1E005BFFBE /* CustomHeadFooterView.h */,
+				3B0A713B2446EB1E005BFFBE /* CustomHeadFooterView.m */,
+				3B0A713F2446EB9D005BFFBE /* FriendModel.h */,
+				3B0A713D2446EB9D005BFFBE /* FriendModel.m */,
+				3B0A71402446EB9D005BFFBE /* GroupModel.h */,
+				3B0A713E2446EB9D005BFFBE /* GroupModel.m */,
+				3B0A71442446EBCC005BFFBE /* FriendTableViewCell.h */,
+				3B0A71432446EBCC005BFFBE /* FriendTableViewCell.m */,
+				3B0A71372446E9E8005BFFBE /* ChopersonController.h */,
+				3B0A71382446E9E8005BFFBE /* ChopersonController.m */,
+			);
+			path = jiaojieren;
+			sourceTree = "<group>";
+		};
 		3B0DCBD5244548AC00870587 /* BDImagePicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,6 +403,7 @@
 			children = (
 				F7A8F46A243DF0E10084D386 /* AskLeaveController.h */,
 				F7A8F46B243DF0E10084D386 /* AskLeaveController.m */,
+				3B0A7132244698EA005BFFBE /* modle */,
 				F7BC578824449ADA0031DB2E /* BRText */,
 				F7A8F470243DFDD90084D386 /* AskTableViewCell.h */,
 				F7A8F471243DFDD90084D386 /* AskTableViewCell.m */,
@@ -388,6 +433,7 @@
 			children = (
 				F7A8F464243DF0AB0084D386 /* DepartureController.h */,
 				F7A8F465243DF0AB0084D386 /* DepartureController.m */,
+				3B0A71362446E985005BFFBE /* jiaojieren */,
 			);
 			path = departure;
 			sourceTree = "<group>";
@@ -792,6 +838,7 @@
 				F78A24A024434B9B00505C4C /* timeLineCell.m in Sources */,
 				F7BC578E24449B020031DB2E /* BRTextField.m in Sources */,
 				F7A8F466243DF0AB0084D386 /* DepartureController.m in Sources */,
+				3B0A71452446EBCD005BFFBE /* FriendTableViewCell.m in Sources */,
 				F7A8F46C243DF0E10084D386 /* AskLeaveController.m in Sources */,
 				F7BC578F24449B020031DB2E /* NSDate+BRAdd.m in Sources */,
 				3BFCC9632445C16D00D2CB41 /* requestController.m in Sources */,
@@ -802,6 +849,7 @@
 				F7F046092420AA7700365A65 /* AppDelegate.m in Sources */,
 				F79A83642441F69A00D8F839 /* MBProgressHUD+Add.m in Sources */,
 				F74677ED244059FE0093D5D1 /* Homeheader.m in Sources */,
+				3B0A71412446EB9D005BFFBE /* FriendModel.m in Sources */,
 				F7A8F472243DFDD90084D386 /* AskTableViewCell.m in Sources */,
 				F787B5B624231D2500411DED /* MyCityViewController.m in Sources */,
 				F74677E3244022020093D5D1 /* TextViewCell.m in Sources */,
@@ -810,6 +858,7 @@
 				F72FA1BF243DAC44000343FC /* JZMTBtnView.m in Sources */,
 				F7A8F46F243DF1190084D386 /* AttendController.m in Sources */,
 				F79A83692441F78B00D8F839 /* PWAlertView.m in Sources */,
+				3B0A71392446E9E8005BFFBE /* ChopersonController.m in Sources */,
 				3BFCC95F2445C0BC00D2CB41 /* HaveController.m in Sources */,
 				F78A24A324435C8800505C4C /* timeLineModel.m in Sources */,
 				3B0DCBD8244548AC00870587 /* BDImagePicker.m in Sources */,
@@ -824,8 +873,11 @@
 				F7F0461A2420AA7C00365A65 /* main.m in Sources */,
 				F74677EA244052340093D5D1 /* ZXDmethod.m in Sources */,
 				F7BB17A0243C1F77003A19D1 /* LoginViewController.m in Sources */,
+				3B0A713C2446EB1E005BFFBE /* CustomHeadFooterView.m in Sources */,
 				F7C5C329242A486E00A75289 /* UIView+EXTENSION.m in Sources */,
+				3B0A713524469943005BFFBE /* LeaveTypemodle.m in Sources */,
 				F79A836C244206D900D8F839 /* ELNAlerTool.m in Sources */,
+				3B0A71422446EB9D005BFFBE /* GroupModel.m in Sources */,
 				F74677F12440683D0093D5D1 /* UIView+WLFrame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

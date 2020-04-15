@@ -101,16 +101,16 @@
     [ZXDNetworking POST:urlStr parameters:dict success:^(id responseObject) {
     
         if ([responseObject[@"code"] intValue]==0) {
-      
-                 kSaveMyDefault(responseObject[@"data"][@"ticket"],@"ticket");
+   
+                 kSaveMyDefault(@"ticket",responseObject[@"data"][@"ticket"]);
               kSaveMyDefault(responseObject[@"data"][@"roleName"],@"roleName");
             kSaveMyDefault(responseObject[@"data"][@"roleName"],@"roleName");
-               
-        }
         NNTabBarController   *NNTab  = [[NNTabBarController alloc] init];
-                        NNTab.modalTransitionStyle =UIModalTransitionStyleCrossDissolve ;
-                          UIWindow *window = [UIApplication sharedApplication].delegate.window;
-                          window.rootViewController = NNTab;
+                                     NNTab.modalTransitionStyle =UIModalTransitionStyleCrossDissolve ;
+                                       UIWindow *window = [UIApplication sharedApplication].delegate.window;
+                                       window.rootViewController = NNTab;
+        }
+      
      
     } failure:^(NSError *error) {
         

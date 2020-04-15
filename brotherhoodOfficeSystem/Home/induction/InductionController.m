@@ -14,13 +14,22 @@
 @property (nonatomic, copy) NSArray *dataArray;
 @property (nonatomic, copy) NSArray *textArray;
 @property (nonatomic, strong)UIButton *button;
+/**姓名*/
 @property (nonatomic,strong)NSString *name;
+/**电话*/
 @property (nonatomic,strong)NSString *phone;
-@property (nonatomic,strong)NSString *num;
-@property (nonatomic,strong)NSString *household;
+/**身份证*/
+@property (nonatomic,strong)NSString *idCard;
+/**原居住地地址*/
+@property (nonatomic,strong)NSString *idAddress;
+/**地址*/
 @property (nonatomic,strong)NSString *address;
-@property (nonatomic,strong)NSString *Nowhouse;
-@property (nonatomic,strong)NSString *emergency;
+/**紧急联系人*/
+@property (nonatomic,strong)NSString *urgentPeople;
+/**紧急联系人电话*/
+@property (nonatomic,strong)NSString *urgentPhoneNumber;
+/**关系*/
+@property (nonatomic,strong)NSString *forMe;
 @end
 
 @implementation InductionController
@@ -114,7 +123,24 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
            case 1:
                self.phone = textField.text;
                break;
-               
+               case 2:
+                self.idCard = textField.text;
+               break;
+               case 3:
+                self.idAddress = textField.text;
+                break;
+               case 4:
+               self.address = textField.text;
+                break;
+               case 5:
+                self.urgentPeople = textField.text;
+                break;
+                case 6:
+                self.urgentPhoneNumber = textField.text;
+                break;
+                case 7:
+                self.forMe = textField.text;
+                break;
            default:
                break;
        }
@@ -129,11 +155,16 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
 
 
 -(void)buttonUploadPhoto:(UIButton *)sender{
-    NSLog(@"123214342");
+
     [BDImagePicker showImagePickerFromViewController:self allowsEditing:YES finishAction:^(UIImage *image) {
+        NSMutableArray *arr=[NSMutableArray array];
+        
            if (image) {
-               [sender setBackgroundImage:image forState:UIControlStateNormal];
+            [sender setBackgroundImage:image forState:UIControlStateNormal];
+            NSData *pictureData = UIImagePNGRepresentation(image);
+               [arr addObject:pictureData];
            }
+        self.dataArray = [NSArray arrayWithArray:arr];
        }];
 }
 
@@ -157,7 +188,14 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
     return headerView;
 }
 -(void)entrySubmission{
-    NSLog(@"%@",self.name);
+  
+    NSString *urlStr =[NSString stringWithFormat:@"%@xdtapp/api/v1/entry/doEntry",kAPI_URL];
+    NSDictionary *dict =@{@"ticket":   kFetchMyDefault(@"ticket"),@"realName":self.name,@"phoneNumber":self.phone,@"idCard":self.idCard ,@"idAddress":self.idAddress ,@"address":self.address,@"urgentPeople":self.urgentPeople,@"urgentPhoneNumber":self.urgentPhoneNumber,@"forMe":self.forMe};
+    [ZXDNetworking POST:urlStr parameters:dict uploadImageArrayWithImages:self.dataArray success:^(NSDictionary *obj) {
+       
+    } failure:^(NSError *error) {
+    
+    }];
 }
 
 @end

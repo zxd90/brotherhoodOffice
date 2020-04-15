@@ -7,11 +7,11 @@
 //
 
 #import "AskLeaveController.h"
-
+#import "LeaveTypemodle.h"
 #import "TextViewCell.h"
 @interface AskLeaveController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, copy) NSArray *dataArray;
+@property (nonatomic, copy) NSMutableArray *dataArray;
 @property (nonatomic, strong)UIButton *button;
 
 /** 请假类型 */
@@ -34,13 +34,17 @@
 
 @implementation AskLeaveController
 
+- (void)viewWillAppear:(BOOL)animated {
+[super viewWillAppear:animated];
+    [self updataetype];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title =@"请假";
     self.tableView.hidden = NO;
     [self.view addSubview:self.button];
-    _typeArray=@[@"调休",@"产假",@"事假",@"病假",@"丧葬假",@"陪产假"];
-_dataArray=@[@[@"请假类型",@ "开始日期",@"开始时间",@"结束日期",@"结束时间",@"请假天数"],@[@"请假原因"]];
+   
+  _dataArray=@[@[@"请假类型",@ "开始日期",@"开始时间",@"结束日期",@"结束时间",@"请假天数"],@[@"请假原因"]];
 }
 
 #pragma mark - lazy
@@ -147,7 +151,7 @@ _dataArray=@[@[@"请假类型",@ "开始日期",@"开始时间",@"结束日期",
                       NSLog(@"%@",textView.text);
                   }];
         cell.titleLabel.text=_dataArray[indexPath.section][indexPath.row];
-                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     
@@ -267,9 +271,42 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
 }
 
 -(void)buttonClick{
-   
+    NSLog(@"%@",_dayNumTF.text);
+    NSLog(@"%@",kFetchMyDefault(@"ticket"));
 if(_typeTF.text!=nil&&_startDateTF.text!=nil&&_endDateTF.text!=nil&&_starTimeTF.text!=nil&&_endTimeTF.text!=nil&&_dayNumTF.text&&_string!=nil) {
-       NSLog(@"%@",_string);
+    
+  NSString *starString =  [NSString stringWithFormat:@"%@ %@",_startDateTF.text, _starTimeTF.text];
+    NSString *endString=[NSString stringWithFormat:@"%@ %@",_endDateTF.text,_endTimeTF.text];
+       NSString *urlStr =[NSString stringWithFormat:@"%@xdtapp/api/v1/flowPath/leave",kAPI_URL];
+    NSDictionary *dict =@{@"ticket":   kFetchMyDefault(@"ticket"),@"flowType":_typeTF.text,@"dayNum":_dayNumTF.text,@"startTime":starString ,@"endTime":endString ,@"reasons":_string};
+             
+       [ZXDNetworking POST:urlStr parameters:dict success:^(id responseObject) {
+       
+           if ([responseObject[@"code"] intValue]==0) {
+         
+           }
+        
+       } failure:^(NSError *error) {
+           
+       } view:self.view];
     }
 }
+-(void)updataetype{
+ 
+    NSString *urlStr =[NSString stringWithFormat:@"%@xdtapp/api/v1/flowPath/getLeaveType",kAPI_URL];
+    [ZXDNetworking GET:urlStr parameters:nil success:^(id responseObject) {
+        if ([responseObject[@"code"] intValue]==0) {
+            NSMutableArray *arr=[NSMutableArray array];
+            for (NSDictionary *dic in responseObject[@"data"]) {
+               ;
+            [arr addObject: [dic objectForKey:@"flowTypeName"]];
+            }
+            self.typeArray=[NSArray arrayWithArray:arr];
+          }
+    } failure:^(NSError *error) {
+        
+    } view:self.view MBPro:YES];
+   
+}
+
 @end
