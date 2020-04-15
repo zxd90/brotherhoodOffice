@@ -30,6 +30,8 @@
 @property (nonatomic,strong)NSString *urgentPhoneNumber;
 /**关系*/
 @property (nonatomic,strong)NSString *forMe;
+@property (nonatomic, copy) NSArray *Array;
+@property (nonatomic, copy)NSMutableArray *Array1;
 @end
 
 @implementation InductionController
@@ -39,6 +41,8 @@
     self.title =@"入职";
     self.tableView.hidden = NO;
         [self.view addSubview:self.button];
+    _Array=[NSArray array];
+     _Array1=[NSMutableArray array];
     _dataArray=@[@"姓名",@"联系方式",@"身份证号",@"户籍所在地",@"现居住地址",@"紧急联系人",@"紧急联系人电话",@"与本人关系"];
     _textArray=@[@"请输入姓名", @"请输入手机号",@"请填写身份证号",@"请填写户籍所在地",@"请填写现居地址",@"请填写紧急联系人",@"请填写紧急联系人电话",@"请填写与本人关系"];
 }
@@ -155,16 +159,15 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
 
 
 -(void)buttonUploadPhoto:(UIButton *)sender{
-
+   
     [BDImagePicker showImagePickerFromViewController:self allowsEditing:YES finishAction:^(UIImage *image) {
-        NSMutableArray *arr=[NSMutableArray array];
+        
         
            if (image) {
             [sender setBackgroundImage:image forState:UIControlStateNormal];
             NSData *pictureData = UIImagePNGRepresentation(image);
-               [arr addObject:pictureData];
+               [self.Array1 addObject:pictureData];
            }
-        self.dataArray = [NSArray arrayWithArray:arr];
        }];
 }
 
@@ -188,7 +191,8 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
     return headerView;
 }
 -(void)entrySubmission{
-  
+   self.dataArray = [NSArray arrayWithArray:self.Array1];
+    NSLog(@"%@",self.dataArray);
     NSString *urlStr =[NSString stringWithFormat:@"%@xdtapp/api/v1/entry/doEntry",kAPI_URL];
     NSDictionary *dict =@{@"ticket":   kFetchMyDefault(@"ticket"),@"realName":self.name,@"phoneNumber":self.phone,@"idCard":self.idCard ,@"idAddress":self.idAddress ,@"address":self.address,@"urgentPeople":self.urgentPeople,@"urgentPhoneNumber":self.urgentPhoneNumber,@"forMe":self.forMe};
     [ZXDNetworking POST:urlStr parameters:dict uploadImageArrayWithImages:self.dataArray success:^(NSDictionary *obj) {
