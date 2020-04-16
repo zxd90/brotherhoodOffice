@@ -12,7 +12,8 @@
 @interface CustomHeadFooterView ()
 
 @property(nonatomic, strong) UIButton *btnGroupTitle;
-@property(nonatomic, strong) UILabel *lblCount;
+@property(nonatomic, strong) UILabel *lblTitle;
+
 
 @end
 
@@ -28,12 +29,10 @@
 
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier{
     if(self = [super initWithReuseIdentifier:reuseIdentifier]){
-        UIButton *btnGroupTitle = [[UIButton alloc]init];
+        UIButton *btnGroupTitle = [UIButton buttonWithType:UIButtonTypeCustom];
+       
         [btnGroupTitle setImage:[UIImage imageNamed:@"sanjiaoxing.png"] forState:UIControlStateNormal];
-        [btnGroupTitle setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        btnGroupTitle.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        [btnGroupTitle setContentEdgeInsets:UIEdgeInsetsMake(0, 10, 0, 0)];
-        [btnGroupTitle setTitleEdgeInsets:UIEdgeInsetsMake(0, 10, 0, 0)];
+     
         [btnGroupTitle addTarget:self action:@selector(btnGroupTitleClickd:) forControlEvents:UIControlEventTouchUpInside];
         //设置按钮中图片的显示模式
         btnGroupTitle.contentMode = UIViewContentModeCenter;
@@ -41,9 +40,11 @@
         btnGroupTitle.imageView.clipsToBounds = NO;
         [self.contentView addSubview:btnGroupTitle];
         self.btnGroupTitle = btnGroupTitle;
-        UILabel *lblCount = [[UILabel alloc]init];
-        [self.contentView addSubview:lblCount];
-        self.lblCount = lblCount;
+                 
+        UILabel *lblTitle = [[UILabel alloc]init];
+        [self.contentView addSubview:lblTitle];
+        self.lblTitle = lblTitle;
+    
     }
     return self;
 }
@@ -69,8 +70,7 @@
 - (void)setGroup:(GroupModel *)group{
     //设置frame不要在这里设置frame，因为这个时候的当前控件(self)的宽和高都是0
     _group = group;
-    [self.btnGroupTitle setTitle:group.depName forState:UIControlStateNormal];
-    self.lblCount.text = [NSString stringWithFormat:@"%@/%lu",group.total,(unsigned long)group.users.count];
+    self.lblTitle.text = [NSString stringWithFormat:@"%@(%d)",group.depName,group.total];
     if(self.group.isVisible){
         self.btnGroupTitle.imageView.transform = CGAffineTransformMakeRotation(M_PI_2);
     }else{
@@ -81,9 +81,9 @@
 //当前控件的frame发生改变的时候会调用这个方法
 - (void)layoutSubviews{
     [super layoutSubviews];
-    [self.btnGroupTitle setFrame:self.bounds];
-   
-    [self.lblCount setFrame:CGRectMake(self.btnGroupTitle.right+10, 0, 100, 44)];
+ CGFloat  width = [ZXDmethod calculateRowWidth:self.lblTitle.text Font:17.0];
+ self.btnGroupTitle.frame=CGRectMake(15,15, 14,14);
+    [self.lblTitle setFrame:CGRectMake(self.btnGroupTitle.right+5,10,width, 24)];
 }
 
 @end

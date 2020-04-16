@@ -12,20 +12,52 @@
 @implementation FriendTableViewCell
 
 + (instancetype)friendTableViewCellWithTableView:(UITableView *)tableview{
-    FriendTableViewCell *cell = [tableview dequeueReusableCellWithIdentifier:NSStringFromClass([FriendTableViewCell class])];
+    FriendTableViewCell *cell = [tableview dequeueReusableCellWithIdentifier:@"FriendTableViewCell"];
     if(cell == nil){
-        cell = [[FriendTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:NSStringFromClass([FriendTableViewCell class])];
+        cell = [[FriendTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"FriendTableViewCell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return cell;
 }
-
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        [self setUI];
+    }
+    return self;
+}
+//布局
+-(void)setUI{
+    _headerImageView= [[UIImageView alloc]initWithFrame:CGRectMake(8, 8, 40, 40)];
+    _headerImageView.layer.cornerRadius = 20;
+    _headerImageView.layer.masksToBounds = YES;
+    //右侧扩展说明内容
+    [self.contentView addSubview:self.headerImageView];
+    _labelName = [[UILabel alloc]initWithFrame:CGRectMake(_headerImageView.right+8,6, 200, 20)];
+    _labelName.font = [UIFont systemFontOfSize:16];
+ 
+     [self.contentView addSubview:self.labelName]; //标题文字
+    _labelroleName = [[UILabel alloc]initWithFrame:CGRectMake(_headerImageView.right+8,_labelName.bottom+4, 200, 20)];
+     _labelroleName.font = [UIFont systemFontOfSize:14];
+    [self.contentView addSubview:self.labelroleName];
+}
 - (void)setFriendModel:(FriendModel *)friendModel{
     _friendModel = friendModel;
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:friendModel.headImg] placeholderImage:[UIImage imageNamed:@""]];
-    self.textLabel.text = friendModel.userName ;
-    self.detailTextLabel.text = friendModel.intro;
+    [self.headerImageView sd_setImageWithURL:[NSURL URLWithString:friendModel.headImg] placeholderImage:[UIImage imageNamed:@""]];
+    self.labelName.text = friendModel.userName ;
+    self.labelroleName.text = friendModel.roleName;
    self.detailTextLabel.textColor = [UIColor blackColor];
 }
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    // Initialization code
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
 @end

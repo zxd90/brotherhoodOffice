@@ -17,10 +17,24 @@
     return self;
 }
 
+
 + (instancetype)friendWithDict:(NSDictionary *)dict{
     return [[self alloc]initWithDict:dict];
 }
-
+-(void)setValue:(id)value forUndefinedKey:(NSString *)key
+{
+//    if([key isEqualToString:@"id"]){
+//   
+//        self.ID = [NSString stringWithFormat:@"%@",value];
+//    }
+    
+    
+}
+//kvc取值操作  取值误操作
+-(instancetype)valueForUndefinedKey:(NSString *)key
+{
+    return nil;
+}
 //+ (NSDictionary *)mj_replacedKeyFromPropertyName{
 //    //前边key是你想使用的key，后边是返回的key
 //    return @{

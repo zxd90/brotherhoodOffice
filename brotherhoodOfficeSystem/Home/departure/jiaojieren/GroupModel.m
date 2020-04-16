@@ -31,8 +31,17 @@
 + (NSDictionary *)mj_objectClassInArray{
     //前边是属性数组的名字，后边是类
     return @{
-             @"friends":@"FriendModel"
+             @"users":@"FriendModel"
              };
 }
-
+-(void)setValue:(id)value forUndefinedKey:(NSString *)key
+{
+    
+    
+}
+//kvc取值操作  取值误操作
+-(instancetype)valueForUndefinedKey:(NSString *)key
+{
+    return nil;
+}
 @end

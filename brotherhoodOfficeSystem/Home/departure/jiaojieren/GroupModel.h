@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, strong) NSArray<FriendModel *> *users;
 @property(nonatomic, copy) NSString *depName;
-@property(nonatomic, copy) NSString *total;
+@property(nonatomic, assign)int  total;
 
 - (instancetype)initWithDict:(NSDictionary *)dict;
 + (instancetype)groupWithDict:(NSDictionary *)dict;

@@ -11,7 +11,7 @@
 #import "TextViewCell.h"
 @interface AskLeaveController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, copy) NSMutableArray *dataArray;
+@property (nonatomic, copy) NSArray *dataArray;
 @property (nonatomic, strong)UIButton *button;
 
 /** 请假类型 */

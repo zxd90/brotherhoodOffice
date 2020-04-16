@@ -196,10 +196,13 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
     NSString *urlStr =[NSString stringWithFormat:@"%@xdtapp/api/v1/entry/doEntry",kAPI_URL];
     NSDictionary *dict =@{@"ticket":   kFetchMyDefault(@"ticket"),@"realName":self.name,@"phoneNumber":self.phone,@"idCard":self.idCard ,@"idAddress":self.idAddress ,@"address":self.address,@"urgentPeople":self.urgentPeople,@"urgentPhoneNumber":self.urgentPhoneNumber,@"forMe":self.forMe};
     [ZXDNetworking POST:urlStr parameters:dict uploadImageArrayWithImages:self.dataArray success:^(NSDictionary *obj) {
-       
+        if ([obj[@"code"]intValue]==0) {
+            
+            
+        }
     } failure:^(NSError *error) {
     
-    }];
+    }view:self.view];
 }
 
 @end

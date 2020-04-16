@@ -28,6 +28,7 @@
         _tableView.delegate = self;
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.sectionHeaderHeight = 44;
+        _tableView.sectionFooterHeight= 1;
     }
     return _tableView;
 }
@@ -56,11 +57,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     GroupModel *group = self.groups[indexPath.section];
     FriendModel *friend = group.users[indexPath.row];
+    NSLog(@"++++%d",friend.userId);
+ 
     FriendTableViewCell *cell = [FriendTableViewCell friendTableViewCellWithTableView:tableView];
     cell.friendModel = friend;
     return cell;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return 56;
+}
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     GroupModel *group = self.groups[section];
     CustomHeadFooterView *view = [CustomHeadFooterView headFooterViewWithTableview:tableView];
@@ -70,6 +76,19 @@
     //return 返回之前headerFooterView的frame是0,所以需要在某个地方设置headerFooterView的frame
     return view;
     //return 返回之后，uitableview在用headerFooterView的时候就会设置headerFooterView的frame
+}
+-(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    
+    return [[UIView alloc]init];
+}
+//点击事件
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    GroupModel *group =self.groups[indexPath.section];
+    FriendModel *friend =group.users[indexPath.row];
+    NSLog(@"%@",friend.userName);
+    NSLog(@"%@",friend.roleName);
+    NSLog(@"%d",friend.userId);
+//    [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)groupHeaderViewDidClickTitleButton:(CustomHeadFooterView *)headerview{
     //全局刷新

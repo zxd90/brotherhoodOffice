@@ -84,19 +84,22 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"text/plain", nil];
     return manager;
 }
-+ (void)POST:(NSString*)URLString parameters:(NSDictionary *)parameters uploadImageArrayWithImages:(NSArray<NSData *> *)images success:(void (^)(NSDictionary *obj))success failure:(void (^)(NSError *error))failure
++ (void)POST:(NSString*)URLString parameters:(NSDictionary *)parameters uploadImageArrayWithImages:(NSArray<NSData *> *)images success:(void (^)(NSDictionary *obj))success failure:(void (^)(NSError *error))failure view:(UIView*)view
 {
+
+     [MBProgressHUD showHUDAddedTo:view animated:YES];
      AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/html",@"image/jpeg",@"image/png",@"image/gif",@"image/tiff",@"application/octet-stream",@"text/json",nil];
     [manager POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         [images enumerateObjectsUsingBlock:^(NSData * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             //upfiles 是参数名 根据项目修改
-        [formData appendPartWithFileData:obj name:@"idCards" fileName:[NSString stringWithFormat:@"%.0f.jpg", [[NSDate date] timeIntervalSince1970]] mimeType:@"image/jpg"];
+        [formData appendPartWithFileData:obj name:@"idCards" fileName:[NSString stringWithFormat:@"%.0f.png", [[NSDate date] timeIntervalSince1970]] mimeType:@"image/png"];
         }];
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+          [MBProgressHUD hideHUDForView: view animated:NO];
         if (success) {
             NSString *response = [[NSString alloc] initWithData:(NSData *)responseObject encoding:NSUTF8StringEncoding];
             NSData* jsonData = [response dataUsingEncoding:NSUTF8StringEncoding];

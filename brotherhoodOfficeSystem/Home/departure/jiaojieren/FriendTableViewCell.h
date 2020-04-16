@@ -12,7 +12,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FriendTableViewCell : UITableViewCell
-
+@property (strong, nonatomic) UIImageView *headerImageView;//头像
+@property (nonatomic,strong)UILabel *labelName;
+@property (nonatomic,strong)UILabel *labelroleName;
 + (instancetype)friendTableViewCellWithTableView:(UITableView *)tableview;
 
 @property(nonatomic, strong) FriendModel *friendModel;

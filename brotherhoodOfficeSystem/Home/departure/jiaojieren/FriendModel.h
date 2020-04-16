@@ -13,8 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FriendModel : NSObject
 
 @property(nonatomic, copy) NSString *headImg;
-@property(nonatomic, copy) NSString *intro;
+@property(nonatomic, copy) NSString *roleName;
 @property(nonatomic, copy) NSString *userName;
+@property(nonatomic, assign)int  userId;
 
 
 - (instancetype)initWithDict:(NSDictionary *)dict;

@@ -53,7 +53,7 @@
     if (!_rightLabel) {
         _rightLabel = [[UILabel alloc]initWithFrame:CGRectZero];
         _rightLabel.font = [UIFont systemFontOfSize:15] ;
-        _rightLabel.text =@"2311324324";
+    
     }
     return _rightLabel ;
 }
