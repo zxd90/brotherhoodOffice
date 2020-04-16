@@ -11,11 +11,11 @@
 #import "FriendModel.h"
 #import "FriendTableViewCell.h"
 #import "CustomHeadFooterView.h"
+
 @interface ChopersonController ()<UITableViewDataSource,UITableViewDelegate,CustomHeadFooterViewDelegate>
 
 @property(nonatomic, strong) UITableView *tableView;
 @property(nonatomic, strong) NSArray *groups;
-
 
 @end
 
@@ -57,8 +57,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     GroupModel *group = self.groups[indexPath.section];
     FriendModel *friend = group.users[indexPath.row];
-    NSLog(@"++++%d",friend.userId);
- 
+
     FriendTableViewCell *cell = [FriendTableViewCell friendTableViewCellWithTableView:tableView];
     cell.friendModel = friend;
     return cell;
@@ -85,10 +84,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     GroupModel *group =self.groups[indexPath.section];
     FriendModel *friend =group.users[indexPath.row];
-    NSLog(@"%@",friend.userName);
-    NSLog(@"%@",friend.roleName);
-    NSLog(@"%d",friend.userId);
-//    [self.navigationController popViewControllerAnimated:YES];
+    if (self.num==0) {
+        self.blcokFriendStr(friend);
+    }else{
+        self.blcokworkStr(friend);
+    }
+  
+    
+   [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)groupHeaderViewDidClickTitleButton:(CustomHeadFooterView *)headerview{
     //全局刷新

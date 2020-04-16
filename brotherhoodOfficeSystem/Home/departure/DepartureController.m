@@ -10,9 +10,11 @@
 #import "BRResultModel.h"
 #import "TextViewCell.h"
 #import "ChopersonController.h"
+
 @interface DepartureController ()<UITableViewDelegate,UITableViewDataSource ,UITextFieldDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, copy) NSArray *dataArray;
+
 @property (nonatomic, strong)UIButton *button;
 /**离职日期*/
 @property (nonatomic, strong) BRTextField *departureTF;
@@ -27,6 +29,10 @@
 @property (nonatomic, strong) NSString *workStr;
 /**离职内容*/
 @property (nonatomic, strong) NSString *reasonStr;
+/**工作交接人ID*/
+@property (nonatomic, strong) NSString *workuserId;
+/**资产交接人ID*/
+@property (nonatomic, strong) NSString *AssetuserId;
 @end
 
 @implementation DepartureController
@@ -195,15 +201,20 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
                };
     }
 }
-#pragma mark -交接资产 textField
+#pragma mark -资产工作 textField
 - (void)setupAssetTF:(UITableViewCell *)cell {
     if (!_AssetTF) {
         _AssetTF = [self getTextField:cell];
-        _AssetTF.placeholder = @"请选择工作交接人";
+        _AssetTF.placeholder = @"请选择资产交接人";
     __weak typeof(self) weakSelf = self;
-                 _AssetTF.tapAcitonBlock = ^{
+        _AssetTF.tapAcitonBlock = ^{
              ChopersonController *cheopVC=[[ChopersonController alloc]init];
-                           [weakSelf.navigationController pushViewController:cheopVC animated:YES];
+                     cheopVC.num= 0;
+                     cheopVC.blcokFriendStr=^(FriendModel *Friend){
+                        weakSelf.AssetTF.text = Friend.userName;
+                        weakSelf.AssetuserId=[NSString stringWithFormat:@"%d", Friend.userId];
+                     };
+             [weakSelf.navigationController pushViewController:cheopVC animated:YES];
                   };
     }
 }
@@ -213,16 +224,22 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
         _workTF = [self getTextField:cell];
         _workTF.placeholder = @"请选择工作交接人";
         __weak typeof(self) weakSelf = self;
-                        _workTF.tapAcitonBlock = ^{
-                    ChopersonController *cheopVC=[[ChopersonController alloc]init];
-                    [weakSelf.navigationController pushViewController:cheopVC animated:YES];
+                _workTF.tapAcitonBlock = ^{
+            ChopersonController *cheopVC=[[ChopersonController alloc]init];
+            cheopVC.num= 1;
+            cheopVC.blcokworkStr=^(FriendModel *Friend){
+                    weakSelf.workTF.text = Friend.userName;
+                    weakSelf.workuserId=[NSString stringWithFormat:@"%d", Friend.userId];
                          };
+                     [weakSelf.navigationController pushViewController:cheopVC animated:YES];
+                };
     }
 }
 -(void)LeaveAppButtonClick{
     
     NSString *urlStr =[NSString stringWithFormat:@"%@xdtapp/api/v1/quit/doQuit",kAPI_URL];
-    NSDictionary *dict =@{@"ticket":   kFetchMyDefault(@"ticket"),@"quitTime":_departureTF.text,@"quitReason":self.reasonStr,@"assetsUserId": _AssetTF.text,@"assetsMsg": self.AssetStr,@"workUserId":_workTF.text ,@"workMsg":self.workStr};
+    NSDictionary *dict =@{@"ticket":   kFetchMyDefault(@"ticket"),@"quitTime":_departureTF.text,@"quitReason":self.reasonStr,@"assetsUserId": self.AssetuserId,@"assetsMsg": self.AssetStr,@"workUserId":self.workuserId ,@"workMsg":self.workStr};
+    NSLog(@"%@",dict);
          [ZXDNetworking POST:urlStr parameters:dict success:^(id responseObject) {
          
              if ([responseObject[@"code"] intValue]==0) {

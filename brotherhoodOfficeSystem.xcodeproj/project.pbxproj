@@ -20,6 +20,8 @@
 		4497113322D6586690514D0D /* Pods_brotherhoodOfficeSystemTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62B17824283800011D283562 /* Pods_brotherhoodOfficeSystemTests.framework */; };
 		9A9203859B40AA87A44C32BC /* Pods_brotherhoodOfficeSystem_brotherhoodOfficeSystemUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C06DEDCA3F8FCA33B77DF1 /* Pods_brotherhoodOfficeSystem_brotherhoodOfficeSystemUITests.framework */; };
 		CE66466427FAB4C0A36AD646 /* Pods_brotherhoodOfficeSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46794B329A268856D5E24EC1 /* Pods_brotherhoodOfficeSystem.framework */; };
+		F7074BCD2448A07F00D40A77 /* todetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7074BCC2448A07F00D40A77 /* todetailsController.m */; };
+		F7074BD12448A0FC00D40A77 /* todoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7074BD02448A0FC00D40A77 /* todoTableViewCell.m */; };
 		F72FA1BE243DAC44000343FC /* HomeMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F72FA1BA243DAC44000343FC /* HomeMenuCell.m */; };
 		F72FA1BF243DAC44000343FC /* JZMTBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = F72FA1BD243DAC44000343FC /* JZMTBtnView.m */; };
 		F72FA1C3243DAD5A000343FC /* Property.plist in Resources */ = {isa = PBXBuildFile; fileRef = F72FA1C2243DAD5A000343FC /* Property.plist */; };
@@ -109,6 +111,10 @@
 		62B17824283800011D283562 /* Pods_brotherhoodOfficeSystemTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_brotherhoodOfficeSystemTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2D7DB3A655039A5644A273A /* Pods-brotherhoodOfficeSystem-brotherhoodOfficeSystemUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-brotherhoodOfficeSystem-brotherhoodOfficeSystemUITests.release.xcconfig"; path = "Target Support Files/Pods-brotherhoodOfficeSystem-brotherhoodOfficeSystemUITests/Pods-brotherhoodOfficeSystem-brotherhoodOfficeSystemUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EE89F40DD11FDFD081D54759 /* Pods-brotherhoodOfficeSystemTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-brotherhoodOfficeSystemTests.debug.xcconfig"; path = "Target Support Files/Pods-brotherhoodOfficeSystemTests/Pods-brotherhoodOfficeSystemTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F7074BCB2448A07F00D40A77 /* todetailsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = todetailsController.h; sourceTree = "<group>"; };
+		F7074BCC2448A07F00D40A77 /* todetailsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = todetailsController.m; sourceTree = "<group>"; };
+		F7074BCF2448A0FC00D40A77 /* todoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = todoTableViewCell.h; sourceTree = "<group>"; };
+		F7074BD02448A0FC00D40A77 /* todoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = todoTableViewCell.m; sourceTree = "<group>"; };
 		F72FA1BA243DAC44000343FC /* HomeMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMenuCell.m; sourceTree = "<group>"; };
 		F72FA1BB243DAC44000343FC /* HomeMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeMenuCell.h; sourceTree = "<group>"; };
 		F72FA1BC243DAC44000343FC /* JZMTBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZMTBtnView.h; sourceTree = "<group>"; };
@@ -296,6 +302,24 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F7074BCA2448A02D00D40A77 /* todoxiangqing */ = {
+			isa = PBXGroup;
+			children = (
+				F7074BCB2448A07F00D40A77 /* todetailsController.h */,
+				F7074BCC2448A07F00D40A77 /* todetailsController.m */,
+			);
+			path = todoxiangqing;
+			sourceTree = "<group>";
+		};
+		F7074BCE2448A0CD00D40A77 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				F7074BCF2448A0FC00D40A77 /* todoTableViewCell.h */,
+				F7074BD02448A0FC00D40A77 /* todoTableViewCell.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		F72FA1AD243D8312000343FC /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -443,6 +467,8 @@
 			children = (
 				F7A8F461243DF0870084D386 /* todoController.h */,
 				F7A8F462243DF0870084D386 /* todoController.m */,
+				F7074BCE2448A0CD00D40A77 /* view */,
+				F7074BCA2448A02D00D40A77 /* todoxiangqing */,
 				F78A249D24434B6C00505C4C /*  timeline */,
 			);
 			path = todo;
@@ -861,6 +887,7 @@
 				3B0A71392446E9E8005BFFBE /* ChopersonController.m in Sources */,
 				3BFCC95F2445C0BC00D2CB41 /* HaveController.m in Sources */,
 				F78A24A324435C8800505C4C /* timeLineModel.m in Sources */,
+				F7074BCD2448A07F00D40A77 /* todetailsController.m in Sources */,
 				3B0DCBD8244548AC00870587 /* BDImagePicker.m in Sources */,
 				3B7807BA24416F47008EEE83 /* inductionCell.m in Sources */,
 				F79A83612441F57100D8F839 /* ZXDNetworking.m in Sources */,
@@ -875,6 +902,7 @@
 				F7BB17A0243C1F77003A19D1 /* LoginViewController.m in Sources */,
 				3B0A713C2446EB1E005BFFBE /* CustomHeadFooterView.m in Sources */,
 				F7C5C329242A486E00A75289 /* UIView+EXTENSION.m in Sources */,
+				F7074BD12448A0FC00D40A77 /* todoTableViewCell.m in Sources */,
 				3B0A713524469943005BFFBE /* LeaveTypemodle.m in Sources */,
 				F79A836C244206D900D8F839 /* ELNAlerTool.m in Sources */,
 				3B0A71422446EB9D005BFFBE /* GroupModel.m in Sources */,
