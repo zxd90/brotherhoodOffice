@@ -33,6 +33,8 @@
 @property (nonatomic, strong) NSString *workuserId;
 /**资产交接人ID*/
 @property (nonatomic, strong) NSString *AssetuserId;
+//保存textField数据源
+@property (nonatomic,strong)NSMutableDictionary*dict;
 @end
 
 @implementation DepartureController
@@ -42,7 +44,8 @@
     self.title =@"申请离职";
     self.tableView.hidden = NO;
     [self.view addSubview:self.button];
-  _dataArray=@[@[@"离职日期",@"资产交接人"],@[@"资产内容交接"],@[@"工作交接人"],@[@"工作内容交接"],@[@"离职原因"]];
+   _dict =[NSMutableDictionary dictionary];
+ _dataArray=@[@[@"离职日期",@"资产交接人"],@[@"资产内容交接"],@[@"工作交接人"],@[@"工作内容交接"],@[@"离职原因"]];
 }
 #pragma mark - lazy
 - (UITableView *)tableView {
@@ -122,11 +125,14 @@ return [_dataArray[section]count];
                        if (!cell) {
                 cell=[[TextViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
                        }
-             cell.titleLabel.text=_dataArray[indexPath.section][indexPath.row];
-                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.titleLabel.text=_dataArray[indexPath.section][indexPath.row];
+        cell.textView.text=_dict[[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         __weak typeof(self) weakSelf = self;
         [cell.textView didChangeText:^(PlaceholderTextView *textView) {
             NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+            //保存数据源
+            [weakSelf.dict setObject:textView.text forKey:[NSString stringWithFormat:@"%ld", (long)indexPath.row]];;
               switch (indexPath.section) {
                      case 1:
                     weakSelf.AssetStr= textView.text;
@@ -239,8 +245,8 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
     
     NSString *urlStr =[NSString stringWithFormat:@"%@xdtapp/api/v1/quit/doQuit",kAPI_URL];
     NSDictionary *dict =@{@"ticket":   kFetchMyDefault(@"ticket"),@"quitTime":_departureTF.text,@"quitReason":self.reasonStr,@"assetsUserId": self.AssetuserId,@"assetsMsg": self.AssetStr,@"workUserId":self.workuserId ,@"workMsg":self.workStr};
-    NSLog(@"+++++++%@",dict);
-         [ZXDNetworking      POST:urlStr parameters:dict success:^(id responseObject) {
+   
+         [ZXDNetworking   POST:urlStr parameters:dict success:^(id responseObject) {
          
              if ([responseObject[@"code"] intValue]==0) {
            
