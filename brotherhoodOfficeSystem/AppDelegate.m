@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "NNTabBarController.h"
 #import "LoginViewController.h"
+ 
 @interface AppDelegate ()
 
 @end
@@ -17,11 +18,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    IQKeyboardManager *managerr = [IQKeyboardManager sharedManager];
-     managerr.enable = YES;
-  managerr.toolbarDoneBarButtonItemText = @"完成"; managerr.overrideKeyboardAppearance = YES;
-    managerr.shouldResignOnTouchOutside = YES;
-    managerr.enableAutoToolbar = YES;
+     IQKeyboardManager *managerr = [IQKeyboardManager sharedManager];
+    IQKeyboardManager.sharedManager.toolbarDoneBarButtonItemText = @"完成";
+    managerr.shouldToolbarUsesTextFieldTintColor = NO;
+    managerr.toolbarTintColor = [UIColor blackColor];
 //     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 //    if () {
 //    self.window.rootViewController = [[LoginViewController alloc]init];

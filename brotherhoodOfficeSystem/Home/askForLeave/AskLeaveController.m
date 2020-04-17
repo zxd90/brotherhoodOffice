@@ -43,7 +43,6 @@
     self.title =@"请假";
     self.tableView.hidden = NO;
     [self.view addSubview:self.button];
-   
   _dataArray=@[@[@"请假类型",@ "开始日期",@"开始时间",@"结束日期",@"结束时间",@"请假天数"],@[@"请假原因"]];
 }
 
