@@ -28,6 +28,13 @@
 		3BB2CC6D2449A764005A515D /* IQUIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2CC5C2449A764005A515D /* IQUIView+Hierarchy.m */; };
 		3BB2CC6E2449A764005A515D /* IQUIViewController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2CC602449A764005A515D /* IQUIViewController+Additions.m */; };
 		3BB2CC6F2449A764005A515D /* IQKeyboardReturnKeyHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2CC622449A764005A515D /* IQKeyboardReturnKeyHandler.m */; };
+		3BB4EC7D244A88E30025F476 /* requstTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB4EC7C244A88E30025F476 /* requstTableViewCell.m */; };
+		3BB4EC81244A9FA20025F476 /* requstModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB4EC80244A9FA20025F476 /* requstModel.m */; };
+		3BB4EC84244AE09B0025F476 /* RqtDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB4EC83244AE09B0025F476 /* RqtDetailsController.m */; };
+		3BB4EC87244AE5170025F476 /* RqtDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB4EC86244AE5170025F476 /* RqtDetailsCell.m */; };
+		3BB4EC8A244AE5C20025F476 /* rqtDetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB4EC89244AE5C20025F476 /* rqtDetModel.m */; };
+		3BB4EC8D244AEB7C0025F476 /* qtdetaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB4EC8C244AEB7C0025F476 /* qtdetaCell.m */; };
+		3BB4EC90244AECF00025F476 /* qtdetaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB4EC8F244AECF00025F476 /* qtdetaModel.m */; };
 		3BFCC95F2445C0BC00D2CB41 /* HaveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFCC95E2445C0BC00D2CB41 /* HaveController.m */; };
 		3BFCC9632445C16D00D2CB41 /* requestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFCC9622445C16D00D2CB41 /* requestController.m */; };
 		4497113322D6586690514D0D /* Pods_brotherhoodOfficeSystemTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62B17824283800011D283562 /* Pods_brotherhoodOfficeSystemTests.framework */; };
@@ -143,6 +150,20 @@
 		3BB2CC602449A764005A515D /* IQUIViewController+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIViewController+Additions.m"; sourceTree = "<group>"; };
 		3BB2CC612449A764005A515D /* IQUIView+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIView+Hierarchy.h"; sourceTree = "<group>"; };
 		3BB2CC622449A764005A515D /* IQKeyboardReturnKeyHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQKeyboardReturnKeyHandler.m; sourceTree = "<group>"; };
+		3BB4EC7B244A88E30025F476 /* requstTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = requstTableViewCell.h; sourceTree = "<group>"; };
+		3BB4EC7C244A88E30025F476 /* requstTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = requstTableViewCell.m; sourceTree = "<group>"; };
+		3BB4EC7F244A9FA20025F476 /* requstModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = requstModel.h; sourceTree = "<group>"; };
+		3BB4EC80244A9FA20025F476 /* requstModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = requstModel.m; sourceTree = "<group>"; };
+		3BB4EC82244AE09B0025F476 /* RqtDetailsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RqtDetailsController.h; sourceTree = "<group>"; };
+		3BB4EC83244AE09B0025F476 /* RqtDetailsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RqtDetailsController.m; sourceTree = "<group>"; };
+		3BB4EC85244AE5170025F476 /* RqtDetailsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RqtDetailsCell.h; sourceTree = "<group>"; };
+		3BB4EC86244AE5170025F476 /* RqtDetailsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RqtDetailsCell.m; sourceTree = "<group>"; };
+		3BB4EC88244AE5C20025F476 /* rqtDetModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rqtDetModel.h; sourceTree = "<group>"; };
+		3BB4EC89244AE5C20025F476 /* rqtDetModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rqtDetModel.m; sourceTree = "<group>"; };
+		3BB4EC8B244AEB7C0025F476 /* qtdetaCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = qtdetaCell.h; sourceTree = "<group>"; };
+		3BB4EC8C244AEB7C0025F476 /* qtdetaCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = qtdetaCell.m; sourceTree = "<group>"; };
+		3BB4EC8E244AECF00025F476 /* qtdetaModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = qtdetaModel.h; sourceTree = "<group>"; };
+		3BB4EC8F244AECF00025F476 /* qtdetaModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = qtdetaModel.m; sourceTree = "<group>"; };
 		3BFCC95D2445C0BC00D2CB41 /* HaveController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HaveController.h; sourceTree = "<group>"; };
 		3BFCC95E2445C0BC00D2CB41 /* HaveController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HaveController.m; sourceTree = "<group>"; };
 		3BFCC9612445C16D00D2CB41 /* requestController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = requestController.h; sourceTree = "<group>"; };
@@ -371,6 +392,32 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		3BB4EC7A244A885E0025F476 /* requstcell */ = {
+			isa = PBXGroup;
+			children = (
+				3BB4EC7B244A88E30025F476 /* requstTableViewCell.h */,
+				3BB4EC7C244A88E30025F476 /* requstTableViewCell.m */,
+				3BB4EC8B244AEB7C0025F476 /* qtdetaCell.h */,
+				3BB4EC8C244AEB7C0025F476 /* qtdetaCell.m */,
+				3BB4EC85244AE5170025F476 /* RqtDetailsCell.h */,
+				3BB4EC86244AE5170025F476 /* RqtDetailsCell.m */,
+			);
+			path = requstcell;
+			sourceTree = "<group>";
+		};
+		3BB4EC7E244A9F720025F476 /* requstmodel */ = {
+			isa = PBXGroup;
+			children = (
+				3BB4EC7F244A9FA20025F476 /* requstModel.h */,
+				3BB4EC80244A9FA20025F476 /* requstModel.m */,
+				3BB4EC8E244AECF00025F476 /* qtdetaModel.h */,
+				3BB4EC8F244AECF00025F476 /* qtdetaModel.m */,
+				3BB4EC88244AE5C20025F476 /* rqtDetModel.h */,
+				3BB4EC89244AE5C20025F476 /* rqtDetModel.m */,
+			);
+			path = requstmodel;
+			sourceTree = "<group>";
+		};
 		3BFCC95C2445BFFA00D2CB41 /* daiban */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,6 +432,10 @@
 			children = (
 				3BFCC9612445C16D00D2CB41 /* requestController.h */,
 				3BFCC9622445C16D00D2CB41 /* requestController.m */,
+				3BB4EC82244AE09B0025F476 /* RqtDetailsController.h */,
+				3BB4EC83244AE09B0025F476 /* RqtDetailsController.m */,
+				3BB4EC7E244A9F720025F476 /* requstmodel */,
+				3BB4EC7A244A885E0025F476 /* requstcell */,
 			);
 			path = " request";
 			sourceTree = "<group>";
@@ -975,17 +1026,21 @@
 			files = (
 				3BB2CC692449A764005A515D /* IQKeyboardManager.m in Sources */,
 				F78A24A024434B9B00505C4C /* timeLineCell.m in Sources */,
+				3BB4EC87244AE5170025F476 /* RqtDetailsCell.m in Sources */,
 				F7BC578E24449B020031DB2E /* BRTextField.m in Sources */,
 				F7A8F466243DF0AB0084D386 /* DepartureController.m in Sources */,
 				3B0A71452446EBCD005BFFBE /* FriendTableViewCell.m in Sources */,
 				F7A8F46C243DF0E10084D386 /* AskLeaveController.m in Sources */,
 				F7BC578F24449B020031DB2E /* NSDate+BRAdd.m in Sources */,
+				3BB4EC7D244A88E30025F476 /* requstTableViewCell.m in Sources */,
 				3BB2CC662449A764005A515D /* IQBarButtonItem.m in Sources */,
 				3BFCC9632445C16D00D2CB41 /* requestController.m in Sources */,
 				3BB2CC6C2449A764005A515D /* IQUIScrollView+Additions.m in Sources */,
 				3BB2CC682449A764005A515D /* IQPreviousNextView.m in Sources */,
+				3BB4EC8A244AE5C20025F476 /* rqtDetModel.m in Sources */,
 				F7C5C328242A486E00A75289 /* UIButton+BBTButton.m in Sources */,
 				F7BB17A3243C51C0003A19D1 /* loginTextField.m in Sources */,
+				3BB4EC90244AECF00025F476 /* qtdetaModel.m in Sources */,
 				F7F0460F2420AA7700365A65 /* ViewController.m in Sources */,
 				F7BB179B243C137F003A19D1 /* NNNavigationController.m in Sources */,
 				F7F046092420AA7700365A65 /* AppDelegate.m in Sources */,
@@ -995,6 +1050,7 @@
 				F7A8F472243DFDD90084D386 /* AskTableViewCell.m in Sources */,
 				F787B5B624231D2500411DED /* MyCityViewController.m in Sources */,
 				F74677E3244022020093D5D1 /* TextViewCell.m in Sources */,
+				3BB4EC81244A9FA20025F476 /* requstModel.m in Sources */,
 				F7A8F475243DFF5E0084D386 /* SelecTableViewCell.m in Sources */,
 				F74677E6244023540093D5D1 /* PlaceholderTextView.m in Sources */,
 				F72FA1BF243DAC44000343FC /* JZMTBtnView.m in Sources */,
@@ -1003,12 +1059,14 @@
 				3B0A71392446E9E8005BFFBE /* ChopersonController.m in Sources */,
 				3BFCC95F2445C0BC00D2CB41 /* HaveController.m in Sources */,
 				F78A24A324435C8800505C4C /* timeLineModel.m in Sources */,
+				3BB4EC8D244AEB7C0025F476 /* qtdetaCell.m in Sources */,
 				F7074BCD2448A07F00D40A77 /* todetailsController.m in Sources */,
 				3BB2CC632449A764005A515D /* IQTextView.m in Sources */,
 				3B0DCBD8244548AC00870587 /* BDImagePicker.m in Sources */,
 				3BB2CC652449A764005A515D /* IQTitleBarButtonItem.m in Sources */,
 				3BB2CC6E2449A764005A515D /* IQUIViewController+Additions.m in Sources */,
 				3BB2CC672449A764005A515D /* IQUIView+IQKeyboardToolbar.m in Sources */,
+				3BB4EC84244AE09B0025F476 /* RqtDetailsController.m in Sources */,
 				3B7807BA24416F47008EEE83 /* inductionCell.m in Sources */,
 				F79A83612441F57100D8F839 /* ZXDNetworking.m in Sources */,
 				F7BB179C243C137F003A19D1 /* NNTabBarController.m in Sources */,

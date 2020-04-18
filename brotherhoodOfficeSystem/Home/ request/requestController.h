@@ -11,6 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface requestController : UIViewController
+@property (strong, nonatomic) UIImageView *headerImageView;//头像
+@property (nonatomic,strong)UILabel *labelName;
+@property (nonatomic,strong)UILabel *labelroleName;
 
 @end
 

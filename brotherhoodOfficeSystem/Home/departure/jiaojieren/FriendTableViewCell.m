@@ -29,16 +29,16 @@
 }
 //布局
 -(void)setUI{
-    _headerImageView= [[UIImageView alloc]initWithFrame:CGRectMake(8, 8, 40, 40)];
+    _headerImageView= [[UIImageView alloc]initWithFrame:CGRectMake(18, 18, 40, 40)];
     _headerImageView.layer.cornerRadius = 20;
     _headerImageView.layer.masksToBounds = YES;
     //右侧扩展说明内容
     [self.contentView addSubview:self.headerImageView];
-    _labelName = [[UILabel alloc]initWithFrame:CGRectMake(_headerImageView.right+8,6, 200, 20)];
+    _labelName = [[UILabel alloc]initWithFrame:CGRectMake(_headerImageView.right+8,16, 200, 20)];
     _labelName.font = [UIFont systemFontOfSize:16];
  
      [self.contentView addSubview:self.labelName]; //标题文字
-    _labelroleName = [[UILabel alloc]initWithFrame:CGRectMake(_headerImageView.right+8,_labelName.bottom+4, 200, 20)];
+    _labelroleName = [[UILabel alloc]initWithFrame:CGRectMake(_headerImageView.right+8,_labelName.bottom+8, 200, 20)];
      _labelroleName.font = [UIFont systemFontOfSize:14];
     [self.contentView addSubview:self.labelroleName];
 }

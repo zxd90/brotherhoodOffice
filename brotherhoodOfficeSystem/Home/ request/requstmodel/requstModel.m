@@ -1,15 +1,14 @@
 //
-//  FriendModel.m
-//  核心动画
+//  requstModel.m
+//  brotherhoodOfficeSystem
 //
-//  Created by 朱伟阁 on 2019/1/26.
-//  Copyright © 2019 朱伟阁. All rights reserved.
+//  Created by XDT on 2020/4/18.
+//  Copyright © 2020 兄弟团国际. All rights reserved.
 //
 
-#import "FriendModel.h"
+#import "requstModel.h"
 
-@implementation FriendModel
-
+@implementation requstModel
 - (instancetype)initWithDict:(NSDictionary *)dict{
     if(self = [super init]){
         [self setValuesForKeysWithDictionary:dict];
@@ -18,12 +17,11 @@
 }
 
 
-+ (instancetype)friendWithDict:(NSDictionary *)dict{
++ (instancetype)requstWithDict:(NSDictionary *)dict{
     return [[self alloc]initWithDict:dict];
 }
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key
 {
-    
     
 }
 //kvc取值操作  取值误操作
@@ -31,6 +29,4 @@
 {
     return nil;
 }
-
-
 @end

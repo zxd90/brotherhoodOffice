@@ -9,7 +9,7 @@
 #import "todoTableViewCell.h"
 
 @implementation todoTableViewCell
-+ (instancetype)friendTableViewCellWithTableView:(UITableView *)tableview{
++ (instancetype)todoTableViewCellWithTableView:(UITableView *)tableview{
     todoTableViewCell *cell = [tableview dequeueReusableCellWithIdentifier:@"todoTableViewCell"];
     if(cell == nil){
         cell = [[todoTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"todoTableViewCell"];
@@ -40,13 +40,7 @@
      _labelroleName.font = [UIFont systemFontOfSize:14];
     [self.contentView addSubview:self.labelroleName];
 }
-//- (void)setFriendModel:(FriendModel *)friendModel{
-//    _friendModel = friendModel;
-//    [self.headerImageView sd_setImageWithURL:[NSURL URLWithString:friendModel.headImg] placeholderImage:[UIImage imageNamed:@""]];
-//    self.labelName.text = friendModel.userName ;
-//    self.labelroleName.text = friendModel.roleName;
-//   self.detailTextLabel.textColor = [UIColor blackColor];
-//}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

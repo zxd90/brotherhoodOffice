@@ -34,6 +34,8 @@
         [btnGroupTitle setImage:[UIImage imageNamed:@"sanjiaoxing.png"] forState:UIControlStateNormal];
      
         [btnGroupTitle addTarget:self action:@selector(btnGroupTitleClickd:) forControlEvents:UIControlEventTouchUpInside];
+           UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(notimageTap:)];
+         [self addGestureRecognizer:tap];
         //设置按钮中图片的显示模式
         btnGroupTitle.contentMode = UIViewContentModeCenter;
         //设置图片超出的部分不要截掉
@@ -48,9 +50,15 @@
     }
     return self;
 }
-
+-(void)notimageTap:(UITapGestureRecognizer *)sender{
+    //设置组状态
+       self.group.visible = !self.group.isVisible;
+       if(self.delegate&&[self.delegate respondsToSelector:@selector(groupHeaderViewDidClickTitleButton:)]){
+           [self.delegate groupHeaderViewDidClickTitleButton:self];
+       }
+}
 - (void)btnGroupTitleClickd:(UIButton *)sender{
-    NSLog(@"---%d",self.group.visible);
+   
     //设置组状态
     self.group.visible = !self.group.isVisible;
     if(self.delegate&&[self.delegate respondsToSelector:@selector(groupHeaderViewDidClickTitleButton:)]){

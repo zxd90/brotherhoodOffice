@@ -29,6 +29,7 @@
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.sectionHeaderHeight = 44;
         _tableView.sectionFooterHeight= 1;
+        [self.view addSubview:self.tableView];
     }
     return _tableView;
 }
@@ -64,7 +65,7 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 56;
+    return 76;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     GroupModel *group = self.groups[section];
@@ -79,6 +80,13 @@
 -(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     
     return [[UIView alloc]init];
+}
+//使cell的下划线顶头
+-(void)tableView:(UITableView* )tableView willDisplayCell:(UITableViewCell* )cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+[cell setSeparatorInset:UIEdgeInsetsZero];
+    }
 }
 //点击事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -112,7 +120,7 @@
             [arrayModels addObject:group];
             }
            self.groups = [arrayModels copy];
-           [self.view addSubview:self.tableView];
+            [self.tableView reloadData];
           }
     } failure:^(NSError *error) {
         

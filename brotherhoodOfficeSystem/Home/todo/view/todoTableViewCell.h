@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) UIImageView *headerImageView;//头像
 @property (nonatomic,strong)UILabel *labelName;
 @property (nonatomic,strong)UILabel *labelroleName;
-+ (instancetype)friendTableViewCellWithTableView:(UITableView *)tableview;
++ (instancetype)todoTableViewCellWithTableView:(UITableView *)tableview;
 @end
 
 NS_ASSUME_NONNULL_END
