@@ -74,6 +74,8 @@
 		F7BC578F24449B020031DB2E /* NSDate+BRAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BC578C24449B020031DB2E /* NSDate+BRAdd.m */; };
 		F7C5C328242A486E00A75289 /* UIButton+BBTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C5C324242A486E00A75289 /* UIButton+BBTButton.m */; };
 		F7C5C329242A486E00A75289 /* UIView+EXTENSION.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C5C327242A486E00A75289 /* UIView+EXTENSION.m */; };
+		F7CCD111244B51A600EF0855 /* haveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7CCD110244B51A600EF0855 /* haveCell.m */; };
+		F7CCD115244B523100EF0855 /* HaveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7CCD114244B523100EF0855 /* HaveModel.m */; };
 		F7F046092420AA7700365A65 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F046082420AA7700365A65 /* AppDelegate.m */; };
 		F7F0460F2420AA7700365A65 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F0460E2420AA7700365A65 /* ViewController.m */; };
 		F7F046122420AA7700365A65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7F046102420AA7700365A65 /* Main.storyboard */; };
@@ -243,7 +245,11 @@
 		F7C5C325242A486E00A75289 /* UIView+EXTENSION.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+EXTENSION.h"; sourceTree = "<group>"; };
 		F7C5C326242A486E00A75289 /* UIButton+BBTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+BBTButton.h"; sourceTree = "<group>"; };
 		F7C5C327242A486E00A75289 /* UIView+EXTENSION.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+EXTENSION.m"; sourceTree = "<group>"; };
-		F7F046042420AA7700365A65 /* brotherhoodOfficeSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = brotherhoodOfficeSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7CCD10F244B51A600EF0855 /* haveCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = haveCell.h; sourceTree = "<group>"; };
+		F7CCD110244B51A600EF0855 /* haveCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = haveCell.m; sourceTree = "<group>"; };
+		F7CCD113244B523100EF0855 /* HaveModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HaveModel.h; sourceTree = "<group>"; };
+		F7CCD114244B523100EF0855 /* HaveModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HaveModel.m; sourceTree = "<group>"; };
+		F7F046042420AA7700365A65 /* 中国兄弟团.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "中国兄弟团.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7F046072420AA7700365A65 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F7F046082420AA7700365A65 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F7F0460D2420AA7700365A65 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -418,13 +424,15 @@
 			path = requstmodel;
 			sourceTree = "<group>";
 		};
-		3BFCC95C2445BFFA00D2CB41 /* daiban */ = {
+		3BFCC95C2445BFFA00D2CB41 /* yiban */ = {
 			isa = PBXGroup;
 			children = (
 				3BFCC95D2445C0BC00D2CB41 /* HaveController.h */,
 				3BFCC95E2445C0BC00D2CB41 /* HaveController.m */,
+				F7CCD112244B521400EF0855 /* HaveModel */,
+				F7CCD10E244B517400EF0855 /* HaveCell */,
 			);
-			path = daiban;
+			path = yiban;
 			sourceTree = "<group>";
 		};
 		3BFCC9602445C13900D2CB41 /*  request */ = {
@@ -493,7 +501,7 @@
 				F7A8F45D243DEFFF0084D386 /* askForLeave */,
 				F7A8F45E243DF0320084D386 /* induction */,
 				F7A8F45F243DF0470084D386 /* departure */,
-				3BFCC95C2445BFFA00D2CB41 /* daiban */,
+				3BFCC95C2445BFFA00D2CB41 /* yiban */,
 				F7A8F460243DF05F0084D386 /* todo */,
 				3BFCC9602445C13900D2CB41 /*  request */,
 			);
@@ -679,6 +687,24 @@
 			path = Categoies;
 			sourceTree = "<group>";
 		};
+		F7CCD10E244B517400EF0855 /* HaveCell */ = {
+			isa = PBXGroup;
+			children = (
+				F7CCD10F244B51A600EF0855 /* haveCell.h */,
+				F7CCD110244B51A600EF0855 /* haveCell.m */,
+			);
+			path = HaveCell;
+			sourceTree = "<group>";
+		};
+		F7CCD112244B521400EF0855 /* HaveModel */ = {
+			isa = PBXGroup;
+			children = (
+				F7CCD113244B523100EF0855 /* HaveModel.h */,
+				F7CCD114244B523100EF0855 /* HaveModel.m */,
+			);
+			path = HaveModel;
+			sourceTree = "<group>";
+		};
 		F7F045FB2420AA7700365A65 = {
 			isa = PBXGroup;
 			children = (
@@ -695,7 +721,7 @@
 		F7F046052420AA7700365A65 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F7F046042420AA7700365A65 /* brotherhoodOfficeSystem.app */,
+				F7F046042420AA7700365A65 /* 中国兄弟团.app */,
 				F7F0461F2420AA7C00365A65 /* brotherhoodOfficeSystemTests.xctest */,
 				F7F0462A2420AA7C00365A65 /* brotherhoodOfficeSystemUITests.xctest */,
 			);
@@ -768,7 +794,7 @@
 			);
 			name = brotherhoodOfficeSystem;
 			productName = brotherhoodOfficeSystem;
-			productReference = F7F046042420AA7700365A65 /* brotherhoodOfficeSystem.app */;
+			productReference = F7F046042420AA7700365A65 /* 中国兄弟团.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F7F0461E2420AA7C00365A65 /* brotherhoodOfficeSystemTests */ = {
@@ -1063,6 +1089,7 @@
 				F7074BCD2448A07F00D40A77 /* todetailsController.m in Sources */,
 				3BB2CC632449A764005A515D /* IQTextView.m in Sources */,
 				3B0DCBD8244548AC00870587 /* BDImagePicker.m in Sources */,
+				F7CCD115244B523100EF0855 /* HaveModel.m in Sources */,
 				3BB2CC652449A764005A515D /* IQTitleBarButtonItem.m in Sources */,
 				3BB2CC6E2449A764005A515D /* IQUIViewController+Additions.m in Sources */,
 				3BB2CC672449A764005A515D /* IQUIView+IQKeyboardToolbar.m in Sources */,
@@ -1090,6 +1117,7 @@
 				F79A836C244206D900D8F839 /* ELNAlerTool.m in Sources */,
 				3B0A71422446EB9D005BFFBE /* GroupModel.m in Sources */,
 				F74677F12440683D0093D5D1 /* UIView+WLFrame.m in Sources */,
+				F7CCD111244B51A600EF0855 /* haveCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1275,7 +1303,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.brotherhood.Officesystem;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "中国兄弟团";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1297,7 +1325,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.brotherhood.Officesystem;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "中国兄弟团";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
