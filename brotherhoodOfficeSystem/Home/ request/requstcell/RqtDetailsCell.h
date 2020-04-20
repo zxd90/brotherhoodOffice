@@ -11,14 +11,25 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RqtDetailsCell : UITableViewCell
- ///时间线
-@property (nonatomic, strong) UIView *timeLine;
-
- ///时间线上的小圆点
-@property (nonatomic, strong) UIView *cirlePoint;
- ///时间
-@property (nonatomic, strong) UILabel *timeLabel;
+/**圆点*/
+ @property (nonatomic,strong) UIView *roundView;
+@property (strong, nonatomic) UIImageView *headerImageView;//头像
+/**姓名 */
+ @property (nonatomic,strong) UILabel *titleLabel;
+/**职位*/
+ @property (nonatomic,strong) UILabel *contentlabel;
+/**时间*/
+ @property (nonatomic,strong) UILabel *timelabel;
+/**处理状态*/
+@property (nonatomic,strong)UILabel *matterName;
+/**处理内容*/
+@property (nonatomic,strong)UILabel *Proces;
+/**线*/
+ @property (nonatomic,strong) UILabel *onLine;
+/**线*/
+ @property (nonatomic,strong)  UILabel *downLine;
 @property (nonatomic, strong) rqtDetModel *model;
++ (instancetype)rqtDetTableViewCellWithTableView:(UITableView *)tableview;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface qtdetaCell : UITableViewCell
 @property(nonatomic,strong)UILabel * titleLabel;
 @property(nonatomic,strong)UILabel * rightLabel;
++ (instancetype)qtdetaTableViewCellWithTableView:(UITableView *)tableview;
 @end
 
 NS_ASSUME_NONNULL_END

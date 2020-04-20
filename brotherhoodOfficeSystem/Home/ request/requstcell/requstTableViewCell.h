@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong)UILabel *labelName;
 /**职位*/
 @property (nonatomic,strong)UILabel *labelroleName;
-/**流出主题*/
+/**流程主题*/
 @property (nonatomic,strong)UILabel *matterName;
 /**发起时间*/
 @property (nonatomic,strong)UILabel *timeName;

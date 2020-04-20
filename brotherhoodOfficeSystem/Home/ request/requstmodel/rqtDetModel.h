@@ -28,9 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///处理状态
 @property (nonatomic, copy) NSString *isCheck;
 ///行高
-@property (nonatomic, assign) CGFloat rowHeight;
-///区分第一行还是最后一行,默认中间
-@property (nonatomic, assign) WuliuCellPosition wuliuCellPosition;
+@property (nonatomic, copy) NSString *headImg;
 + (instancetype)rqtDetWithDict:(NSDictionary *)dict;
 @end
 

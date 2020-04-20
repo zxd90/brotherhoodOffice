@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F7F046032420AA7700365A65"
-               BuildableName = "brotherhoodOfficeSystem.app"
+               BuildableName = "&#x4e2d;&#x56fd;&#x5144;&#x5f1f;&#x56e2;.app"
                BlueprintName = "brotherhoodOfficeSystem"
                ReferencedContainer = "container:brotherhoodOfficeSystem.xcodeproj">
             </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F7F046032420AA7700365A65"
-            BuildableName = "brotherhoodOfficeSystem.app"
+            BuildableName = "&#x4e2d;&#x56fd;&#x5144;&#x5f1f;&#x56e2;.app"
             BlueprintName = "brotherhoodOfficeSystem"
             ReferencedContainer = "container:brotherhoodOfficeSystem.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F7F046032420AA7700365A65"
-            BuildableName = "brotherhoodOfficeSystem.app"
+            BuildableName = "&#x4e2d;&#x56fd;&#x5144;&#x5f1f;&#x56e2;.app"
             BlueprintName = "brotherhoodOfficeSystem"
             ReferencedContainer = "container:brotherhoodOfficeSystem.xcodeproj">
          </BuildableReference>

@@ -9,6 +9,14 @@
 #import "qtdetaCell.h"
 
 @implementation qtdetaCell
++ (instancetype)qtdetaTableViewCellWithTableView:(UITableView *)tableview{
+    qtdetaCell *cell = [tableview dequeueReusableCellWithIdentifier:@"qtdetaCell"];
+    if(cell == nil){
+        cell = [[qtdetaCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"qtdetaCell"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    return cell;
+}
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {

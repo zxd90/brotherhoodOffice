@@ -13,10 +13,12 @@
 #import "qtdetaModel.h"
 @interface RqtDetailsController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, copy) NSArray *dataArray;
+@property (nonatomic, strong) NSMutableArray *namesArray;
+@property (nonatomic, strong) NSMutableArray *infosArray;
 /**流程处理人数据源*/
-@property (nonatomic, strong) NSArray *dataSource;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 
+@property (nonatomic, strong) NSMutableArray *array;
 @end
 
 @implementation RqtDetailsController
@@ -25,13 +27,16 @@
     [super viewDidLoad];
     self.title =@"详情";
     self.view.backgroundColor=[UIColor whiteColor];
-    _dataArray=@[@[@"姓名",@"部门",@"职位"],@[@"请假类型",@"开始时间",@"结束时间"],@[@"请假原因"]];
+    _array=[NSMutableArray array];
+    _infosArray=[NSMutableArray array];
+    _namesArray=[NSMutableArray array];
+    _dataSource=[NSMutableArray array];
     [self RqtDetailsData];
 }
 #pragma mark - lazy
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, ScreenH-SK_ButtonHeight) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, ScreenH-SK_TabbarSafeBottomMargin) style:UITableViewStylePlain];
         _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.dataSource = self;
         _tableView.delegate = self;
@@ -41,7 +46,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section==2) {
+    if (indexPath.section==1) {
          return 150;
     }else{
         return 50;
@@ -49,39 +54,33 @@
 }
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-   return _dataArray.count;
+   
+    return self.array.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+ 
+         return [_array[section] count];
+  
    
-    return [_dataArray[section]count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section==0) {
-        static NSString *CellIdentifier = @"qtdetaCell";
-        
-         qtdetaCell *cell = [[qtdetaCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-             if (!cell) {
-                 cell = [[qtdetaCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-             }
-         cell.titleLabel.text=_dataArray[indexPath.section][indexPath.row];
-         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
+      qtdetaCell *cell =[qtdetaCell  qtdetaTableViewCellWithTableView:tableView];
+        cell.titleLabel.text=_namesArray[indexPath.row];
+        cell.rightLabel.text=_infosArray[indexPath.row];
+         
          return cell;
     }else{
-        RqtDetailsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RqtDetailsCell"];
-          rqtDetModel *model = self.dataSource[indexPath.row];
-          cell.selectionStyle = UITableViewCellSelectionStyleNone;
-          
-          if (indexPath.row == 0) {
-              model.wuliuCellPosition = WuliuCellPositionTop;
-          }else if (indexPath.row == self.dataSource.count - 1){
-              model.wuliuCellPosition = WuliuCellPositionTail;
-          }else {
-              model.wuliuCellPosition = WuliuCellPositionMid;
-          }
-          
+        RqtDetailsCell *cell =[ RqtDetailsCell rqtDetTableViewCellWithTableView:tableView];
+        rqtDetModel *model = self.dataSource[indexPath.row];
+        if (indexPath.row == 0) {
+            [cell.onLine removeFromSuperview];
+           }
+        if (indexPath.row == self.dataSource.count-1) {
+            [cell.downLine removeFromSuperview];
+        }
           cell.model = model;
            return cell;
     }
@@ -120,11 +119,18 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
     NSDictionary *dict =@{@"ticket":   kFetchMyDefault(@"ticket"),@"matterId":_str};
     [ZXDNetworking GET:urlStr parameters:dict success:^(id responseObject) {
         if ([responseObject[@"code"] intValue]==0) {
-          
-            for (NSDictionary *dic in responseObject[@"data"][@"matters"]) {
-//                qtdetaModel *model = [requstModel requstWithDict:dic];
-//                [self.dataSource addObject:model];
+            for (NSString *str in responseObject[@"data"][@"infos"]) {
+                 [ self.infosArray addObject:str];
             }
+            for (NSString *namestr in responseObject[@"data"][@"names"]) {
+                          [ self.namesArray addObject:namestr];
+                     }
+           [self.array addObject: self.namesArray];
+            for (NSDictionary *dic in responseObject[@"data"][@"matters"]) {
+                rqtDetModel *model = [rqtDetModel rqtDetWithDict:dic];
+                [self.dataSource addObject:model];
+            }
+            [self.array addObject:self.dataSource];
            [self.tableView reloadData];
           }
     } failure:^(NSError *error) {

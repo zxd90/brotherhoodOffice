@@ -46,7 +46,7 @@
      _timeName.font = [UIFont systemFontOfSize:14];
     [self.contentView addSubview:self.timeName];
 }
-- (void)setRequstModel:(HaveModel *)haveModel{
+- (void)setHaveModel:(HaveModel *)haveModel{
      _haveModel = haveModel;
      [self.headerImageView sd_setImageWithURL:[NSURL URLWithString:haveModel.headImg] placeholderImage:[UIImage imageNamed:@""]];
     self.labelName.text = haveModel.userName ;
