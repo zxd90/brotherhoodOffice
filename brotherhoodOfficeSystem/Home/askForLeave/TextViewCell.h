@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TextViewCell : UITableViewCell
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)PlaceholderTextView *textView;
-
++(instancetype)TextViewTableViewCellWithTableView:(UITableView *)tableview;
 @end
 
 NS_ASSUME_NONNULL_END

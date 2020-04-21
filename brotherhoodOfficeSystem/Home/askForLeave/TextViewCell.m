@@ -13,6 +13,15 @@
     [super awakeFromNib];
     
 }
++(instancetype)TextViewTableViewCellWithTableView:(UITableView *)tableview{
+    static NSString *CellIdentifier = @"TextViewCell";
+                       TextViewCell *cell = [[TextViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TextViewCell"];
+                          if (!cell) {
+                   cell=[[TextViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                          }
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
+}
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
   
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {

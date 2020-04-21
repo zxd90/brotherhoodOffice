@@ -48,7 +48,7 @@
 }
 - (void)setHaveModel:(HaveModel *)haveModel{
      _haveModel = haveModel;
-     [self.headerImageView sd_setImageWithURL:[NSURL URLWithString:haveModel.headImg] placeholderImage:[UIImage imageNamed:@""]];
+     [self.headerImageView sd_setImageWithURL:[NSURL URLWithString:haveModel.headImg] placeholderImage:[UIImage imageNamed:@"touxiang"]];
     self.labelName.text = haveModel.userName ;
     self.labelroleName.text = haveModel.roleName;
     self.matterName.text = haveModel.matterName;

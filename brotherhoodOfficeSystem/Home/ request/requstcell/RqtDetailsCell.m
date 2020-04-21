@@ -26,30 +26,34 @@
 }
 - (void)initSubViews {
     self.roundView = [[UIView alloc]init];
-           self.roundView.backgroundColor = [UIColor blueColor];
+           self.roundView.backgroundColor = RGB(13, 163, 38);
            self.roundView.layer.masksToBounds = YES;
-           self.roundView.layer.cornerRadius = 12;
+           self.roundView.layer.cornerRadius = 9;
            self.roundView.layer.borderWidth = 1;
+           self.roundView.layer.borderColor = [RGB(13, 163, 38) CGColor];
            [self.contentView addSubview:self.roundView];
            [self.roundView mas_makeConstraints:^(MASConstraintMaker *make) {
                make.top.mas_equalTo(self.mas_top).offset(28);
                make.left.mas_equalTo(self.mas_left).offset(15);
-               make.size.mas_equalTo(CGSizeMake(24, 24));
+               make.size.mas_equalTo(CGSizeMake(18, 18));
            }];
            _onLine = [[UILabel alloc]init];
-           _onLine.backgroundColor = [UIColor blackColor];
+           _onLine.backgroundColor = RGB(153, 153, 153);
            [self.contentView addSubview:_onLine];
            [_onLine mas_makeConstraints:^(MASConstraintMaker *make) {
-               make.left.mas_equalTo(self.mas_left).offset(27);
-               make.size.mas_equalTo(CGSizeMake(1, 15));
+               make.left.mas_equalTo(self.mas_left).offset(23.5);
+               //make.size.mas_equalTo(CGSizeMake(1, 15));
+               make.top.mas_equalTo(self.mas_top);
+               make.bottom.mas_equalTo(self.roundView.mas_top);
+               make.width.mas_equalTo(@1);
            }];
 
            _downLine = [[UILabel alloc]init];
-           _downLine.backgroundColor = [UIColor blackColor];
+           _downLine.backgroundColor = RGB(153, 153, 153);
            [self.contentView addSubview:_downLine];
            [_downLine mas_makeConstraints:^(MASConstraintMaker *make) {
                make.top.mas_equalTo(self.roundView.mas_bottom);
-               make.left.mas_equalTo(self.mas_left).offset(27);
+               make.left.mas_equalTo(self.mas_left).offset(23.5);
                make.bottom.mas_equalTo(self.mas_bottom);
                make.width.mas_equalTo(@1);
            }];
@@ -63,8 +67,7 @@
         make.left.mas_equalTo(self.roundView.mas_right).offset(10);
                  make.height.mas_equalTo(40);
                  make.width.mas_equalTo(40);
-             }];
-      
+        }];
     
        _titleLabel = [[UILabel alloc]initWithFrame:CGRectZero];
        _titleLabel.font = [UIFont systemFontOfSize:16];
@@ -87,11 +90,15 @@
 - (void)setModel:(rqtDetModel *)model {
     
     _model = model;
-    [self.headerImageView sd_setImageWithURL:[NSURL URLWithString:model.headImg] placeholderImage:[UIImage imageNamed:@""]];
+    [self.headerImageView sd_setImageWithURL:[NSURL URLWithString:model.headImg] placeholderImage:[UIImage imageNamed:@"touxiang"]];
       self.titleLabel.text = model.userName ;
       self.contentlabel.text = model.roleName;
+    if([model.isCheck isEqualToString:@"已驳回"]){
+    self.matterName.backgroundColor=[UIColor redColor];
+    }
       self.matterName.text = model.isCheck ;
       self.timelabel.text=model.checkTime;
+      self.Proces.text=model.remarks;
         CGFloat  width = [ZXDmethod calculateRowWidth:self.titleLabel.text Font:17.0];
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.headerImageView.mas_top).offset(-2);
@@ -106,7 +113,7 @@
         make.right.mas_equalTo(self.contentView.mas_right).offset(-15);
      }];
    
-       CGFloat  rolewidth = [ZXDmethod calculateRowWidth:self.contentlabel.text Font:15.0];
+    CGFloat  rolewidth = [ZXDmethod calculateRowWidth:self.contentlabel.text Font:15.0];
     [_contentlabel mas_makeConstraints:^(MASConstraintMaker *make) {
           make.top.mas_equalTo(self.titleLabel.mas_bottom).offset(8);
              make.left.mas_equalTo(self.headerImageView.mas_right).offset(8);
@@ -119,13 +126,18 @@
                       make.height.mas_equalTo(20);
          make.right.mas_equalTo(self.contentView.mas_right).offset(-15);
       }];
-   
+      [_Proces mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(self.contentlabel.mas_bottom).offset(8);
+              make.left.mas_equalTo(self.headerImageView.mas_right).offset(8);
+              make.height.mas_equalTo(20);
+              make.right.mas_equalTo(self.contentView.mas_right).offset(-15);
+        }];
     
 }
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -37,6 +37,7 @@
 #define SK_ButtonHeight (iPhoneX ? (40.f+34.f) : 49.f)
 //色值
 #define RGBNav  colorWithRed:155/256.0 green:89/256.0 blue:183/256.0 alpha:1
+
 #define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 
 #define RGB(r,g,b) RGBA(r,g,b,1.0f)
@@ -112,6 +113,7 @@
 #define kCachePath ([NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject])
 #import "UIView+EXTENSION.h"
 /***第三方引入**/
+#import <SDWebImage/UIButton+WebCache.h>
 #import <Masonry.h>
 #import "UIImageView+WebCache.h"
 #import "IQKeyboardManager.h"

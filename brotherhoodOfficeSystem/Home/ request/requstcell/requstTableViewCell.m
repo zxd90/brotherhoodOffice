@@ -48,7 +48,7 @@
 }
 - (void)setRequstModel:(requstModel *)requstModel{
      _requstModel = requstModel;
-     [self.headerImageView sd_setImageWithURL:[NSURL URLWithString:requstModel.headImg] placeholderImage:[UIImage imageNamed:@""]];
+     [self.headerImageView sd_setImageWithURL:[NSURL URLWithString:requstModel.headImg] placeholderImage:[UIImage imageNamed:@"touxiang"]];
     self.labelName.text = requstModel.userName ;
     self.labelroleName.text = requstModel.roleName;
     self.matterName.text = requstModel.matterName;

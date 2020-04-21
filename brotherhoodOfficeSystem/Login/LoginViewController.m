@@ -38,7 +38,8 @@
     }];
     _accoutText = [[loginTextField  alloc]init];
     _accoutText.placeholder = @"用户名";
-    self.accoutText.text=@"本部门员工";
+    //self.accoutText.text=@"本部门员工";
+    self.accoutText.text=@"中腾";
     _accoutText.font =PFR17Font;
     [self.view addSubview:_accoutText];
     [_accoutText mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -54,7 +55,7 @@
     _passWordText.secureTextEntry = YES;
     [self.view addSubview:_passWordText];
     [_passWordText mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self->_accoutText.mas_bottom).offset(5);
+        make.top.equalTo(self.accoutText.mas_bottom).offset(5);
         make.left.equalTo(self.view.mas_left).offset(47.5);
         make.right.equalTo(self.view.mas_right).offset(-47.5);;
         make.height.offset(40);
@@ -70,7 +71,7 @@
     [_loginBut addTarget:self action:@selector(login_btn) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_loginBut];
     [_loginBut mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self->_passWordText.mas_bottom).offset(80);
+        make.top.equalTo(self.passWordText.mas_bottom).offset(80);
         make.left.equalTo(self.view.mas_left).offset(47.5);
         make.right.equalTo(self.view.mas_right).offset(-47.5);;
         make.height.offset(50);

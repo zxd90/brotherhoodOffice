@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong) NSString *roleName;
 /**流程ID*/
 @property(nonatomic, strong) NSString *matterId;
+/**判断流程事项*/
+@property(nonatomic, assign) int flag;
 - (instancetype)initWithDict:(NSDictionary *)dict;
 + (instancetype)requstWithDict:(NSDictionary *)dict;
 @end

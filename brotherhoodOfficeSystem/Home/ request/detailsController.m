@@ -1,16 +1,14 @@
 //
-//  RqtDetailsController.m
+//  detailsController.m
 //  brotherhoodOfficeSystem
 //
-//  Created by XDT on 2020/4/18.
+//  Created by XDT on 2020/4/21.
 //  Copyright © 2020 兄弟团国际. All rights reserved.
 //
 
-#import "RqtDetailsController.h"
+#import "detailsController.h"
 #import "qtdetaCell.h"
-#import "RqtDetailsCell.h"
-#import "rqtDetModel.h"
-@interface RqtDetailsController ()<UITableViewDelegate,UITableViewDataSource>
+@interface detailsController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *namesArray;
 @property (nonatomic, strong) NSMutableArray *infosArray;
@@ -18,9 +16,10 @@
 @property (nonatomic, strong) NSMutableArray *dataSource;
 
 @property (nonatomic, strong) NSMutableArray *array;
+
 @end
 
-@implementation RqtDetailsController
+@implementation detailsController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,6 +38,7 @@
         _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.dataSource = self;
         _tableView.delegate = self;
+       
         [self.view addSubview:_tableView];
     }
     return _tableView;
@@ -58,31 +58,16 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
- 
          return [_array[section] count];
-  
-   
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section==0) {
+  
       qtdetaCell *cell =[qtdetaCell  qtdetaTableViewCellWithTableView:tableView];
         cell.titleLabel.text=_namesArray[indexPath.row];
         cell.rightLabel.text=_infosArray[indexPath.row];
          return cell;
-    }else{
-        RqtDetailsCell *cell =[ RqtDetailsCell rqtDetTableViewCellWithTableView:tableView];
-        rqtDetModel *model = self.dataSource[indexPath.row];
-        if (indexPath.row == 0) {
-            [cell.onLine removeFromSuperview];
-           }
-        if (indexPath.row == self.dataSource.count-1) {
-            [cell.downLine removeFromSuperview];
-            cell.roundView.backgroundColor =[UIColor whiteColor];
-        }
-        cell.model = model;
-        return cell;
-    }
+    
     
 }
 //使cell的下划线顶头
@@ -97,11 +82,29 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 15 ;
 }
--(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    UIView * headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, 15)];
-    if (section==0) {
-       headerView.backgroundColor=RGB(238, 238, 238);
-    }
+//-(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+//    UIView * headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, 15)];
+//    if (section==0) {
+//       headerView.backgroundColor=RGB(238, 238, 238);
+//    }
+//    return headerView;
+//}
+-(UIView *)subHeaderView{
+  
+    UIView * headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0,ScreenW,(ScreenW-80)/2.8+80)];
+       UIView * View = [[UIView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, 15)];
+         View.backgroundColor=RGB(238, 238, 238);
+        [headerView addSubview:View];
+    UILabel *label=[[UILabel alloc]initWithFrame:CGRectMake(15,View.bottom+10 ,200 ,20)];
+        label.text=@"身份证正反面照片";
+        label.font=[UIFont systemFontOfSize:16.0];
+        [headerView addSubview:label];
+    NSLog(@"%@",self.dataSource[0]);
+    for (int i=0; i<2; i++) {
+        UIImageView *iamge=[[UIImageView alloc]initWithFrame:CGRectMake(i*(ScreenW/2)+20, label.bottom+10,(ScreenW/2-40),(ScreenW-80)/2.8)];
+        [iamge sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.dataSource[i]]] placeholderImage:[UIImage imageNamed:@"renxiang0"]];
+            [headerView addSubview:iamge];
+       }
     return headerView;
 }
 - (void)RqtDetailsData{
@@ -117,11 +120,11 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
             }
            [self.array addObject: self.namesArray];
         
-            for (NSDictionary *dic in responseObject[@"data"][@"matters"]) {
-                rqtDetModel *model = [rqtDetModel rqtDetWithDict:dic];
-                [self.dataSource addObject:model];
+            for (NSString *images in responseObject[@"data"][@"imgs"]) {
+                [self.dataSource addObject:images];
             }
-            [self.array addObject:self.dataSource];
+          
+          self.tableView.tableFooterView=[self subHeaderView];
            [self.tableView reloadData];
           }
     } failure:^(NSError *error) {

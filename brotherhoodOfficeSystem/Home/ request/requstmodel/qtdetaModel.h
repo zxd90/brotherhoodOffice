@@ -17,9 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *depName;
 /**职位*/
 @property (nonatomic, assign) NSString *roleName;
-/**职位*/
-@property (nonatomic, assign) NSString *matterType;
 /**事由*/
+@property (nonatomic, assign) NSString *matterType;
+/**事由说明*/
 @property (nonatomic, assign) NSString *reason;
 
 - (instancetype)initWithDict:(NSDictionary *)dict;

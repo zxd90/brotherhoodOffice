@@ -22,7 +22,6 @@
     if (self) {
        [self.contentView addSubview:self.titleLabel]; //标题文字
        [self.contentView addSubview:self.rightLabel]; //右侧扩展说明内容
-    
     }
     return self;
 }

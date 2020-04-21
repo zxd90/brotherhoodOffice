@@ -139,18 +139,14 @@
           }
     return cell;
     }else{
-        static NSString *CellIdentifier = @"TextViewCell";
-                    TextViewCell *cell = [[TextViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TextViewCell"];
-                       if (!cell) {
-                cell=[[TextViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-                       }
+        TextViewCell *cell =[TextViewCell      TextViewTableViewCellWithTableView:tableView];
                 __weak typeof(self) weakSelf = self;
                [cell.textView didChangeText:^(PlaceholderTextView *textView) {
                       weakSelf.string=  textView.text;
-                      NSLog(@"%@",textView.text);
+                      ZLog(@"%@",textView.text);
                   }];
         cell.titleLabel.text=_dataArray[indexPath.section][indexPath.row];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+      
         return cell;
     }
     

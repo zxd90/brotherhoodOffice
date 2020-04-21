@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *remarks;
 ///处理状态
 @property (nonatomic, copy) NSString *isCheck;
-///行高
+///头像
 @property (nonatomic, copy) NSString *headImg;
 + (instancetype)rqtDetWithDict:(NSDictionary *)dict;
 @end

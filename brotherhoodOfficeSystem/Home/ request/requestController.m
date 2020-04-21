@@ -9,6 +9,7 @@
 #import "requstTableViewCell.h"
 #import "requstModel.h"
 #import "RqtDetailsController.h"
+#import "detailsController.h"
 @interface requestController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong)NSMutableArray *arrayModels;
@@ -91,9 +92,17 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     requstModel *model= _arrayModels[indexPath.row];
-    RqtDetailsController *rqtDtCV=[[RqtDetailsController alloc]init];
-     rqtDtCV.str=model.matterId;
-    [self.navigationController pushViewController:rqtDtCV animated:YES];
+    if (model.flag==2) {
+        detailsController * detailsCV=[[detailsController alloc]init];
+        detailsCV.str=model.matterId;
+        [self.navigationController pushViewController:detailsCV animated:YES];
+    }else{
+        //请假
+        RqtDetailsController *rqtDtCV=[[RqtDetailsController alloc]init];
+          rqtDtCV.str=model.matterId;
+         [self.navigationController pushViewController:rqtDtCV animated:YES];
+    }
+  
 }
 - (void)requstData{
     NSString *urlStr =[NSString stringWithFormat:@"%@xdtapp/api/v1/flowPath/getMyApplyMatter",kAPI_URL];
