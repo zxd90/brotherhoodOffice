@@ -50,6 +50,21 @@
 		F74677EA244052340093D5D1 /* ZXDmethod.m in Sources */ = {isa = PBXBuildFile; fileRef = F74677E9244052340093D5D1 /* ZXDmethod.m */; };
 		F74677ED244059FE0093D5D1 /* Homeheader.m in Sources */ = {isa = PBXBuildFile; fileRef = F74677EC244059FE0093D5D1 /* Homeheader.m */; };
 		F74677F12440683D0093D5D1 /* UIView+WLFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F74677F02440683D0093D5D1 /* UIView+WLFrame.m */; };
+		F782F7C8244F446E00C87F69 /* jpush-extension-ios-1.1.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F782F7C3244F446E00C87F69 /* jpush-extension-ios-1.1.2.a */; };
+		F782F7C9244F446E00C87F69 /* jpush-ios-3.3.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F782F7C4244F446E00C87F69 /* jpush-ios-3.3.2.a */; };
+		F782F7CA244F446E00C87F69 /* jcore-ios-2.2.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F782F7C7244F446E00C87F69 /* jcore-ios-2.2.5.a */; };
+		F782F7CC244F44CF00C87F69 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F782F7CB244F44CF00C87F69 /* CFNetwork.framework */; };
+		F782F7CE244F44DB00C87F69 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F782F7CD244F44DB00C87F69 /* CoreFoundation.framework */; };
+		F782F7D0244F44E500C87F69 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F782F7CF244F44E500C87F69 /* CoreTelephony.framework */; };
+		F782F7D2244F44F000C87F69 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F782F7D1244F44F000C87F69 /* SystemConfiguration.framework */; };
+		F782F7D4244F44F800C87F69 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F782F7D3244F44F800C87F69 /* CoreGraphics.framework */; };
+		F782F7D6244F450300C87F69 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F782F7D5244F450200C87F69 /* Foundation.framework */; };
+		F782F7D8244F450D00C87F69 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F782F7D7244F450D00C87F69 /* UIKit.framework */; };
+		F782F7DA244F451500C87F69 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F782F7D9244F451500C87F69 /* Security.framework */; };
+		F782F7DC244F452200C87F69 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F782F7DB244F452200C87F69 /* libz.tbd */; };
+		F782F7DE244F453200C87F69 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F782F7DD244F453200C87F69 /* UserNotifications.framework */; };
+		F782F7E0244F453D00C87F69 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F782F7DF244F453D00C87F69 /* libresolv.tbd */; };
+		F782F7E2244F454600C87F69 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F782F7E1244F454600C87F69 /* WebKit.framework */; };
 		F787B5B324231D2500411DED /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F787B5AB24231D2400411DED /* AccountViewController.m */; };
 		F787B5B524231D2500411DED /* HomepageController.m in Sources */ = {isa = PBXBuildFile; fileRef = F787B5B124231D2500411DED /* HomepageController.m */; };
 		F787B5B624231D2500411DED /* MyCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F787B5B224231D2500411DED /* MyCityViewController.m */; };
@@ -194,6 +209,24 @@
 		F74677EC244059FE0093D5D1 /* Homeheader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Homeheader.m; sourceTree = "<group>"; };
 		F74677EF2440683D0093D5D1 /* UIView+WLFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WLFrame.h"; sourceTree = "<group>"; };
 		F74677F02440683D0093D5D1 /* UIView+WLFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WLFrame.m"; sourceTree = "<group>"; };
+		F782F7C3244F446E00C87F69 /* jpush-extension-ios-1.1.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-extension-ios-1.1.2.a"; sourceTree = "<group>"; };
+		F782F7C4244F446E00C87F69 /* jpush-ios-3.3.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-3.3.2.a"; sourceTree = "<group>"; };
+		F782F7C5244F446E00C87F69 /* JPushNotificationExtensionService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPushNotificationExtensionService.h; sourceTree = "<group>"; };
+		F782F7C6244F446E00C87F69 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
+		F782F7C7244F446E00C87F69 /* jcore-ios-2.2.5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jcore-ios-2.2.5.a"; sourceTree = "<group>"; };
+		F782F7CB244F44CF00C87F69 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		F782F7CD244F44DB00C87F69 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		F782F7CF244F44E500C87F69 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		F782F7D1244F44F000C87F69 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F782F7D3244F44F800C87F69 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F782F7D5244F450200C87F69 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F782F7D7244F450D00C87F69 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F782F7D9244F451500C87F69 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F782F7DB244F452200C87F69 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		F782F7DD244F453200C87F69 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		F782F7DF244F453D00C87F69 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		F782F7E1244F454600C87F69 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		F782F7E3244F4B8500C87F69 /* 中国兄弟团.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "中国兄弟团.entitlements"; sourceTree = "<group>"; };
 		F787B5AB24231D2400411DED /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		F787B5AD24231D2400411DED /* HomepageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomepageController.h; sourceTree = "<group>"; };
 		F787B5AF24231D2500411DED /* MyCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCityViewController.h; sourceTree = "<group>"; };
@@ -267,7 +300,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F782F7E2244F454600C87F69 /* WebKit.framework in Frameworks */,
+				F782F7E0244F453D00C87F69 /* libresolv.tbd in Frameworks */,
+				F782F7DE244F453200C87F69 /* UserNotifications.framework in Frameworks */,
+				F782F7DC244F452200C87F69 /* libz.tbd in Frameworks */,
+				F782F7DA244F451500C87F69 /* Security.framework in Frameworks */,
+				F782F7D8244F450D00C87F69 /* UIKit.framework in Frameworks */,
+				F782F7D6244F450300C87F69 /* Foundation.framework in Frameworks */,
+				F782F7D4244F44F800C87F69 /* CoreGraphics.framework in Frameworks */,
+				F782F7D2244F44F000C87F69 /* SystemConfiguration.framework in Frameworks */,
+				F782F7D0244F44E500C87F69 /* CoreTelephony.framework in Frameworks */,
+				F782F7CE244F44DB00C87F69 /* CoreFoundation.framework in Frameworks */,
+				F782F7CC244F44CF00C87F69 /* CFNetwork.framework in Frameworks */,
+				F782F7C9244F446E00C87F69 /* jpush-ios-3.3.2.a in Frameworks */,
+				F782F7CA244F446E00C87F69 /* jcore-ios-2.2.5.a in Frameworks */,
 				CE66466427FAB4C0A36AD646 /* Pods_brotherhoodOfficeSystem.framework in Frameworks */,
+				F782F7C8244F446E00C87F69 /* jpush-extension-ios-1.1.2.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +495,18 @@
 		701B5490871891640AC08C8B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F782F7E1244F454600C87F69 /* WebKit.framework */,
+				F782F7DF244F453D00C87F69 /* libresolv.tbd */,
+				F782F7DD244F453200C87F69 /* UserNotifications.framework */,
+				F782F7DB244F452200C87F69 /* libz.tbd */,
+				F782F7D9244F451500C87F69 /* Security.framework */,
+				F782F7D7244F450D00C87F69 /* UIKit.framework */,
+				F782F7D5244F450200C87F69 /* Foundation.framework */,
+				F782F7D3244F44F800C87F69 /* CoreGraphics.framework */,
+				F782F7D1244F44F000C87F69 /* SystemConfiguration.framework */,
+				F782F7CF244F44E500C87F69 /* CoreTelephony.framework */,
+				F782F7CD244F44DB00C87F69 /* CoreFoundation.framework */,
+				F782F7CB244F44CF00C87F69 /* CFNetwork.framework */,
 				46794B329A268856D5E24EC1 /* Pods_brotherhoodOfficeSystem.framework */,
 				09C06DEDCA3F8FCA33B77DF1 /* Pods_brotherhoodOfficeSystem_brotherhoodOfficeSystemUITests.framework */,
 				62B17824283800011D283562 /* Pods_brotherhoodOfficeSystemTests.framework */,
@@ -524,6 +584,18 @@
 			path = "UIview+WLFrame";
 			sourceTree = "<group>";
 		};
+		F782F7C2244F446E00C87F69 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				F782F7C3244F446E00C87F69 /* jpush-extension-ios-1.1.2.a */,
+				F782F7C4244F446E00C87F69 /* jpush-ios-3.3.2.a */,
+				F782F7C5244F446E00C87F69 /* JPushNotificationExtensionService.h */,
+				F782F7C6244F446E00C87F69 /* JPUSHService.h */,
+				F782F7C7244F446E00C87F69 /* jcore-ios-2.2.5.a */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
 		F79A835E2441F57100D8F839 /* ZXDNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -538,6 +610,8 @@
 		F79A83652441F73B00D8F839 /* hreeFiles */ = {
 			isa = PBXGroup;
 			children = (
+				F782F7C2244F446E00C87F69 /* Lib */,
+				3BB2CC422449A764005A515D /* IQKeyboardManager */,
 				3B0DCBD5244548AC00870587 /* BDImagePicker */,
 				F79A83662441F76800D8F839 /* Alert */,
 				F74677E7244051D20093D5D1 /*  NSObject */,
@@ -674,7 +748,6 @@
 		F7F045FB2420AA7700365A65 = {
 			isa = PBXGroup;
 			children = (
-				3BB2CC422449A764005A515D /* IQKeyboardManager */,
 				F7F046062420AA7700365A65 /* brotherhoodOfficeSystem */,
 				F7F046222420AA7C00365A65 /* brotherhoodOfficeSystemTests */,
 				F7F0462D2420AA7C00365A65 /* brotherhoodOfficeSystemUITests */,
@@ -697,6 +770,7 @@
 		F7F046062420AA7700365A65 /* brotherhoodOfficeSystem */ = {
 			isa = PBXGroup;
 			children = (
+				F782F7E3244F4B8500C87F69 /* 中国兄弟团.entitlements */,
 				F7F046072420AA7700365A65 /* AppDelegate.h */,
 				F7F046082420AA7700365A65 /* AppDelegate.m */,
 				F7BB179D243C13A7003A19D1 /* Login */,
@@ -1256,6 +1330,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "brotherhoodOfficeSystem/中国兄弟团.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LHRJC39Y3V;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1265,6 +1340,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/brotherhoodOfficeSystem/hreeFiles/Lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.brotherhood.Officesystem;
 				PRODUCT_NAME = "中国兄弟团";
@@ -1278,6 +1357,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "brotherhoodOfficeSystem/中国兄弟团.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LHRJC39Y3V;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1287,6 +1367,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/brotherhoodOfficeSystem/hreeFiles/Lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.brotherhood.Officesystem;
 				PRODUCT_NAME = "中国兄弟团";

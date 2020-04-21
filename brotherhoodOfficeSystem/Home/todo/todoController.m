@@ -32,9 +32,10 @@
        
     }
     #pragma mark - lazy
-    - (UITableView *)tableView {
+- (UITableView *)tableView {
         if (!_tableView) {
             _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, ScreenH-SK_TabbarSafeBottomMargin) style:UITableViewStylePlain];
+            
             _tableView.backgroundColor = [UIColor whiteColor];
             _tableView.dataSource = self;
             _tableView.delegate = self;

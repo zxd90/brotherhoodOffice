@@ -39,9 +39,9 @@
     if (!_tableView) {
         _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, ScreenH-SK_TabbarSafeBottomMargin) style:UITableViewStylePlain];
         _tableView.backgroundColor = [UIColor whiteColor];
+        _tableView.tableFooterView=[self subFooterView];
         _tableView.dataSource = self;
         _tableView.delegate = self;
-         _tableView.sectionFooterHeight = 0.001;
         [self.view addSubview:_tableView];
     }
     return _tableView;
@@ -105,33 +105,39 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
 }
 //底部
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    if(section==2){
-       return 80 ;
-    }
+//    if(section==2){
+//       return 80 ;
+//    }
       return 15;
 }
 
 -(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     
-    if (section==0||section==1) {
+  
     UIView * headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, 15)];
+      if (section==0||section==1) {
          headerView.backgroundColor=RGB(238, 238, 238);
-        return headerView;
-    }else{
-    UIView * headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, 80)];
-        for (int i=0; i<2; i++) {
-        UIButton *button= [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame=CGRectMake(i*(ScreenW/2)+40, 30,30,200);
-                button.tag=i;
-            if (i==0) {
-            button.backgroundColor=RGB(3, 163, 38);
-            }
-            button.backgroundColor=RGB(234, 24, 24);
-                      [button addTarget:self action:@selector(buttonUploadPhoto:) forControlEvents:UIControlEventTouchUpInside];
-                      [headerView addSubview:button];
-        }
-        return headerView;
+  
     }
+    return headerView;
+}
+-(UIView *)subFooterView{
+    UIView * headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, 80)];
+           for (int i=0; i<2; i++) {
+           UIButton *button= [UIButton buttonWithType:UIButtonTypeCustom];
+           button.frame=CGRectMake(i*(ScreenW/2)+(ScreenW/4)-50,20,100,40);
+           button.tag=i;
+               if (i==0) {
+               [button setTitle:@"同意" forState:UIControlStateNormal];
+               button.backgroundColor=RGB(234, 24, 24);
+               }else{
+               [button setTitle:@"拒绝" forState:UIControlStateNormal];
+               button.backgroundColor=RGB(13, 163, 38);
+               }
+           [button addTarget:self action:@selector(buttonaudit:) forControlEvents:UIControlEventTouchUpInside];
+                         [headerView addSubview:button];
+           }
+           return headerView;
 }
 - (void)RqtDetailsData{
     NSString *urlStr =[NSString stringWithFormat:@"%@xdtapp/api/v1/flowPath/getMyApplyMatterInfo",kAPI_URL];
@@ -160,5 +166,20 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
         
     } view:self.view MBPro:YES];
 }
+-(void)buttonaudit:(UIButton*)sender{
+     if (sender.tag==1&&!self.opinionstr.length){
+        [ELNAlerTool showAlertMassgeWithController:self andMessage:@"请输入处理意见" andInterval:1.0];
+    }else {
+        NSString *urlStr =[NSString stringWithFormat:@"%@xdtapp/api/v1/approval/checkLeave",kAPI_URL];
+        NSDictionary *dict =@{@"ticket":   kFetchMyDefault(@"ticket"),@"matterId":_matterIdstr,@"flag":[NSString stringWithFormat:@"%ld",(long)sender.tag],@"note":self.opinionstr};
+           [ZXDNetworking POST:urlStr parameters:dict success:^(id responseObject) {
+               if ([responseObject[@"code"] intValue]==0) {
+                  
+                 }
+            } failure:^(NSError *error) {
 
+         } view:self.view];
+    }
+  
+}
 @end

@@ -200,7 +200,7 @@
 - (void)button1BackGroundHighlighted:(UIButton *)sender
 {
     
-    sender.backgroundColor = [UIColor RGBNav];
+
 }
 -(UILabel *)GetAdaptiveLable:(CGRect)rect AndText:(NSString *)contentStr andIsTitle:(BOOL)isTitle
 {

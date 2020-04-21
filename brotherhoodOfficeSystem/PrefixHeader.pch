@@ -118,6 +118,7 @@
 #import "UIImageView+WebCache.h"
 #import "IQKeyboardManager.h"
 #import <AFNetworking.h>
+#import "JPUSHService.h"
 //#import <IQKeyboardManager/IQKeyboardManager.h>
 #import <MJExtension.h>
 #import <MJRefresh/MJRefresh.h>
