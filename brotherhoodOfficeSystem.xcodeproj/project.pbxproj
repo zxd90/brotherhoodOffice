@@ -276,7 +276,7 @@
 		F7CCD110244B51A600EF0855 /* haveCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = haveCell.m; sourceTree = "<group>"; };
 		F7CCD113244B523100EF0855 /* HaveModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HaveModel.h; sourceTree = "<group>"; };
 		F7CCD114244B523100EF0855 /* HaveModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HaveModel.m; sourceTree = "<group>"; };
-		F7F046042420AA7700365A65 /* 中国兄弟团.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "中国兄弟团.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7F046042420AA7700365A65 /* 兄弟团.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "兄弟团.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7F046072420AA7700365A65 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F7F046082420AA7700365A65 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F7F0460D2420AA7700365A65 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -760,7 +760,7 @@
 		F7F046052420AA7700365A65 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F7F046042420AA7700365A65 /* 中国兄弟团.app */,
+				F7F046042420AA7700365A65 /* 兄弟团.app */,
 				F7F0461F2420AA7C00365A65 /* brotherhoodOfficeSystemTests.xctest */,
 				F7F0462A2420AA7C00365A65 /* brotherhoodOfficeSystemUITests.xctest */,
 			);
@@ -834,7 +834,7 @@
 			);
 			name = brotherhoodOfficeSystem;
 			productName = brotherhoodOfficeSystem;
-			productReference = F7F046042420AA7700365A65 /* 中国兄弟团.app */;
+			productReference = F7F046042420AA7700365A65 /* 兄弟团.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F7F0461E2420AA7C00365A65 /* brotherhoodOfficeSystemTests */ = {
@@ -1346,7 +1346,7 @@
 					"$(PROJECT_DIR)/brotherhoodOfficeSystem/hreeFiles/Lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.brotherhood.Officesystem;
-				PRODUCT_NAME = "中国兄弟团";
+				PRODUCT_NAME = "兄弟团";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1373,7 +1373,7 @@
 					"$(PROJECT_DIR)/brotherhoodOfficeSystem/hreeFiles/Lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.brotherhood.Officesystem;
-				PRODUCT_NAME = "中国兄弟团";
+				PRODUCT_NAME = "兄弟团";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

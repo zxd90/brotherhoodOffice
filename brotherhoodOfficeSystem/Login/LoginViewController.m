@@ -38,8 +38,8 @@
     }];
     _accoutText = [[loginTextField  alloc]init];
     _accoutText.placeholder = @"用户名";
-    //self.accoutText.text=@"本部门员工";
-    self.accoutText.text=@"中腾";
+    self.accoutText.text=@"本部门员工";
+    //self.accoutText.text=@"中腾";
     _accoutText.font =PFR17Font;
     [self.view addSubview:_accoutText];
     [_accoutText mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -104,8 +104,10 @@
         if ([responseObject[@"code"] intValue]==0) {
    
                  kSaveMyDefault(@"ticket",responseObject[@"data"][@"ticket"]);
-              kSaveMyDefault(responseObject[@"data"][@"roleName"],@"roleName");
-            kSaveMyDefault(responseObject[@"data"][@"roleName"],@"roleName");
+              kSaveMyDefault(@"roleName",responseObject[@"data"][@"roleName"]);
+            kSaveMyDefault(@"headImg",responseObject[@"data"][@"headImg"]);
+            kSaveMyDefault(@"asName",responseObject[@"data"][@"asName"]);
+        [[NSNotificationCenter defaultCenter] postNotificationName:kJPFNetworkDidSetupNotification object:self];
         NNTabBarController   *NNTab  = [[NNTabBarController alloc] init];
                                      NNTab.modalTransitionStyle =UIModalTransitionStyleCrossDissolve ;
                                        UIWindow *window = [UIApplication sharedApplication].delegate.window;
