@@ -111,9 +111,19 @@
                       HaveModel *model = [HaveModel haveWithDict:dic];
                     [self.arrayModels addObject:model];
                 }
+                if (self.arrayModels.count==0) {
+                     self.tableView.ly_emptyView = [LYEmptyView emptyViewWithImageStr:@""
+                     titleStr:@"暂无数据"
+                     detailStr:@""];
+                         }
                 NSLog(@"%@",self.arrayModels);
                [self.tableView reloadData];
-              }
+            }else if ([responseObject[@"code"] intValue]==5001){
+                self.tableView.ly_emptyView = [LYEmptyView emptyActionViewWithImageStr:@"" titleStr:@"" detailStr:@"您的登录已过期,请重新登录" btnTitleStr:@"登陆" btnClickBlock:^{
+                    
+                }];
+               
+            }
         } failure:^(NSError *error) {
             
         } view:self.view MBPro:YES];

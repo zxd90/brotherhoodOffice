@@ -10,7 +10,6 @@
 #define screen_height [UIScreen mainScreen].bounds.size.height
 // 2.获得RGB颜色
 #define RGBA(r, g, b, a)                    [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
-#define RGB(r, g, b)                        RGBA(r, g, b, 1.0f)
 #define navigationBarColor RGB(33, 192, 174)
 
 #import "HomeMenuCell.h"
@@ -48,7 +47,7 @@
     
     // UIScrollView
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, screen_width, 175)];
-    scrollView.contentSize = CGSizeMake(2*screen_width, 175);
+    scrollView.contentSize = CGSizeMake(screen_width, 175);
     scrollView.pagingEnabled = YES;
     scrollView.delegate = self;
     scrollView.showsHorizontalScrollIndicator = NO;

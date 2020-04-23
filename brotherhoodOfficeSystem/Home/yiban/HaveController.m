@@ -111,7 +111,11 @@
                       HaveModel *model = [HaveModel haveWithDict:dic];
                     [self.arrayModels addObject:model];
                 }
-                NSLog(@"%@",self.arrayModels);
+              if (self.arrayModels.count==0) {
+                                 self.tableView.ly_emptyView = [LYEmptyView emptyViewWithImageStr:@""
+                                 titleStr:@"暂无数据"
+                                 detailStr:@""];
+                                     }
                [self.tableView reloadData];
               }
         } failure:^(NSError *error) {

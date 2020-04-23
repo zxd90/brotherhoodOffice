@@ -11,6 +11,8 @@
 #import "RqtDetailsCell.h"
 #import "rqtDetModel.h"
 #import "TextViewCell.h"
+#import "todoController.h"
+#import "NNNavigationController.h"
 @interface todetailsVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *namesArray;
@@ -23,6 +25,39 @@
 @end
 
 @implementation todetailsVC
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+   
+    if ( [kFetchMyDefault(@"push")isEqualToString:@"push"]) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setImage:[UIImage imageNamed:@"bolk"] forState:UIControlStateNormal];
+        button.frame =CGRectMake(0, 0, 30, 30);
+        [button setImageEdgeInsets:UIEdgeInsetsMake(0, -12, 0, 0)];
+        [button addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *leftButon= [[UIBarButtonItem alloc] initWithCustomView:button];
+        UIBarButtonItem *fixedButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFixedSpace target:nil action:nil];
+
+        fixedButton.width= -15;
+        self.navigationItem.leftBarButtonItems= @[fixedButton,leftButon];
+    }
+}
+-(void)back{
+    NSLog(@"232131");
+     kSaveMyDefault(@"push",@"");
+//    for (UIViewController *controller in self.navigationController.viewControllers) {
+//
+//    if ([controller isKindOfClass:[todoController class]]) {
+//
+//    todoController *todovc =(todoController *)controller;
+//
+//    [self.navigationController popToViewController:todovc animated:YES];
+//
+//    }
+
+[self.navigationController popToRootViewControllerAnimated:YES];
+    //    }
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,7 +67,7 @@
        _infosArray=[NSMutableArray array];
        _namesArray=[NSMutableArray array];
        _dataSource=[NSMutableArray array];
-       [self RqtDetailsData];
+//       [self RqtDetailsData];
 }
 #pragma mark - lazy
 - (UITableView *)tableView {
@@ -141,7 +176,7 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
 }
 - (void)RqtDetailsData{
     NSString *urlStr =[NSString stringWithFormat:@"%@xdtapp/api/v1/flowPath/getMyApplyMatterInfo",kAPI_URL];
-    NSDictionary *dict =@{@"ticket":   kFetchMyDefault(@"ticket"),@"matterId":_matterIdstr};
+    NSDictionary *dict =@{@"ticket": kFetchMyDefault(@"ticket"),@"matterId":_matterIdstr};
     [ZXDNetworking GET:urlStr parameters:dict success:^(id responseObject) {
         if ([responseObject[@"code"] intValue]==0) {
             for (NSString *str in responseObject[@"data"][@"infos"]) {
@@ -155,6 +190,11 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
             for (NSDictionary *dic in responseObject[@"data"][@"matters"]) {
                 rqtDetModel *model = [rqtDetModel rqtDetWithDict:dic];
                 [self.dataSource addObject:model];
+            }
+            if (self.dataSource.count==0) {
+        self.tableView.ly_emptyView = [LYEmptyView emptyViewWithImageStr:@""
+        titleStr:@"暂无数据"
+        detailStr:@""];
             }
             [self.dataSource removeLastObject];
             [self.array addObject:self.dataSource];

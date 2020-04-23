@@ -77,8 +77,6 @@
 		F7A8F469243DF0C20084D386 /* InductionController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A8F468243DF0C20084D386 /* InductionController.m */; };
 		F7A8F46C243DF0E10084D386 /* AskLeaveController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A8F46B243DF0E10084D386 /* AskLeaveController.m */; };
 		F7A8F46F243DF1190084D386 /* AttendController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A8F46E243DF1190084D386 /* AttendController.m */; };
-		F7A8F472243DFDD90084D386 /* AskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A8F471243DFDD90084D386 /* AskTableViewCell.m */; };
-		F7A8F475243DFF5E0084D386 /* SelecTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A8F474243DFF5E0084D386 /* SelecTableViewCell.m */; };
 		F7BB179B243C137F003A19D1 /* NNNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BB1797243C137F003A19D1 /* NNNavigationController.m */; };
 		F7BB179C243C137F003A19D1 /* NNTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BB179A243C137F003A19D1 /* NNTabBarController.m */; };
 		F7BB17A0243C1F77003A19D1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BB179F243C1F77003A19D1 /* LoginViewController.m */; };
@@ -252,10 +250,6 @@
 		F7A8F46B243DF0E10084D386 /* AskLeaveController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AskLeaveController.m; sourceTree = "<group>"; };
 		F7A8F46D243DF1190084D386 /* AttendController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AttendController.h; sourceTree = "<group>"; };
 		F7A8F46E243DF1190084D386 /* AttendController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AttendController.m; sourceTree = "<group>"; };
-		F7A8F470243DFDD90084D386 /* AskTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AskTableViewCell.h; sourceTree = "<group>"; };
-		F7A8F471243DFDD90084D386 /* AskTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AskTableViewCell.m; sourceTree = "<group>"; };
-		F7A8F473243DFF5E0084D386 /* SelecTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelecTableViewCell.h; sourceTree = "<group>"; };
-		F7A8F474243DFF5E0084D386 /* SelecTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelecTableViewCell.m; sourceTree = "<group>"; };
 		F7BB1797243C137F003A19D1 /* NNNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNNavigationController.m; sourceTree = "<group>"; };
 		F7BB1798243C137F003A19D1 /* NNTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNTabBarController.h; sourceTree = "<group>"; };
 		F7BB1799243C137F003A19D1 /* NNNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNNavigationController.h; sourceTree = "<group>"; };
@@ -371,6 +365,15 @@
 				3B0DCBD6244548AC00870587 /* BDImagePicker.m */,
 			);
 			path = BDImagePicker;
+			sourceTree = "<group>";
+		};
+		3B184DBD24518F5D00483CA0 /* myCity */ = {
+			isa = PBXGroup;
+			children = (
+				F787B5AF24231D2500411DED /* MyCityViewController.h */,
+				F787B5B224231D2500411DED /* MyCityViewController.m */,
+			);
+			path = myCity;
 			sourceTree = "<group>";
 		};
 		3BB2CC422449A764005A515D /* IQKeyboardManager */ = {
@@ -639,10 +642,6 @@
 				F7A8F46B243DF0E10084D386 /* AskLeaveController.m */,
 				3B0A7132244698EA005BFFBE /* modle */,
 				F7BC578824449ADA0031DB2E /* BRText */,
-				F7A8F470243DFDD90084D386 /* AskTableViewCell.h */,
-				F7A8F471243DFDD90084D386 /* AskTableViewCell.m */,
-				F7A8F473243DFF5E0084D386 /* SelecTableViewCell.h */,
-				F7A8F474243DFF5E0084D386 /* SelecTableViewCell.m */,
 				F74677E1244022020093D5D1 /* TextViewCell.h */,
 				F74677E2244022020093D5D1 /* TextViewCell.m */,
 				F74677E4244023540093D5D1 /* PlaceholderTextView.h */,
@@ -778,8 +777,7 @@
 				F72FA1AD243D8312000343FC /* Home */,
 				F787B5B024231D2500411DED /* AccountViewController.h */,
 				F787B5AB24231D2400411DED /* AccountViewController.m */,
-				F787B5AF24231D2500411DED /* MyCityViewController.h */,
-				F787B5B224231D2500411DED /* MyCityViewController.m */,
+				3B184DBD24518F5D00483CA0 /* myCity */,
 				F7F0460D2420AA7700365A65 /* ViewController.h */,
 				F7F0460E2420AA7700365A65 /* ViewController.m */,
 				F79A83652441F73B00D8F839 /* hreeFiles */,
@@ -1113,11 +1111,9 @@
 				F79A83642441F69A00D8F839 /* MBProgressHUD+Add.m in Sources */,
 				F74677ED244059FE0093D5D1 /* Homeheader.m in Sources */,
 				3B0A71412446EB9D005BFFBE /* FriendModel.m in Sources */,
-				F7A8F472243DFDD90084D386 /* AskTableViewCell.m in Sources */,
 				F787B5B624231D2500411DED /* MyCityViewController.m in Sources */,
 				F74677E3244022020093D5D1 /* TextViewCell.m in Sources */,
 				3BB4EC81244A9FA20025F476 /* requstModel.m in Sources */,
-				F7A8F475243DFF5E0084D386 /* SelecTableViewCell.m in Sources */,
 				F74677E6244023540093D5D1 /* PlaceholderTextView.m in Sources */,
 				F72FA1BF243DAC44000343FC /* JZMTBtnView.m in Sources */,
 				3BD40C0E244EC15F00573E01 /* todetailsVC.m in Sources */,

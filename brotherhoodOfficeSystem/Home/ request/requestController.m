@@ -115,10 +115,15 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
              }
         if ([responseObject[@"code"] intValue]==0) {
           
-            for (NSDictionary *dic in responseObject[@"data"]  [@"records"]) {
+            for (NSDictionary *dic in responseObject[@"data"][@"records"]) {
                   requstModel *model = [requstModel requstWithDict:dic];
                 [self.arrayModels addObject:model];
             }
+            if (self.arrayModels.count==0) {
+                               self.tableView.ly_emptyView = [LYEmptyView emptyViewWithImageStr:@""
+                               titleStr:@"暂无数据"
+                               detailStr:@""];
+                    }
            [self.tableView reloadData];
           }
     } failure:^(NSError *error) {

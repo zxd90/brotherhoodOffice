@@ -29,7 +29,6 @@
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setImage:[UIImage imageNamed:@"bolk"] forState:UIControlStateNormal];
         button.frame =CGRectMake(0, 0, 30, 30);
-
         [button setImageEdgeInsets:UIEdgeInsetsMake(0, -12, 0, 0)];
         [button addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *leftButon= [[UIBarButtonItem alloc] initWithCustomView:button];
