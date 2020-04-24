@@ -7,10 +7,11 @@
 //
 
 #import "MyCityViewController.h"
-
-@interface MyCityViewController ()<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, copy) NSArray *dataArray;
+#import "mytableView.h"
+#import "BDImagePicker.h"
+@interface MyCityViewController ()<mytableViewDelegate>
+@property (nonatomic, strong)mytableView *tableView;
+@property (nonatomic, copy)NSArray *Array;
 @end
 
 @implementation MyCityViewController
@@ -25,79 +26,34 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+      [self.view setBackgroundColor:[UIColor whiteColor]];
+    mytableView *tableView = [[mytableView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, ScreenH-SK_TabbarSafeBottomMargin)];
+       tableView.mytableDelegate = self;
+    [self.view addSubview:tableView];
+}
+-(void)tableViewsection:(NSInteger)section mytableViewClick:(NSInteger)tag{
+    
     
 }
-#pragma mark - lazy
-- (UITableView *)tableView {
-    if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,ScreenW , ScreenH-SK_ButtonHeight) style:UITableViewStylePlain];
-        _tableView.backgroundColor = [UIColor whiteColor];
-        _tableView.dataSource = self;
-        _tableView.delegate = self;
-        [self.view addSubview:_tableView];
-    }
-    return _tableView;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section==0||indexPath.section==2) {
-            return 50;
-       }else{
-          return 150;
-       }
-}
-#pragma mark - UITableViewDataSource, UITableViewDelegate
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return _dataArray.count;
-}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-return [_dataArray[section]count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-         static NSString *cellID = @"testCell";
-                   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-                   if (!cell) {
-                       cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-                   }
-              cell.selectionStyle = UITableViewCellSelectionStyleNone;
-              cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-              cell.imageView.image=[UIImage imageNamed:@""];
-              cell.textLabel.font = [UIFont systemFontOfSize:16.0f];
-              cell.textLabel.text =_dataArray[indexPath.section][indexPath.row];
-          
-    
-    return cell;
-}
-  
-  
-
-//使cell的下划线顶头
--(void)tableView:(UITableView* )tableView willDisplayCell:(UITableViewCell* )cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-[cell setSeparatorInset:UIEdgeInsetsMake(0, 15, 0, 15)];
-    }
-}
-#pragma mark - delegate
-//点击事件
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-   
-   
-}
-
-//底部
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 15 ;
-}
--(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    UIView * headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, 15)];
-    if (section!=4) {
-       headerView.backgroundColor=RGB(238, 238, 238);
-    }
-    return headerView;
+-(void)mytableViewtap{
+    [BDImagePicker showImagePickerFromViewController:self allowsEditing:YES finishAction:^(UIImage *image) {
+              if (image) {
+                  self.tableView.image.image=image;
+               NSData *pictureData = UIImagePNGRepresentation(image);
+                  self.Array=[NSArray arrayWithObject:pictureData];
+                  NSString *urlStr =[NSString stringWithFormat:@"%@xdtapp/api/v1/user/updateHeadImg",kAPI_URL];
+                  NSDictionary *dict =@{@"ticket": kFetchMyDefault(@"ticket")};
+                  [ZXDNetworking POST:urlStr parameters:dict uploadImageArrayWithImages:self.Array success:^(NSDictionary *obj) {
+                      if ([obj[@"code"]intValue]==0) {
+                          
+                          
+                      }
+                  } failure:^(NSError *error) {
+                  
+                  }view:self.view];
+              }
+          }];
 }
 
 @end

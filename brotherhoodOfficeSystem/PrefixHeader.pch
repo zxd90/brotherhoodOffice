@@ -18,7 +18,8 @@
 #define ZDLog(...)
 
 #endif
-
+/**获取版本号*/
+#define APP_VERSION ([[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"])
 /** 屏幕高度 */
 #define ScreenH [UIScreen mainScreen].bounds.size.height
 /** 屏幕宽度 */

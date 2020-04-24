@@ -44,7 +44,7 @@
 }
 - (void)setFriendModel:(FriendModel *)friendModel{
     _friendModel = friendModel;
-    [self.headerImageView sd_setImageWithURL:[NSURL URLWithString:friendModel.headImg] placeholderImage:[UIImage imageNamed:@""]];
+    [self.headerImageView sd_setImageWithURL:[NSURL URLWithString:friendModel.headImg] placeholderImage:[UIImage imageNamed:@"touxiang"]];
     self.labelName.text = friendModel.userName ;
     self.labelroleName.text = friendModel.roleName;
    self.detailTextLabel.textColor = [UIColor blackColor];

@@ -58,7 +58,8 @@
         ZDLog(@"responseObject --=++ %@",responseObject);
 
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [MBProgressHUD hideHUDForView: view animated:NO];  PWAlertView *alertView = [[PWAlertView alloc]initWithTitle:@"提示" message:@"网络不给力，请检查网络！" sureBtn:@"好的" cancleBtn:nil];
+        [MBProgressHUD hideHUDForView: view animated:NO];
+        PWAlertView *alertView = [[PWAlertView alloc]initWithTitle:@"提示" message:@"网络不给力，请检查网络！" sureBtn:@"好的" cancleBtn:nil];
         alertView.resultIndex = ^(NSInteger index){
             
         };
@@ -113,6 +114,7 @@
         }
     }];
 }
+
 +(NSString *)encryptStringWithMD5:(NSString *)inputStr{
     
     NSString *input=[self substringToIndexString:inputStr];

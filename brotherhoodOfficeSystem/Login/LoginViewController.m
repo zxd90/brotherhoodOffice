@@ -103,10 +103,12 @@
     
         if ([responseObject[@"code"] intValue]==0) {
    
-                 kSaveMyDefault(@"ticket",responseObject[@"data"][@"ticket"]);
-              kSaveMyDefault(@"roleName",responseObject[@"data"][@"roleName"]);
+            kSaveMyDefault(@"ticket",responseObject[@"data"][@"ticket"]);
+            kSaveMyDefault(@"roleName",responseObject[@"data"][@"roleName"]);
             kSaveMyDefault(@"headImg",responseObject[@"data"][@"headImg"]);
             kSaveMyDefault(@"asName",responseObject[@"data"][@"asName"]);
+            kSaveMyDefault(@"userName",responseObject[@"data"][@"userName"]);
+            kSaveMyDefault(@"depName",responseObject[@"data"][@"depName"]);
         [[NSNotificationCenter defaultCenter] postNotificationName:kJPFNetworkDidSetupNotification object:self];
         NNTabBarController   *NNTab  = [[NNTabBarController alloc] init];
             NNTab.modalTransitionStyle =UIModalTransitionStyleCrossDissolve ;

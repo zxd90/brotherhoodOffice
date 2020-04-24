@@ -111,7 +111,7 @@
 -(void)tableView:(UITableView* )tableView willDisplayCell:(UITableViewCell* )cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
 if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-[cell setSeparatorInset:UIEdgeInsetsMake(0, 15, 0, 15)];
+   [cell setSeparatorInset:UIEdgeInsetsMake(0, 15, 0, 15)];
     }
 }
 #pragma mark - delegate
@@ -198,7 +198,6 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
 }
 -(void)entrySubmission{
    self.dataArray = [NSArray arrayWithArray:self.Array1];
-    NSLog(@"%@",self.dataArray);
     NSString *urlStr =[NSString stringWithFormat:@"%@xdtapp/api/v1/entry/doEntry",kAPI_URL];
     NSDictionary *dict =@{@"ticket":   kFetchMyDefault(@"ticket"),@"realName":self.name,@"phoneNumber":self.phone,@"idCard":self.idCard ,@"idAddress":self.idAddress ,@"address":self.address,@"urgentPeople":self.urgentPeople,@"urgentPhoneNumber":self.urgentPhoneNumber,@"forMe":self.forMe};
     [ZXDNetworking POST:urlStr parameters:dict uploadImageArrayWithImages:self.dataArray success:^(NSDictionary *obj) {

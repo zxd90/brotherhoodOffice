@@ -15,6 +15,10 @@
 		3B0A71452446EBCD005BFFBE /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0A71432446EBCC005BFFBE /* FriendTableViewCell.m */; };
 		3B0DCBD8244548AC00870587 /* BDImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0DCBD6244548AC00870587 /* BDImagePicker.m */; };
 		3B7807BA24416F47008EEE83 /* inductionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7807B924416F47008EEE83 /* inductionCell.m */; };
+		3B8B6FBC2452812000A29C31 /* mytableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8B6FBB2452811F00A29C31 /* mytableView.m */; };
+		3B8B6FEC2452CF0D00A29C31 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8B6FE82452CF0D00A29C31 /* MBProgressHUD+Add.m */; };
+		3B8B6FED2452CF0D00A29C31 /* ZXDNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8B6FEB2452CF0D00A29C31 /* ZXDNetworking.m */; };
+		3B8B6FF12452CF5100A29C31 /* LBClearCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8B6FEF2452CF5100A29C31 /* LBClearCacheTool.m */; };
 		3BB2CC632449A764005A515D /* IQTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2CC442449A764005A515D /* IQTextView.m */; };
 		3BB2CC642449A764005A515D /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2CC482449A764005A515D /* IQToolbar.m */; };
 		3BB2CC652449A764005A515D /* IQTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2CC4A2449A764005A515D /* IQTitleBarButtonItem.m */; };
@@ -68,8 +72,6 @@
 		F787B5B324231D2500411DED /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F787B5AB24231D2400411DED /* AccountViewController.m */; };
 		F787B5B524231D2500411DED /* HomepageController.m in Sources */ = {isa = PBXBuildFile; fileRef = F787B5B124231D2500411DED /* HomepageController.m */; };
 		F787B5B624231D2500411DED /* MyCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F787B5B224231D2500411DED /* MyCityViewController.m */; };
-		F79A83612441F57100D8F839 /* ZXDNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F79A83602441F57100D8F839 /* ZXDNetworking.m */; };
-		F79A83642441F69A00D8F839 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = F79A83632441F69A00D8F839 /* MBProgressHUD+Add.m */; };
 		F79A83692441F78B00D8F839 /* PWAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = F79A83682441F78B00D8F839 /* PWAlertView.m */; };
 		F79A836C244206D900D8F839 /* ELNAlerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F79A836B244206D900D8F839 /* ELNAlerTool.m */; };
 		F7A8F463243DF0870084D386 /* todoController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7A8F462243DF0870084D386 /* todoController.m */; };
@@ -133,6 +135,14 @@
 		3B0DCBD7244548AC00870587 /* BDImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDImagePicker.h; sourceTree = "<group>"; };
 		3B7807B824416F47008EEE83 /* inductionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = inductionCell.h; sourceTree = "<group>"; };
 		3B7807B924416F47008EEE83 /* inductionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = inductionCell.m; sourceTree = "<group>"; };
+		3B8B6FBA2452811F00A29C31 /* mytableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mytableView.h; sourceTree = "<group>"; };
+		3B8B6FBB2452811F00A29C31 /* mytableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mytableView.m; sourceTree = "<group>"; };
+		3B8B6FE82452CF0D00A29C31 /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
+		3B8B6FE92452CF0D00A29C31 /* ZXDNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXDNetworking.h; sourceTree = "<group>"; };
+		3B8B6FEA2452CF0D00A29C31 /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
+		3B8B6FEB2452CF0D00A29C31 /* ZXDNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXDNetworking.m; sourceTree = "<group>"; };
+		3B8B6FEF2452CF5100A29C31 /* LBClearCacheTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBClearCacheTool.m; sourceTree = "<group>"; };
+		3B8B6FF02452CF5100A29C31 /* LBClearCacheTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBClearCacheTool.h; sourceTree = "<group>"; };
 		3BB2CC1224498F74005A515D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		3BB2CC1324498F75005A515D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		3BB2CC442449A764005A515D /* IQTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQTextView.m; sourceTree = "<group>"; };
@@ -232,10 +242,6 @@
 		F787B5B124231D2500411DED /* HomepageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomepageController.m; sourceTree = "<group>"; };
 		F787B5B224231D2500411DED /* MyCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCityViewController.m; sourceTree = "<group>"; };
 		F787B5B724231E7D00411DED /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		F79A835F2441F57100D8F839 /* ZXDNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXDNetworking.h; sourceTree = "<group>"; };
-		F79A83602441F57100D8F839 /* ZXDNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXDNetworking.m; sourceTree = "<group>"; };
-		F79A83622441F69A00D8F839 /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
-		F79A83632441F69A00D8F839 /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
 		F79A83672441F78B00D8F839 /* PWAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWAlertView.h; sourceTree = "<group>"; };
 		F79A83682441F78B00D8F839 /* PWAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWAlertView.m; sourceTree = "<group>"; };
 		F79A836A244206D900D8F839 /* ELNAlerTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELNAlerTool.h; sourceTree = "<group>"; };
@@ -372,8 +378,39 @@
 			children = (
 				F787B5AF24231D2500411DED /* MyCityViewController.h */,
 				F787B5B224231D2500411DED /* MyCityViewController.m */,
+				3B8B6FB9245280C700A29C31 /* myview */,
 			);
 			path = myCity;
+			sourceTree = "<group>";
+		};
+		3B8B6FB9245280C700A29C31 /* myview */ = {
+			isa = PBXGroup;
+			children = (
+				3B8B6FBA2452811F00A29C31 /* mytableView.h */,
+				3B8B6FBB2452811F00A29C31 /* mytableView.m */,
+			);
+			path = myview;
+			sourceTree = "<group>";
+		};
+		3B8B6FE72452CF0D00A29C31 /* ZXDNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				3B8B6FEA2452CF0D00A29C31 /* MBProgressHUD+Add.h */,
+				3B8B6FE82452CF0D00A29C31 /* MBProgressHUD+Add.m */,
+				3B8B6FE92452CF0D00A29C31 /* ZXDNetworking.h */,
+				3B8B6FEB2452CF0D00A29C31 /* ZXDNetworking.m */,
+			);
+			path = ZXDNetworking;
+			sourceTree = "<group>";
+		};
+		3B8B6FEE2452CF5100A29C31 /* clearCache */ = {
+			isa = PBXGroup;
+			children = (
+				3B8B6FEF2452CF5100A29C31 /* LBClearCacheTool.m */,
+				3B8B6FF02452CF5100A29C31 /* LBClearCacheTool.h */,
+			);
+			name = clearCache;
+			path = "../../../../Downloads/ClearFileCache-master/clearCache/clearCache/clearCache";
 			sourceTree = "<group>";
 		};
 		3BB2CC422449A764005A515D /* IQKeyboardManager */ = {
@@ -599,26 +636,16 @@
 			path = Lib;
 			sourceTree = "<group>";
 		};
-		F79A835E2441F57100D8F839 /* ZXDNetworking */ = {
-			isa = PBXGroup;
-			children = (
-				F79A83622441F69A00D8F839 /* MBProgressHUD+Add.h */,
-				F79A83632441F69A00D8F839 /* MBProgressHUD+Add.m */,
-				F79A835F2441F57100D8F839 /* ZXDNetworking.h */,
-				F79A83602441F57100D8F839 /* ZXDNetworking.m */,
-			);
-			path = ZXDNetworking;
-			sourceTree = "<group>";
-		};
 		F79A83652441F73B00D8F839 /* hreeFiles */ = {
 			isa = PBXGroup;
 			children = (
+				3B8B6FEE2452CF5100A29C31 /* clearCache */,
+				3B8B6FE72452CF0D00A29C31 /* ZXDNetworking */,
 				F782F7C2244F446E00C87F69 /* Lib */,
 				3BB2CC422449A764005A515D /* IQKeyboardManager */,
 				3B0DCBD5244548AC00870587 /* BDImagePicker */,
 				F79A83662441F76800D8F839 /* Alert */,
 				F74677E7244051D20093D5D1 /*  NSObject */,
-				F79A835E2441F57100D8F839 /* ZXDNetworking */,
 				F74677EE2440683D0093D5D1 /* UIview+WLFrame */,
 			);
 			path = hreeFiles;
@@ -1104,11 +1131,11 @@
 				3BB4EC8A244AE5C20025F476 /* rqtDetModel.m in Sources */,
 				F7C5C328242A486E00A75289 /* UIButton+BBTButton.m in Sources */,
 				F7BB17A3243C51C0003A19D1 /* loginTextField.m in Sources */,
+				3B8B6FBC2452812000A29C31 /* mytableView.m in Sources */,
 				3BB4EC90244AECF00025F476 /* qtdetaModel.m in Sources */,
 				F7F0460F2420AA7700365A65 /* ViewController.m in Sources */,
 				F7BB179B243C137F003A19D1 /* NNNavigationController.m in Sources */,
 				F7F046092420AA7700365A65 /* AppDelegate.m in Sources */,
-				F79A83642441F69A00D8F839 /* MBProgressHUD+Add.m in Sources */,
 				F74677ED244059FE0093D5D1 /* Homeheader.m in Sources */,
 				3B0A71412446EB9D005BFFBE /* FriendModel.m in Sources */,
 				F787B5B624231D2500411DED /* MyCityViewController.m in Sources */,
@@ -1122,15 +1149,16 @@
 				3B0A71392446E9E8005BFFBE /* ChopersonController.m in Sources */,
 				3BFCC95F2445C0BC00D2CB41 /* HaveController.m in Sources */,
 				3BB4EC8D244AEB7C0025F476 /* qtdetaCell.m in Sources */,
+				3B8B6FED2452CF0D00A29C31 /* ZXDNetworking.m in Sources */,
 				3BB2CC632449A764005A515D /* IQTextView.m in Sources */,
 				3B0DCBD8244548AC00870587 /* BDImagePicker.m in Sources */,
 				F7CCD115244B523100EF0855 /* HaveModel.m in Sources */,
 				3BB2CC652449A764005A515D /* IQTitleBarButtonItem.m in Sources */,
 				3BB2CC6E2449A764005A515D /* IQUIViewController+Additions.m in Sources */,
+				3B8B6FEC2452CF0D00A29C31 /* MBProgressHUD+Add.m in Sources */,
 				3BB2CC672449A764005A515D /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				3BB4EC84244AE09B0025F476 /* RqtDetailsController.m in Sources */,
 				3B7807BA24416F47008EEE83 /* inductionCell.m in Sources */,
-				F79A83612441F57100D8F839 /* ZXDNetworking.m in Sources */,
 				F7BB179C243C137F003A19D1 /* NNTabBarController.m in Sources */,
 				F72FA1BE243DAC44000343FC /* HomeMenuCell.m in Sources */,
 				F787B5B524231D2500411DED /* HomepageController.m in Sources */,
@@ -1139,6 +1167,7 @@
 				F7A8F469243DF0C20084D386 /* InductionController.m in Sources */,
 				3BB2CC6D2449A764005A515D /* IQUIView+Hierarchy.m in Sources */,
 				3BB2CC6F2449A764005A515D /* IQKeyboardReturnKeyHandler.m in Sources */,
+				3B8B6FF12452CF5100A29C31 /* LBClearCacheTool.m in Sources */,
 				3BB2CC6A2449A764005A515D /* IQNSArray+Sort.m in Sources */,
 				F787B5B324231D2500411DED /* AccountViewController.m in Sources */,
 				3BB2CC6B2449A764005A515D /* IQUITextFieldView+Additions.m in Sources */,

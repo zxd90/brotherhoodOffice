@@ -91,13 +91,13 @@
 
     #pragma mark - delegate
 
-    - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         HaveModel *model= _arrayModels[indexPath.row];
         RqtDetailsController *rqtDtCV=[[RqtDetailsController alloc]init];
          rqtDtCV.str=model.matterId;
         [self.navigationController pushViewController:rqtDtCV animated:YES];
     }
-    - (void)requstData{
+- (void)requstData{
         NSString *urlStr =[NSString stringWithFormat:@"%@xdtapp/api/v1/flowPath/getCheckMatter",kAPI_URL];
         NSDictionary *dict =@{@"ticket":   kFetchMyDefault(@"ticket"),@"pageNum":[NSString stringWithFormat:@"%lu",(unsigned long)self.page],@"pageSize":@"10"};
         [ZXDNetworking GET:urlStr parameters:dict success:^(id responseObject) {
