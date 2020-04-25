@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 @protocol mytableViewDelegate <NSObject>
 
--(void)tableViewsection:(NSInteger)section mytableViewClick:(NSInteger)tag;
+-(void)tableViewsection:(UITableView *)tableView mytableViewClick:(NSIndexPath*)indexPath;
 -(void)mytableViewtap;
 @end
 @interface mytableView : UIView

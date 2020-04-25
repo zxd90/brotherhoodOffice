@@ -24,6 +24,9 @@
 #define ScreenH [UIScreen mainScreen].bounds.size.height
 /** 屏幕宽度 */
 #define ScreenW [UIScreen mainScreen].bounds.size.width
+//自适应宽高
+#define ADAPTATION_WIDTH(Width) [UIScreen mainScreen].bounds.size.width * (Width) / 414
+#define ADAPTATION_HEIGHT(Height) [UIScreen mainScreen].bounds.size.height * (Height) / 736
 // 刘海屏 宏定义
 #define iPhoneX ((ScreenH == 812.f || ScreenH == 896.f) ? YES : NO)
 // 适配刘海屏状态栏高度

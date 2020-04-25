@@ -68,7 +68,8 @@ static BOOL const isProduction = TRUE; // 极光TRUE为生产环境
     managerr.toolbarTintColor = [UIColor blackColor];
      self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    if ([[NSString stringWithFormat:@"%@",kFetchMyDefault (@"asName")] isEqualToString:@""]) {
+    
+    if ([kFetchMyDefault (@"asName") length]==0) {
     self.window.rootViewController = [[LoginViewController alloc]init];
     }else{
          self.window.rootViewController = [[NNTabBarController alloc] init];

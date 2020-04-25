@@ -9,6 +9,7 @@
 #import "MyCityViewController.h"
 #import "mytableView.h"
 #import "BDImagePicker.h"
+#import "ModifyController.h"
 @interface MyCityViewController ()<mytableViewDelegate>
 @property (nonatomic, strong)mytableView *tableView;
 @property (nonatomic, copy)NSArray *Array;
@@ -27,15 +28,37 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
       [self.view setBackgroundColor:[UIColor whiteColor]];
-    mytableView *tableView = [[mytableView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, ScreenH-SK_TabbarSafeBottomMargin)];
-       tableView.mytableDelegate = self;
-    [self.view addSubview:tableView];
+   _tableView = [[mytableView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, ScreenH-SK_TabbarSafeBottomMargin)];
+       _tableView.mytableDelegate = self;
+    [self.view addSubview:_tableView];
 }
--(void)tableViewsection:(NSInteger)section mytableViewClick:(NSInteger)tag{
-    
-    
+-(void)tableViewsection:(UITableView *)tableView mytableViewClick:(NSIndexPath*)indexPath{
+  
+    if(indexPath.section==2){
+        ModifyController *ModifyCV=[[ModifyController alloc]init];
+        [self.navigationController pushViewController:ModifyCV animated:YES];
+    }else if(indexPath.section==1&&indexPath.row==0){
+       //刷新
+        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
+
+        //清除缓存
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil
+                                                            message:@"是否清理缓存？"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"取消"
+                                                  otherButtonTitles:@"确定", nil];
+        alertView.tag = 1011;
+        [alertView show];
+    }
 }
 
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1 && alertView.tag == 1011) {
+       
+        
+    }
+}
 -(void)mytableViewtap{
     [BDImagePicker showImagePickerFromViewController:self allowsEditing:YES finishAction:^(UIImage *image) {
               if (image) {

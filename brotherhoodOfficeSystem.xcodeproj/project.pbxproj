@@ -18,7 +18,6 @@
 		3B8B6FBC2452812000A29C31 /* mytableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8B6FBB2452811F00A29C31 /* mytableView.m */; };
 		3B8B6FEC2452CF0D00A29C31 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8B6FE82452CF0D00A29C31 /* MBProgressHUD+Add.m */; };
 		3B8B6FED2452CF0D00A29C31 /* ZXDNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8B6FEB2452CF0D00A29C31 /* ZXDNetworking.m */; };
-		3B8B6FF12452CF5100A29C31 /* LBClearCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8B6FEF2452CF5100A29C31 /* LBClearCacheTool.m */; };
 		3BB2CC632449A764005A515D /* IQTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2CC442449A764005A515D /* IQTextView.m */; };
 		3BB2CC642449A764005A515D /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2CC482449A764005A515D /* IQToolbar.m */; };
 		3BB2CC652449A764005A515D /* IQTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB2CC4A2449A764005A515D /* IQTitleBarButtonItem.m */; };
@@ -54,6 +53,8 @@
 		F74677EA244052340093D5D1 /* ZXDmethod.m in Sources */ = {isa = PBXBuildFile; fileRef = F74677E9244052340093D5D1 /* ZXDmethod.m */; };
 		F74677ED244059FE0093D5D1 /* Homeheader.m in Sources */ = {isa = PBXBuildFile; fileRef = F74677EC244059FE0093D5D1 /* Homeheader.m */; };
 		F74677F12440683D0093D5D1 /* UIView+WLFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F74677F02440683D0093D5D1 /* UIView+WLFrame.m */; };
+		F782012824547BEB0087DB44 /* CacheTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F782012724547BEB0087DB44 /* CacheTools.m */; };
+		F782012B245483790087DB44 /* ModifyController.m in Sources */ = {isa = PBXBuildFile; fileRef = F782012A245483790087DB44 /* ModifyController.m */; };
 		F782F7C8244F446E00C87F69 /* jpush-extension-ios-1.1.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F782F7C3244F446E00C87F69 /* jpush-extension-ios-1.1.2.a */; };
 		F782F7C9244F446E00C87F69 /* jpush-ios-3.3.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F782F7C4244F446E00C87F69 /* jpush-ios-3.3.2.a */; };
 		F782F7CA244F446E00C87F69 /* jcore-ios-2.2.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F782F7C7244F446E00C87F69 /* jcore-ios-2.2.5.a */; };
@@ -141,8 +142,6 @@
 		3B8B6FE92452CF0D00A29C31 /* ZXDNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXDNetworking.h; sourceTree = "<group>"; };
 		3B8B6FEA2452CF0D00A29C31 /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
 		3B8B6FEB2452CF0D00A29C31 /* ZXDNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXDNetworking.m; sourceTree = "<group>"; };
-		3B8B6FEF2452CF5100A29C31 /* LBClearCacheTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBClearCacheTool.m; sourceTree = "<group>"; };
-		3B8B6FF02452CF5100A29C31 /* LBClearCacheTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBClearCacheTool.h; sourceTree = "<group>"; };
 		3BB2CC1224498F74005A515D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		3BB2CC1324498F75005A515D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		3BB2CC442449A764005A515D /* IQTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQTextView.m; sourceTree = "<group>"; };
@@ -217,6 +216,10 @@
 		F74677EC244059FE0093D5D1 /* Homeheader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Homeheader.m; sourceTree = "<group>"; };
 		F74677EF2440683D0093D5D1 /* UIView+WLFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WLFrame.h"; sourceTree = "<group>"; };
 		F74677F02440683D0093D5D1 /* UIView+WLFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WLFrame.m"; sourceTree = "<group>"; };
+		F782012624547BEB0087DB44 /* CacheTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CacheTools.h; path = brotherhoodOfficeSystem/Home/yiban/HaveModel/CacheTools.h; sourceTree = SOURCE_ROOT; };
+		F782012724547BEB0087DB44 /* CacheTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CacheTools.m; path = brotherhoodOfficeSystem/Home/yiban/HaveModel/CacheTools.m; sourceTree = SOURCE_ROOT; };
+		F7820129245483790087DB44 /* ModifyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModifyController.h; sourceTree = "<group>"; };
+		F782012A245483790087DB44 /* ModifyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModifyController.m; sourceTree = "<group>"; };
 		F782F7C3244F446E00C87F69 /* jpush-extension-ios-1.1.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-extension-ios-1.1.2.a"; sourceTree = "<group>"; };
 		F782F7C4244F446E00C87F69 /* jpush-ios-3.3.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-3.3.2.a"; sourceTree = "<group>"; };
 		F782F7C5244F446E00C87F69 /* JPushNotificationExtensionService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPushNotificationExtensionService.h; sourceTree = "<group>"; };
@@ -378,6 +381,8 @@
 			children = (
 				F787B5AF24231D2500411DED /* MyCityViewController.h */,
 				F787B5B224231D2500411DED /* MyCityViewController.m */,
+				F7820129245483790087DB44 /* ModifyController.h */,
+				F782012A245483790087DB44 /* ModifyController.m */,
 				3B8B6FB9245280C700A29C31 /* myview */,
 			);
 			path = myCity;
@@ -406,8 +411,8 @@
 		3B8B6FEE2452CF5100A29C31 /* clearCache */ = {
 			isa = PBXGroup;
 			children = (
-				3B8B6FEF2452CF5100A29C31 /* LBClearCacheTool.m */,
-				3B8B6FF02452CF5100A29C31 /* LBClearCacheTool.h */,
+				F782012624547BEB0087DB44 /* CacheTools.h */,
+				F782012724547BEB0087DB44 /* CacheTools.m */,
 			);
 			name = clearCache;
 			path = "../../../../Downloads/ClearFileCache-master/clearCache/clearCache/clearCache";
@@ -1133,6 +1138,7 @@
 				F7BB17A3243C51C0003A19D1 /* loginTextField.m in Sources */,
 				3B8B6FBC2452812000A29C31 /* mytableView.m in Sources */,
 				3BB4EC90244AECF00025F476 /* qtdetaModel.m in Sources */,
+				F782012B245483790087DB44 /* ModifyController.m in Sources */,
 				F7F0460F2420AA7700365A65 /* ViewController.m in Sources */,
 				F7BB179B243C137F003A19D1 /* NNNavigationController.m in Sources */,
 				F7F046092420AA7700365A65 /* AppDelegate.m in Sources */,
@@ -1159,6 +1165,7 @@
 				3BB2CC672449A764005A515D /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				3BB4EC84244AE09B0025F476 /* RqtDetailsController.m in Sources */,
 				3B7807BA24416F47008EEE83 /* inductionCell.m in Sources */,
+				F782012824547BEB0087DB44 /* CacheTools.m in Sources */,
 				F7BB179C243C137F003A19D1 /* NNTabBarController.m in Sources */,
 				F72FA1BE243DAC44000343FC /* HomeMenuCell.m in Sources */,
 				F787B5B524231D2500411DED /* HomepageController.m in Sources */,
@@ -1167,7 +1174,6 @@
 				F7A8F469243DF0C20084D386 /* InductionController.m in Sources */,
 				3BB2CC6D2449A764005A515D /* IQUIView+Hierarchy.m in Sources */,
 				3BB2CC6F2449A764005A515D /* IQKeyboardReturnKeyHandler.m in Sources */,
-				3B8B6FF12452CF5100A29C31 /* LBClearCacheTool.m in Sources */,
 				3BB2CC6A2449A764005A515D /* IQNSArray+Sort.m in Sources */,
 				F787B5B324231D2500411DED /* AccountViewController.m in Sources */,
 				3BB2CC6B2449A764005A515D /* IQUITextFieldView+Additions.m in Sources */,

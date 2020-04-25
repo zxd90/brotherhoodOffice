@@ -7,7 +7,7 @@
 //
 
 #import "mytableView.h"
-#import "LBClearCacheTool.h"
+#import "CacheTools.h"
 @interface mytableView()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, copy) NSArray *dataArray;
@@ -22,10 +22,10 @@
 
     if(self = [super initWithFrame:frame]){
          
-          _fileSize = [LBClearCacheTool getCacheSizeWithFilePath:kCachePath];
-          _dataArray=@[@[@"部门",@"职位"],@[@"清除缓存",@"版本号"],@[@"修改密码"]];
-          _imageArray=@[@[@"bumen",@"zhiwu"],@[@"huancun",@"banbenhao"],@[@"anquanzhongxin"]];
-          _detailText=@[@[kFetchMyDefault(@"depName"),kFetchMyDefault(@"roleName")],@[_fileSize, APP_VERSION],@[@""]];
+          _fileSize = [CacheTools getCacheSizeWithFilePath:kCachePath];
+        _dataArray=@[@[@"部门",@"职位"],@[@"清除缓存",@"版本号"],@[@"修改密码"],@[@""]];
+        _imageArray=@[@[@"bumen",@"zhiwu"],@[@"huancun",@"banbenhao"],@[@"anquanzhongxin"],@[@""]];
+       NSLog(@"%@",kFetchMyDefault(@"asName")); NSLog(@"%@",kFetchMyDefault(@"depName")); _detailText=@[@[kFetchMyDefault(@"depName"),kFetchMyDefault(@"roleName")],@[_fileSize, APP_VERSION],@[@""],@[@""]];
           self.tableView.hidden = NO;
     }
     return  self;
@@ -37,7 +37,7 @@
         _tableView.dataSource = self;
         _tableView.delegate = self;
          [self addSubview:_tableView];
-        UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _tableView.frame.size.width, 187)];
+        UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _tableView.frame.size.width, 118)];
               [self setUpHeadView:headView];
               headView.userInteractionEnabled = YES;
             _tableView.tableHeaderView = headView;
@@ -56,8 +56,8 @@
     [supView addSubview:self.image];
     /*在这里使用masonry控制，会爆出约束冲突，但是不影响使用，所以就不管了*/
     [self.image mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(70);
-        make.left.mas_equalTo(32);
+        make.top.mas_equalTo(30);
+        make.left.mas_equalTo(22);
         make.width.height.mas_equalTo(68);
     }];
     [self.image sd_setImageWithURL:[NSURL URLWithString:kFetchMyDefault(@"headImg") ] placeholderImage:[UIImage imageNamed:@"touxiang"]];
@@ -102,10 +102,16 @@ return [_dataArray[section]count];
               cell.textLabel.font = [UIFont systemFontOfSize:16.0f];
               cell.textLabel.text =_dataArray[indexPath.section][indexPath.row];
               cell.detailTextLabel.font = [UIFont systemFontOfSize:14.0f];
-              cell.detailTextLabel.text=_detailText[indexPath.section][indexPath.row];
+          cell.detailTextLabel.text=_detailText[indexPath.section][indexPath.row];
              if(indexPath.section==2){
              cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-              }
+             }else if(indexPath.section==3){
+                 UILabel *labe=[[UILabel alloc]initWithFrame:CGRectMake(ScreenW/2-50,15, 100, 20)];
+                 labe.font = [UIFont systemFontOfSize:16.0f];
+                 labe.text=@"退出登录";
+             labe.textAlignment=NSTextAlignmentCenter;
+                 [cell addSubview:labe];
+             }
     return cell;
 }
 //使cell的下划线顶头
@@ -119,24 +125,12 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
 //点击事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   
-    if(indexPath.section==1&&indexPath.row==0){
-        NSLog(@"23123123");
-          kSaveMyDefault(@"asName",@"");
-        //清楚缓存
-        BOOL isSuccess = [LBClearCacheTool clearCacheWithFilePath:kCachePath];
-        if (isSuccess) {
-            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+      //   kSaveMyDefault(@"asName",@"");
 
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-               
-            });
-        }
-    }else{
-        if([self.mytableDelegate respondsToSelector:@selector(tableViewsection: mytableViewClick:)]){
-                           [self.mytableDelegate tableViewsection:indexPath.section mytableViewClick:indexPath.row];
-                       }
-    }
-   
+   if ([self.mytableDelegate respondsToSelector:@selector(tableViewsection: mytableViewClick:)]) {
+       [self.mytableDelegate tableViewsection:tableView mytableViewClick:indexPath];
+   }
    
      
 }
@@ -153,6 +147,22 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
       
     return 15 ;
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section==0) {
+         return 15 ;
+    }
+    return 0;
+}
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    if (section==0) {
+       UIView * headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, 15)];
+       headerView.backgroundColor=RGB(238, 238, 238);
+    return headerView;
+    }
+    return [[UIView alloc]init];
+}
+
 -(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     UIView * headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, 15)];
     if (section!=4) {
