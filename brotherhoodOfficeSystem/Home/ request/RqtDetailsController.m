@@ -39,18 +39,14 @@
         _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.dataSource = self;
         _tableView.delegate = self;
+        _tableView.rowHeight = UITableViewAutomaticDimension;
+           // 步骤2：
+        _tableView.estimatedRowHeight = 100.0;
         [self.view addSubview:_tableView];
     }
     return _tableView;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section==1) {
-         return 150;
-    }else{
-        return 50;
-    }
-}
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
    
@@ -76,9 +72,11 @@
         if (indexPath.row == 0) {
             [cell.onLine removeFromSuperview];
            }
+        if([model.isCheck isEqualToString:@"待审批"]){
+           cell.roundView.backgroundColor =[UIColor whiteColor];
+        }
         if (indexPath.row == self.dataSource.count-1) {
             [cell.downLine removeFromSuperview];
-            cell.roundView.backgroundColor =[UIColor whiteColor];
         }
         cell.model = model;
         return cell;

@@ -67,7 +67,7 @@
        _infosArray=[NSMutableArray array];
        _namesArray=[NSMutableArray array];
        _dataSource=[NSMutableArray array];
-//       [self RqtDetailsData];
+     [self RqtDetailsData];
 }
 #pragma mark - lazy
 - (UITableView *)tableView {

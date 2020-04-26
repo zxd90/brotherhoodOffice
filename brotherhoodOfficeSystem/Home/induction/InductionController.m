@@ -200,9 +200,9 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
    self.dataArray = [NSArray arrayWithArray:self.Array1];
     NSString *urlStr =[NSString stringWithFormat:@"%@xdtapp/api/v1/entry/doEntry",kAPI_URL];
     NSDictionary *dict =@{@"ticket":   kFetchMyDefault(@"ticket"),@"realName":self.name,@"phoneNumber":self.phone,@"idCard":self.idCard ,@"idAddress":self.idAddress ,@"address":self.address,@"urgentPeople":self.urgentPeople,@"urgentPhoneNumber":self.urgentPhoneNumber,@"forMe":self.forMe};
-    [ZXDNetworking POST:urlStr parameters:dict uploadImageArrayWithImages:self.dataArray success:^(NSDictionary *obj) {
+    [ZXDNetworking POST:urlStr parameters:dict uploadImageArrayWithImages:self.dataArray imageName:@"idCards" success:^(NSDictionary *obj) {
         if ([obj[@"code"]intValue]==0) {
-            
+    [ELNAlerTool showAlertMassgeWithController:self andMessage:@"提交成功" andInterval:1.0];
             
         }
     } failure:^(NSError *error) {

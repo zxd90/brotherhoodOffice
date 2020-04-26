@@ -11,6 +11,23 @@
 @implementation CacheTools
 #pragma mark - 获取path路径下文件夹大小
 + (NSString *)getCacheSizeWithFilePath:(NSString *)path{
+    //调试
+    #ifdef DEBUG
+        //如果文件夹不存在或者不是一个文件夹那么就抛出一个异常
+        //抛出异常会导致程序闪退，所以只在调试阶段抛出，发布阶段不要再抛了,不然极度影响用户体验
+        BOOL isDirectory = NO;
+        BOOL isExist = [[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDirectory];
+        if (!isExist || !isDirectory)
+        {
+            NSException *exception = [NSException exceptionWithName:@"fileError" reason:@"please check your filePath!" userInfo:nil];
+            [exception raise];
+
+        }
+        NSLog(@"debug");
+    //发布
+    #else
+        NSLog(@"post");
+    #endif
     // 获取“path”文件夹下的所有文件
     NSArray *subPathArr = [[NSFileManager defaultManager] subpathsAtPath:path];
     NSString *filePath  = nil;
@@ -42,27 +59,43 @@
             //8. 将文件夹大小转换为 M/KB/B
             NSString *totleStr = nil;
             if (totleSize > 1000 * 1000){
-                totleStr = [NSString stringWithFormat:@"%.2fM",totleSize / 1000.00f /1000.00f];
+                totleStr = [NSString stringWithFormat:@"%.1fM",totleSize / 1000.00f /1000.00f];
                 
             }else if (totleSize > 1000){
-                totleStr = [NSString stringWithFormat:@"%.2fKB",totleSize / 1000.00f ];
+                totleStr = [NSString stringWithFormat:@"%.1fKB",totleSize / 1000.00f ];
                 
             }else{
-                totleStr = [NSString stringWithFormat:@"%.2fB",totleSize / 1.00f];
+                totleStr = [NSString stringWithFormat:@"%.1fB",totleSize / 1.00f];
             }
             return totleStr;
         }
 #pragma mark - 清除path文件夹下缓存大小
-+ (void)clearCacheWithFilePath:(NSString *)path{
++ (BOOL)clearCacheWithFilePath:(NSString *)path{
     //拿到path路径的下一级目录的子文件夹
     NSArray *subPathArr = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];
+    // 如果数组为空，说明没有缓存或者用户已经清理过，此时直接return
+    if (subPathArr.count == 0) {
+        ZLog(@"此缓存路径很干净,不需要再清理了");
+        return NO;
+    }
     NSString *filePath = nil;
     NSError *error = nil;
+    BOOL flag = NO;
     for (NSString *subPath in subPathArr) {
         filePath = [path stringByAppendingPathComponent:subPath];
-        //删除子文件夹
-        [[NSFileManager defaultManager] removeItemAtPath:filePath error:&error];
-    }
-    return;
+        if ([[NSFileManager defaultManager] fileExistsAtPath:kCachePath]) {
+              // 删除子文件夹
+              BOOL isRemoveSuccessed =  [[NSFileManager defaultManager] removeItemAtPath:filePath error:&error];
+                if (isRemoveSuccessed) { // 删除成功
+                    flag = YES;
+                }
+            }
+        }
+    if (NO == flag) {
+           
+           ZLog(@"提示:您已经清理了所有可以访问的文件,不可访问的文件无法删除");  // 调试阶段才打印
+           
+       }
+    return YES;
 }
 @end

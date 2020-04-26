@@ -85,7 +85,7 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"text/plain", nil];
     return manager;
 }
-+ (void)POST:(NSString*)URLString parameters:(NSDictionary *)parameters uploadImageArrayWithImages:(NSArray<NSData *> *)images success:(void (^)(NSDictionary *obj))success failure:(void (^)(NSError *error))failure view:(UIView*)view
++ (void)POST:(NSString*)URLString parameters:(NSDictionary *)parameters uploadImageArrayWithImages:(NSArray<NSData *> *)images imageName:(NSString*)imageName  success:(void (^)(NSDictionary *obj))success failure:(void (^)(NSError *error))failure view:(UIView*)view
 {
 
      [MBProgressHUD showHUDAddedTo:view animated:YES];
@@ -94,8 +94,8 @@
        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/html",@"image/jpeg",@"image/png",@"image/gif",@"image/tiff",@"application/octet-stream",@"text/json",nil];
     [manager POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         [images enumerateObjectsUsingBlock:^(NSData * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            //upfiles 是参数名 根据项目修改
-        [formData appendPartWithFileData:obj name:@"idCards" fileName:[NSString stringWithFormat:@"%.0f.png", [[NSDate date] timeIntervalSince1970]] mimeType:@"image/png"];
+            //upfiles 是参数名 根据项目修改@"idCards"
+        [formData appendPartWithFileData:obj name:imageName fileName:[NSString stringWithFormat:@"%.0f.png", [[NSDate date] timeIntervalSince1970]] mimeType:@"image/png"];
         }];
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         

@@ -37,10 +37,11 @@
    [self.rightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
   
    make.top.mas_equalTo(self.contentView.mas_top).offset(16);
- make.right.mas_equalTo(self.contentView.mas_right).offset(-20);
-   make.height.mas_equalTo(20);
-  
-      }];
+ 
+   make.right.mas_equalTo(self.contentView.mas_right).offset(-20);
+   // 步骤5：设置评论的bottom与contentView.mas_bottom之间的约束
+   make.bottom.equalTo(self.contentView.mas_bottom).offset(-20.0);
+  }];
 }
 -(UILabel *)titleLabel{
     if (!_titleLabel) {
@@ -54,7 +55,7 @@
     if (!_rightLabel) {
         _rightLabel = [[UILabel alloc]initWithFrame:CGRectZero];
         _rightLabel.font = [UIFont systemFontOfSize:15] ;
-    
+        _rightLabel.numberOfLines=0;
     }
     return _rightLabel ;
 }

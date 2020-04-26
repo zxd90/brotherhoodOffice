@@ -38,7 +38,6 @@
         _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.dataSource = self;
         _tableView.delegate = self;
-       
         [self.view addSubview:_tableView];
     }
     return _tableView;
@@ -67,7 +66,6 @@
         cell.titleLabel.text=_namesArray[indexPath.row];
         cell.rightLabel.text=_infosArray[indexPath.row];
          return cell;
-    
     
 }
 //使cell的下划线顶头

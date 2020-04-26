@@ -20,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor=[UIColor whiteColor];
     [self suerpView];
 }
 -(void)suerpView{
@@ -51,7 +52,7 @@
     _passWordText = [[loginTextField  alloc]init];
     _passWordText.font =PFR17Font;
     _passWordText.placeholder = @"密码";
-    self.passWordText.text=@"123";
+    self.passWordText.text=@"234567";
     _passWordText.secureTextEntry = YES;
     [self.view addSubview:_passWordText];
     [_passWordText mas_makeConstraints:^(MASConstraintMaker *make) {

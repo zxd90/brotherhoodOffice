@@ -144,7 +144,7 @@
         _loginButton.layer.masksToBounds = YES;
         _loginButton.enabled = NO;
         _loginButton.tintColor = [UIColor whiteColor];
-        _loginButton.backgroundColor = [UIColor lightGrayColor];
+        [_loginButton setBackgroundImage:[ZXDmethod ButtonColorLayer] forState:UIControlStateNormal];
         [_loginButton addTarget:self action:@selector(action_button:) forControlEvents:UIControlEventTouchUpInside];
         
     }
@@ -166,7 +166,7 @@
         _hideButton = [[UIButton alloc]initWithFrame:CGRectMake(ADAPTATION_WIDTH(38), ADAPTATION_HEIGHT(435), ADAPTATION_WIDTH(20), ADAPTATION_HEIGHT(20))];
         _hideButton.layer.cornerRadius =ADAPTATION_WIDTH(20/2);
         _hideButton.layer.masksToBounds = YES;
-        [_hideButton setBackgroundImage:[UIImage imageNamed:@"对-未选"] forState:UIControlStateNormal];
+        [_hideButton setBackgroundImage:[UIImage imageNamed:@"weixuanz"] forState:UIControlStateNormal];
         [_hideButton addTarget:self action:@selector(action_hideBUtton:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _hideButton;
@@ -191,7 +191,7 @@
         BOOL dog = [_oneString isEqualToString:_twoString];
         if (dog == YES) {
             if (  _oneString.length>5 && _twoString.length>5) {
-                [self loadDataFromServer];
+                [self UploadPhoto];
             }else{
              [ELNAlerTool showAlertMassgeWithController:self andMessage:@"密码长度不够哦" andInterval:1.0];
             }
@@ -205,27 +205,34 @@
 - (void)action_hideBUtton:(UIButton *)sender{
     _hide = !_hide;
     if (_hide == YES) {
-        [_hideButton setBackgroundImage:[UIImage imageNamed:@"对-选中"] forState:UIControlStateNormal];
+        [_hideButton setBackgroundImage:[UIImage imageNamed:@"xuanzhong"] forState:UIControlStateNormal];
         _oldField.secureTextEntry = NO;
         _oneField.secureTextEntry = NO;
         _twoField.secureTextEntry = NO;
     }else{
-        [_hideButton setBackgroundImage:[UIImage imageNamed:@"对-未选"] forState:UIControlStateNormal];
+        [_hideButton setBackgroundImage:[UIImage imageNamed:@"weixuanz"] forState:UIControlStateNormal];
         _oldField.secureTextEntry = YES;
         _oneField.secureTextEntry = YES;
         _twoField.secureTextEntry = YES;
     }
 }
-
--(void)loadDataFromServer{
-  
-    NSString *lodpassMD = [ZXDNetworking encryptStringWithMD5:_oldString];
-    NSString *newPassMD = [ZXDNetworking encryptStringWithMD5:_oneString];
-    NSDictionary *dic=@{@"usedPass":lodpassMD,@"password":newPassMD};
+-(void)UploadPhoto{
+     NSString *urlStr =[NSString stringWithFormat:@"%@xdtapp/api/v1/user/updatePassword",kAPI_URL];
+     NSDictionary *dict =@{@"ticket":   kFetchMyDefault(@"ticket"),@"oldPwd":_oldString,@"newPwd":_oneString};
     
-   
-    
+          [ZXDNetworking  POST:urlStr parameters:dict success:^(id responseObject) {
+          
+              if ([responseObject[@"code"] intValue]==0) {
+             [ELNAlerTool showAlertMassgeWithController:self andMessage:@"修改成功" andInterval:1.0];
+              }else if ([responseObject[@"code"] intValue]==5011){
+            [ELNAlerTool showAlertMassgeWithController:self andMessage:@"旧密码有误,请重新输入" andInterval:1.0];
+              }
+           
+          } failure:^(NSError *error) {
+              
+          } view:self.view];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

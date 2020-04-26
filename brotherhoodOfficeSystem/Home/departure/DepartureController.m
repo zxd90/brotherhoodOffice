@@ -246,10 +246,10 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
     NSString *urlStr =[NSString stringWithFormat:@"%@xdtapp/api/v1/quit/doQuit",kAPI_URL];
     NSDictionary *dict =@{@"ticket":   kFetchMyDefault(@"ticket"),@"quitTime":_departureTF.text,@"quitReason":self.reasonStr,@"assetsUserId": self.AssetuserId,@"assetsMsg": self.AssetStr,@"workUserId":self.workuserId ,@"workMsg":self.workStr};
    
-         [ZXDNetworking   POST:urlStr parameters:dict success:^(id responseObject) {
+         [ZXDNetworking  POST:urlStr parameters:dict success:^(id responseObject) {
          
              if ([responseObject[@"code"] intValue]==0) {
-           
+             [ELNAlerTool showAlertMassgeWithController:self andMessage:@"提交成功" andInterval:1.0];
              }
           
          } failure:^(NSError *error) {

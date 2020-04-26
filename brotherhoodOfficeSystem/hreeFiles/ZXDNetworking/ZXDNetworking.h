@@ -28,7 +28,7 @@ typedef void(^Failure)(NSError *error);
  @param success 成功回调Block
  @param failure 失败回调Block
  */
-+ (void)POST:(NSString*)URLString parameters:(NSDictionary *)parameters uploadImageArrayWithImages:(NSArray<NSData *> *)images success:(void (^)(NSDictionary *obj))success failure:(void (^)(NSError *error))failure view:(UIView*)view;
++ (void)POST:(NSString*)URLString parameters:(NSDictionary *)parameters uploadImageArrayWithImages:(NSArray<NSData *> *)images  imageName:(NSString*)imageName  success:(void (^)(NSDictionary *obj))success failure:(void (^)(NSError *error))failure view:(UIView*)view;
 /**
  *  封装的GET请求
  *

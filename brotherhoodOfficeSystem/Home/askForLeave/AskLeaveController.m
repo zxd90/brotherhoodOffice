@@ -278,7 +278,8 @@ if(_typeTF.text!=nil&&_startDateTF.text!=nil&&_endDateTF.text!=nil&&_starTimeTF.
        [ZXDNetworking POST:urlStr parameters:dict success:^(id responseObject) {
        
            if ([responseObject[@"code"] intValue]==0) {
-         
+          [ELNAlerTool showAlertMassgeWithController:self andMessage:@"提交成功" andInterval:1.0];
+               
            }
         
        } failure:^(NSError *error) {

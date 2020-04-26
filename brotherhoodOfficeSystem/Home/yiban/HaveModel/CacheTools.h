@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param path  要清除缓存的文件夹 路径
  *
  */
-+ (void)clearCacheWithFilePath:(NSString *)path;
++ (BOOL)clearCacheWithFilePath:(NSString *)path;
 @end
 
 NS_ASSUME_NONNULL_END

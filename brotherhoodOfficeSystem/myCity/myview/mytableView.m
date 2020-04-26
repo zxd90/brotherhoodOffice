@@ -22,11 +22,9 @@
 
     if(self = [super initWithFrame:frame]){
          
-          _fileSize = [CacheTools getCacheSizeWithFilePath:kCachePath];
+         
         _dataArray=@[@[@"部门",@"职位"],@[@"清除缓存",@"版本号"],@[@"修改密码"],@[@""]];
-        _imageArray=@[@[@"bumen",@"zhiwu"],@[@"huancun",@"banbenhao"],@[@"anquanzhongxin"],@[@""]];
-       NSLog(@"%@",kFetchMyDefault(@"asName")); NSLog(@"%@",kFetchMyDefault(@"depName")); _detailText=@[@[kFetchMyDefault(@"depName"),kFetchMyDefault(@"roleName")],@[_fileSize, APP_VERSION],@[@""],@[@""]];
-          self.tableView.hidden = NO;
+        _imageArray=@[@[@"bumen",@"zhiwu"],@[@"huancun",@"banbenhao"],@[@"anquanzhongxin"],@[@""]];          self.tableView.hidden = NO;
     }
     return  self;
 }
@@ -91,7 +89,7 @@ return [_dataArray[section]count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    _detailText=@[@[kFetchMyDefault(@"depName"),kFetchMyDefault(@"roleName")],@[[CacheTools getCacheSizeWithFilePath:kCachePath], APP_VERSION],@[@""],@[@""]];
          static NSString *cellID = @"testCell";
                    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
                    if (!cell) {
@@ -126,8 +124,8 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   
     
-      //   kSaveMyDefault(@"asName",@"");
-
+   
+    tableView = _tableView;
    if ([self.mytableDelegate respondsToSelector:@selector(tableViewsection: mytableViewClick:)]) {
        [self.mytableDelegate tableViewsection:tableView mytableViewClick:indexPath];
    }
