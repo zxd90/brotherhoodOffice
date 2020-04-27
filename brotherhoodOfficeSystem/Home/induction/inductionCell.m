@@ -52,8 +52,8 @@
           
           make.left.mas_equalTo(self.textView.mas_left).offset(3);
           make.right.mas_equalTo(self.contentView.mas_right).offset(-15);
-          make.top.mas_equalTo(self.textView.mas_top).offset(-5);
-          make.height.mas_equalTo(50);
+          make.top.mas_equalTo(self.textView.mas_top);
+          make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-5);
      }];
 }
 #pragma mark--懒加载

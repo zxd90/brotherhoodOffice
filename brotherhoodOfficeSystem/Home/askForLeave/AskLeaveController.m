@@ -279,7 +279,9 @@ if(_typeTF.text!=nil&&_startDateTF.text!=nil&&_endDateTF.text!=nil&&_starTimeTF.
        
            if ([responseObject[@"code"] intValue]==0) {
           [ELNAlerTool showAlertMassgeWithController:self andMessage:@"提交成功" andInterval:1.0];
-               
+               dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                             [self.navigationController popViewControllerAnimated:YES];
+                         });
            }
         
        } failure:^(NSError *error) {

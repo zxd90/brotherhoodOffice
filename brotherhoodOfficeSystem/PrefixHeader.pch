@@ -88,8 +88,8 @@
 
 */
 
-//#define kAPI_URL @"https://www.zyyhy.cn/app/"
-#define kAPI_URL @"http://192.168.100.9:35791/"
+#define kAPI_URL @"https://www.zyyhy.cn/app/"
+//#define kAPI_URL @"http://192.168.100.9:35791/"
 /**
 
 弱引用

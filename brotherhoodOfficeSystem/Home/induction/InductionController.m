@@ -99,8 +99,11 @@
                     cell = [[inductionCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
                 }
             cell.titleLabel.text=_dataArray[indexPath.row];
-            cell.placeholderLabel.text =_textArray[indexPath.row];
+           
             cell.textView.text=_dict[[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+    if ([_dict[[NSString stringWithFormat:@"%ld",(long)indexPath.row]]length]==0) {
+         cell.placeholderLabel.text =_textArray[indexPath.row];
+    }
             cell.textView.delegate=self;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
            
@@ -136,6 +139,7 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
       if (size.height<=frame.size.height) {
           size.height=frame.size.height;
       }
+    NSLog(@"=======%@",self.name);
     //保存数据源
     [_dict setObject:textView.text forKey:[NSString stringWithFormat:@"%ld", (long)indexPath.row]];;
     switch (indexPath.row) {
@@ -221,7 +225,9 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
     [ZXDNetworking POST:urlStr parameters:dict uploadImageArrayWithImages:self.dataArray imageName:@"idCards" success:^(NSDictionary *obj) {
         if ([obj[@"code"]intValue]==0) {
     [ELNAlerTool showAlertMassgeWithController:self andMessage:@"提交成功" andInterval:1.0];
-            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.navigationController popViewControllerAnimated:YES];
+            });
         }
     } failure:^(NSError *error) {
     

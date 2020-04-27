@@ -7,7 +7,10 @@
 //
 
 #import "Homeheader.h"
-static int angle =0;
+@interface Homeheader(){
+     dispatch_source_t _timer;
+}
+@end
 @implementation Homeheader
 -(instancetype)initWithFrame:(CGRect)frame str:(NSString*)str
 {
@@ -38,10 +41,11 @@ static int angle =0;
         _scopeLabel.textAlignment = NSTextAlignmentCenter;
          
      _workButton= [[UIButton alloc] initWithFrame:CGRectMake(ScreenW/2-50,_scopeLabel.bottom+10,100, 100)];
+    
       [_workButton setBackgroundImage:[UIImage imageNamed:@"shouyedaka"] forState:UIControlStateNormal];
-          
       [_workButton addTarget:self action:@selector(workButtonClick) forControlEvents:UIControlEventTouchUpInside];
-     
+    _timeLabel=[[UILabel alloc]initWithFrame:CGRectMake(20, 50, 70,20)];
+    _timeLabel.font=PFR14Font;
     _locationLabel = [[UILabel alloc]init];  self.locationLabel.text=string;
     CGFloat  width = [ZXDmethod calculateRowWidth:self.locationLabel.text Font:15];
     _locationLabel.frame=CGRectMake((ScreenW-width)/2, self.workButton.bottom+13,width, 20);
@@ -55,11 +59,13 @@ static int angle =0;
        _locationImage.userInteractionEnabled = YES;
      UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(locationButtonClick:)];
      [_locationImage addGestureRecognizer:tap];
+ 
           [self addSubview:_workButton];
+          [_workButton addSubview:_timeLabel];
           [self addSubview:_scopeLabel];
           [self addSubview:_locationLabel];
           [self addSubview:_locationImage];
- 
+    [self countdownAnd];
 }
 -(void)locationButtonClick:(UITapGestureRecognizer*)changeBtn{
      if(![_locationImage.layer animationForKey:@"rotatianAnimKey"]){
@@ -71,6 +77,48 @@ static int angle =0;
 -(void)workButtonClick{
     [_locationImage.layer removeAllAnimations];
 }
-
-
+/**当前时间显示*/
+-(void)countdownAnd{
+     __weak __typeof(self) weakSelf = self;
+    if (_timer==nil) {
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
+         dispatch_source_set_timer(_timer,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0); //每秒执行
+        dispatch_source_set_event_handler(_timer, ^{
+            NSLog(@"%@", [self getHhmmss]);
+            dispatch_async(dispatch_get_main_queue(), ^{
+            
+                    self.timeLabel.text=[weakSelf getHhmmss];
+                });
+           
+            });
+            dispatch_resume(_timer);
+    }
+}
+/**
+ *  获取当天的年月日的字符串
+ *  这里测试用
+ *  @return 格式为年-月-日
+ */
+-(NSString *)getyyyymmdd{
+    NSDate *now = [NSDate date];
+    NSDateFormatter *formatDay = [[NSDateFormatter alloc] init];
+    formatDay.dateFormat = @"yyyy-MM-dd";
+    NSString *dayStr = [formatDay stringFromDate:now];
+    return dayStr;
+    
+}
+/**
+ *  获取当天的年月日的字符串
+ *  这里测试用
+ *  @return 格式为时-分-秒
+ */
+-(NSString *)getHhmmss{
+    NSDate *now = [NSDate date];
+    NSDateFormatter *formatDay = [[NSDateFormatter alloc] init];
+    formatDay.dateFormat = @"HH:mm:ss";
+    NSString *dayStr = [formatDay stringFromDate:now];
+    return dayStr;
+    
+}
 @end
