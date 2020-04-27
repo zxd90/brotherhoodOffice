@@ -15,6 +15,7 @@
 		3B0A71452446EBCD005BFFBE /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0A71432446EBCC005BFFBE /* FriendTableViewCell.m */; };
 		3B0DCBD8244548AC00870587 /* BDImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0DCBD6244548AC00870587 /* BDImagePicker.m */; };
 		3B7807BA24416F47008EEE83 /* inductionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7807B924416F47008EEE83 /* inductionCell.m */; };
+		3B8B0A4B2456A5A10021CA83 /* whyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8B0A4A2456A5A10021CA83 /* whyCell.m */; };
 		3B8B6FBC2452812000A29C31 /* mytableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8B6FBB2452811F00A29C31 /* mytableView.m */; };
 		3B8B6FEC2452CF0D00A29C31 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8B6FE82452CF0D00A29C31 /* MBProgressHUD+Add.m */; };
 		3B8B6FED2452CF0D00A29C31 /* ZXDNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8B6FEB2452CF0D00A29C31 /* ZXDNetworking.m */; };
@@ -136,6 +137,8 @@
 		3B0DCBD7244548AC00870587 /* BDImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDImagePicker.h; sourceTree = "<group>"; };
 		3B7807B824416F47008EEE83 /* inductionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = inductionCell.h; sourceTree = "<group>"; };
 		3B7807B924416F47008EEE83 /* inductionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = inductionCell.m; sourceTree = "<group>"; };
+		3B8B0A492456A5A10021CA83 /* whyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = whyCell.h; sourceTree = "<group>"; };
+		3B8B0A4A2456A5A10021CA83 /* whyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = whyCell.m; sourceTree = "<group>"; };
 		3B8B6FBA2452811F00A29C31 /* mytableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mytableView.h; sourceTree = "<group>"; };
 		3B8B6FBB2452811F00A29C31 /* mytableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mytableView.m; sourceTree = "<group>"; };
 		3B8B6FE82452CF0D00A29C31 /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
@@ -492,6 +495,8 @@
 				3BB4EC7C244A88E30025F476 /* requstTableViewCell.m */,
 				3BB4EC8B244AEB7C0025F476 /* qtdetaCell.h */,
 				3BB4EC8C244AEB7C0025F476 /* qtdetaCell.m */,
+				3B8B0A492456A5A10021CA83 /* whyCell.h */,
+				3B8B0A4A2456A5A10021CA83 /* whyCell.m */,
 				3BB4EC85244AE5170025F476 /* RqtDetailsCell.h */,
 				3BB4EC86244AE5170025F476 /* RqtDetailsCell.m */,
 			);
@@ -1164,6 +1169,7 @@
 				3B8B6FEC2452CF0D00A29C31 /* MBProgressHUD+Add.m in Sources */,
 				3BB2CC672449A764005A515D /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				3BB4EC84244AE09B0025F476 /* RqtDetailsController.m in Sources */,
+				3B8B0A4B2456A5A10021CA83 /* whyCell.m in Sources */,
 				3B7807BA24416F47008EEE83 /* inductionCell.m in Sources */,
 				F782012824547BEB0087DB44 /* CacheTools.m in Sources */,
 				F7BB179C243C137F003A19D1 /* NNTabBarController.m in Sources */,

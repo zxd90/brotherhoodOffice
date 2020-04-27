@@ -11,6 +11,7 @@
 @implementation RqtDetailsCell
 + (instancetype)rqtDetTableViewCellWithTableView:(UITableView *)tableview{
     RqtDetailsCell *cell = [tableview dequeueReusableCellWithIdentifier:@"RqtDetailsCell"];
+
        if(cell == nil){
            cell = [[RqtDetailsCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"RqtDetailsCell"];
            cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -60,7 +61,7 @@
        _headerImageView= [[UIImageView alloc]init];
        _headerImageView.layer.cornerRadius = 20;
        _headerImageView.layer.masksToBounds = YES;
-    //右侧扩展说明内容
+  
      [self.contentView addSubview:self.headerImageView];
     [_headerImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.contentView.mas_top).offset(18);
@@ -81,6 +82,7 @@
        _timelabel = [[UILabel alloc]initWithFrame:CGRectZero];
         _timelabel.font = [UIFont systemFontOfSize:14];
        [self.contentView addSubview:self.timelabel];
+      //右侧扩展说明内容
        _Proces = [[UILabel alloc]initWithFrame:CGRectZero];
            _Proces.font = [UIFont systemFontOfSize:14];
           [self.contentView addSubview:self.Proces];
@@ -107,9 +109,9 @@
                     make.width.mas_equalTo(width);
     }];
     [_matterName mas_makeConstraints:^(MASConstraintMaker *make) {
-         make.top.mas_equalTo(self.headerImageView.mas_top).offset(-2);
-            make.left.mas_equalTo(self.titleLabel.mas_right).offset(8);
-                     make.height.mas_equalTo(20);
+        make.top.mas_equalTo(self.headerImageView.mas_top).offset(-2);
+        make.left.mas_equalTo(self.titleLabel.mas_right).offset(8);
+        make.height.mas_equalTo(20);
         make.right.mas_equalTo(self.contentView.mas_right).offset(-15);
      }];
    
@@ -121,9 +123,9 @@
             make.width.mas_equalTo(rolewidth);
       }];
       [_timelabel mas_makeConstraints:^(MASConstraintMaker *make) {
-          make.top.mas_equalTo(self.titleLabel.mas_bottom).offset(8);
+         make.top.mas_equalTo(self.titleLabel.mas_bottom).offset(8);
          make.left.mas_equalTo(self.contentlabel.mas_right).offset(8);
-                      make.height.mas_equalTo(20);
+         make.height.mas_equalTo(20);
          make.right.mas_equalTo(self.contentView.mas_right).offset(-15);
       }];
       [_Proces mas_makeConstraints:^(MASConstraintMaker *make) {

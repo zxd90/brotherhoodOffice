@@ -9,6 +9,7 @@
 #import "RqtDetailsController.h"
 #import "qtdetaCell.h"
 #import "RqtDetailsCell.h"
+#import "whyCell.h"
 #import "rqtDetModel.h"
 @interface RqtDetailsController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -62,12 +63,22 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section==0) {
-      qtdetaCell *cell =[qtdetaCell  qtdetaTableViewCellWithTableView:tableView];
+     
+      if ([_infosArray[indexPath.row] containsString:@"<rt>"]) {
+    whyCell *cell =[whyCell  qtdetaTableViewCellWithTableView:tableView];
+         cell.titleLabel.text=_namesArray[indexPath.row];
+         cell.rightLabel.text=[_infosArray[indexPath.row] stringByReplacingOccurrencesOfString:@"<rt>"withString:@"  "];;
+              return cell;
+      }else{
+        qtdetaCell *cell =[qtdetaCell  qtdetaTableViewCellWithTableView:tableView];
         cell.titleLabel.text=_namesArray[indexPath.row];
         cell.rightLabel.text=_infosArray[indexPath.row];
-         return cell;
+        return cell;
+      }
+
     }else{
         RqtDetailsCell *cell =[ RqtDetailsCell rqtDetTableViewCellWithTableView:tableView];
+         cell.separatorInset = UIEdgeInsetsMake(0,ScreenW, 0, 0);
         rqtDetModel *model = self.dataSource[indexPath.row];
         if (indexPath.row == 0) {
             [cell.onLine removeFromSuperview];
@@ -83,13 +94,7 @@
     }
     
 }
-//使cell的下划线顶头
--(void)tableView:(UITableView* )tableView willDisplayCell:(UITableViewCell* )cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-[cell setSeparatorInset:UIEdgeInsetsMake(0, 15, 0, 15)];
-    }
-}
+   
 
 //底部
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{

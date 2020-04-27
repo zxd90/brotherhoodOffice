@@ -1,19 +1,19 @@
 //
-//  qtdetaCell.m
+//  whyCell.m
 //  brotherhoodOfficeSystem
 //
-//  Created by XDT on 2020/4/18.
+//  Created by XDT on 2020/4/27.
 //  Copyright © 2020 兄弟团国际. All rights reserved.
 //
 
-#import "qtdetaCell.h"
+#import "whyCell.h"
 
-@implementation qtdetaCell
+@implementation whyCell
 + (instancetype)qtdetaTableViewCellWithTableView:(UITableView *)tableview{
-    qtdetaCell *cell = [tableview dequeueReusableCellWithIdentifier:@"qtdetaCell"];
-     cell.separatorInset = UIEdgeInsetsMake(0,15, 0, 15);
+    whyCell *cell = [tableview dequeueReusableCellWithIdentifier:@"whyCell"];
+       cell.separatorInset = UIEdgeInsetsMake(0,15, 0, 15);
     if(cell == nil){
-        cell = [[qtdetaCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"qtdetaCell"];
+        cell = [[whyCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"whyCell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return cell;
@@ -35,7 +35,7 @@
     _rightLabel = [[UILabel alloc]initWithFrame:CGRectZero];
     _rightLabel.font = [UIFont systemFontOfSize:15] ;
     _rightLabel.numberOfLines=0;
-     self.rightLabel.textAlignment =NSTextAlignmentRight;
+     self.rightLabel.textAlignment =NSTextAlignmentLeft;
         [self.contentView addSubview:self.rightLabel]; //右侧扩展说明内容
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
      make.left.mas_equalTo(self.contentView.mas_left).offset(15);
@@ -43,9 +43,8 @@
      make.height.mas_equalTo(20);
        }];
     [self.rightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-         
-    make.top.mas_equalTo(self.contentView.mas_top).offset(15);
-    make.left.mas_equalTo(self.titleLabel.mas_right).offset(10);
+    make.top.mas_equalTo(self.titleLabel.mas_bottom).offset(10);
+    make.left.mas_equalTo(self.titleLabel.mas_left);
     make.right.mas_equalTo(self.contentView.mas_right).offset(-20);
      // 步骤5：设置评论的bottom与contentView.mas_bottom之间的约束
     make.bottom.equalTo(self.contentView.mas_bottom).offset(-15.0);
@@ -54,7 +53,7 @@
 }
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+  
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

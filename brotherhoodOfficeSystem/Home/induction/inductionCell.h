@@ -9,10 +9,17 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
-@interface inductionCell : UITableViewCell
+//@protocol ZSTextViewCellDelegate <UITableViewDelegate>
+//@required
+//- (void)updatedText:(NSString *)text atIndexPath:(NSIndexPath *)indexPath;
+//
+//@end
+@interface inductionCell : UITableViewCell<UITextViewDelegate>
 @property(nonatomic,strong)UILabel *titleLabel;
-@property(nonatomic,strong)UITextField *textField;
+@property(nonatomic,strong) UITextView* textView;
+@property(nonatomic,strong) UILabel * placeholderLabel;
+//@property (nonatomic,strong) NSIndexPath * indexPath;
+//@property (nonatomic,assign)id<ZSTextViewCellDelegate> delegate;
 @end
 
 NS_ASSUME_NONNULL_END

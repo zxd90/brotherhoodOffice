@@ -9,7 +9,7 @@
 #import "InductionController.h"
 #import "inductionCell.h"
 #import "BDImagePicker.h"
-@interface InductionController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
+@interface InductionController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, copy) NSArray *dataArray;
 @property (nonatomic, copy) NSArray *textArray;
@@ -57,6 +57,8 @@
         _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.dataSource = self;
         _tableView.delegate = self;
+        _tableView.estimatedRowHeight = 100;
+        _tableView.rowHeight = UITableViewAutomaticDimension;
         [self.view addSubview:_tableView];
     }
     return _tableView;
@@ -74,11 +76,11 @@
     return _button;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-  
-  return 50;
-
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//
+//  return 50;
+//
+//}
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
    return 1;
@@ -97,9 +99,9 @@
                     cell = [[inductionCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
                 }
             cell.titleLabel.text=_dataArray[indexPath.row];
-            cell.textField.placeholder =_textArray[indexPath.row];
-            cell.textField.text=_dict[[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
-            cell.textField.delegate=self;
+            cell.placeholderLabel.text =_textArray[indexPath.row];
+            cell.textView.text=_dict[[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+            cell.textView.delegate=self;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
            
             return cell;
@@ -120,39 +122,55 @@ if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
    
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField{
-    inductionCell *cell = (inductionCell *)[textField superview].superview;
+-(void)textViewDidChange:(UITextView *)textView{
+    inductionCell *cell = (inductionCell *)[textView superview].superview;
        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    if (textView.text.length==0) {
+        cell.placeholderLabel.hidden=NO;
+      } else {
+          cell.placeholderLabel.hidden=YES;
+      }
+    CGRect frame = textView.frame;
+      CGSize constraintSize = CGSizeMake(frame.size.width, MAXFLOAT);
+      CGSize size = [textView sizeThatFits:constraintSize];
+      if (size.height<=frame.size.height) {
+          size.height=frame.size.height;
+      }
     //保存数据源
-    [_dict setObject:textField.text forKey:[NSString stringWithFormat:@"%ld", (long)indexPath.row]];;
+    [_dict setObject:textView.text forKey:[NSString stringWithFormat:@"%ld", (long)indexPath.row]];;
     switch (indexPath.row) {
            case 0:
-               self.name = textField.text;
+               self.name = textView.text;
                break;
            case 1:
-               self.phone = textField.text;
+               self.phone = textView.text;
                break;
                case 2:
-                self.idCard = textField.text;
+                self.idCard = textView.text;
                break;
                case 3:
-                self.idAddress = textField.text;
+                self.idAddress = textView.text;
                 break;
                case 4:
-               self.address = textField.text;
+               self.address = textView.text;
                 break;
                case 5:
-                self.urgentPeople = textField.text;
+                self.urgentPeople = textView.text;
                 break;
                 case 6:
-                self.urgentPhoneNumber = textField.text;
+                self.urgentPhoneNumber = textView.text;
                 break;
                 case 7:
-                self.forMe = textField.text;
+                self.forMe = textView.text;
                 break;
            default:
                break;
        }
+ 
+     cell.textView.frame = CGRectMake(frame.origin.x, frame.origin.y,cell.contentView.frame.size.width, size.height);
+     
+     [self.tableView beginUpdates];
+     [self.tableView endUpdates];
 
 }
 
