@@ -7,8 +7,8 @@
 //
 
 #import "AttendController.h"
-
-@interface AttendController ()
+#import "ClockView.h"
+@interface AttendController ()<ClockonDelegate>
 
 @end
 
@@ -17,8 +17,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title =@"考勤";
+    self.view.backgroundColor =[UIColor whiteColor];
+   ClockView *clockon = [[ClockView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, ScreenH-SK_TabbarSafeBottomMargin)];
+          clockon.clockonDelegate = self;
+       [self.view addSubview:clockon];
 }
-
+-(void)Clockontap{
+    
+}
 
 
 @end

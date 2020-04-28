@@ -85,7 +85,7 @@
     _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
          dispatch_source_set_timer(_timer,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0); //每秒执行
         dispatch_source_set_event_handler(_timer, ^{
-            NSLog(@"%@", [self getHhmmss]);
+        
             dispatch_async(dispatch_get_main_queue(), ^{
             
                     self.timeLabel.text=[weakSelf getHhmmss];

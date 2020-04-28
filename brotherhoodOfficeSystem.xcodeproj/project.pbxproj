@@ -14,6 +14,8 @@
 		3B0A71422446EB9D005BFFBE /* GroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0A713E2446EB9D005BFFBE /* GroupModel.m */; };
 		3B0A71452446EBCD005BFFBE /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0A71432446EBCC005BFFBE /* FriendTableViewCell.m */; };
 		3B0DCBD8244548AC00870587 /* BDImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0DCBD6244548AC00870587 /* BDImagePicker.m */; };
+		3B40EA1624580D040034FEAD /* ClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B40EA1524580D030034FEAD /* ClockView.m */; };
+		3B40EA19245813DE0034FEAD /* ClockTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B40EA18245813DE0034FEAD /* ClockTableViewCell.m */; };
 		3B7807BA24416F47008EEE83 /* inductionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7807B924416F47008EEE83 /* inductionCell.m */; };
 		3B8B0A4B2456A5A10021CA83 /* whyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8B0A4A2456A5A10021CA83 /* whyCell.m */; };
 		3B8B6FBC2452812000A29C31 /* mytableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8B6FBB2452811F00A29C31 /* mytableView.m */; };
@@ -135,6 +137,10 @@
 		3B0A71442446EBCC005BFFBE /* FriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell.h; sourceTree = "<group>"; };
 		3B0DCBD6244548AC00870587 /* BDImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDImagePicker.m; sourceTree = "<group>"; };
 		3B0DCBD7244548AC00870587 /* BDImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDImagePicker.h; sourceTree = "<group>"; };
+		3B40EA1424580D030034FEAD /* ClockView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClockView.h; sourceTree = "<group>"; };
+		3B40EA1524580D030034FEAD /* ClockView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClockView.m; sourceTree = "<group>"; };
+		3B40EA17245813DE0034FEAD /* ClockTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClockTableViewCell.h; sourceTree = "<group>"; };
+		3B40EA18245813DE0034FEAD /* ClockTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClockTableViewCell.m; sourceTree = "<group>"; };
 		3B7807B824416F47008EEE83 /* inductionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = inductionCell.h; sourceTree = "<group>"; };
 		3B7807B924416F47008EEE83 /* inductionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = inductionCell.m; sourceTree = "<group>"; };
 		3B8B0A492456A5A10021CA83 /* whyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = whyCell.h; sourceTree = "<group>"; };
@@ -391,6 +397,17 @@
 			path = myCity;
 			sourceTree = "<group>";
 		};
+		3B40EA1324580C7C0034FEAD /* uivew */ = {
+			isa = PBXGroup;
+			children = (
+				3B40EA1424580D030034FEAD /* ClockView.h */,
+				3B40EA1524580D030034FEAD /* ClockView.m */,
+				3B40EA17245813DE0034FEAD /* ClockTableViewCell.h */,
+				3B40EA18245813DE0034FEAD /* ClockTableViewCell.m */,
+			);
+			path = uivew;
+			sourceTree = "<group>";
+		};
 		3B8B6FB9245280C700A29C31 /* myview */ = {
 			isa = PBXGroup;
 			children = (
@@ -612,6 +629,7 @@
 			children = (
 				F7A8F46D243DF1190084D386 /* AttendController.h */,
 				F7A8F46E243DF1190084D386 /* AttendController.m */,
+				3B40EA1324580C7C0034FEAD /* uivew */,
 			);
 			path = attendance;
 			sourceTree = "<group>";
@@ -1176,6 +1194,7 @@
 				F72FA1BE243DAC44000343FC /* HomeMenuCell.m in Sources */,
 				F787B5B524231D2500411DED /* HomepageController.m in Sources */,
 				F7A8F463243DF0870084D386 /* todoController.m in Sources */,
+				3B40EA1624580D040034FEAD /* ClockView.m in Sources */,
 				3BB2CC642449A764005A515D /* IQToolbar.m in Sources */,
 				F7A8F469243DF0C20084D386 /* InductionController.m in Sources */,
 				3BB2CC6D2449A764005A515D /* IQUIView+Hierarchy.m in Sources */,
@@ -1184,6 +1203,7 @@
 				F787B5B324231D2500411DED /* AccountViewController.m in Sources */,
 				3BB2CC6B2449A764005A515D /* IQUITextFieldView+Additions.m in Sources */,
 				F7F0461A2420AA7C00365A65 /* main.m in Sources */,
+				3B40EA19245813DE0034FEAD /* ClockTableViewCell.m in Sources */,
 				F74677EA244052340093D5D1 /* ZXDmethod.m in Sources */,
 				F7BB17A0243C1F77003A19D1 /* LoginViewController.m in Sources */,
 				3B0A713C2446EB1E005BFFBE /* CustomHeadFooterView.m in Sources */,

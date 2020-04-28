@@ -83,7 +83,7 @@
         if (indexPath.row == 0) {
             [cell.onLine removeFromSuperview];
            }
-        if([model.isCheck isEqualToString:@"待审批"]){
+        if([model.isCheck isEqualToString:@"待处理"]){
            cell.roundView.backgroundColor =[UIColor whiteColor];
         }
         if (indexPath.row == self.dataSource.count-1) {
