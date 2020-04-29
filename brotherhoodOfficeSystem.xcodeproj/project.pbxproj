@@ -17,6 +17,7 @@
 		3B40EA1624580D040034FEAD /* ClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B40EA1524580D030034FEAD /* ClockView.m */; };
 		3B40EA19245813DE0034FEAD /* ClockTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B40EA18245813DE0034FEAD /* ClockTableViewCell.m */; };
 		3B7807BA24416F47008EEE83 /* inductionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7807B924416F47008EEE83 /* inductionCell.m */; };
+		3B7E46D62459261900AC8EA1 /* clockModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E46D52459261900AC8EA1 /* clockModel.m */; };
 		3B8B0A4B2456A5A10021CA83 /* whyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8B0A4A2456A5A10021CA83 /* whyCell.m */; };
 		3B8B6FBC2452812000A29C31 /* mytableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8B6FBB2452811F00A29C31 /* mytableView.m */; };
 		3B8B6FEC2452CF0D00A29C31 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8B6FE82452CF0D00A29C31 /* MBProgressHUD+Add.m */; };
@@ -143,6 +144,8 @@
 		3B40EA18245813DE0034FEAD /* ClockTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClockTableViewCell.m; sourceTree = "<group>"; };
 		3B7807B824416F47008EEE83 /* inductionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = inductionCell.h; sourceTree = "<group>"; };
 		3B7807B924416F47008EEE83 /* inductionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = inductionCell.m; sourceTree = "<group>"; };
+		3B7E46D42459261900AC8EA1 /* clockModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = clockModel.h; sourceTree = "<group>"; };
+		3B7E46D52459261900AC8EA1 /* clockModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = clockModel.m; sourceTree = "<group>"; };
 		3B8B0A492456A5A10021CA83 /* whyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = whyCell.h; sourceTree = "<group>"; };
 		3B8B0A4A2456A5A10021CA83 /* whyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = whyCell.m; sourceTree = "<group>"; };
 		3B8B6FBA2452811F00A29C31 /* mytableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mytableView.h; sourceTree = "<group>"; };
@@ -408,6 +411,15 @@
 			path = uivew;
 			sourceTree = "<group>";
 		};
+		3B7E46D32459259800AC8EA1 /* clockmodle */ = {
+			isa = PBXGroup;
+			children = (
+				3B7E46D42459261900AC8EA1 /* clockModel.h */,
+				3B7E46D52459261900AC8EA1 /* clockModel.m */,
+			);
+			path = clockmodle;
+			sourceTree = "<group>";
+		};
 		3B8B6FB9245280C700A29C31 /* myview */ = {
 			isa = PBXGroup;
 			children = (
@@ -629,6 +641,7 @@
 			children = (
 				F7A8F46D243DF1190084D386 /* AttendController.h */,
 				F7A8F46E243DF1190084D386 /* AttendController.m */,
+				3B7E46D32459259800AC8EA1 /* clockmodle */,
 				3B40EA1324580C7C0034FEAD /* uivew */,
 			);
 			path = attendance;
@@ -1196,6 +1209,7 @@
 				F7A8F463243DF0870084D386 /* todoController.m in Sources */,
 				3B40EA1624580D040034FEAD /* ClockView.m in Sources */,
 				3BB2CC642449A764005A515D /* IQToolbar.m in Sources */,
+				3B7E46D62459261900AC8EA1 /* clockModel.m in Sources */,
 				F7A8F469243DF0C20084D386 /* InductionController.m in Sources */,
 				3BB2CC6D2449A764005A515D /* IQUIView+Hierarchy.m in Sources */,
 				3BB2CC6F2449A764005A515D /* IQKeyboardReturnKeyHandler.m in Sources */,

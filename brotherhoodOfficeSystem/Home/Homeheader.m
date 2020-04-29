@@ -65,7 +65,7 @@
           [self addSubview:_scopeLabel];
           [self addSubview:_locationLabel];
           [self addSubview:_locationImage];
-    [self countdownAnd];
+    
 }
 -(void)locationButtonClick:(UITapGestureRecognizer*)changeBtn{
      if(![_locationImage.layer animationForKey:@"rotatianAnimKey"]){

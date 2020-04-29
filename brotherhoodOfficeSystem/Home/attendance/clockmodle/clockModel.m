@@ -1,22 +1,21 @@
 //
-//  rqtDetModel.m
+//  clockModel.m
 //  brotherhoodOfficeSystem
 //
-//  Created by XDT on 2020/4/18.
+//  Created by XDT on 2020/4/29.
 //  Copyright © 2020 兄弟团国际. All rights reserved.
 //
 
-#import "rqtDetModel.h"
+#import "clockModel.h"
 
-@implementation rqtDetModel
-
+@implementation clockModel
 - (instancetype)initWithDict:(NSDictionary *)dict {
     if (self = [super init]) {
         [self setValuesForKeysWithDictionary:dict];
     }
     return self;
 }
-+ (instancetype)rqtDetWithDict:(NSDictionary *)dict{
++ (instancetype)clockDetWithDict:(NSDictionary *)dict{
     return [[self alloc]initWithDict:dict];
 }
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key

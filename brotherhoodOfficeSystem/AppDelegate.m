@@ -27,7 +27,13 @@ static BOOL const isProduction = TRUE; // 极光TRUE为生产环境
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    // 要使用百度地图，请先启动BaiduMapManager
+      BMKMapManager *mapManager = [[BMKMapManager alloc] init];
+      // 如果要关注网络及授权验证事件，请设定generalDelegate参数
+      BOOL ret = [mapManager start:@"zhjWZUxfzGx8mqIWSherE99ikvuzIim0"generalDelegate:nil];
+      if (!ret) {
+      ZLog(@"启动引擎失败");
+      }
     JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
     if (@available(iOS 12.0, *)) {
         entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound|JPAuthorizationOptionProvidesAppNotificationSettings;

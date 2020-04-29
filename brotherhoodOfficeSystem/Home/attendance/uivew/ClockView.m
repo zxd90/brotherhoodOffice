@@ -8,6 +8,7 @@
 
 #import "ClockView.h"
 #import "ClockTableViewCell.h"
+#import "clockModel.h"
 @interface ClockView()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, copy) NSArray *dataArray;
@@ -25,17 +26,26 @@
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, ScreenH-SK_TabbarSafeBottomMargin) style:UITableViewStylePlain];
+         
+        //        _tableView.rowHeight = UITableViewAutomaticDimension;        //_tableView.estimatedRowHeight = 180;
         _tableView.dataSource = self;
         _tableView.delegate = self;
-         [self addSubview:_tableView];
+        //去除多余的cell线
+        [ZXDNetworking setExtraCellLineHidden:_tableView];
+        [self addSubview:_tableView];
     }
     return _tableView;
 }
-
+- (NSArray *)dataArray {
+    if (!_dataArray) {
+       _dataArray = [NSArray array];
+    }
+    return _dataArray;
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
   
-return 50;
+return 200;
      
 }
 #pragma mark - UITableViewDataSource, UITableViewDelegate
@@ -43,12 +53,21 @@ return 50;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-return 2;
+    return _dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
         ClockTableViewCell *cell =[ClockTableViewCell ClockTableViewCellWithTableView:tableView];
-             
+        cell.separatorInset = UIEdgeInsetsMake(0,ScreenW, 0, 0);
+        clockModel *model= _dataArray[indexPath.row];
+        cell.cloModel=model;
+        if (indexPath.row == 0) {
+            [cell.onLine removeFromSuperview];
+            cell.timelabel.text=[NSString stringWithFormat:@"上班时间%@",model.time];
+            }else{
+            [cell.downLine removeFromSuperview];
+            cell.timelabel.text=[NSString stringWithFormat:@"下班时间%@",model.time];
+           }
     return cell;
 }
 
@@ -59,35 +78,10 @@ return 2;
         [self.clockonDelegate Clockontap];
     }
 }
-//底部
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-      
-    return 15 ;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section==0) {
-         return 15 ;
-    }
-    return 0;
-}
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+-(void)addClockonarray:(NSArray*)arr{
     
-    if (section==0) {
-       UIView * headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, 15)];
-       headerView.backgroundColor=RGB(238, 238, 238);
-    return headerView;
-    }
-    return [[UIView alloc]init];
+    _dataArray= arr;
+    [self.tableView reloadData];
 }
-
--(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    UIView * headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, 15)];
-    if (section!=4) {
-       headerView.backgroundColor=RGB(238, 238, 238);
-    }
-    return headerView;
-}
-
-
 
 @end
