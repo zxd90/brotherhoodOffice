@@ -9,18 +9,18 @@
 #import "AttendController.h"
 #import "ClockView.h"
 #import "clockModel.h"
-//#import <BaiduMapAPI_Base/BMKBaseComponent.h>//引入base相关所有的头文件
-//#import <BaiduMapAPI_Location/BMKLocationComponent.h>//引入定位功能所有的头文件
-//#import <BaiduMapAPI_Search/BMKSearchComponent.h>//引入检索功能所有的头文件
-//#import <BaiduMapAPI_Search/BMKGeocodeSearchOption.h>
-//#import <BaiduMapAPI_Search/BMKGeocodeSearchResult.h>
-@interface AttendController ()<ClockonDelegate>
-//,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate>
-//{
-//    BMKLocationService *_locService;  //定位
-//
-//    BMKGeoCodeSearch *_geocodesearch; //地理编码主类，用来查询、返回结果信息
-//}
+#import <BaiduMapAPI_Base/BMKBaseComponent.h>//引入base相关所有的头文件
+#import <BMKLocationKit/BMKLocationComponent.h>
+//引入定位功能所有的头文件
+#import <BaiduMapAPI_Search/BMKSearchComponent.h>//引入检索功能所有的头文件
+#import <BaiduMapAPI_Search/BMKGeocodeSearchOption.h>
+#import <BaiduMapAPI_Search/BMKGeocodeSearchResult.h>
+@interface AttendController ()<ClockonDelegate,BMKLocationManagerDelegate,BMKGeoCodeSearchDelegate>
+{
+    BMKLocationProvider *_locService;  //定位
+
+    BMKGeoCodeSearch *_geocodesearch; //地理编码主类，用来查询、返回结果信息
+}
 @property(nonatomic,strong) ClockView *clockon;
 @property (nonatomic, assign) CGFloat longitude;  // 经度
 @property (nonatomic, assign) CGFloat latitude; // 纬度

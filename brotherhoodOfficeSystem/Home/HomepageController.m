@@ -20,6 +20,7 @@
 @property(nonatomic,copy)NSMutableArray *menuArray;
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong) Homeheader *headerView;
+@property(nonatomic,strong) NSMutableArray *arry;
 @end
 
 @implementation HomepageController
@@ -39,33 +40,37 @@
     // 初始化数据
     [self initData];
     
-    // 创建TableView
-    [self setUpTableView];
+
     
 }
 
 #pragma mark -初始化数据
 
 -(void)initData{
-
+    [self GetTheroundbanner];
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Property" ofType:@"plist"];
     _menuArray = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
     
 }
 
-#pragma mark -创建TableView
 
-- (void)setUpTableView {
-    _headerView=[[Homeheader alloc]initWithFrame:CGRectMake(0, 0, ScreenW, 220)str:@"当前位置:盛景大厦地下停车场"];
-    _headerView.scopeLabel.text=@"您已到达考勤范围内";
-    
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    [self.view addSubview:self.tableView];
+#pragma mark -创建TableView
+-(UITableView *)tableView{
+    if(!_tableView){
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,0,ScreenW,ScreenH-SK_TabbarSafeBottomMargin) style:UITableViewStylePlain];
+        _tableView.dataSource = self;
+        _tableView.delegate = self;
+        _tableView.showsVerticalScrollIndicator = NO;
+        _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        [self.view addSubview:self.tableView];
+    }
+    return _tableView;
+}
+
+- (void)setUpTableViewarr:(NSArray*)arr {
+    _headerView=[[Homeheader alloc]initWithFrame:CGRectMake(0, 0, ScreenW, (ScreenH - SK_TabbarHeight) / 327 * 80)arr:arr];
     self.tableView.tableHeaderView=_headerView;
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 #pragma mark -UITableViewDataSource
@@ -182,7 +187,26 @@ return  1;
                }
 
 }
-
-
-
+-(void)GetTheroundbanner{
+        NSString *urlStr =[NSString stringWithFormat:@"%@xdtapp/api/v1/banner",kAPI_URL];
+        //NSDictionary *dict =@{@"ticket":kFetchMyDefault(@"ticket")};
+        [ZXDNetworking GET:urlStr parameters:nil success:^(id responseObject) {
+            NSMutableArray *arr=[NSMutableArray array];
+            if ([responseObject[@"code"] intValue]==0) {
+ 
+                for (NSDictionary *dict in responseObject[@"data"]) {
+               
+                    [arr addObject:dict[@"imgPath"]];
+                }
+                
+                // 创建TableView
+                [self setUpTableViewarr:arr];
+              
+                [self.tableView reloadData];
+              }
+        } failure:^(NSError *error) {
+            
+        } view:self.view MBPro:YES];
+       
+}
 @end

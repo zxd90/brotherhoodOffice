@@ -7,22 +7,45 @@
 //
 
 #import "Homeheader.h"
-@interface Homeheader(){
+@interface Homeheader()<SDCycleScrollViewDelegate>{
      dispatch_source_t _timer;
 }
 @end
 @implementation Homeheader
--(instancetype)initWithFrame:(CGRect)frame str:(NSString*)str
+-(instancetype)initWithFrame:(CGRect)frame arr:(NSArray*)arr
 {
    
     if (self = [super initWithFrame:frame]) {
-            
-      
-      
-        [self autoLayout:str];
+        _arr=arr;
+      [self layoutSubview];
     }
     return self;
 }
+-(void)layoutSubview{
+          SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(24,4, ScreenW - 48 , (ScreenH - SK_TabbarHeight) / 327 * 80+20) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
+          cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
+          cycleScrollView.delegate = self;
+          cycleScrollView.imageURLStringsGroup =self.arr;
+          //几秒轮播
+          cycleScrollView.autoScrollTimeInterval = 3;
+          cycleScrollView.currentPageDotColor = RGB(13, 163, 38);
+          cycleScrollView.pageDotColor = [UIColor whiteColor];
+          cycleScrollView.layer.masksToBounds = YES;
+          cycleScrollView.layer.cornerRadius = 4;
+          [self addSubview:cycleScrollView];
+}
+ 
+/** 点击图片回调 */
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
+    
+}
+- (NSArray *)arr {
+    if (!_arr) {
+       _arr = [NSArray array];
+    }
+    return _arr;
+}
+
 //布局
 -(void)autoLayout:(NSString*)string{
 
@@ -77,48 +100,5 @@
 -(void)workButtonClick{
     [_locationImage.layer removeAllAnimations];
 }
-/**当前时间显示*/
--(void)countdownAnd{
-     __weak __typeof(self) weakSelf = self;
-    if (_timer==nil) {
-        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
-         dispatch_source_set_timer(_timer,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0); //每秒执行
-        dispatch_source_set_event_handler(_timer, ^{
-        
-            dispatch_async(dispatch_get_main_queue(), ^{
-            
-                    self.timeLabel.text=[weakSelf getHhmmss];
-                });
-           
-            });
-            dispatch_resume(_timer);
-    }
-}
-/**
- *  获取当天的年月日的字符串
- *  这里测试用
- *  @return 格式为年-月-日
- */
--(NSString *)getyyyymmdd{
-    NSDate *now = [NSDate date];
-    NSDateFormatter *formatDay = [[NSDateFormatter alloc] init];
-    formatDay.dateFormat = @"yyyy-MM-dd";
-    NSString *dayStr = [formatDay stringFromDate:now];
-    return dayStr;
-    
-}
-/**
- *  获取当天的年月日的字符串
- *  这里测试用
- *  @return 格式为时-分-秒
- */
--(NSString *)getHhmmss{
-    NSDate *now = [NSDate date];
-    NSDateFormatter *formatDay = [[NSDateFormatter alloc] init];
-    formatDay.dateFormat = @"HH:mm:ss";
-    NSString *dayStr = [formatDay stringFromDate:now];
-    return dayStr;
-    
-}
+
 @end

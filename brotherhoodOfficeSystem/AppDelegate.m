@@ -11,10 +11,12 @@
 #import "NNNavigationController.h"
 #import "LoginViewController.h"
 #import "todetailsVC.h"
- #define JPushSDK_AppKey  @"50690ec6899b9369ff60e9f6"
- #ifdef NSFoundationVersionNumber_iOS_9_x_Max
- #import <UserNotifications/UserNotifications.h>
- #endif
+#import "WZXLaunchViewController.h"
+#import "HomeWebViewController.h"
+#define JPushSDK_AppKey  @"50690ec6899b9369ff60e9f6"
+#ifdef NSFoundationVersionNumber_iOS_9_x_Max
+#import <UserNotifications/UserNotifications.h>
+#endif
 #ifdef DEBUG // 开发
 static BOOL const isProduction = FALSE; // 极光FALSE为开发环境
 #else // 生产
@@ -72,20 +74,23 @@ static BOOL const isProduction = TRUE; // 极光TRUE为生产环境
     IQKeyboardManager.sharedManager.toolbarDoneBarButtonItemText = @"完成";
     managerr.shouldToolbarUsesTextFieldTintColor = NO;
     managerr.toolbarTintColor = [UIColor blackColor];
+  
      self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.backgroundColor = [UIColor whiteColor];
+     self.window.backgroundColor = [UIColor whiteColor];
+     [self addNavBartion];
+   // [self ZXLaunchView];
+     [self.window makeKeyAndVisible];
+    return YES;
+}
+-(void)addNavBartion{
     
     if ([kFetchMyDefault (@"asName") length]==0) {
     self.window.rootViewController = [[LoginViewController alloc]init];
     }else{
          self.window.rootViewController = [[NNTabBarController alloc] init];
     }
-    [self.window makeKeyAndVisible];
-  
-    
-    return YES;
+   
 }
-
 - (void)networkDidSetup:(NSNotification *)notification
 {
     //针对设备给极光服务器反馈了别名，app服务端可以用别名来针对性推送消息
@@ -192,6 +197,28 @@ API_AVAILABLE(ios(10.0)){
      vc.hidesBottomBarWhenPushed = YES;
      [nav pushViewController:vc animated:NO];
    
+}
+- (void)ZXLaunchView{
+    NSString *gifImageURL = @"http://img1.gamedog.cn/2013/06/03/43-130603140F30.gif";
+    
+    NSString *imageURL = @"http://img4.duitang.com/uploads/item/201410/24/20141024135636_t2854.thumb.700_0.jpeg";
+    ///设置启动页
+    [WZXLaunchViewController showWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height-150) ImageURL:gifImageURL advertisingURL:@"http://www.jianshu.com/p/7205047eadf7" timeSecond:3 hideSkip:YES imageLoadGood:^(UIImage *image, NSString *imageURL) {
+        /// 广告加载结束
+        NSLog(@"%@ %@",image,imageURL);
+        
+    } clickImage:^(UIViewController *WZXlaunchVC){
+        //2. 点击广告在webview中打开
+//        HomeWebViewController *VC = [[HomeWebViewController alloc] init];
+//        VC.urlStr = @"http://www.jianshu.com/p/7205047eadf7";
+//        VC.title = @"广告";
+//        VC.AppDelegateSele= -1;
+//        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:VC];
+//        [WZXlaunchVC presentViewController:nav animated:YES completion:nil];
+    } theAdEnds:^{
+        //广告展示完成回调,设置window根控制器
+        [self addNavBartion];
+    }];
 }
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];

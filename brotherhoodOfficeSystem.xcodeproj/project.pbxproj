@@ -57,6 +57,9 @@
 		F74677EA244052340093D5D1 /* ZXDmethod.m in Sources */ = {isa = PBXBuildFile; fileRef = F74677E9244052340093D5D1 /* ZXDmethod.m */; };
 		F74677ED244059FE0093D5D1 /* Homeheader.m in Sources */ = {isa = PBXBuildFile; fileRef = F74677EC244059FE0093D5D1 /* Homeheader.m */; };
 		F74677F12440683D0093D5D1 /* UIView+WLFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F74677F02440683D0093D5D1 /* UIView+WLFrame.m */; };
+		F781836C245C8BDE00260E8A /* WZXLaunchAd.m in Sources */ = {isa = PBXBuildFile; fileRef = F781836A245C8BDE00260E8A /* WZXLaunchAd.m */; };
+		F781836D245C8BDE00260E8A /* WZXLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F781836B245C8BDE00260E8A /* WZXLaunchViewController.m */; };
+		F7818370245C8F4700260E8A /* HomeWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F781836E245C8F4700260E8A /* HomeWebViewController.m */; };
 		F782012824547BEB0087DB44 /* CacheTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F782012724547BEB0087DB44 /* CacheTools.m */; };
 		F782012B245483790087DB44 /* ModifyController.m in Sources */ = {isa = PBXBuildFile; fileRef = F782012A245483790087DB44 /* ModifyController.m */; };
 		F782F7C8244F446E00C87F69 /* jpush-extension-ios-1.1.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F782F7C3244F446E00C87F69 /* jpush-extension-ios-1.1.2.a */; };
@@ -228,6 +231,12 @@
 		F74677EC244059FE0093D5D1 /* Homeheader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Homeheader.m; sourceTree = "<group>"; };
 		F74677EF2440683D0093D5D1 /* UIView+WLFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WLFrame.h"; sourceTree = "<group>"; };
 		F74677F02440683D0093D5D1 /* UIView+WLFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WLFrame.m"; sourceTree = "<group>"; };
+		F7818368245C8BDD00260E8A /* WZXLaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZXLaunchViewController.h; sourceTree = "<group>"; };
+		F7818369245C8BDD00260E8A /* WZXLaunchAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZXLaunchAd.h; sourceTree = "<group>"; };
+		F781836A245C8BDE00260E8A /* WZXLaunchAd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZXLaunchAd.m; sourceTree = "<group>"; };
+		F781836B245C8BDE00260E8A /* WZXLaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZXLaunchViewController.m; sourceTree = "<group>"; };
+		F781836E245C8F4700260E8A /* HomeWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeWebViewController.m; sourceTree = "<group>"; };
+		F781836F245C8F4700260E8A /* HomeWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeWebViewController.h; sourceTree = "<group>"; };
 		F782012624547BEB0087DB44 /* CacheTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CacheTools.h; path = brotherhoodOfficeSystem/Home/yiban/HaveModel/CacheTools.h; sourceTree = SOURCE_ROOT; };
 		F782012724547BEB0087DB44 /* CacheTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CacheTools.m; path = brotherhoodOfficeSystem/Home/yiban/HaveModel/CacheTools.m; sourceTree = SOURCE_ROOT; };
 		F7820129245483790087DB44 /* ModifyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModifyController.h; sourceTree = "<group>"; };
@@ -609,6 +618,8 @@
 		F72FA1AD243D8312000343FC /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				F781836F245C8F4700260E8A /* HomeWebViewController.h */,
+				F781836E245C8F4700260E8A /* HomeWebViewController.m */,
 				F787B5AD24231D2400411DED /* HomepageController.h */,
 				F787B5B124231D2500411DED /* HomepageController.m */,
 				F74677EB244059FE0093D5D1 /* Homeheader.h */,
@@ -665,6 +676,17 @@
 			path = "UIview+WLFrame";
 			sourceTree = "<group>";
 		};
+		F7818367245C8BB400260E8A /* Launchpage */ = {
+			isa = PBXGroup;
+			children = (
+				F7818369245C8BDD00260E8A /* WZXLaunchAd.h */,
+				F781836A245C8BDE00260E8A /* WZXLaunchAd.m */,
+				F7818368245C8BDD00260E8A /* WZXLaunchViewController.h */,
+				F781836B245C8BDE00260E8A /* WZXLaunchViewController.m */,
+			);
+			path = Launchpage;
+			sourceTree = "<group>";
+		};
 		F782F7C2244F446E00C87F69 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -680,6 +702,7 @@
 		F79A83652441F73B00D8F839 /* hreeFiles */ = {
 			isa = PBXGroup;
 			children = (
+				F7818367245C8BB400260E8A /* Launchpage */,
 				3B8B6FEE2452CF5100A29C31 /* clearCache */,
 				3B8B6FE72452CF0D00A29C31 /* ZXDNetworking */,
 				F782F7C2244F446E00C87F69 /* Lib */,
@@ -1157,6 +1180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BB2CC692449A764005A515D /* IQKeyboardManager.m in Sources */,
+				F781836C245C8BDE00260E8A /* WZXLaunchAd.m in Sources */,
 				3BB4EC87244AE5170025F476 /* RqtDetailsCell.m in Sources */,
 				F7BC578E24449B020031DB2E /* BRTextField.m in Sources */,
 				F7A8F466243DF0AB0084D386 /* DepartureController.m in Sources */,
@@ -1175,6 +1199,7 @@
 				3B8B6FBC2452812000A29C31 /* mytableView.m in Sources */,
 				3BB4EC90244AECF00025F476 /* qtdetaModel.m in Sources */,
 				F782012B245483790087DB44 /* ModifyController.m in Sources */,
+				F7818370245C8F4700260E8A /* HomeWebViewController.m in Sources */,
 				F7F0460F2420AA7700365A65 /* ViewController.m in Sources */,
 				F7BB179B243C137F003A19D1 /* NNNavigationController.m in Sources */,
 				F7F046092420AA7700365A65 /* AppDelegate.m in Sources */,
@@ -1190,6 +1215,7 @@
 				F79A83692441F78B00D8F839 /* PWAlertView.m in Sources */,
 				3B0A71392446E9E8005BFFBE /* ChopersonController.m in Sources */,
 				3BFCC95F2445C0BC00D2CB41 /* HaveController.m in Sources */,
+				F781836D245C8BDE00260E8A /* WZXLaunchViewController.m in Sources */,
 				3BB4EC8D244AEB7C0025F476 /* qtdetaCell.m in Sources */,
 				3B8B6FED2452CF0D00A29C31 /* ZXDNetworking.m in Sources */,
 				3BB2CC632449A764005A515D /* IQTextView.m in Sources */,
