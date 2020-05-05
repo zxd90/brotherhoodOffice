@@ -119,7 +119,13 @@
 #define kCachePath ([NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject])
 #import "UIView+EXTENSION.h"
 /***第三方引入**/
+//引入base相关所有的头文件
 #import <BaiduMapAPI_Base/BMKBaseComponent.h>
+#import <BaiduMapAPI_Map/BMKMapComponent.h>
+#import <BMKLocationKit/BMKLocationComponent.h>
+//引入检索功能所有的头文件
+#import <BaiduMapAPI_Search/BMKSearchComponent.h>
+
 #import <SDWebImage/UIButton+WebCache.h>
 #import <Masonry.h>
 #import "UIImageView+WebCache.h"
@@ -138,6 +144,7 @@
 #import "NSDate+BRAdd.h"
 //文件引用
 #import "ZXDmethod.h"
+#import "YearsTime.h"
 #import "UIView+WLFrame.h"
 #import "PWAlertView.h"
 #import "ELNAlerTool.h"

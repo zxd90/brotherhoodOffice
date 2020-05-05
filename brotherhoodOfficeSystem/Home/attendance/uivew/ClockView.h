@@ -10,8 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 @protocol ClockonDelegate <NSObject>
-
 -(void)Clockontap;
+-(void)AccessDateAttendancetap;
 @end
 @interface ClockView : UIView
 

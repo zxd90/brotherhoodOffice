@@ -77,6 +77,16 @@
 		F782F7DE244F453200C87F69 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F782F7DD244F453200C87F69 /* UserNotifications.framework */; };
 		F782F7E0244F453D00C87F69 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F782F7DF244F453D00C87F69 /* libresolv.tbd */; };
 		F782F7E2244F454600C87F69 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F782F7E1244F454600C87F69 /* WebKit.framework */; };
+		F784C96724616C2300A86F7D /* YXCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = F784C95824616C2200A86F7D /* YXCalendarView.m */; };
+		F784C96824616C2300A86F7D /* YXMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = F784C95924616C2200A86F7D /* YXMonthView.m */; };
+		F784C96924616C2300A86F7D /* YXDateHelpObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F784C95A24616C2200A86F7D /* YXDateHelpObject.m */; };
+		F784C96A24616C2300A86F7D /* YXDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F784C95B24616C2200A86F7D /* YXDayCell.m */; };
+		F784C96B24616C2300A86F7D /* YXDayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F784C95C24616C2200A86F7D /* YXDayCell.xib */; };
+		F784C96C24616C2300A86F7D /* NewPagedFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = F784C96024616C2300A86F7D /* NewPagedFlowView.m */; };
+		F784C96D24616C2300A86F7D /* PGIndexBannerSubiew.m in Sources */ = {isa = PBXBuildFile; fileRef = F784C96424616C2300A86F7D /* PGIndexBannerSubiew.m */; };
+		F784C972246179FD00A86F7D /* UIButton+HQCustomIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = F784C970246179FD00A86F7D /* UIButton+HQCustomIcon.m */; };
+		F784C97524619CBF00A86F7D /* YearsTime.m in Sources */ = {isa = PBXBuildFile; fileRef = F784C97424619CBF00A86F7D /* YearsTime.m */; };
+		F784C9782461A45F00A86F7D /* RecordClockvc.m in Sources */ = {isa = PBXBuildFile; fileRef = F784C9772461A45F00A86F7D /* RecordClockvc.m */; };
 		F787B5B324231D2500411DED /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F787B5AB24231D2400411DED /* AccountViewController.m */; };
 		F787B5B524231D2500411DED /* HomepageController.m in Sources */ = {isa = PBXBuildFile; fileRef = F787B5B124231D2500411DED /* HomepageController.m */; };
 		F787B5B624231D2500411DED /* MyCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F787B5B224231D2500411DED /* MyCityViewController.m */; };
@@ -98,7 +108,7 @@
 		F7CCD111244B51A600EF0855 /* haveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7CCD110244B51A600EF0855 /* haveCell.m */; };
 		F7CCD115244B523100EF0855 /* HaveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7CCD114244B523100EF0855 /* HaveModel.m */; };
 		F7F046092420AA7700365A65 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F046082420AA7700365A65 /* AppDelegate.m */; };
-		F7F0460F2420AA7700365A65 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F0460E2420AA7700365A65 /* ViewController.m */; };
+		F7F0460F2420AA7700365A65 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F7F0460E2420AA7700365A65 /* ViewController.mm */; };
 		F7F046122420AA7700365A65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7F046102420AA7700365A65 /* Main.storyboard */; };
 		F7F046142420AA7C00365A65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7F046132420AA7C00365A65 /* Assets.xcassets */; };
 		F7F046172420AA7C00365A65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7F046152420AA7C00365A65 /* LaunchScreen.storyboard */; };
@@ -259,6 +269,25 @@
 		F782F7DF244F453D00C87F69 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		F782F7E1244F454600C87F69 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		F782F7E3244F4B8500C87F69 /* 中国兄弟团.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "中国兄弟团.entitlements"; sourceTree = "<group>"; };
+		F784C95524616C2200A86F7D /* YXDateHelpObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXDateHelpObject.h; sourceTree = "<group>"; };
+		F784C95624616C2200A86F7D /* YXMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXMonthView.h; sourceTree = "<group>"; };
+		F784C95724616C2200A86F7D /* YXDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXDayCell.h; sourceTree = "<group>"; };
+		F784C95824616C2200A86F7D /* YXCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXCalendarView.m; sourceTree = "<group>"; };
+		F784C95924616C2200A86F7D /* YXMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXMonthView.m; sourceTree = "<group>"; };
+		F784C95A24616C2200A86F7D /* YXDateHelpObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXDateHelpObject.m; sourceTree = "<group>"; };
+		F784C95B24616C2200A86F7D /* YXDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXDayCell.m; sourceTree = "<group>"; };
+		F784C95C24616C2200A86F7D /* YXDayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YXDayCell.xib; sourceTree = "<group>"; };
+		F784C95D24616C2200A86F7D /* YXCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXCalendarView.h; sourceTree = "<group>"; };
+		F784C96024616C2300A86F7D /* NewPagedFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPagedFlowView.m; sourceTree = "<group>"; };
+		F784C96124616C2300A86F7D /* NewPagedFlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPagedFlowView.h; sourceTree = "<group>"; };
+		F784C96424616C2300A86F7D /* PGIndexBannerSubiew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGIndexBannerSubiew.m; sourceTree = "<group>"; };
+		F784C96524616C2300A86F7D /* PGIndexBannerSubiew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGIndexBannerSubiew.h; sourceTree = "<group>"; };
+		F784C970246179FD00A86F7D /* UIButton+HQCustomIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+HQCustomIcon.m"; sourceTree = "<group>"; };
+		F784C971246179FD00A86F7D /* UIButton+HQCustomIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+HQCustomIcon.h"; sourceTree = "<group>"; };
+		F784C97324619CBF00A86F7D /* YearsTime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YearsTime.h; sourceTree = "<group>"; };
+		F784C97424619CBF00A86F7D /* YearsTime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YearsTime.m; sourceTree = "<group>"; };
+		F784C9762461A45F00A86F7D /* RecordClockvc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordClockvc.h; sourceTree = "<group>"; };
+		F784C9772461A45F00A86F7D /* RecordClockvc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordClockvc.m; sourceTree = "<group>"; };
 		F787B5AB24231D2400411DED /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		F787B5AD24231D2400411DED /* HomepageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomepageController.h; sourceTree = "<group>"; };
 		F787B5AF24231D2500411DED /* MyCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCityViewController.h; sourceTree = "<group>"; };
@@ -304,7 +333,7 @@
 		F7F046072420AA7700365A65 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F7F046082420AA7700365A65 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F7F0460D2420AA7700365A65 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F7F0460E2420AA7700365A65 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F7F0460E2420AA7700365A65 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		F7F046112420AA7700365A65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F7F046132420AA7C00365A65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7F046162420AA7C00365A65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -652,6 +681,9 @@
 			children = (
 				F7A8F46D243DF1190084D386 /* AttendController.h */,
 				F7A8F46E243DF1190084D386 /* AttendController.m */,
+				F784C9762461A45F00A86F7D /* RecordClockvc.h */,
+				F784C9772461A45F00A86F7D /* RecordClockvc.m */,
+				F784C95324616C0A00A86F7D /* ClockCalendar */,
 				3B7E46D32459259800AC8EA1 /* clockmodle */,
 				3B40EA1324580C7C0034FEAD /* uivew */,
 			);
@@ -663,6 +695,8 @@
 			children = (
 				F74677E8244052340093D5D1 /* ZXDmethod.h */,
 				F74677E9244052340093D5D1 /* ZXDmethod.m */,
+				F784C97324619CBF00A86F7D /* YearsTime.h */,
+				F784C97424619CBF00A86F7D /* YearsTime.m */,
 			);
 			path = " NSObject";
 			sourceTree = "<group>";
@@ -699,9 +733,71 @@
 			path = Lib;
 			sourceTree = "<group>";
 		};
+		F784C95324616C0A00A86F7D /* ClockCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				F784C95E24616C2300A86F7D /* Classes */,
+				F784C95424616C2200A86F7D /* YXCalendar */,
+			);
+			path = ClockCalendar;
+			sourceTree = "<group>";
+		};
+		F784C95424616C2200A86F7D /* YXCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				F784C95524616C2200A86F7D /* YXDateHelpObject.h */,
+				F784C95A24616C2200A86F7D /* YXDateHelpObject.m */,
+				F784C95624616C2200A86F7D /* YXMonthView.h */,
+				F784C95924616C2200A86F7D /* YXMonthView.m */,
+				F784C95D24616C2200A86F7D /* YXCalendarView.h */,
+				F784C95824616C2200A86F7D /* YXCalendarView.m */,
+				F784C95724616C2200A86F7D /* YXDayCell.h */,
+				F784C95B24616C2200A86F7D /* YXDayCell.m */,
+				F784C95C24616C2200A86F7D /* YXDayCell.xib */,
+			);
+			path = YXCalendar;
+			sourceTree = "<group>";
+		};
+		F784C95E24616C2300A86F7D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F784C95F24616C2300A86F7D /* NewPagedFlowView */,
+				F784C96324616C2300A86F7D /* CustomeView */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		F784C95F24616C2300A86F7D /* NewPagedFlowView */ = {
+			isa = PBXGroup;
+			children = (
+				F784C96024616C2300A86F7D /* NewPagedFlowView.m */,
+				F784C96124616C2300A86F7D /* NewPagedFlowView.h */,
+			);
+			path = NewPagedFlowView;
+			sourceTree = "<group>";
+		};
+		F784C96324616C2300A86F7D /* CustomeView */ = {
+			isa = PBXGroup;
+			children = (
+				F784C96424616C2300A86F7D /* PGIndexBannerSubiew.m */,
+				F784C96524616C2300A86F7D /* PGIndexBannerSubiew.h */,
+			);
+			path = CustomeView;
+			sourceTree = "<group>";
+		};
+		F784C96F246179FD00A86F7D /* Catetory */ = {
+			isa = PBXGroup;
+			children = (
+				F784C970246179FD00A86F7D /* UIButton+HQCustomIcon.m */,
+				F784C971246179FD00A86F7D /* UIButton+HQCustomIcon.h */,
+			);
+			path = Catetory;
+			sourceTree = "<group>";
+		};
 		F79A83652441F73B00D8F839 /* hreeFiles */ = {
 			isa = PBXGroup;
 			children = (
+				F784C96F246179FD00A86F7D /* Catetory */,
 				F7818367245C8BB400260E8A /* Launchpage */,
 				3B8B6FEE2452CF5100A29C31 /* clearCache */,
 				3B8B6FE72452CF0D00A29C31 /* ZXDNetworking */,
@@ -870,7 +966,7 @@
 				F787B5AB24231D2400411DED /* AccountViewController.m */,
 				3B184DBD24518F5D00483CA0 /* myCity */,
 				F7F0460D2420AA7700365A65 /* ViewController.h */,
-				F7F0460E2420AA7700365A65 /* ViewController.m */,
+				F7F0460E2420AA7700365A65 /* ViewController.mm */,
 				F79A83652441F73B00D8F839 /* hreeFiles */,
 				F7F0463D2420AD1900365A65 /* Singleton.h */,
 				F787B5B724231E7D00411DED /* PrefixHeader.pch */,
@@ -915,7 +1011,7 @@
 				F7F046012420AA7700365A65 /* Frameworks */,
 				F7F046022420AA7700365A65 /* Resources */,
 				72726102271C7C8A7BD2DF83 /* [CP] Embed Pods Frameworks */,
-				2CFCD916B2389B1DD27F096B /* [CP] Copy Pods Resources */,
+				9C4A76CD2018BD489D5ADD87 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -954,7 +1050,7 @@
 				F7F046272420AA7C00365A65 /* Frameworks */,
 				F7F046282420AA7C00365A65 /* Resources */,
 				8CDA31321EEDAD9C4F9AE104 /* [CP] Embed Pods Frameworks */,
-				0FE5D105BF56CA03D59CA07C /* [CP] Copy Pods Resources */,
+				6169E0792093F7CE4FF7386F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1017,6 +1113,7 @@
 				F7F046172420AA7C00365A65 /* LaunchScreen.storyboard in Resources */,
 				F72FA1C3243DAD5A000343FC /* Property.plist in Resources */,
 				F7F046142420AA7C00365A65 /* Assets.xcassets in Resources */,
+				F784C96B24616C2300A86F7D /* YXDayCell.xib in Resources */,
 				F7F046122420AA7700365A65 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1038,40 +1135,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0FE5D105BF56CA03D59CA07C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-brotherhoodOfficeSystem-brotherhoodOfficeSystemUITests/Pods-brotherhoodOfficeSystem-brotherhoodOfficeSystemUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-brotherhoodOfficeSystem-brotherhoodOfficeSystemUITests/Pods-brotherhoodOfficeSystem-brotherhoodOfficeSystemUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-brotherhoodOfficeSystem-brotherhoodOfficeSystemUITests/Pods-brotherhoodOfficeSystem-brotherhoodOfficeSystemUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2CFCD916B2389B1DD27F096B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-brotherhoodOfficeSystem/Pods-brotherhoodOfficeSystem-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-brotherhoodOfficeSystem/Pods-brotherhoodOfficeSystem-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-brotherhoodOfficeSystem/Pods-brotherhoodOfficeSystem-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		46C663A6D9C5BCAC9A76987C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1092,6 +1155,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6169E0792093F7CE4FF7386F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-brotherhoodOfficeSystem-brotherhoodOfficeSystemUITests/Pods-brotherhoodOfficeSystem-brotherhoodOfficeSystemUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-brotherhoodOfficeSystem-brotherhoodOfficeSystemUITests/Pods-brotherhoodOfficeSystem-brotherhoodOfficeSystemUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-brotherhoodOfficeSystem-brotherhoodOfficeSystemUITests/Pods-brotherhoodOfficeSystem-brotherhoodOfficeSystemUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		72726102271C7C8A7BD2DF83 /* [CP] Embed Pods Frameworks */ = {
@@ -1126,6 +1206,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-brotherhoodOfficeSystem-brotherhoodOfficeSystemUITests/Pods-brotherhoodOfficeSystem-brotherhoodOfficeSystemUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C4A76CD2018BD489D5ADD87 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-brotherhoodOfficeSystem/Pods-brotherhoodOfficeSystem-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-brotherhoodOfficeSystem/Pods-brotherhoodOfficeSystem-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-brotherhoodOfficeSystem/Pods-brotherhoodOfficeSystem-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C6B40B3E52DC4CD3179B22D9 /* [CP] Check Pods Manifest.lock */ = {
@@ -1181,28 +1278,33 @@
 			files = (
 				3BB2CC692449A764005A515D /* IQKeyboardManager.m in Sources */,
 				F781836C245C8BDE00260E8A /* WZXLaunchAd.m in Sources */,
+				F784C9782461A45F00A86F7D /* RecordClockvc.m in Sources */,
 				3BB4EC87244AE5170025F476 /* RqtDetailsCell.m in Sources */,
 				F7BC578E24449B020031DB2E /* BRTextField.m in Sources */,
 				F7A8F466243DF0AB0084D386 /* DepartureController.m in Sources */,
 				3B0A71452446EBCD005BFFBE /* FriendTableViewCell.m in Sources */,
+				F784C96824616C2300A86F7D /* YXMonthView.m in Sources */,
 				3BD40C0B244EA16900573E01 /* detailsController.m in Sources */,
 				F7A8F46C243DF0E10084D386 /* AskLeaveController.m in Sources */,
 				F7BC578F24449B020031DB2E /* NSDate+BRAdd.m in Sources */,
 				3BB4EC7D244A88E30025F476 /* requstTableViewCell.m in Sources */,
 				3BB2CC662449A764005A515D /* IQBarButtonItem.m in Sources */,
 				3BFCC9632445C16D00D2CB41 /* requestController.m in Sources */,
+				F784C96724616C2300A86F7D /* YXCalendarView.m in Sources */,
 				3BB2CC6C2449A764005A515D /* IQUIScrollView+Additions.m in Sources */,
 				3BB2CC682449A764005A515D /* IQPreviousNextView.m in Sources */,
 				3BB4EC8A244AE5C20025F476 /* rqtDetModel.m in Sources */,
 				F7C5C328242A486E00A75289 /* UIButton+BBTButton.m in Sources */,
 				F7BB17A3243C51C0003A19D1 /* loginTextField.m in Sources */,
 				3B8B6FBC2452812000A29C31 /* mytableView.m in Sources */,
+				F784C97524619CBF00A86F7D /* YearsTime.m in Sources */,
 				3BB4EC90244AECF00025F476 /* qtdetaModel.m in Sources */,
 				F782012B245483790087DB44 /* ModifyController.m in Sources */,
 				F7818370245C8F4700260E8A /* HomeWebViewController.m in Sources */,
-				F7F0460F2420AA7700365A65 /* ViewController.m in Sources */,
+				F7F0460F2420AA7700365A65 /* ViewController.mm in Sources */,
 				F7BB179B243C137F003A19D1 /* NNNavigationController.m in Sources */,
 				F7F046092420AA7700365A65 /* AppDelegate.m in Sources */,
+				F784C972246179FD00A86F7D /* UIButton+HQCustomIcon.m in Sources */,
 				F74677ED244059FE0093D5D1 /* Homeheader.m in Sources */,
 				3B0A71412446EB9D005BFFBE /* FriendModel.m in Sources */,
 				F787B5B624231D2500411DED /* MyCityViewController.m in Sources */,
@@ -1210,6 +1312,7 @@
 				3BB4EC81244A9FA20025F476 /* requstModel.m in Sources */,
 				F74677E6244023540093D5D1 /* PlaceholderTextView.m in Sources */,
 				F72FA1BF243DAC44000343FC /* JZMTBtnView.m in Sources */,
+				F784C96924616C2300A86F7D /* YXDateHelpObject.m in Sources */,
 				3BD40C0E244EC15F00573E01 /* todetailsVC.m in Sources */,
 				F7A8F46F243DF1190084D386 /* AttendController.m in Sources */,
 				F79A83692441F78B00D8F839 /* PWAlertView.m in Sources */,
@@ -1228,6 +1331,7 @@
 				3BB4EC84244AE09B0025F476 /* RqtDetailsController.m in Sources */,
 				3B8B0A4B2456A5A10021CA83 /* whyCell.m in Sources */,
 				3B7807BA24416F47008EEE83 /* inductionCell.m in Sources */,
+				F784C96D24616C2300A86F7D /* PGIndexBannerSubiew.m in Sources */,
 				F782012824547BEB0087DB44 /* CacheTools.m in Sources */,
 				F7BB179C243C137F003A19D1 /* NNTabBarController.m in Sources */,
 				F72FA1BE243DAC44000343FC /* HomeMenuCell.m in Sources */,
@@ -1237,9 +1341,11 @@
 				3BB2CC642449A764005A515D /* IQToolbar.m in Sources */,
 				3B7E46D62459261900AC8EA1 /* clockModel.m in Sources */,
 				F7A8F469243DF0C20084D386 /* InductionController.m in Sources */,
+				F784C96A24616C2300A86F7D /* YXDayCell.m in Sources */,
 				3BB2CC6D2449A764005A515D /* IQUIView+Hierarchy.m in Sources */,
 				3BB2CC6F2449A764005A515D /* IQKeyboardReturnKeyHandler.m in Sources */,
 				3BB2CC6A2449A764005A515D /* IQNSArray+Sort.m in Sources */,
+				F784C96C24616C2300A86F7D /* NewPagedFlowView.m in Sources */,
 				F787B5B324231D2500411DED /* AccountViewController.m in Sources */,
 				3BB2CC6B2449A764005A515D /* IQUITextFieldView+Additions.m in Sources */,
 				F7F0461A2420AA7C00365A65 /* main.m in Sources */,

@@ -14,6 +14,7 @@
 #import "WZXLaunchViewController.h"
 #import "HomeWebViewController.h"
 #define JPushSDK_AppKey  @"50690ec6899b9369ff60e9f6"
+#define BMK_KEY  @"zhjWZUxfzGx8mqIWSherE99ikvuzIim0"
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
 #endif
@@ -22,20 +23,31 @@ static BOOL const isProduction = FALSE; // 极光FALSE为开发环境
 #else // 生产
 static BOOL const isProduction = TRUE; // 极光TRUE为生产环境
 #endif
-@interface AppDelegate ()<JPUSHRegisterDelegate>
+@interface AppDelegate ()<JPUSHRegisterDelegate,BMKLocationAuthDelegate, BMKGeneralDelegate>
 @property (nonatomic,retain)NSDictionary *userInfo;
+@property (nonatomic, strong) BMKMapManager *mapManager;  //主引擎类
+@property (nonatomic, strong)CLLocationManager *manager;
 @end
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    _manager = [CLLocationManager new];
+    [_manager requestAlwaysAuthorization];
+    [[BMKLocationAuth sharedInstance] checkPermisionWithKey:BMK_KEY authDelegate:self];
     // 要使用百度地图，请先启动BaiduMapManager
-      BMKMapManager *mapManager = [[BMKMapManager alloc] init];
+      _mapManager = [[BMKMapManager alloc] init];
+    if ([BMKMapManager setCoordinateTypeUsedInBaiduMapSDK:BMK_COORDTYPE_BD09LL]) {
+              ZLog(@"经纬度类型设置成功");
+          } else {
+              ZLog(@"经纬度类型设置失败");
+          }
       // 如果要关注网络及授权验证事件，请设定generalDelegate参数
-      BOOL ret = [mapManager start:@"zhjWZUxfzGx8mqIWSherE99ikvuzIim0"generalDelegate:nil];
+      BOOL ret = [_mapManager start:BMK_KEY generalDelegate:nil];
       if (!ret) {
       ZLog(@"启动引擎失败");
       }
+   
     JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
     if (@available(iOS 12.0, *)) {
         entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound|JPAuthorizationOptionProvidesAppNotificationSettings;
@@ -98,6 +110,45 @@ static BOOL const isProduction = TRUE; // 极光TRUE为生产环境
     } seq:0];
 }
 
+/**
+ 联网结果回调
+
+ @param iError 联网结果错误码信息，0代表联网成功
+ */
+- (void)onGetNetworkState:(int)iError {
+    if (0 == iError) {
+        NSLog(@"联网成功");
+    } else {
+        NSLog(@"联网失败：%d", iError);
+    }
+}
+/**
+ *@param iError 错误号 : 为0时验证通过，具体参加BMKLocationAuthErrorCode
+ */
+- (void)onCheckPermissionState:(BMKLocationAuthErrorCode)iError{
+    
+    NSLog(@"------------%@",@(iError));
+    if (0 == iError) {
+        NSLog(@"Location成功");
+    } else {
+        NSLog(@"Location失败：%d", iError);
+        
+    }
+    
+}
+
+/**
+ 鉴权结果回调
+
+ @param iError 鉴权结果错误码信息，0代表鉴权成功
+ */
+- (void)onGetPermissionState:(int)iError {
+    if (0 == iError) {
+        NSLog(@"授权成功");
+    } else {
+        NSLog(@"授权失败：%d", iError);
+    }
+}
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
  

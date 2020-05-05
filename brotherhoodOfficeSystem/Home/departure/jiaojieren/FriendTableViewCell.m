@@ -29,8 +29,8 @@
 }
 //布局
 -(void)setUI{
-    _headerImageView= [[UIImageView alloc]initWithFrame:CGRectMake(18, 18, 40, 40)];
-    _headerImageView.layer.cornerRadius = 20;
+    _headerImageView= [[UIImageView alloc]initWithFrame:CGRectMake(18, 13, 50, 50)];
+    _headerImageView.layer.cornerRadius = 25;
     _headerImageView.layer.masksToBounds = YES;
     //右侧扩展说明内容
     [self.contentView addSubview:self.headerImageView];

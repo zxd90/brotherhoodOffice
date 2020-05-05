@@ -206,38 +206,12 @@
         dispatch_source_set_event_handler(_timer, ^{
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.clockTime.text=[weakSelf getHhmmss];
+                weakSelf.clockTime.text=[YearsTime getHhmmss];
             });
             
         });
         dispatch_resume(_timer);
     }
-}
-/**
- *  获取当天的年月日的字符串
- *  这里测试用
- *  @return 格式为年-月-日
- */
--(NSString *)getyyyymmdd{
-    NSDate *now = [NSDate date];
-    NSDateFormatter *formatDay = [[NSDateFormatter alloc] init];
-    formatDay.dateFormat = @"yyyy-MM-dd";
-    NSString *dayStr = [formatDay stringFromDate:now];
-    return dayStr;
-    
-}
-/**
- *  获取当天的年月日的字符串
- *  这里测试用
- *  @return 格式为时-分-秒
- */
--(NSString *)getHhmmss{
-    NSDate *now = [NSDate date];
-    NSDateFormatter *formatDay = [[NSDateFormatter alloc] init];
-    formatDay.dateFormat = @"HH:mm:ss";
-    NSString *dayStr = [formatDay stringFromDate:now];
-    return dayStr;
-    
 }
 
 @end

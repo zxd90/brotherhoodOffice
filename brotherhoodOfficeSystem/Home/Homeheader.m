@@ -22,7 +22,7 @@
     return self;
 }
 -(void)layoutSubview{
-          SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(24,4, ScreenW - 48 , (ScreenH - SK_TabbarHeight) / 327 * 80+20) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
+          SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(24,4, ScreenW - 48 , (ScreenH - SK_TabbarHeight) / 327 * 80+20) delegate:self placeholderImage:[UIImage imageNamed:@"touxiang"]];//placeholder
           cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
           cycleScrollView.delegate = self;
           cycleScrollView.imageURLStringsGroup =self.arr;

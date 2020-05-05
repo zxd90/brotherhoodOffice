@@ -39,7 +39,7 @@
     
     // 初始化数据
     [self initData];
-    
+    [self GetTheroundbanner];
 
     
 }
@@ -47,7 +47,7 @@
 #pragma mark -初始化数据
 
 -(void)initData{
-    [self GetTheroundbanner];
+   
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Property" ofType:@"plist"];
     _menuArray = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
     
@@ -69,7 +69,7 @@
 }
 
 - (void)setUpTableViewarr:(NSArray*)arr {
-    _headerView=[[Homeheader alloc]initWithFrame:CGRectMake(0, 0, ScreenW, (ScreenH - SK_TabbarHeight) / 327 * 80)arr:arr];
+    _headerView=[[Homeheader alloc]initWithFrame:CGRectMake(0, 0, ScreenW, (ScreenH - SK_TabbarHeight) / 327 * 80+30)arr:arr];
     self.tableView.tableHeaderView=_headerView;
 }
 
@@ -78,7 +78,6 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
     return 1;
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

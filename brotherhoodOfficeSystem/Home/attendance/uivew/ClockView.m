@@ -9,6 +9,7 @@
 #import "ClockView.h"
 #import "ClockTableViewCell.h"
 #import "clockModel.h"
+#import "UIButton+HQCustomIcon.h"
 @interface ClockView()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, copy) NSArray *dataArray;
@@ -30,6 +31,7 @@
         //        _tableView.rowHeight = UITableViewAutomaticDimension;        //_tableView.estimatedRowHeight = 180;
         _tableView.dataSource = self;
         _tableView.delegate = self;
+        _tableView.tableHeaderView=[self headerView];
         //去除多余的cell线
         [ZXDNetworking setExtraCellLineHidden:_tableView];
         [self addSubview:_tableView];
@@ -83,5 +85,55 @@ return 200;
     _dataArray= arr;
     [self.tableView reloadData];
 }
-
+/**
+ 点击日期事件
+ */
+-(void)buttonClick{
+    if ([self.clockonDelegate respondsToSelector:@selector(AccessDateAttendancetap)]) {
+        [self.clockonDelegate AccessDateAttendancetap];
+       }
+}
+-(UIView*)headerView{
+    UIView *headerview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenW,76)];
+     UIImageView  *headerImageView= [[UIImageView alloc]initWithFrame:CGRectMake(18, 13, 50, 50)];
+       headerImageView.layer.cornerRadius = 20;
+       headerImageView.layer.masksToBounds = YES;
+    [headerImageView sd_setImageWithURL:[NSURL URLWithString:kFetchMyDefault(@"headImg") ] placeholderImage:[UIImage imageNamed:@"touxiang"]];
+       //右侧扩展说明内容
+       [headerview addSubview: headerImageView];
+    
+    UILabel   *labelName = [[UILabel alloc]initWithFrame:CGRectMake(headerImageView.right+8,16,200, 20)];
+       labelName.font = [UIFont systemFontOfSize:16];
+       labelName.text = kFetchMyDefault(@"userName");
+       [headerview addSubview: labelName]; //姓名文字
+    
+      UILabel *labelroleName = [[UILabel alloc]initWithFrame:CGRectMake(headerImageView.right+8,labelName.bottom+8,150, 20)];
+        labelroleName.font = [UIFont systemFontOfSize:14];
+        labelroleName.text=[NSString stringWithFormat:@"考勤分组:%@",kFetchMyDefault(@"depName")];
+       [headerview addSubview:labelroleName];
+       UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+         button.frame = CGRectMake(ScreenW-150,16,140,30);
+         [button setImage:[UIImage imageNamed:@"right"] forState:UIControlStateNormal];
+         [button setTitle:[YearsTime getyyyymmdd] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+         [button setTitleColor:RGB(13, 163, 38)  forState:UIControlStateNormal];
+         [button setIconInRightWithSpacing:5];
+         [headerview addSubview:button];
+        
+    return headerview;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section==0) {
+         UIView * headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, 1)];
+          headerView.backgroundColor=RGB(238, 238, 238);
+        return headerView;
+    }
+    return [[UIView alloc] init];
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section==0) {
+        return 1;
+    }
+    return 0;
+}
 @end

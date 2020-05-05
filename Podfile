@@ -24,7 +24,7 @@ pod 'Masonry'
 pod 'MBProgressHUD'
 pod 'LYEmptyView'
 pod 'SDCycleScrollView'
-pod 'BaiduMapKit'
 pod 'BRPickerView'
 pod 'BMKLocationKit'
+pod 'BaiduMapKit'
 end
