@@ -13,6 +13,7 @@
 @interface ClockView()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, copy) NSArray *dataArray;
+@property (nonatomic, strong) NSString *addresStr;
 @end
 @implementation ClockView
 -(instancetype)initWithFrame:(CGRect)frame{
@@ -31,7 +32,7 @@
         //        _tableView.rowHeight = UITableViewAutomaticDimension;        //_tableView.estimatedRowHeight = 180;
         _tableView.dataSource = self;
         _tableView.delegate = self;
-        _tableView.tableHeaderView=[self headerView];
+        
         //去除多余的cell线
         [ZXDNetworking setExtraCellLineHidden:_tableView];
         [self addSubview:_tableView];
@@ -51,8 +52,6 @@ return 200;
      
 }
 #pragma mark - UITableViewDataSource, UITableViewDelegate
-
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return _dataArray.count;
@@ -63,13 +62,14 @@ return 200;
         cell.separatorInset = UIEdgeInsetsMake(0,ScreenW, 0, 0);
         clockModel *model= _dataArray[indexPath.row];
         cell.cloModel=model;
+        cell.address.text=_addresStr;
         if (indexPath.row == 0) {
             [cell.onLine removeFromSuperview];
             cell.timelabel.text=[NSString stringWithFormat:@"上班时间%@",model.time];
             }else{
             [cell.downLine removeFromSuperview];
             cell.timelabel.text=[NSString stringWithFormat:@"下班时间%@",model.time];
-           }
+            }
     return cell;
 }
 
@@ -80,9 +80,10 @@ return 200;
         [self.clockonDelegate Clockontap];
     }
 }
--(void)addClockonarray:(NSArray*)arr{
-    
+-(void)addClockonarray:(NSArray*)arr addrestr:(NSString*)addrestr{
+    _addresStr=addrestr;
     _dataArray= arr;
+    _tableView.tableHeaderView=[self headerView];
     [self.tableView reloadData];
 }
 /**
@@ -98,22 +99,20 @@ return 200;
      UIImageView  *headerImageView= [[UIImageView alloc]initWithFrame:CGRectMake(18, 13, 50, 50)];
        headerImageView.layer.cornerRadius = 20;
        headerImageView.layer.masksToBounds = YES;
-    [headerImageView sd_setImageWithURL:[NSURL URLWithString:kFetchMyDefault(@"headImg") ] placeholderImage:[UIImage imageNamed:@"touxiang"]];
+     [headerImageView sd_setImageWithURL:[NSURL URLWithString:kFetchMyDefault(@"headImg")] placeholderImage:[UIImage imageNamed:@"touxiang"]];
        //右侧扩展说明内容
        [headerview addSubview: headerImageView];
-    
-    UILabel   *labelName = [[UILabel alloc]initWithFrame:CGRectMake(headerImageView.right+8,16,200, 20)];
+       UILabel   *labelName = [[UILabel alloc]initWithFrame:CGRectMake(headerImageView.right+8,16,150, 20)];
        labelName.font = [UIFont systemFontOfSize:16];
        labelName.text = kFetchMyDefault(@"userName");
        [headerview addSubview: labelName]; //姓名文字
-    
-      UILabel *labelroleName = [[UILabel alloc]initWithFrame:CGRectMake(headerImageView.right+8,labelName.bottom+8,150, 20)];
+       UILabel *labelroleName = [[UILabel alloc]initWithFrame:CGRectMake(headerImageView.right+8,labelName.bottom+8,150, 20)];
         labelroleName.font = [UIFont systemFontOfSize:14];
         labelroleName.text=[NSString stringWithFormat:@"考勤分组:%@",kFetchMyDefault(@"depName")];
        [headerview addSubview:labelroleName];
        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
          button.frame = CGRectMake(ScreenW-150,16,140,30);
-         [button setImage:[UIImage imageNamed:@"right"] forState:UIControlStateNormal];
+         [button setImage:[UIImage imageNamed:@"xia"] forState:UIControlStateNormal];
          [button setTitle:[YearsTime getyyyymmdd] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
          [button setTitleColor:RGB(13, 163, 38)  forState:UIControlStateNormal];

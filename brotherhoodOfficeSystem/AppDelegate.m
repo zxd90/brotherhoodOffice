@@ -13,6 +13,7 @@
 #import "todetailsVC.h"
 #import "WZXLaunchViewController.h"
 #import "HomeWebViewController.h"
+#import "ZXDLaunch.h"
 #define JPushSDK_AppKey  @"50690ec6899b9369ff60e9f6"
 #define BMK_KEY  @"zhjWZUxfzGx8mqIWSherE99ikvuzIim0"
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
@@ -89,8 +90,8 @@ static BOOL const isProduction = TRUE; // 极光TRUE为生产环境
   
      self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
      self.window.backgroundColor = [UIColor whiteColor];
-     [self addNavBartion];
-   // [self ZXLaunchView];
+    // [self addNavBartion];
+     [self ZXLaunchView];
      [self.window makeKeyAndVisible];
     return YES;
 }
@@ -99,7 +100,7 @@ static BOOL const isProduction = TRUE; // 极光TRUE为生产环境
     if ([kFetchMyDefault (@"asName") length]==0) {
     self.window.rootViewController = [[LoginViewController alloc]init];
     }else{
-         self.window.rootViewController = [[NNTabBarController alloc] init];
+    self.window.rootViewController = [[NNTabBarController alloc] init];
     }
    
 }
@@ -212,7 +213,7 @@ API_AVAILABLE(ios(10.0)){
     completionHandler();  // 系统要求执行这个方法
 }
 
-- (void)jpushNotificationAuthorization:(JPAuthorizationStatus)status withInfo:(NSDictionary *)info {
+-(void)jpushNotificationAuthorization:(JPAuthorizationStatus)status withInfo:(NSDictionary *)info {
     
 }
 
@@ -250,26 +251,29 @@ API_AVAILABLE(ios(10.0)){
    
 }
 - (void)ZXLaunchView{
-    NSString *gifImageURL = @"http://img1.gamedog.cn/2013/06/03/43-130603140F30.gif";
-    
-    NSString *imageURL = @"http://img4.duitang.com/uploads/item/201410/24/20141024135636_t2854.thumb.700_0.jpeg";
-    ///设置启动页
-    [WZXLaunchViewController showWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height-150) ImageURL:gifImageURL advertisingURL:@"http://www.jianshu.com/p/7205047eadf7" timeSecond:3 hideSkip:YES imageLoadGood:^(UIImage *image, NSString *imageURL) {
-        /// 广告加载结束
-        NSLog(@"%@ %@",image,imageURL);
-        
-    } clickImage:^(UIViewController *WZXlaunchVC){
-        //2. 点击广告在webview中打开
-//        HomeWebViewController *VC = [[HomeWebViewController alloc] init];
-//        VC.urlStr = @"http://www.jianshu.com/p/7205047eadf7";
-//        VC.title = @"广告";
-//        VC.AppDelegateSele= -1;
-//        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:VC];
-//        [WZXlaunchVC presentViewController:nav animated:YES completion:nil];
-    } theAdEnds:^{
-        //广告展示完成回调,设置window根控制器
-        [self addNavBartion];
-    }];
+        ///设置启动页
+    if(!([kFetchMyDefault( @"adImageName") length]==0)){
+        [WZXLaunchViewController showWithFrame:CGRectMake(0,StatusBarHeight, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height-150) ImageURL: kFetchMyDefault( @"adImageName") advertisingURL:@"http://www.jianshu.com/p/7205047eadf7" timeSecond:3 hideSkip:YES imageLoadGood:^(UIImage *image, NSString *imageURL) {
+                   /// 广告加载结束
+                   NSLog(@"%@======= %@",image,imageURL);
+               } clickImage:^(UIViewController *WZXlaunchVC){
+                   //2. 点击广告在webview中打开
+           //        HomeWebViewController *VC = [[HomeWebViewController alloc] init];
+           //        VC.urlStr = @"http://www.jianshu.com/p/7205047eadf7";
+           //        VC.title = @"广告";
+           //        VC.AppDelegateSele= -1;
+           //        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:VC];
+           //        [WZXlaunchVC presentViewController:nav animated:YES completion:nil];
+               } theAdEnds:^{
+                   //广告展示完成回调,设置window根控制器
+                   [self addNavBartion];
+                 
+               }];
+    }else{
+          [self addNavBartion];
+    }
+       
+      [ZXDLaunch getAdvertisingImage];
 }
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];

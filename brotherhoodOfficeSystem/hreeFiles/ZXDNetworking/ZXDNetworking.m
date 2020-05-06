@@ -81,7 +81,7 @@
     manager.requestSerializer.timeoutInterval = 180.f;
     //设置服务器返回结果的类型:JSON (AFJSONResponseSerializer,AFHTTPResponseSerializer)
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
-   
+    
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"text/plain", nil];
     return manager;
 }
@@ -148,5 +148,6 @@
     
     return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
+
 
 @end

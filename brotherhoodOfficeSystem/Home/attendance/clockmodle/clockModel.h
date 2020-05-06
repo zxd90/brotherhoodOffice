@@ -19,10 +19,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSString *clockTime;
 /**打卡位置*/
 @property(nonatomic,strong)NSString *realClockAddr;
-/** */
-@property(nonatomic,strong)NSString *flag;
-/**打卡状态*/
-@property(nonatomic,strong)NSString *tags;
+/**打卡状态0未打卡,1打卡*/
+@property(nonatomic,assign)BOOL clockFlag;
+/**1打卡按钮显示,0打卡不显示*/
+@property(nonatomic,assign)BOOL buttonFlag;
+/**打卡状态**/
+@property (nonatomic,strong)NSArray *tags;
 + (instancetype)clockDetWithDict:(NSDictionary *)dict;
 @end
 

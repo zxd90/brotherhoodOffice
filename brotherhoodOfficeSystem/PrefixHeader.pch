@@ -14,9 +14,7 @@
 #define   ZDLog(FORMAT, ...) fprintf(stderr,"\n %s:%d   %s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],__LINE__, [[[NSString alloc] initWithData:[[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] dataUsingEncoding:NSUTF8StringEncoding] encoding:NSNonLossyASCIIStringEncoding] UTF8String]);
 #define   ZLog(...) NSLog(__VA_ARGS__)
 #else // 发布状态, 关闭LOG功能
-
 #define ZDLog(...)
-
 #endif
 /**获取版本号*/
 #define APP_VERSION ([[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"])
@@ -57,65 +55,41 @@
 #define PFR [[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0 ? @"PingFangSC-Regular" : @"PingFang SC"
 
 #define PFR20Font [UIFont fontWithName:PFR size:20];
-
 #define PFR18Font [UIFont fontWithName:PFR size:18];
-
 #define PFR17Font [UIFont fontWithName:PFR size:17];
 #define PFR16Font [UIFont fontWithName:PFR size:16];
-
 #define PFR15Font [UIFont fontWithName:PFR size:15];
-
 #define PFR14Font [UIFont fontWithName:PFR size:14];
-
 #define PFR13Font [UIFont fontWithName:PFR size:13];
-
 #define PFR12Font [UIFont fontWithName:PFR size:12];
-
 #define PFR11Font [UIFont fontWithName:PFR size:11];
-
 #define PFR10Font [UIFont fontWithName:PFR size:10];
-
 /**
-
 缓存的有效期  单位是s
-
 */
-
 #define kYBCache_Expire_Time (3600*24)
-
 /**
 请求的API
-
 */
-
-
 #define kAPI_URL @"http://www.xdtyl.cn/app/"
 //#define kAPI_URL @"http://192.168.100.9:35791/"
 //#define kAPI_URL @"https://www.zyyhy.cn/app/"
 /**
-
 弱引用
-
 */
-
 #define YBWeakSelf __weak typeof(self) weakSelf = self;
-
 /**
  1、存值
  */
-
-
 #define kSaveMyDefault(A,B) [[NSUserDefaults standardUserDefaults] setObject:B forKey:A]
 /**
  2、取值
  */
 #define kFetchMyDefault(A) [[NSUserDefaults standardUserDefaults] objectForKey:A]
+#define kUserDefaults [NSUserDefaults standardUserDefaults]
 /**
-
 *  沙盒Cache路径
-
 */
-
 #define kCachePath ([NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject])
 #import "UIView+EXTENSION.h"
 /***第三方引入**/
@@ -125,7 +99,6 @@
 #import <BMKLocationKit/BMKLocationComponent.h>
 //引入检索功能所有的头文件
 #import <BaiduMapAPI_Search/BMKSearchComponent.h>
-
 #import <SDWebImage/UIButton+WebCache.h>
 #import <Masonry.h>
 #import "UIImageView+WebCache.h"

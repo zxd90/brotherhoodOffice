@@ -174,6 +174,7 @@
             self.sureBtn.frame = CGRectMake(0, CGRectGetMaxY(self.lineView.frame), AlertW, 40);
 
             [self.sureBtn setTitle:sureTitle forState:UIControlStateNormal];
+            [self.sureBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             self.sureBtn.tag = 2;
             [self.sureBtn addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
             [self.sureBtn addTarget:self action:@selector(button1BackGroundHighlighted:) forControlEvents:UIControlEventTouchDown];

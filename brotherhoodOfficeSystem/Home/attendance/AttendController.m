@@ -31,10 +31,9 @@
     [super viewDidLoad];
     self.title =@"考勤";
     self.view.backgroundColor =[UIColor whiteColor];
-    self.clockon = [[ClockView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, ScreenH-SK_TabbarSafeBottomMargin)];
+    self.clockon = [[ClockView alloc]initWithFrame:CGRectMake(0, 0,ScreenW,ScreenH-SK_TabbarSafeBottomMargin)];
     self.clockon.clockonDelegate = self;
     [self.view addSubview: self.clockon];
-    [self updatClock];
     //如果需要持续定位返回地址信息（需要联网），请设置如下：
     [self.locationManager startUpdatingLocation];
     [self.locationManager startUpdatingHeading];
@@ -88,11 +87,14 @@
     }
     if (location) {
 NSLog(@"=======++++++%f",location.location.coordinate.latitude);
-        _longitude=location.location.coordinate.latitude;
+        _latitude=location.location.coordinate.latitude;
         _longitude= location.location.coordinate.longitude;
+        _addrstr=location.rgcData.locationDescribe;
 NSLog(@"=======++++++%f",location.location.coordinate.longitude);
         //反编译
      [self ReverseGeoCode:location.location];
+        //加载数据
+           [self updatClock];
               if (location.rgcData) {
                   NSLog(@"城市 = %@",location.rgcData.province);
                   NSLog(@"区镇 = %@",location.rgcData.district);
@@ -110,7 +112,7 @@ NSLog(@"=======++++++%f",location.location.coordinate.longitude);
 
 -(void)Clockontap{
     NSString *urlStr =[NSString stringWithFormat:@"%@xdtapp/api/v1/clock/doClock",kAPI_URL];
-    NSDictionary *dict =@{@"ticket":kFetchMyDefault(@"ticket"),@"coor":@"114.483211,380.02155",@"time":[YearsTime getHhmmss] ,@"addrName":self.addrstr};
+    NSDictionary *dict =@{@"ticket":kFetchMyDefault(@"ticket"),@"latitude":@"114.483211,380.02155",@"time":[YearsTime getHhmmss] ,@"addrName":self.addrstr};
       [ZXDNetworking GET:urlStr parameters:dict success:^(id responseObject) {
           NSMutableArray *arr=[NSMutableArray array];
           if ([responseObject[@"code"] intValue]==0) {
@@ -118,7 +120,7 @@ NSLog(@"=======++++++%f",location.location.coordinate.longitude);
                 clockModel *clmodel=[clockModel clockDetWithDict:dict];
                   [arr addObject:clmodel];
               }
-              [ self.clockon addClockonarray:arr];
+              [ self.clockon addClockonarray:arr addrestr:self.addrstr];
             }
       } failure:^(NSError *error) {
           
@@ -127,9 +129,8 @@ NSLog(@"=======++++++%f",location.location.coordinate.longitude);
     
 }
 -(void)updatClock{
- 
     NSString *urlStr =[NSString stringWithFormat:@"%@xdtapp/api/v1/clock/getMyState",kAPI_URL];
-    NSDictionary *dict =@{@"ticket":kFetchMyDefault(@"ticket"),@"coor":@"114.483211,380.02155"};
+    NSDictionary *dict =@{@"ticket":kFetchMyDefault(@"ticket"),@"latitude":[NSString stringWithFormat:@"%f", self.latitude],@"longitude":[NSString stringWithFormat:@"%f",self.longitude]};
     [ZXDNetworking GET:urlStr parameters:dict success:^(id responseObject) {
         NSMutableArray *arr=[NSMutableArray array];
         if ([responseObject[@"code"] intValue]==0) {
@@ -137,7 +138,7 @@ NSLog(@"=======++++++%f",location.location.coordinate.longitude);
               clockModel *clmodel=[clockModel clockDetWithDict:dict];
                 [arr addObject:clmodel];
             }
-            [ self.clockon addClockonarray:arr];
+            [ self.clockon addClockonarray:arr addrestr:self.addrstr];
           }
     } failure:^(NSError *error) {
         

@@ -5,77 +5,98 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            uuid = "DC61D0CA-C1D9-43A9-842E-48F32FBA7C56"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            scope = "1"
-            stopOnStyle = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "164A05CD-9145-435D-97C0-74C2AD8996C6"
+            uuid = "E758847F-FB6D-45CA-AC46-7B43AFA8826D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "brotherhoodOfficeSystem/Home/attendance/AttendController.mm"
+            filePath = "brotherhoodOfficeSystem/hreeFiles/Launchpage/WZXLaunchAd.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "-BMKLocationManager:didUpdateLocation:orError:"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "-removeView"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B5AD5628-BEA4-42EC-A4D7-94D875997A8D"
+            uuid = "2C38A7D6-F39B-4ECA-990B-62061325B902"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "brotherhoodOfficeSystem/AppDelegate.m"
+            filePath = "brotherhoodOfficeSystem/hreeFiles/Launchpage/WZXLaunchAd.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "-onGetPermissionState:"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
+            landmarkName = "-animateEnd"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "20961EB2-D0EB-4509-A673-01E444414DC0"
+            uuid = "6C4B4CAD-AC8C-4360-A3A2-891C300D3F46"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "brotherhoodOfficeSystem/AppDelegate.m"
+            filePath = "brotherhoodOfficeSystem/hreeFiles/Launchpage/WZXLaunchAd.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "-onGetNetworkState:"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
+            landmarkName = "-skipAction"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "776C55A5-EE7C-4231-8879-909D9DA01A37"
+            uuid = "9F13B33B-10A2-46E3-8ED4-BEDB0E559886"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "brotherhoodOfficeSystem/AppDelegate.m"
+            filePath = "brotherhoodOfficeSystem/hreeFiles/Launchpage/WZXLaunchAd.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
-            landmarkName = "-onGetPermissionState:"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "-dispathTiemr"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "58C5D937-1042-4F9F-9086-C8CC96B7C0AF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "brotherhoodOfficeSystem/hreeFiles/Launchpage/WZXLaunchAd.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "-startNoDataDispath_tiemr"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "91E97FAA-A76A-4660-9CFA-C2484FB5694B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "brotherhoodOfficeSystem/hreeFiles/Launchpage/WZXLaunchAd.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
+            landmarkName = "+initImageWithframe:imageURL:timeSecond:hideSkip:LaunchAdCallback:ImageClick:endPlays:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

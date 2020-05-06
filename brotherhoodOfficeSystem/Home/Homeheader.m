@@ -7,9 +7,7 @@
 //
 
 #import "Homeheader.h"
-@interface Homeheader()<SDCycleScrollViewDelegate>{
-     dispatch_source_t _timer;
-}
+@interface Homeheader()<SDCycleScrollViewDelegate>
 @end
 @implementation Homeheader
 -(instancetype)initWithFrame:(CGRect)frame arr:(NSArray*)arr
@@ -22,7 +20,7 @@
     return self;
 }
 -(void)layoutSubview{
-          SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(24,4, ScreenW - 48 , (ScreenH - SK_TabbarHeight) / 327 * 80+20) delegate:self placeholderImage:[UIImage imageNamed:@"touxiang"]];//placeholder
+          SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0,4, ScreenW, (ScreenH - SK_TabbarHeight) / 327 * 80+20) delegate:self placeholderImage:[UIImage imageNamed:@"touxiang"]];//placeholder
           cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
           cycleScrollView.delegate = self;
           cycleScrollView.imageURLStringsGroup =self.arr;
@@ -31,7 +29,8 @@
           cycleScrollView.currentPageDotColor = RGB(13, 163, 38);
           cycleScrollView.pageDotColor = [UIColor whiteColor];
           cycleScrollView.layer.masksToBounds = YES;
-          cycleScrollView.layer.cornerRadius = 4;
+         //圆角
+          cycleScrollView.layer.cornerRadius = 0;
           [self addSubview:cycleScrollView];
 }
  

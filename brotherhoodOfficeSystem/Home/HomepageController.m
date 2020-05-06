@@ -72,9 +72,7 @@
     _headerView=[[Homeheader alloc]initWithFrame:CGRectMake(0, 0, ScreenW, (ScreenH - SK_TabbarHeight) / 327 * 80+30)arr:arr];
     self.tableView.tableHeaderView=_headerView;
 }
-
 #pragma mark -UITableViewDataSource
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
     return 1;
@@ -110,13 +108,9 @@ return  1;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.onTapBtnViewDelegate = self;
         return cell;} else {
-        
             static NSString *cellIndentifier = @"menucellA";
-            
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
-            
             if (cell == nil) {
-                
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier];
             }
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -129,7 +123,6 @@ return  1;
 #pragma mark -OnTapBtnViewDelegate
 
 - (void)OnTapBtnView:(UITapGestureRecognizer *)sender {
-
       NSLog(@"tag:%ld",sender.view.tag);
     switch (sender.view.tag) {
                case 10:{
@@ -161,11 +154,9 @@ return  1;
                {
                HaveController *todoVC = [[HaveController alloc]init];
                [self.navigationController pushViewController:todoVC animated:YES];
-                   
                }
                    break;
               case 15:
-                             
                     //待办事项
                {
                           todoController *todoVC = [[todoController alloc]init];
@@ -194,15 +185,13 @@ return  1;
             if ([responseObject[@"code"] intValue]==0) {
  
                 for (NSDictionary *dict in responseObject[@"data"]) {
-               
                     [arr addObject:dict[@"imgPath"]];
-                }
-                
+                    }
                 // 创建TableView
                 [self setUpTableViewarr:arr];
               
                 [self.tableView reloadData];
-              }
+                    }
         } failure:^(NSError *error) {
             
         } view:self.view MBPro:YES];

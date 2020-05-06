@@ -110,8 +110,7 @@ static CGFloat const weeksH = 30;       //周高度
         _middleView.currentDate = _currentDate;
         _leftView.currentDate = [[YXDateHelpObject manager]getEarlyOrLaterDate:_currentDate LeadTime:-7 Type:2];
         _rightView.currentDate = [[YXDateHelpObject manager]getEarlyOrLaterDate:_currentDate LeadTime:7 Type:2];
-        
-    }
+        }
     self.type = CalendarType_Week;
     [self setType:_type];
 }
@@ -147,20 +146,19 @@ static CGFloat const weeksH = 30;       //周高度
 }
 
 - (void)settingHeadLabel {
-    
     _yearMonthL = [[UILabel alloc] initWithFrame:CGRectMake(ScreenW/2-60, 0, 120, yearMonthH)];
     _yearMonthL.text = [[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy年MM月" Date:_currentDate];
     _yearMonthL.textAlignment = NSTextAlignmentCenter;
     _yearMonthL.font = [UIFont systemFontOfSize:15];
     [self addSubview:_yearMonthL];
     UIButton *leftButton=[UIButton buttonWithType:UIButtonTypeCustom];
- leftButton.frame=CGRectMake(_yearMonthL.left-yearMonthH,0,yearMonthH,yearMonthH);
-        [leftButton setImage:[UIImage imageNamed:@"bolk"] forState:UIControlStateNormal];
+  leftButton.frame=CGRectMake(_yearMonthL.left-yearMonthH,0,yearMonthH,yearMonthH);
+        [leftButton setImage:[UIImage imageNamed:@"zuo"] forState:UIControlStateNormal];
     [leftButton addTarget:self action:@selector(leftMonth) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:leftButton];
     UIButton *rightButton=[UIButton buttonWithType:UIButtonTypeCustom];
        rightButton.frame=CGRectMake(_yearMonthL.right,0,yearMonthH, yearMonthH);
-     [rightButton setImage:[UIImage imageNamed:@"right"] forState:UIControlStateNormal];
+     [rightButton setImage:[UIImage imageNamed:@"you"] forState:UIControlStateNormal];
        [rightButton addTarget:self action:@selector(rightMonth) forControlEvents:UIControlEventTouchUpInside];
        [self addSubview:rightButton];
     NSArray *weekdays = @[@"日",@"一",@"二",@"三",@"四",@"五",@"六"];

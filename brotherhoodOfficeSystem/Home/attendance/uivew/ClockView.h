@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ClockView : UIView
 
 @property (nonatomic ,weak)id <ClockonDelegate> clockonDelegate;
--(void)addClockonarray:(NSArray*)arr;
+-(void)addClockonarray:(NSArray*)arr addrestr:(NSString*)addrestr;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -1,15 +1,16 @@
 //
-//  ClockTableViewCell.h
+//  RecordClockCell.h
 //  brotherhoodOfficeSystem
 //
-//  Created by XDT on 2020/4/28.
+//  Created by 费腾 on 2020/5/6.
 //  Copyright © 2020 兄弟团国际. All rights reserved.
+//
 
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 @class clockModel;
-@interface ClockTableViewCell : UITableViewCell
+@interface RecordClockCell : UITableViewCell
 /**圆点*/
 @property (nonatomic,strong) UIView *roundView;
 /**线*/
@@ -26,17 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) UIImageView *coordImageView;
 /**地理位置名*/
 @property (nonatomic,strong)UILabel *locationName;
-/**打卡按钮 */
-@property (strong, nonatomic) UIButton *clockbutton;
-/**时间状态*/
-@property (nonatomic,strong)UILabel *clockstate;
-/**当前时间*/
-@property (nonatomic,strong)UILabel *clockTime;
-/**地址名*/
-@property (nonatomic,strong)UILabel *address;
-/**重新定位*/
-@property (nonatomic,strong)UIButton *positioning;
+
 @property (nonatomic,strong)clockModel *cloModel;
-+ (instancetype)ClockTableViewCellWithTableView:(UITableView *)tableview;
++ (instancetype)RecordClockTableViewCellWithTableView:(UITableView *)tableview;
 @end
+
 NS_ASSUME_NONNULL_END

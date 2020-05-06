@@ -63,7 +63,7 @@
        
         
         if(imageLoadGood){
-            
+
             imageLoadGood(image,ImageURL);
         }
         
@@ -80,10 +80,12 @@
         
     } endPlays:^{
         
-       
+        NSLog(@"234124124124===");
         
         if(theAdEnds){
             theAdEnds();
+
+        NSLog(@"===");
         }
         
     }];
@@ -91,10 +93,5 @@
     [WZXlaunchVC.view addSubview:WZXlaunchVC.Launch];
     
     [[UIApplication sharedApplication].delegate window].rootViewController = WZXlaunchVC;
-    
-    
-    
 }
-
-
 @end

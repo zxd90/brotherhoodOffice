@@ -1,22 +1,18 @@
 //
-//  ClockTableViewCell.m
+//  RecordClockCell.m
 //  brotherhoodOfficeSystem
 //
-//  Created by XDT on 2020/4/28.
+//  Created by 费腾 on 2020/5/6.
 //  Copyright © 2020 兄弟团国际. All rights reserved.
 //
 
-#import "ClockTableViewCell.h"
+#import "RecordClockCell.h"
 #import "clockModel.h"
-@interface ClockTableViewCell(){
-    dispatch_source_t _timer;
-}
-@end
-@implementation ClockTableViewCell
-+ (instancetype)ClockTableViewCellWithTableView:(UITableView *)tableview{
-    ClockTableViewCell *cell = [tableview dequeueReusableCellWithIdentifier:@"ClockTableViewCell"];
+@implementation RecordClockCell
++ (instancetype)RecordClockTableViewCellWithTableView:(UITableView *)tableview{
+    RecordClockCell *cell = [tableview dequeueReusableCellWithIdentifier:@"ClockTableViewCell"];
     if(cell == nil){
-        cell = [[ClockTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"ClockTableViewCell"];
+        cell = [[RecordClockCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"ClockTableViewCell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return cell;
@@ -113,9 +109,19 @@
 /**获取数据*/
 -(void)setCloModel:(clockModel *)cloModel{
     _cloModel= cloModel;
-    if(cloModel.clockFlag ==true){
+     if(cloModel.clockFlag ==true){
         _clockLabel.text=[NSString stringWithFormat:@"打卡时间%@",_cloModel.clockTime];
-        for (int i=0; cloModel.tags.count>i; i++) {
+         [self tagsCloModel:_cloModel];
+        _locationName.text=[NSString stringWithFormat:@"%@",_cloModel.clockAddr];
+        _coordImageView.image=[UIImage imageNamed:@"dingwei"];
+     }else{
+         [self tagsCloModel:_cloModel];
+     }
+}
+-(void)tagsCloModel:(clockModel *)cloModel{
+    
+    [_statelabel removeFromSuperview];
+    for (int i=0; cloModel.tags.count>i; i++){
                _statelabel = [[UILabel alloc]initWithFrame:CGRectMake(150+i*45,14, 40, 20)];
                _statelabel.font =PFR14Font;
                _statelabel.text = cloModel.tags[i];
@@ -136,92 +142,5 @@
              _statelabel.backgroundColor= [UIColor redColor];
             }
         }
-        _locationName.text=[NSString stringWithFormat:@"%@",_cloModel.clockAddr];
-        _coordImageView.image=[UIImage imageNamed:@"dingwei"];
-    }
-    
-    if (cloModel.buttonFlag==true){
-        _clockbutton=[UIButton buttonWithType:UIButtonTypeSystem];
-        [_clockbutton setBackgroundImage:[ZXDmethod ButtonColorLayer] forState:UIControlStateNormal];
-        _clockbutton.layer.masksToBounds = YES;
-        _clockbutton.layer.cornerRadius = 60;
-        [self.contentView addSubview:_clockbutton];
-        [_clockbutton mas_makeConstraints:^(MASConstraintMaker *make) {
-          make.top.mas_equalTo(self.roundView.mas_bottom).offset(15);
-            make.centerX.mas_equalTo(self.contentView.mas_centerX);
-            make.width.mas_equalTo(120);
-            make.height.mas_equalTo(120);
-        }];
-        _clockstate =[[UILabel alloc]init];
-        _clockstate.font =[UIFont boldSystemFontOfSize:18];
-        _clockstate.textAlignment =NSTextAlignmentCenter;
-        _clockstate.text=@"上班打卡";
-        _clockstate.textColor = [UIColor whiteColor];
-        [_clockbutton addSubview:_clockstate];
-        [_clockstate mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(self.clockbutton.mas_centerY).offset(-20);
-            make.centerX.mas_equalTo(self.clockbutton.mas_centerX);
-            make.width.mas_equalTo(90);
-            make.height.mas_equalTo(20);
-        }];
-        _clockTime =[[UILabel alloc]init];
-        _clockTime.font =PFR15Font;
-        _clockTime.textAlignment =NSTextAlignmentCenter;
-        _clockTime.textColor = [UIColor whiteColor];
-        [_clockbutton addSubview:_clockTime];
-        [_clockTime mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(self.clockbutton.mas_centerY).offset(10);
-            make.centerX.mas_equalTo(self.clockbutton.mas_centerX);
-            make.width.mas_equalTo(90);
-            make.height.mas_equalTo(20);
-        }];
-        _positioning=[[UIButton alloc]init];
-        _positioning.titleLabel.font=PFR15Font;
-        [_positioning setTitle:@"重新定位" forState:UIControlStateNormal];
-        [_positioning setTitleColor:RGB(108, 197, 95) forState:UIControlStateNormal];
-        [self.contentView  addSubview:_positioning];
-        [_positioning mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.clockbutton.mas_bottom).offset(15);
-      make.right.mas_equalTo(self.contentView.mas_right).offset(-50);
-        make.width.mas_equalTo(60);
-    make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-20);
-        }];
-        _address =[[UILabel alloc]init];
-        _address.text=@"已进入考勤地点盛景大厦";
-        _address.backgroundColor=[UIColor redColor];
-        _address.textColor = RGB(145,145, 145);
-        _address.font =PFR15Font;
-        _address.textAlignment =NSTextAlignmentRight;
-        [self.contentView addSubview:_address];
-        [_address mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.clockbutton.mas_bottom).offset(15);
-        make.right.mas_equalTo(self.positioning.mas_left).offset(-5);
-        make.width.mas_equalTo(90);
-        make.height.mas_equalTo(20);
-               }];
-//        [_address mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.mas_equalTo(self.positioning.mas_top);
-//        make.right.mas_equalTo(self.positioning.mas_left).offset(-5);
-//        make.width.mas_equalTo(200);
-//    make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-20);
-//        }];
-        [self countdownAnd];
-    }
 }
-/**当前时间显示*/
--(void)countdownAnd{
-    __weak __typeof(self) weakSelf = self;
-    if (_timer==nil) {
-        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-        _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
-        dispatch_source_set_timer(_timer,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0); //每秒执行
-        dispatch_source_set_event_handler(_timer, ^{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                weakSelf.clockTime.text=[YearsTime getHhmmss];
-            });
-        });
-        dispatch_resume(_timer);
-    }
-}
-
 @end

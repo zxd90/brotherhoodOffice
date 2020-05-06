@@ -62,6 +62,7 @@
 		F7818370245C8F4700260E8A /* HomeWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F781836E245C8F4700260E8A /* HomeWebViewController.m */; };
 		F782012824547BEB0087DB44 /* CacheTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F782012724547BEB0087DB44 /* CacheTools.m */; };
 		F782012B245483790087DB44 /* ModifyController.m in Sources */ = {isa = PBXBuildFile; fileRef = F782012A245483790087DB44 /* ModifyController.m */; };
+		F7823577246295B00050E47D /* RecordClockCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7823576246295B00050E47D /* RecordClockCell.m */; };
 		F782F7C8244F446E00C87F69 /* jpush-extension-ios-1.1.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F782F7C3244F446E00C87F69 /* jpush-extension-ios-1.1.2.a */; };
 		F782F7C9244F446E00C87F69 /* jpush-ios-3.3.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F782F7C4244F446E00C87F69 /* jpush-ios-3.3.2.a */; };
 		F782F7CA244F446E00C87F69 /* jcore-ios-2.2.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F782F7C7244F446E00C87F69 /* jcore-ios-2.2.5.a */; };
@@ -107,6 +108,7 @@
 		F7C5C329242A486E00A75289 /* UIView+EXTENSION.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C5C327242A486E00A75289 /* UIView+EXTENSION.m */; };
 		F7CCD111244B51A600EF0855 /* haveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7CCD110244B51A600EF0855 /* haveCell.m */; };
 		F7CCD115244B523100EF0855 /* HaveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7CCD114244B523100EF0855 /* HaveModel.m */; };
+		F7D0A15A24630FC7005F583B /* ZXDLaunch.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D0A15924630FC7005F583B /* ZXDLaunch.m */; };
 		F7F046092420AA7700365A65 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F046082420AA7700365A65 /* AppDelegate.m */; };
 		F7F0460F2420AA7700365A65 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F7F0460E2420AA7700365A65 /* ViewController.mm */; };
 		F7F046122420AA7700365A65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7F046102420AA7700365A65 /* Main.storyboard */; };
@@ -251,6 +253,8 @@
 		F782012724547BEB0087DB44 /* CacheTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CacheTools.m; path = brotherhoodOfficeSystem/Home/yiban/HaveModel/CacheTools.m; sourceTree = SOURCE_ROOT; };
 		F7820129245483790087DB44 /* ModifyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModifyController.h; sourceTree = "<group>"; };
 		F782012A245483790087DB44 /* ModifyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModifyController.m; sourceTree = "<group>"; };
+		F7823575246295B00050E47D /* RecordClockCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordClockCell.h; sourceTree = "<group>"; };
+		F7823576246295B00050E47D /* RecordClockCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordClockCell.m; sourceTree = "<group>"; };
 		F782F7C3244F446E00C87F69 /* jpush-extension-ios-1.1.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-extension-ios-1.1.2.a"; sourceTree = "<group>"; };
 		F782F7C4244F446E00C87F69 /* jpush-ios-3.3.2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-3.3.2.a"; sourceTree = "<group>"; };
 		F782F7C5244F446E00C87F69 /* JPushNotificationExtensionService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPushNotificationExtensionService.h; sourceTree = "<group>"; };
@@ -329,6 +333,8 @@
 		F7CCD110244B51A600EF0855 /* haveCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = haveCell.m; sourceTree = "<group>"; };
 		F7CCD113244B523100EF0855 /* HaveModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HaveModel.h; sourceTree = "<group>"; };
 		F7CCD114244B523100EF0855 /* HaveModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HaveModel.m; sourceTree = "<group>"; };
+		F7D0A15824630FC6005F583B /* ZXDLaunch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXDLaunch.h; sourceTree = "<group>"; };
+		F7D0A15924630FC7005F583B /* ZXDLaunch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXDLaunch.m; sourceTree = "<group>"; };
 		F7F046042420AA7700365A65 /* 兄弟团.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "兄弟团.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7F046072420AA7700365A65 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F7F046082420AA7700365A65 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -445,6 +451,8 @@
 				3B40EA1524580D030034FEAD /* ClockView.m */,
 				3B40EA17245813DE0034FEAD /* ClockTableViewCell.h */,
 				3B40EA18245813DE0034FEAD /* ClockTableViewCell.m */,
+				F7823575246295B00050E47D /* RecordClockCell.h */,
+				F7823576246295B00050E47D /* RecordClockCell.m */,
 			);
 			path = uivew;
 			sourceTree = "<group>";
@@ -717,6 +725,8 @@
 				F781836A245C8BDE00260E8A /* WZXLaunchAd.m */,
 				F7818368245C8BDD00260E8A /* WZXLaunchViewController.h */,
 				F781836B245C8BDE00260E8A /* WZXLaunchViewController.m */,
+				F7D0A15824630FC6005F583B /* ZXDLaunch.h */,
+				F7D0A15924630FC7005F583B /* ZXDLaunch.m */,
 			);
 			path = Launchpage;
 			sourceTree = "<group>";
@@ -1297,6 +1307,7 @@
 				F7C5C328242A486E00A75289 /* UIButton+BBTButton.m in Sources */,
 				F7BB17A3243C51C0003A19D1 /* loginTextField.m in Sources */,
 				3B8B6FBC2452812000A29C31 /* mytableView.m in Sources */,
+				F7D0A15A24630FC7005F583B /* ZXDLaunch.m in Sources */,
 				F784C97524619CBF00A86F7D /* YearsTime.m in Sources */,
 				3BB4EC90244AECF00025F476 /* qtdetaModel.m in Sources */,
 				F782012B245483790087DB44 /* ModifyController.m in Sources */,
@@ -1331,6 +1342,7 @@
 				3BB4EC84244AE09B0025F476 /* RqtDetailsController.m in Sources */,
 				3B8B0A4B2456A5A10021CA83 /* whyCell.m in Sources */,
 				3B7807BA24416F47008EEE83 /* inductionCell.m in Sources */,
+				F7823577246295B00050E47D /* RecordClockCell.m in Sources */,
 				F784C96D24616C2300A86F7D /* PGIndexBannerSubiew.m in Sources */,
 				F782012824547BEB0087DB44 /* CacheTools.m in Sources */,
 				F7BB179C243C137F003A19D1 /* NNTabBarController.m in Sources */,

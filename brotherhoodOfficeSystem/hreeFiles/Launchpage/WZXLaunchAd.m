@@ -132,7 +132,7 @@ NSString *const TimerSender = @"5";
         dispatch_async(dispatch_get_main_queue(), ^{
            
             if(duration == 0){
-                dispatch_source_cancel(_noDataTimer);
+                dispatch_source_cancel(self->_noDataTimer);
                 [self removeView];
             }
             duration--;
@@ -144,7 +144,7 @@ NSString *const TimerSender = @"5";
 }
 
 
-- (void)dispath_tiemr{
+- (void)dispathTiemr{
 
     if(_noDataTimer) dispatch_source_cancel(_noDataTimer);
     
@@ -160,10 +160,10 @@ NSString *const TimerSender = @"5";
     dispatch_source_set_event_handler(_timer, ^{
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            [_skipBtn setTitle:[NSString stringWithFormat:@"%ld 跳过",duration] forState:UIControlStateNormal];
+            [self->_skipBtn setTitle:[NSString stringWithFormat:@"%ld 跳过",duration] forState:UIControlStateNormal];
             if(duration==0)
             {
-                dispatch_source_cancel(_timer);
+                dispatch_source_cancel(self->_timer);
                 
                 [self removeView];
             }
@@ -202,7 +202,7 @@ NSString *const TimerSender = @"5";
         self.alpha = 0;
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
-       
+
     }];
     
 }
@@ -223,7 +223,7 @@ NSString *const TimerSender = @"5";
             
             
             [launchAd addSubview:launchAd.skipBtn];
-            [launchAd dispath_tiemr];
+           // [launchAd dispathTiemr];
         }
         
     }];
@@ -237,6 +237,8 @@ NSString *const TimerSender = @"5";
     launchAd.endPlays =^(){
         if(endPlays){
             endPlays();
+
+            NSLog(@"++++++===");
         }
     };
     return launchAd;
@@ -265,3 +267,4 @@ NSString *const TimerSender = @"5";
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 @end
+

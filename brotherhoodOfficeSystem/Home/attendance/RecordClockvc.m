@@ -8,6 +8,8 @@
 
 #import "RecordClockvc.h"
 #import "YXCalendarView.h"
+#import "clockModel.h"
+#import "RecordClockCell.h"
 @interface RecordClockvc ()<UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, strong) YXCalendarView *calendar;
@@ -19,7 +21,8 @@
 @property (nonatomic, strong) NSString *data;
 //每次用户拖动tableView的时候，只能发送一次让tableView的header收起和展开的通知
 @property (nonatomic, assign) BOOL isAllowPostNoti;
-
+//
+@property (nonatomic, strong)NSMutableArray *dataArray;
 @end
 
 @implementation RecordClockvc
@@ -33,7 +36,7 @@
     //加载每日日历内容
     [self.view addSubview:self.tableView];
     self.tableView.frame = CGRectMake(0, SK_NavHeight+self.calendarHeight, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height-SK_NavHeight-self.calendarHeight);
-    
+    [self serviceDataByData:[[YXDateHelpObject manager] getStrFromDateFormat:@"yyyy-MM-dd" Date:[NSDate dateWithTimeInterval:-24*60*60 sinceDate:[NSDate date]]]];
     self.isAllowPostNoti = YES;
 }
 
@@ -43,13 +46,13 @@
 - (UITableView *)tableView{
     if(!_tableView){
         _tableView = [[UITableView alloc] init];
-        
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        
         _tableView.tableFooterView = [UIView new];
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.showsHorizontalScrollIndicator = NO;
+        _tableView.estimatedRowHeight = 100;
+        _tableView.rowHeight = UITableViewAutomaticDimension;
         _tableView.userInteractionEnabled = YES;
         
     }
@@ -59,8 +62,9 @@
  *  日历的懒加载
  */
 - (YXCalendarView *)calendar{
+   //选中当前日期的前一天 [NSDate dateWithTimeInterval:-24*60*60 sinceDate:[NSDate date]]
     if(!_calendar){
-        _calendar = [[YXCalendarView alloc] initWithFrame:CGRectMake(0, SK_NavHeight, ScreenW, [YXCalendarView getMonthTotalHeight:[NSDate date] type:CalendarType_Month]) Date:[NSDate date] Type:CalendarType_Month];
+        _calendar = [[YXCalendarView alloc] initWithFrame:CGRectMake(0, SK_NavHeight, ScreenW, [YXCalendarView getMonthTotalHeight:[NSDate date] type:CalendarType_Month]) Date:[NSDate dateWithTimeInterval:-24*60*60 sinceDate:[NSDate date]] Type:CalendarType_Month];
         self.calendarHeight = [YXCalendarView getMonthTotalHeight:[NSDate date] type:CalendarType_Month];
         __weak typeof (self) WeakSelf = self;
         //改变日历头部和tableView 的cell位置
@@ -74,16 +78,34 @@
 }
 //请求数据
 - (void)serviceDataByData:(NSString *)data{
-    self.data = @"1";
-    
-    [self.tableView reloadData];
+    if ([self compareWithDate:data]==-1||[self compareWithDate:data]==0) {
+        PWAlertView *alertView = [[PWAlertView alloc]initWithTitle:@"提示" message:@"只能查询当前日期之前的考勤" sureBtn:@"好的" cancleBtn:nil];
+              alertView.resultIndex = ^(NSInteger index){
+              };
+        [alertView showMKPAlertView];
+    }else{
+    NSString *urlStr =[NSString stringWithFormat:@"%@xdtapp/api/v1/clock/getMyClockInfoByDate",kAPI_URL];
+    NSDictionary *dict =@{@"ticket":kFetchMyDefault(@"ticket"),@"date":data};
+           [ZXDNetworking GET:urlStr parameters:dict success:^(id responseObject) {
+            
+        self.dataArray=[NSMutableArray array];
+           if ([responseObject[@"code"] intValue]==0) {
+               for (NSDictionary *dict in responseObject[@"data"]) {
+                 clockModel *clmodel=[clockModel clockDetWithDict:dict];
+                   [self.dataArray addObject:clmodel];
+               }
+                   // 创建TableView
+                [self.tableView reloadData];
+               }
+           } failure:^(NSError *error) {
+               
+           } view:self.view MBPro:YES];
+    }
+
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (self.data.intValue == 1) {
-        return 10;
-    }else{
-        return 10;
-    }
+    
+        return _dataArray.count;
 }
 /**
  *  改变日历头部和tableView 的cell位置
@@ -115,17 +137,40 @@
 
 #pragma mark - cellForRowAtIndexPath
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *str = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:str];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:str];
-    }
-    if ([self.data isEqualToString:@"1"]) {
-        cell.textLabel.text = @"66666";
-    }else{
-        cell.textLabel.text = @"444444";
-    }
-    
-    return cell;
+     RecordClockCell *cell =[RecordClockCell RecordClockTableViewCellWithTableView:tableView];
+          cell.separatorInset = UIEdgeInsetsMake(0,ScreenW, 0, 0);
+          clockModel *model= _dataArray[indexPath.row];
+          cell.cloModel=model;
+          if (indexPath.row == 0) {
+              [cell.onLine removeFromSuperview];
+              cell.timelabel.text=[NSString stringWithFormat:@"上班时间%@",model.time];
+              }else{
+              [cell.downLine removeFromSuperview];
+              cell.timelabel.text=[NSString stringWithFormat:@"下班时间%@",model.time];
+              }
+      return cell;
 }
+//判断时间大小
+- (NSInteger)compareWithDate:(NSString*)bDate{
+    NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSString*aDate=[formatter stringFromDate:[NSDate date]];
+    NSDateFormatter *dateformater = [[NSDateFormatter alloc] init];
+    [dateformater setDateFormat:@"yyyy-MM-dd"];
+      NSDate*dta = [[NSDate alloc]init];
+        NSDate*dtb = [[NSDate alloc]init];
+        dta = [dateformater dateFromString:aDate];
+        dtb = [dateformater dateFromString:bDate];
+        NSComparisonResult result = [dta compare:dtb];
+        if (result == NSOrderedDescending) {
+          //指定时间 已过期
+               return 1;
+           }else if(result ==NSOrderedAscending){
+               //指定时间 没过期
+               return -1;
+           }else{
+               //刚好时间一样.
+               return 0;
+           }
+      }
 @end
