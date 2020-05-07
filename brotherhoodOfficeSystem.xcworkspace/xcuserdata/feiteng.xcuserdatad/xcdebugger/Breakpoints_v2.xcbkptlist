@@ -7,22 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E758847F-FB6D-45CA-AC46-7B43AFA8826D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "brotherhoodOfficeSystem/hreeFiles/Launchpage/WZXLaunchAd.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
-            landmarkName = "-removeView"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "2C38A7D6-F39B-4ECA-990B-62061325B902"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -33,38 +17,6 @@
             startingLineNumber = "183"
             endingLineNumber = "183"
             landmarkName = "-animateEnd"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6C4B4CAD-AC8C-4360-A3A2-891C300D3F46"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "brotherhoodOfficeSystem/hreeFiles/Launchpage/WZXLaunchAd.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
-            landmarkName = "-skipAction"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9F13B33B-10A2-46E3-8ED4-BEDB0E559886"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "brotherhoodOfficeSystem/hreeFiles/Launchpage/WZXLaunchAd.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
-            landmarkName = "-dispathTiemr"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -87,16 +39,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "91E97FAA-A76A-4660-9CFA-C2484FB5694B"
+            uuid = "D73BB0D3-6326-4DFF-B24D-E41FFCA82C8F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "brotherhoodOfficeSystem/hreeFiles/Launchpage/WZXLaunchAd.m"
+            filePath = "brotherhoodOfficeSystem/Home/attendance/AttendController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
-            landmarkName = "+initImageWithframe:imageURL:timeSecond:hideSkip:LaunchAdCallback:ImageClick:endPlays:"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "-Clockontap"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

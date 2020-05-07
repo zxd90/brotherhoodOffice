@@ -9,6 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 @class clockModel;
+typedef void (^Signcolek)();
 @interface ClockTableViewCell : UITableViewCell
 /**圆点*/
 @property (nonatomic,strong) UIView *roundView;
@@ -37,6 +38,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**重新定位*/
 @property (nonatomic,strong)UIButton *positioning;
 @property (nonatomic,strong)clockModel *cloModel;
+@property(nonatomic,copy) Signcolek signcolek;
+/**位置*/
+@property (nonatomic,strong)NSString *addstr;
 + (instancetype)ClockTableViewCellWithTableView:(UITableView *)tableview;
 @end
 NS_ASSUME_NONNULL_END

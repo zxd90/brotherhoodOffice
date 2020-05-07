@@ -29,7 +29,8 @@
     if (!_tableView) {
         _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,ScreenW, ScreenH-SK_TabbarSafeBottomMargin) style:UITableViewStylePlain];
          
-        //        _tableView.rowHeight = UITableViewAutomaticDimension;        //_tableView.estimatedRowHeight = 180;
+        _tableView.rowHeight = UITableViewAutomaticDimension;
+        _tableView.estimatedRowHeight = 180;
         _tableView.dataSource = self;
         _tableView.delegate = self;
         
@@ -46,11 +47,6 @@
     return _dataArray;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-  
-return 200;
-     
-}
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
@@ -61,8 +57,15 @@ return 200;
         ClockTableViewCell *cell =[ClockTableViewCell ClockTableViewCellWithTableView:tableView];
         cell.separatorInset = UIEdgeInsetsMake(0,ScreenW, 0, 0);
         clockModel *model= _dataArray[indexPath.row];
+        cell.addstr=_addresStr;
         cell.cloModel=model;
-        cell.address.text=_addresStr;
+    //点击打卡
+     __weak typeof (self) WeakSelf = self;
+       cell.signcolek = ^(){
+        if ([WeakSelf.clockonDelegate respondsToSelector:@selector(Clockontap)]) {
+            [WeakSelf.clockonDelegate Clockontap];
+        }
+       };
         if (indexPath.row == 0) {
             [cell.onLine removeFromSuperview];
             cell.timelabel.text=[NSString stringWithFormat:@"上班时间%@",model.time];
@@ -73,13 +76,8 @@ return 200;
     return cell;
 }
 
-//点击打卡
-- (void)tapIcon:(UITapGestureRecognizer *)tap{
 
-    if ([self.clockonDelegate respondsToSelector:@selector(Clockontap)]) {
-        [self.clockonDelegate Clockontap];
-    }
-}
+
 -(void)addClockonarray:(NSArray*)arr addrestr:(NSString*)addrestr{
     _addresStr=addrestr;
     _dataArray= arr;

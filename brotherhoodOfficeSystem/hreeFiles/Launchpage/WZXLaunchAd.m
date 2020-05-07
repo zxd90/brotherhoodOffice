@@ -67,7 +67,7 @@ NSString *const TimerSender = @"5";
 
     if(_skipBtn == nil){
         
-        _skipBtn = [[UIButton alloc]initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width-70, 30, 60, 30)];
+        _skipBtn = [[UIButton alloc]initWithFrame:CGRectMake([[UIScreen mainScreen] bounds].size.width-70,StatusBarHeight+30, 60, 30)];
         [_skipBtn setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.4]];
         _skipBtn.layer.cornerRadius = 15;
         _skipBtn.layer.masksToBounds = YES;
@@ -131,7 +131,7 @@ NSString *const TimerSender = @"5";
        
         dispatch_async(dispatch_get_main_queue(), ^{
            
-            if(duration == 0){
+            if(duration == -1){
                 dispatch_source_cancel(self->_noDataTimer);
                 [self removeView];
             }
@@ -161,7 +161,7 @@ NSString *const TimerSender = @"5";
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self->_skipBtn setTitle:[NSString stringWithFormat:@"%ld 跳过",duration] forState:UIControlStateNormal];
-            if(duration==0)
+            if(duration==-1)
             {
                 dispatch_source_cancel(self->_timer);
                 
@@ -223,7 +223,7 @@ NSString *const TimerSender = @"5";
             
             
             [launchAd addSubview:launchAd.skipBtn];
-           // [launchAd dispathTiemr];
+            [launchAd dispathTiemr];
         }
         
     }];

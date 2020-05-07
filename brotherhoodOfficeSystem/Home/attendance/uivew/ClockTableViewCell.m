@@ -10,6 +10,7 @@
 #import "clockModel.h"
 @interface ClockTableViewCell(){
     dispatch_source_t _timer;
+    CGFloat  addreewidth;
 }
 @end
 @implementation ClockTableViewCell
@@ -141,13 +142,32 @@
     }
     
     if (cloModel.buttonFlag==true){
+        _address =[[UILabel alloc]init];
+        _address.textColor = RGB(145,145, 145);
+        _address.font =PFR15Font;
+        _address.textAlignment =NSTextAlignmentRight;
+        [self.contentView addSubview:_address];
         _clockbutton=[UIButton buttonWithType:UIButtonTypeSystem];
-        [_clockbutton setBackgroundImage:[ZXDmethod ButtonColorLayer] forState:UIControlStateNormal];
+        [_clockbutton addTarget:self action:@selector(SigninToClock) forControlEvents:UIControlEventTouchUpInside];
         _clockbutton.layer.masksToBounds = YES;
         _clockbutton.layer.cornerRadius = 60;
         [self.contentView addSubview:_clockbutton];
+        if ( [cloModel.clockAddr isEqualToString:@"外勤"]) {
+                [_clockbutton setBackgroundColor:[UIColor orangeColor]];
+                  _address.text =[NSString stringWithFormat:@"当前%@", self.addstr];
+           
+                }else{
+                    [_clockbutton setBackgroundImage:[ZXDmethod ButtonColorLayer] forState:UIControlStateNormal];
+                   _address.text = cloModel.clockAddr;
+               }
+         CGFloat  width = [ZXDmethod calculateRowWidth:self.address.text Font:15];
+        if (width>ScreenW-190) {
+            addreewidth=ScreenW-190;
+        }else{
+            addreewidth=width;
+        }
         [_clockbutton mas_makeConstraints:^(MASConstraintMaker *make) {
-          make.top.mas_equalTo(self.roundView.mas_bottom).offset(15);
+          make.top.mas_equalTo(self.contentView.mas_top).offset(39);
             make.centerX.mas_equalTo(self.contentView.mas_centerX);
             make.width.mas_equalTo(120);
             make.height.mas_equalTo(120);
@@ -176,37 +196,37 @@
             make.height.mas_equalTo(20);
         }];
         _positioning=[[UIButton alloc]init];
-        _positioning.titleLabel.font=PFR15Font;
-        [_positioning setTitle:@"重新定位" forState:UIControlStateNormal];
-        [_positioning setTitleColor:RGB(108, 197, 95) forState:UIControlStateNormal];
-        [self.contentView  addSubview:_positioning];
+              _positioning.titleLabel.font=PFR15Font;
+              [_positioning setTitle:@"重新定位" forState:UIControlStateNormal];
+              [_positioning setTitleColor:RGB(108, 197, 95) forState:UIControlStateNormal];
+              [self.contentView  addSubview:_positioning];
         [_positioning mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.clockbutton.mas_bottom).offset(15);
-      make.right.mas_equalTo(self.contentView.mas_right).offset(-50);
+        make.top.mas_equalTo(self.clockbutton.mas_bottom).offset(10);
+        make.right.mas_equalTo(self.contentView.mas_right).offset(-60);
         make.width.mas_equalTo(60);
-    make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-20);
-        }];
-        _address =[[UILabel alloc]init];
-        _address.text=@"已进入考勤地点盛景大厦";
-        _address.backgroundColor=[UIColor redColor];
-        _address.textColor = RGB(145,145, 145);
-        _address.font =PFR15Font;
-        _address.textAlignment =NSTextAlignmentRight;
-        [self.contentView addSubview:_address];
+        make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-5);
+              }];
+        
+       
         [_address mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.clockbutton.mas_bottom).offset(15);
+        make.top.mas_equalTo(self.clockbutton.mas_bottom).offset(10);
+        make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-5);
         make.right.mas_equalTo(self.positioning.mas_left).offset(-5);
-        make.width.mas_equalTo(90);
-        make.height.mas_equalTo(20);
-               }];
-//        [_address mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.mas_equalTo(self.positioning.mas_top);
-//        make.right.mas_equalTo(self.positioning.mas_left).offset(-5);
-//        make.width.mas_equalTo(200);
-//    make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-20);
-//        }];
+        make.width.mas_equalTo(self->addreewidth);
+        }];
+        UIImageView *imageView = [[UIImageView alloc]init];
+        imageView.image=[UIImage imageNamed:@"dingwei"];
+        [self.contentView addSubview:imageView];
+        [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.mas_equalTo(self.address.mas_left).offset(-2);
+            make.centerY.mas_equalTo(self.address.mas_centerY);
+            make.width.mas_equalTo(20);
+        }];
         [self countdownAnd];
     }
+}
+-(void)SigninToClock{
+    self.signcolek();
 }
 /**当前时间显示*/
 -(void)countdownAnd{

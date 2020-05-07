@@ -23,7 +23,7 @@
 
 @implementation AttendController
 -(void)viewWillDisappear:(BOOL)animated {
-
+    
     // 此处记得不用的时候需要置nil，否则影响内存的释放
     self.geocodeSearch.delegate = nil;
 }
@@ -57,7 +57,7 @@
         //定位是否会被系统自动暂停
         _locationManager.allowsBackgroundLocationUpdates = YES;
         
-       [_locationManager setLocatingWithReGeocode:YES];
+        [_locationManager setLocatingWithReGeocode:YES];
         //指定定位是否会被系统自动暂停，默认为NO
         _locationManager.pausesLocationUpdatesAutomatically = NO;
         _locationManager.allowsBackgroundLocationUpdates = NO;
@@ -86,46 +86,46 @@
         NSLog(@"locError:{%ld - %@};", (long)error.code, error.localizedDescription);
     }
     if (location) {
-NSLog(@"=======++++++%f",location.location.coordinate.latitude);
+        NSLog(@"=======++++++%f",location.location.coordinate.latitude);
         _latitude=location.location.coordinate.latitude;
         _longitude= location.location.coordinate.longitude;
         _addrstr=location.rgcData.locationDescribe;
-NSLog(@"=======++++++%f",location.location.coordinate.longitude);
+        NSLog(@"=======++++++%f",location.location.coordinate.longitude);
         //反编译
-     [self ReverseGeoCode:location.location];
+        [self ReverseGeoCode:location.location];
         //加载数据
-           [self updatClock];
-              if (location.rgcData) {
-                  NSLog(@"城市 = %@",location.rgcData.province);
-                  NSLog(@"区镇 = %@",location.rgcData.district);
-                  NSLog(@"街道 = %@",location.rgcData.street);
-                  NSLog(@"街道号 = %@",location.rgcData.streetNumber);
-                  NSLog(@"具体描述 = %@",location.rgcData.locationDescribe);
-                  NSLog(@"建筑物名称= %@",location.buildingName);
-                 
-
-        [NSString stringWithFormat:@"定位地址：%@%@%@%@%@", location.rgcData.province, location.rgcData.district, location.rgcData.street,location.rgcData.streetNumber,location.rgcData.locationDescribe];
-              }
-
+        [self updatClock];
+        if (location.rgcData) {
+            NSLog(@"城市 = %@",location.rgcData.province);
+            NSLog(@"区镇 = %@",location.rgcData.district);
+            NSLog(@"街道 = %@",location.rgcData.street);
+            NSLog(@"街道号 = %@",location.rgcData.streetNumber);
+            NSLog(@"具体描述 = %@",location.rgcData.locationDescribe);
+            NSLog(@"建筑物名称= %@",location.buildingName);
+            
+            
+            [NSString stringWithFormat:@"定位地址：%@%@%@%@%@", location.rgcData.province, location.rgcData.district, location.rgcData.street,location.rgcData.streetNumber,location.rgcData.locationDescribe];
+        }
+        
     }
 }
 
 -(void)Clockontap{
     NSString *urlStr =[NSString stringWithFormat:@"%@xdtapp/api/v1/clock/doClock",kAPI_URL];
     NSDictionary *dict =@{@"ticket":kFetchMyDefault(@"ticket"),@"latitude":@"114.483211,380.02155",@"time":[YearsTime getHhmmss] ,@"addrName":self.addrstr};
-      [ZXDNetworking GET:urlStr parameters:dict success:^(id responseObject) {
-          NSMutableArray *arr=[NSMutableArray array];
-          if ([responseObject[@"code"] intValue]==0) {
-              for (NSDictionary *dict in responseObject[@"data"]) {
+    [ZXDNetworking  POST:urlStr parameters:dict success:^(id responseObject) {
+        NSMutableArray *arr=[NSMutableArray array];
+        if ([responseObject[@"code"] intValue]==0) {
+            for (NSDictionary *dict in responseObject[@"data"]) {
                 clockModel *clmodel=[clockModel clockDetWithDict:dict];
-                  [arr addObject:clmodel];
-              }
-              [ self.clockon addClockonarray:arr addrestr:self.addrstr];
+                [arr addObject:clmodel];
             }
-      } failure:^(NSError *error) {
-          
-      } view:self.view MBPro:YES];
-    
+            [ self.clockon addClockonarray:arr addrestr:self.addrstr];
+        }
+        
+    } failure:^(NSError *error) {
+        
+    } view:self.view];
     
 }
 -(void)updatClock{
@@ -135,15 +135,15 @@ NSLog(@"=======++++++%f",location.location.coordinate.longitude);
         NSMutableArray *arr=[NSMutableArray array];
         if ([responseObject[@"code"] intValue]==0) {
             for (NSDictionary *dict in responseObject[@"data"]) {
-              clockModel *clmodel=[clockModel clockDetWithDict:dict];
+                clockModel *clmodel=[clockModel clockDetWithDict:dict];
                 [arr addObject:clmodel];
             }
             [ self.clockon addClockonarray:arr addrestr:self.addrstr];
-          }
+        }
     } failure:^(NSError *error) {
         
     } view:self.view MBPro:YES];
-   
+    
 }
 #pragma mark-进入考勤查询
 -(void)AccessDateAttendancetap{
@@ -173,7 +173,7 @@ NSLog(@"=======++++++%f",location.location.coordinate.longitude);
     //是否访问最新版行政区划数据（仅对中国数据生效）
     reverseGeoCodeOption.isLatestAdmin = option.isLatestAdmin;
     /**
-   根据地理坐标获取地址信息：异步方法，返回结果在BMKGeoCodeSearchDelegate的
+     根据地理坐标获取地址信息：异步方法，返回结果在BMKGeoCodeSearchDelegate的
      onGetAddrResult里
      reverseGeoCodeOption 反geo检索信息类
      成功返回YES，否则返回NO
@@ -199,15 +199,15 @@ NSLog(@"=======++++++%f",location.location.coordinate.longitude);
     //找到了当前位置城市后就关闭服务
     [self.locationManager stopUpdatingLocation];
     [self.locationManager stopUpdatingHeading];
-  if (error == BMK_SEARCH_NO_ERROR) {
-         NSString *address = result.address;  //地址名称
-         NSString *sematicDescription = result.sematicDescription;  //结合当前位置POI的语义化结果描述
-         NSString *businessCircle = result.businessCircle;  //商圈名称
-         BMKAddressComponent *addressDetail = result.addressDetail;  //层次化地址信息
-         NSArray *poiList = result.poiList;  //地址周边POI信息，成员类型为BMKPoiInfo
-         NSLog(@"我的位置在 %@ 结合当前位置POI的语义化结果描述:%@ 商圈名称:%@ 层次化地址信息:%@ 地址周边POI信息，成员类型为BMKPoiInfo:%@",address,sematicDescription,businessCircle,addressDetail,poiList);
-            
-     }
+    if (error == BMK_SEARCH_NO_ERROR) {
+        NSString *address = result.address;  //地址名称
+        NSString *sematicDescription = result.sematicDescription;  //结合当前位置POI的语义化结果描述
+        NSString *businessCircle = result.businessCircle;  //商圈名称
+        BMKAddressComponent *addressDetail = result.addressDetail;  //层次化地址信息
+        NSArray *poiList = result.poiList;  //地址周边POI信息，成员类型为BMKPoiInfo
+        NSLog(@"我的位置在 %@ 结合当前位置POI的语义化结果描述:%@ 商圈名称:%@ 层次化地址信息:%@ 地址周边POI信息，成员类型为BMKPoiInfo:%@",address,sematicDescription,businessCircle,addressDetail,poiList);
+        
+    }
 }
 
 
